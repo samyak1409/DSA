@@ -1,4 +1,6 @@
-"""https://leetcode.com/problems/reverse-integer/"""
+"""
+https://leetcode.com/problems/reverse-integer/
+"""
 
 
 def reverse(x: int) -> int:
