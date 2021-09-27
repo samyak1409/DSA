@@ -25,6 +25,6 @@ def strStr(haystack: str, needle: str) -> int:
     return -1
     """
 
-    # Built-in Method: O(n)
+    # Using Built-in Method: O(n)
 
     return haystack.find(needle)
