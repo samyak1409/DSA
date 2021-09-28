@@ -27,13 +27,10 @@ def mySqrt(x: int) -> int:
     return r
     """
 
-    # Binary Search using Iteration: O(log n)
-
-    if x == 0:
-        return 0
+    # Iterative Binary Search: O(log n)
 
     l, h = 1, x
-    not_found = m = None
+    not_found, m = False, 0
 
     while l <= h:
 

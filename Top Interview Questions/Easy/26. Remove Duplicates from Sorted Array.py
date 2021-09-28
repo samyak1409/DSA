@@ -16,11 +16,9 @@ def removeDuplicates(nums: List[int]) -> int:
     for _ in range(len(nums)):
 
         if nums[i] == prev:
-
             nums.pop(i)
 
         else:
-
             prev = nums[i]
             i += 1
 

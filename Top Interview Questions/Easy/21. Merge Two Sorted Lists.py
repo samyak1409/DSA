@@ -15,7 +15,7 @@ class ListNode:
 
 def mergeTwoLists(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
 
-    head = l = ListNode()  # head -> saving ref as singly linked list
+    head = l = ListNode()  # head -> saving ref (coz singly linked list)
 
     while l1 and l2:
 

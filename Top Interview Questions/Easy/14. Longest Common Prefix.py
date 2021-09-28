@@ -10,7 +10,7 @@ def longestCommonPrefix(strs: List[str]) -> str:
 
     lcp = ''
 
-    for tup in zip(*strs):
+    for tup in zip(*strs):  # * -> unpacking
 
         if len(set(tup)) == 1:  # => all chars same
             lcp += tup[0]

@@ -5,7 +5,9 @@ https://leetcode.com/problems/valid-parentheses/
 
 def isValid(s: str) -> bool:
 
-    if len(s) % 2:  # odd number of brackets
+    # Using Stack:
+
+    if len(s) % 2:  # optimization if odd number of brackets
         return False
 
     closed = {'(': ')', '{': '}', '[': ']'}
