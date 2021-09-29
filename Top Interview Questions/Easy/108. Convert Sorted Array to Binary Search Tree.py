@@ -19,11 +19,17 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
     # Using Recursive Binary Search Algorithm:
 
     def construct(l, h):  # recursive function
+
         if l <= h:  # elements left
-            m = (l + h) // 2  # mid index
+
+            m = (l+h) // 2  # mid index
+
             node = TreeNode(nums[m])  # node init
-            node.left = construct(l, m - 1)  # left subtree construction by recursion
-            node.right = construct(m + 1, h)  # right subtree construction by recursion
+
+            node.left = construct(l, m-1)  # left subtree construction by recursion
+
+            node.right = construct(m+1, h)  # right subtree construction by recursion
+
             return node  # root node
 
-    return construct(0, len(nums) - 1)
+    return construct(0, len(nums)-1)

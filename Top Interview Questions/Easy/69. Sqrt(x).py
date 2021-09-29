@@ -35,7 +35,7 @@ def mySqrt(x: int) -> int:
     while l <= h:
 
         not_found = False
-        m = (l + h) // 2
+        m = (l+h) // 2
         sq = m ** 2
         if sq == x:
             return m
