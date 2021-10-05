@@ -16,16 +16,37 @@ class TreeNode:
 
 def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
 
-    # Recursion:
+    # Using Recursion:
 
-    values = []
+    """
+    vals = []
 
-    def inorder_traverse(node):
+    def inorder(node):
         if node:
-            inorder_traverse(node.left)
-            values.append(node.val)
-            inorder_traverse(node.right)
+            inorder(node.left)
+            vals.append(node.val)
+            inorder(node.right)
 
-    inorder_traverse(root)
+    inorder(root)
 
-    return values
+    return vals
+    """
+
+    # Using Iteration: (How to approach this? Just try to build the exact same program flow (like recursion algo) using iterations! (not hard))
+
+    stack, vals = [], []
+
+    while True:
+
+        while root:  # traversing till the most left node
+            stack.append(root)
+            root = root.left
+
+        if stack:  # if any left nodes are there
+            root = stack.pop()  # taking last left node
+            vals.append(root.val)  # considering its value
+            root = root.right  # check for its right node now
+        else:  # no nodes left to traverse
+            break
+
+    return vals
