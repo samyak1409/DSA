@@ -10,7 +10,8 @@ def removeDuplicates(nums: List[int]) -> int:
 
     # Method 1 (Generic):
 
-    """prev = 101  # acc. to constraints
+    """
+    prev = 101  # acc. to constraints
     i = 0
 
     for _ in range(len(nums)):
@@ -22,7 +23,8 @@ def removeDuplicates(nums: List[int]) -> int:
             prev = nums[i]
             i += 1
 
-    return len(nums)"""
+    return len(nums)
+    """
 
     # Method 2 (Pythonic):
 

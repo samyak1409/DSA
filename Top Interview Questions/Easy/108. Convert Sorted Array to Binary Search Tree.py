@@ -20,7 +20,7 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
 
     def construct(l, h):  # recursive function
 
-        if l <= h:  # elements left
+        if l <= h:  # if elements are left
 
             m = (l+h) // 2  # mid index
 

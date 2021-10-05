@@ -19,12 +19,12 @@ def isSymmetric(root: Optional[TreeNode]) -> bool:
     # Recursion <3:
 
     def are_symmetric(node1, node2):
-        """Return whether node1 and node2 are symmetric."""
+        """Returns whether node1 and node2 are symmetric."""
 
         if not node1 and not node2:
             return True
 
-        if (node1 and node2) and node1.val == node2.val:
+        if (node1 and node2) and (node1.val == node2.val):
             return are_symmetric(node1.left, node2.right) and are_symmetric(node1.right, node2.left)
 
         return False

@@ -18,7 +18,7 @@ def mySqrt(x: int) -> int:
     return sqrt_int
     """
 
-    # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method: O(?)
+    # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method: O(log n)
 
     """
     r = x

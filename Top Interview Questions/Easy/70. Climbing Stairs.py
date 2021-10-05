@@ -14,4 +14,4 @@ def climbStairs(n: int) -> int:
 
     return a
 
-    # I was going for permutations, but I thought of taking a look at the output in case some kind of sequence is forming, and YES.
+    # I was thinking of permutations or something, but thought of taking a look at the output in case some kind of sequence is forming, and YES.

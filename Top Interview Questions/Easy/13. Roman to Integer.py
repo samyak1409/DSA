@@ -18,7 +18,6 @@ def romanToInt(s: str) -> int:
             i += 2
 
         else:
-
             ans += value[s[i]]
             i += 1
 

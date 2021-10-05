@@ -18,10 +18,10 @@ def singleNumber(nums: List[int]) -> int:
     """
 
     # Note- Order of numbers is different, still it's working, why?
-    #       Because 1) XOR is Commutative
-    #               2) We're using BITWISE XOR (applying XOR bit by bit)
+    #       Because XOR is Commutative, why?
+    #               Because We're using BITWISE XOR (applying XOR bit by bit)
 
-    # ADD-ON: Using functools.reduce():
+    # 1.1) ADD-ON: Using functools.reduce():
 
     from functools import reduce
     return reduce(lambda x, y: x ^ y, nums)  # reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5)
