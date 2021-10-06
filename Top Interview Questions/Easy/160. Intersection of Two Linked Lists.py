@@ -64,19 +64,19 @@ def getIntersectionNode(head1: ListNode, head2: ListNode) -> ListNode:
         return A
     """
 
-    # Method 3: TC = O(n); SC = O(n) but still taking nearly same memory, HOW????
+    # Method 3 (Brute Force): TC = O(n); SC = O(n) but still taking nearly same memory, HOW????
 
-    saved = {}
+    saved = set()  # WHY SET? -> allows lookup in O(1) on an avg!
 
     temp1, temp2 = head1, head2
 
     while temp1:
-        saved[temp1] = None
+        saved.add(temp1)
         temp1 = temp1.next
 
     while temp2:
 
-        if saved.get(temp2, 0) is None:
+        if temp2 in saved:
             return temp2
 
         temp2 = temp2.next
