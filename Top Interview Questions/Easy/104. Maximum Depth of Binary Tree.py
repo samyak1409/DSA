@@ -16,17 +16,17 @@ class TreeNode:
 
 def maxDepth(root: Optional[TreeNode]) -> int:
 
-    # Using Queue:
+    # Using Queue: TC = O(n); SC = O(log n)
 
     queue = [root]
     height = -1
 
-    while queue:
+    while queue:  # O(h), h being the height of the binary tree
 
         height += 1
         temp = []
 
-        for node in queue:
+        for node in queue:  # will run {no. of nodes on a particular level in the binary tree} times
             if node:
                 temp.extend([node.left, node.right])
 

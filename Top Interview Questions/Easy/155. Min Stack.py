@@ -3,7 +3,7 @@ https://leetcode.com/problems/min-stack/
 """
 
 
-class MinStack:
+class MinStack:  # TC = O(1); SC = O(n)
 
     def __init__(self):
         self.stack = list()

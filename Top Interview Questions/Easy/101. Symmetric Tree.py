@@ -16,16 +16,16 @@ class TreeNode:
 
 def isSymmetric(root: Optional[TreeNode]) -> bool:
 
-    # Recursion <3:
+    # Recursion <3: TC = O(n); SC = O(h), h being the height of the binary tree
 
-    def are_symmetric(node1, node2):
-        """Returns whether node1 and node2 are symmetric."""
+    def are_symmetric(l_node, r_node):
+        """Returns whether l_node and r_node are symmetric."""
 
-        if not node1 and not node2:
+        if not l_node and not r_node:
             return True
 
-        if (node1 and node2) and (node1.val == node2.val):
-            return are_symmetric(node1.left, node2.right) and are_symmetric(node1.right, node2.left)
+        if (l_node and r_node) and (l_node.val == r_node.val):
+            return are_symmetric(l_node.left, r_node.right) and are_symmetric(l_node.right, r_node.left)
 
         return False
 

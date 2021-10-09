@@ -13,7 +13,7 @@ def generate(num_rows: int) -> List[List[int]]:
     if num_rows in (1, 2):  # no summation
         return res[:num_rows]
 
-    # Summation using a nested for loop:
+    # Summation using a nested for loop: TC = O(n^2) = SC
 
     for i in range(1, num_rows-1):  # (num_rows-2) times
 

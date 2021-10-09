@@ -13,7 +13,7 @@ class ListNode:
         self.next = next
 
 
-def isPalindrome(head: Optional[ListNode]) -> bool:
+def isPalindrome(head: Optional[ListNode]) -> bool:  # TC = O(n); SC = O(1)
 
     # Step 1: Traversing half of the nodes and reversing the pointers!
 

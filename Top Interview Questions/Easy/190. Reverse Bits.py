@@ -3,7 +3,7 @@ https://leetcode.com/problems/reverse-bits/
 """
 
 
-def reverseBits(n: int) -> int:
+def reverseBits(n: int) -> int:  # TC = O(log n); (https://stackoverflow.com/a/59364846); SC = O(1)
 
     # Explanation:
     """

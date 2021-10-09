@@ -5,7 +5,7 @@ https://leetcode.com/problems/climbing-stairs/
 
 def climbStairs(n: int) -> int:
 
-    # Fibonacci Sequence:
+    # Fibonacci Sequence: TC = O(n); SC = O(1)
 
     a = b = 1
 

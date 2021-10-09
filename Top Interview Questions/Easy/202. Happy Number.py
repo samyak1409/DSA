@@ -5,7 +5,7 @@ https://leetcode.com/problems/happy-number/
 
 def isHappy(n: int) -> bool:
 
-    # Approach 1 (Straight): TC = SC = O(log n)
+    # Approach 1 (Straight): TC = O(?); SC = O(?)
 
     """
     occurred = set()  # SET OVER LIST because https://www.geeksforgeeks.org/internal-working-of-set-in-python
@@ -15,7 +15,7 @@ def isHappy(n: int) -> bool:
         n = sum(map(lambda x: int(x) ** 2, str(n)))
         print(n)  # debug
 
-        if n in occurred:
+        if n in occurred:  # O(1) op. on an avg.
             return False
         else:
             occurred.add(n)

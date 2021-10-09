@@ -12,7 +12,7 @@ class ListNode:
 
 def hasCycle(head: ListNode) -> bool:
 
-    # Slow and Fast Pointer Approach <3: (https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare)
+    # Slow and Fast Pointer Approach <3 (https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare): TC = O(n); SC = O(1)
 
     slow = fast = head  # at first both pointing at head
 

@@ -17,7 +17,7 @@ class Solution:
 
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        # Iterative Method 1 (by changing values): TC = SC = O(n)
+        # Iterative Method 1 (by changing values): TC = O(n) = SC
 
         """
         copy = head
@@ -54,6 +54,7 @@ class Solution:
         return self._reverse(head)
 
     def _reverse(self, node, prev=None):
+
         if not node:  # base condition
             return prev
 

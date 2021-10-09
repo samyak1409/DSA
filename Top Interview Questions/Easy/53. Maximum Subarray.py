@@ -8,7 +8,7 @@ from typing import List
 
 def maxSubArray(nums: List[int]) -> int:
 
-    # https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm:
+    # https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm: TC = O(n); SC = O(1)
 
     for i in range(1, len(nums)):
 
