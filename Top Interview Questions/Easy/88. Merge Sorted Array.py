@@ -9,7 +9,7 @@ from typing import List
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     """Do not return anything, modify nums1 in-place instead."""
 
-    # TC = O(m+n); SC = O(m)
+    # Approach 1: TC = O(m+n); SC = O(m)
 
     copy = nums1[:m]
 
@@ -29,3 +29,5 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         nums1[k:] = copy[i:]
     elif j < n:
         nums1[k:] = nums2[j:]
+
+    # Approach 2 (https://leetcode.com/problems/merge-sorted-array/discuss/29503/Beautiful-Python-Solution): TC = O(m+n); SC = O(1)

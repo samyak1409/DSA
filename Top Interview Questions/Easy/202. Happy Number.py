@@ -5,7 +5,7 @@ https://leetcode.com/problems/happy-number/
 
 def isHappy(n: int) -> bool:
 
-    # Approach 1 (Straight): TC = O(?); SC = O(?)
+    # Approach 1 (Straight): TC = O(log n); SC = O(log n)
 
     """
     occurred = set()  # SET OVER LIST because https://www.geeksforgeeks.org/internal-working-of-set-in-python
