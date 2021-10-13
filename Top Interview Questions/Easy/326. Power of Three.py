@@ -5,14 +5,13 @@ https://leetcode.com/problems/power-of-three/
 
 def isPowerOfThree(n: int) -> bool:
 
-    from math import log
-
     # 1) Using Log (Problematic):
 
     """
     if n < 1:  # non-positive integers
         return False
 
+    from math import log
     x = log(n, 3)
 
     diff = abs(x-round(x))
@@ -32,6 +31,7 @@ def isPowerOfThree(n: int) -> bool:
     if n < 1:
         return False
 
+    from math import log
     x = round(log(n, 3))
     print(x)  # debug
 
