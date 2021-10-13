@@ -5,7 +5,7 @@ https://leetcode.com/problems/roman-to-integer/
 
 def romanToInt(s: str) -> int:
 
-    # Using HashMap: TC = O(n); SC = O(1)
+    # Using Hash Table: TC = O(n); SC = O(1)
 
     value = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 

@@ -8,7 +8,7 @@ from typing import List
 
 def twoSum(nums: List[int], target: int) -> List[int]:
 
-    # Using HashMap: TC = O(n) = SC
+    # Using Hash Table: TC = O(n) = SC
 
     mapping = {}  # num: index
 
