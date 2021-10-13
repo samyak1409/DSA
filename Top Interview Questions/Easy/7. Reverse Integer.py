@@ -3,7 +3,7 @@ https://leetcode.com/problems/reverse-integer/
 """
 
 
-def reverse(x: int) -> int:  # TC = O(n), https://stackoverflow.com/a/9860611; SC = O(1)
+def reverse(x: int) -> int:  # TC = O(n), https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints; SC = O(1)
 
     # Method 1 (Generic):
 
