@@ -5,7 +5,7 @@ https://leetcode.com/problems/sqrtx/
 
 def mySqrt(x: int) -> int:
 
-    # Brute Force: TC = O(n^.5); SC = O(1)
+    # 1) Brute Force: TC = O(n^.5); SC = O(1)
 
     """
     sqrt_int = 0
@@ -18,7 +18,7 @@ def mySqrt(x: int) -> int:
     return sqrt_int
     """
 
-    # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method: TC = O(?); SC = O(1)
+    # 2) https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method: TC = O(?); SC = O(1)
 
     """
     r = x
@@ -27,7 +27,7 @@ def mySqrt(x: int) -> int:
     return r
     """
 
-    # Iterative Binary Search: TC = O(log n); SC = O(1)
+    # 3) Iterative Binary Search: TC = O(log n); SC = O(1)
 
     l, h = 1, x
     not_found, m = False, 0

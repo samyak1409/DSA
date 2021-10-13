@@ -17,7 +17,7 @@ class Solution:
 
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        # Iterative Method 1 (by changing values): TC = O(n) = SC
+        # 1) Iterative Method 1 (by changing values): TC = O(n) = SC
 
         """
         copy = head
@@ -34,7 +34,7 @@ class Solution:
         return head
         """
 
-        # Iterative Method 2 (by changing pointers): TC = O(n); SC = O(1)
+        # 2) Iterative Method 2 (by changing pointers): TC = O(n); SC = O(1)
 
         """
         prev = None  # at first
@@ -49,7 +49,7 @@ class Solution:
         return prev  # returning prev, that would be the last node but as the direction of pointers are changed, good will take place 😉
         """
 
-        # Recursive (same method as above!):
+        # 3) Recursive (same method as above!):
 
         return self._reverse(head)
 

@@ -16,7 +16,7 @@ class TreeNode:
 
 def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = O(h+n), h being the height of the binary tree
 
-    # Using Recursion:
+    # 1) Using Recursion:
 
     """
     vals = []
@@ -32,7 +32,7 @@ def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = 
     return vals
     """
 
-    # Using Iteration: (How to approach this? Just try to build the exact same program flow (like recursion algo) using iterations! (not hard))
+    # 2) Using Iteration: (How to approach this? Just try to build the exact same program flow (like recursion algo) using iterations! (not hard))
 
     stack, vals = [], []
 

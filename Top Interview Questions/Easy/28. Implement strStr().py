@@ -5,7 +5,7 @@ https://leetcode.com/problems/implement-strstr/
 
 def strStr(haystack: str, needle: str) -> int:
 
-    # Brute Force: TC = O(nm); SC = O(1)
+    # 1) Brute Force: TC = O(nm); SC = O(1)
 
     """
     if len(needle) > len(haystack):
@@ -25,11 +25,11 @@ def strStr(haystack: str, needle: str) -> int:
     return -1
     """
 
-    # Using Built-in Method: TC = O(n); SC = O(1)
+    # 2) Using Built-in Method: TC = O(n); SC = O(1)
 
     # return haystack.find(needle)
 
-    # Knuth–Morris–Pratt Algorithm (https://youtu.be/GTJr8OvyEVQ; https://youtu.be/V5-7GzOfADQ): TC = O(m+n); SC = O(m)
+    # 3) Knuth–Morris–Pratt Algorithm (https://youtu.be/GTJr8OvyEVQ; https://youtu.be/V5-7GzOfADQ): TC = O(m+n); SC = O(m)
 
     # Step 1) Preprocessing:
 

@@ -6,14 +6,14 @@ https://leetcode.com/problems/pascals-triangle/
 from typing import List
 
 
-def generate(num_rows: int) -> List[List[int]]:
+def generate(num_rows: int) -> List[List[int]]:  # TC = O(n^2) = SC
 
     res = [[1], [1, 1]]  # initialization
 
     if num_rows in (1, 2):  # no summation
         return res[:num_rows]
 
-    # Summation using a nested for loop: TC = O(n^2) = SC
+    # Summation using a nested for loop:
 
     for i in range(1, num_rows-1):  # (num_rows-2) times
 

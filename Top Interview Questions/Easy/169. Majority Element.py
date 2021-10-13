@@ -8,7 +8,7 @@ from typing import List
 
 def majorityElement(nums: List[int]) -> int:
 
-    # Boyer-Moore Voting Algorithm (https://www.cs.utexas.edu/~moore/best-ideas/mjrty/) 💘: TC = O(n); SC = O(1)
+    # 1) Boyer-Moore Voting Algorithm (https://www.cs.utexas.edu/~moore/best-ideas/mjrty/) 💘: TC = O(n); SC = O(1)
 
     """
     candidate = None
@@ -24,6 +24,6 @@ def majorityElement(nums: List[int]) -> int:
     return candidate
     """
 
-    # By sorting: TC = O(n log n); SC = O(n) (-_- why the hell is following faster as well as lighter than the above one)
+    # 2) By sorting: TC = O(n log n); SC = O(n) (-_- why the hell is following faster as well as lighter than the above one)
 
     return sorted(nums)[len(nums)//2]
