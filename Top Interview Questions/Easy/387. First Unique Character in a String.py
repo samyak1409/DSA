@@ -5,7 +5,7 @@ https://leetcode.com/problems/first-unique-character-in-a-string/
 
 def firstUniqChar(s: str) -> int:
 
-    # Brute Force: TC = O(n^2); SC = O(1)
+    # 1) Brute Force: TC = O(n^2); SC = O(1)
 
     """
     for i, c in enumerate(s):

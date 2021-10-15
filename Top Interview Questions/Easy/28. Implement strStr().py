@@ -15,11 +15,7 @@ def strStr(haystack: str, needle: str) -> int:
         return 0
 
     for i in range(0, len(haystack)-len(needle)+1):  # O(n)
-
-        for n, h in zip(needle, haystack[i:]):  # O(m)
-            if n != h:
-                break
-        else:
+        if needle == haystack[i:]:  # O(m)
             return i
 
     return -1
