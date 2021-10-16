@@ -11,7 +11,7 @@ Solutions to LeetCode's Top Interview Questions.
 
 ## 
 
-### LeetCode Profile Timeline
+### [LeetCode Profile](https://leetcode.com/samyak1409/) Timeline
 
 - After completing [Easy](Top%20Interview%20Questions/Easy)
 
