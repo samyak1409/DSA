@@ -24,8 +24,8 @@ def subsets(nums: List[int]) -> List[List[int]]:
     def func(iterable, i):
         if len(iterable) != l:
             for j in range(i, len(nums)):
-                yield from func(iterable+[nums[j]], j+1)
-        else:  # subset of length l formed
+                yield from func(iterable+[nums[j]], j+1)  # recurse
+        else:  # base condition -> subset of length l formed
             # print(iterable)  # debug
             yield iterable
 

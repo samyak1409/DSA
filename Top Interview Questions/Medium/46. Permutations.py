@@ -21,9 +21,9 @@ def permute(nums: List[int]) -> List[List[int]]:
         if n:
             for i in range(n+1):
                 nums[i], nums[n] = nums[n], nums[i]
-                yield from func(n-1)
+                yield from func(n-1)  # recurse
                 nums[i], nums[n] = nums[n], nums[i]
-        else:
+        else:  # base condition -> n = 0
             # print(nums)  # debug
             yield nums  # "yield nums[:]" / "yield nums.copy()"
 
