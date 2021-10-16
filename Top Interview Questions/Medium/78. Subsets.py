@@ -24,15 +24,13 @@ def subsets(nums: List[int]) -> List[List[int]]:
     def func(iterable, i):
         if len(iterable) != l:
             for j in range(i, len(nums)):
-                func(iterable+[nums[j]], j+1)
+                yield from func(iterable+[nums[j]], j+1)
         else:  # subset of length l formed
-            print(iterable)  # debug
-            s.append(iterable)
+            # print(iterable)  # debug
+            yield iterable
 
-    s = []
     for l in range(len(nums)+1):  # subsets of length 0 to n
-        func([], 0)  # will find subsets with length l
-    return s
+        yield from func([], 0)  # will find subsets of length l
     """
 
     # 2) Iterative: TC = O(2^n) = SC

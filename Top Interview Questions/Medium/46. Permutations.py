@@ -15,19 +15,27 @@ def permute(nums: List[int]) -> List[List[int]]:
     return permutations(nums)
     """
 
-    # 2) Backtracking (Recursion, DFS): TC = O(n!); SC = O(n*n!)
-
-    p = []
+    # 2) Backtracking (Recursion, DFS): TC = O(n!); SC = O(n)
 
     def func(n):
         if n:
             for i in range(n+1):
                 nums[i], nums[n] = nums[n], nums[i]
-                func(n-1)
+                yield from func(n-1)
                 nums[i], nums[n] = nums[n], nums[i]
         else:
-            print(nums)  # but while printing it's working without it also, WHY?? TODO
-            p.append(nums[:])  # NOTE: without creating new object ("[:]" / ".copy()"), same nums is appending again and again
+            # print(nums)  # debug
+            yield nums  # "yield nums[:]" / "yield nums.copy()"
 
-    func(len(nums)-1)
-    return p
+    yield from func(len(nums)-1)
+
+
+# TEST:
+
+print()
+
+print(list(permute([1, 2, 3])))  # same nums being yielded again and again if not yielding a new copy of the list; why? TODO
+
+print()
+
+list(map(print, permute([1, 2, 3])))  # and here not, *awkward silence*
