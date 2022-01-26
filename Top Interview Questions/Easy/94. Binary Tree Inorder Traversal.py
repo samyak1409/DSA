@@ -14,7 +14,7 @@ class TreeNode:
         self.right = right
 
 
-def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = O(h+n), h being the height of the binary tree
+def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = O(n) (Best Case: O(log n))
 
     # 1) Using Recursion:
 
@@ -47,6 +47,4 @@ def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = 
             vals.append(root.val)  # considering its value
             root = root.right  # check for its right node now
         else:  # no nodes left to traverse
-            break
-
-    return vals
+            return vals
