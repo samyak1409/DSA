@@ -25,7 +25,11 @@ def maxDepth(root: Optional[TreeNode]) -> int:
 
         height += 1
 
-        for node in queue[:]:  # will run {no. of nodes on a particular level in the binary tree} times; "queue[:]" / queue.copy() -> new copy ✔
+        queue_copy = queue.copy()  # will run {no. of nodes on a particular level in the binary tree} times; "queue.copy()" / "queue[:]" -> new copy ✔
+
+        queue.clear()
+
+        for node in queue_copy:
             if node:
                 queue.extend([node.left, node.right])
 
