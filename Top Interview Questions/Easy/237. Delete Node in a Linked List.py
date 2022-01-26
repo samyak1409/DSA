@@ -16,7 +16,7 @@ def deleteNode(node):
     :rtype: void Do not return anything, modify node in-place instead.
     """
 
-    # 1) Naive 🤦‍♂️: TC = O(n); SC = O(1)
+    # 1) Naive 🤦: TC = O(n); SC = O(1)
 
     """
     while True:
@@ -24,8 +24,8 @@ def deleteNode(node):
         if node.next.next:
             node = node.next
         else:
+            node.next = None
             break
-    node.next = None
     """
 
     # 2) 👌: TC = O(1); SC = O(1)
