@@ -21,4 +21,4 @@ def isPalindrome(s: str) -> bool:
     # Method 2 (direct equating): TC = O(n); SC = O(n)
 
     half = len(s) // 2
-    return s[:half] == s[-1:-half-1:-1]  # reversed
+    return s[:half] == s[:-half-1:-1]  # reversed
