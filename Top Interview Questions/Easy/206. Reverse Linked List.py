@@ -17,7 +17,7 @@ class Solution:
 
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        # 1) Iterative Method 1 (by changing values): TC = O(n) = SC
+        # 1) Iterative Method 1 (by changing the values): TC = O(n) = SC
 
         """
         copy = head
@@ -34,31 +34,32 @@ class Solution:
         return head
         """
 
-        # 2) Iterative Method 2 (by changing pointers): TC = O(n); SC = O(1)
+        # 2) Iterative Method 2 (by changing the direction of the pointers): TC = O(n); SC = O(1)
 
         """
-        prev = None  # at first
+        prev = None  # at first (as the end of the linked list is 'None')
 
-        while head:  # iterating till the end of the linked list
+        while head:  # iterating till the end of the linked list (till head is not 'None')
 
-            copy = head  # copy
-            head = head.next  # moving head to next
-            copy.next = prev  # changing the pointer of the copied head node to point to prev node instead of next (basically reversing)
-            prev = copy  # updating prev
+            n = head.next  # saving ref to the next of cur node
+            head.next = prev  # changing the pointer direction from next to prev node (reversing)
+            
+            prev = head  # updating the prev node
+            head = n  # moving the head node to the next
 
-        return prev  # returning prev, that would be the last node but as the direction of pointers are changed, good will take place 😉
+        return prev  # returning prev, that would be the last node but as the direction of pointers are changed, prev basically now is head!
         """
 
-        # 3) Recursive (same method as above!):
+        # 3) Recursive (same method as above):
 
-        return self._reverse(head)
+        return self._reverse(cur=head)
 
-    def _reverse(self, node, prev=None):
+    def _reverse(self, cur, prev=None):
 
-        if not node:  # base condition
+        if not cur:  # base condition
             return prev
 
-        copy = node
-        node = node.next
-        copy.next = prev
-        return self._reverse(node, prev=copy)
+        n = cur.next  # saving ref to the next of cur node
+        cur.next = prev  # changing the pointer direction from next to prev node (reversing)
+
+        return self._reverse(cur=n, prev=cur)
