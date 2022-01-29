@@ -14,7 +14,15 @@ class TreeNode:
         self.right = right
 
 
-def inorderTraversal(root: Optional[TreeNode]) -> List[int]:  # TC = O(n); SC = O(n) (Best Case: O(log n))
+def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
+
+    # TC = O(n)
+
+    #           = O(n) for worst case (Degenerate (or Pathological) Binary Tree)
+    # SC = O(h)
+    #           = O(log n) for best case (Perfect Binary Tree)
+
+    # Different Types of Binary Tree with colourful illustrations: https://images.app.goo.gl/4pZvqA9xWmkdvo3dA
 
     # 1) Using Recursion:
 
