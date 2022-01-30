@@ -22,11 +22,13 @@ def singleNumber(nums: List[int]) -> int:
     #               2) A ^ A = 0
     #               3) A ^ 0 = A
 
+    # 2) Using MATHEMATICS: TC = O(n) = SC
+
+    """
+    return 2*sum(set(nums)) - sum(nums)
+    """
+
     # 1.1) Pythonic way of doing the same thing (using functools.reduce()):
 
     from functools import reduce
     return reduce(lambda x, y: x ^ y, nums)  # reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) => ((((1+2)+3)+4)+5)
-
-    # 2) Using MATHEMATICS: TC = O(n) = SC
-
-    # return 2*sum(set(nums)) - sum(nums)

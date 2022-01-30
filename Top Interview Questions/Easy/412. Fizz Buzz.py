@@ -8,7 +8,7 @@ from typing import List
 
 def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
 
-    # Basic Approach:
+    # 1) Basic Approach:
 
     """
     for dividend in range(1, n+1):
@@ -113,7 +113,7 @@ def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
     Space Complexity : O(1)
     """
 
-    # Smart Approach:
+    # 2) Smart Approach:
 
     """
     for dividend in range(1, n+1):
@@ -127,7 +127,7 @@ def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
         yield ans
     """
 
-    # The Best Approach:
+    # 3) The Best Approach:
 
     dict_ = {3: 'Fizz', 5: 'Buzz'}
     for dividend in range(1, n+1):
