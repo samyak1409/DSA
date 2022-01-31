@@ -15,21 +15,21 @@ class ListNode:
 
 def mergeTwoLists(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
 
-    # TC = O(n); SC = O(1)
+    # TC = O(n); SC = O(n)
 
     head = l = ListNode()  # head -> saving ref (coz singly linked list)
 
-    while l1 and l2:
+    while l1 and l2:  # while both linked lists have nodes left
 
         if l1.val < l2.val:
             l.next = l1
-            l1 = l1.next
+            l1 = l1.next  # inc
 
         else:
             l.next = l2
-            l2 = l2.next
+            l2 = l2.next  # inc
 
-        l = l.next
+        l = l.next  # inc
 
     l.next = l1 or l2  # remaining node(s) from either l1 or l2
 
