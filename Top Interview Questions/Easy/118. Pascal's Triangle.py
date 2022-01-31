@@ -6,9 +6,9 @@ https://leetcode.com/problems/pascals-triangle/
 from typing import List
 
 
-def generate(num_rows: int) -> List[List[int]]:  # TC = O(n^2); SC = O(n^2)
+def generate(num_rows: int) -> List[List[int]]:
 
-    # 1) Aam Jeevan:
+    # 1) Aam Jeevan: TC = O(n^2); SC = O(n^2)
 
     """
     ans = [[1], [1, 1]]  # initialization
@@ -30,7 +30,7 @@ def generate(num_rows: int) -> List[List[int]]:  # TC = O(n^2); SC = O(n^2)
     return ans
     """
 
-    # 2) Mentos Jeevan: https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map
+    # 2) Mentos Jeevan https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map: TC = O(n^2); SC = O(n^2)
 
     """
     Explanation: Any row can be constructed using the offset sum of the previous row.

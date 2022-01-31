@@ -6,9 +6,9 @@ https://leetcode.com/problems/fizz-buzz/
 from typing import List
 
 
-def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
+def fizzBuzz(n: int) -> List[str]:
 
-    # 1) Basic Approach:
+    # 1) Basic Approach: TC = O(n); SC = O(1)
 
     """
     for dividend in range(1, n+1):
@@ -113,7 +113,7 @@ def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
     Space Complexity : O(1)
     """
 
-    # 2) Smart Approach:
+    # 2) Smart Approach: TC = O(n); SC = O(1)
 
     """
     for dividend in range(1, n+1):
@@ -127,7 +127,7 @@ def fizzBuzz(n: int) -> List[str]:  # TC = O(n); SC = O(1)
         yield ans
     """
 
-    # 3) The Best Approach:
+    # 3) The Best Approach: TC = O(n); SC = O(1)
 
     dict_ = {3: 'Fizz', 5: 'Buzz'}
     for dividend in range(1, n+1):

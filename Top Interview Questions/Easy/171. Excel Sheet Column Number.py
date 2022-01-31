@@ -3,7 +3,9 @@ https://leetcode.com/problems/excel-sheet-column-number/
 """
 
 
-def titleToNumber(column_title: str) -> int:  # TC = O(n); SC = O(1)
+def titleToNumber(column_title: str) -> int:
+
+    # TC = O(n); SC = O(1)
 
     """
     ans = 0

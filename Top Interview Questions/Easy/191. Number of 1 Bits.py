@@ -3,15 +3,15 @@ https://leetcode.com/problems/number-of-1-bits/
 """
 
 
-def hammingWeight(n: int) -> int:  # TC = O(n); SC = O(1)
+def hammingWeight(n: int) -> int:
 
-    # Not what the Interviewer will want:
+    # Not what the Interviewer will want: TC = O(n); SC = O(1)
 
     """
     return bin(n).count('1')  # deci to bin and then counting occurrences
     """
 
-    # Bit-Trick:
+    # Bit-Trick: TC = O(n); SC = O(1)
 
     """
     n & (n-1) drops the lowest set bit. It's a neat little bit trick.
