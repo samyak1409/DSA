@@ -6,7 +6,7 @@ https://leetcode.com/problems/pascals-triangle/
 from typing import List
 
 
-def generate(num_rows: int) -> List[List[int]]:  # TC = O(n^2) = SC
+def generate(num_rows: int) -> List[List[int]]:  # TC = O(n^2); SC = O(n^2)
 
     # 1) Aam Jeevan:
 

@@ -17,7 +17,7 @@ class Solution:
 
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        # 1) Iterative Method 1 (by changing the values): TC = O(n) = SC
+        # 1) Iterative Method 1 (by changing the values): TC = O(n); SC = O(n)
 
         """
         copy = head

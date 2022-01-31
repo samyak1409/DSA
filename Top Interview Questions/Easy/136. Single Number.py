@@ -22,7 +22,7 @@ def singleNumber(nums: List[int]) -> int:
     #               2) A ^ A = 0
     #               3) A ^ 0 = A
 
-    # 2) Using MATHEMATICS: TC = O(n) = SC
+    # 2) Using MATHEMATICS: TC = O(n); SC = O(n)
 
     """
     return 2*sum(set(nums)) - sum(nums)
