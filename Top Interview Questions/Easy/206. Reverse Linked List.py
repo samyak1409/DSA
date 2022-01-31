@@ -13,53 +13,52 @@ class ListNode:
         self.next = next
 
 
-class Solution:
+def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
 
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    # 1) Iterative Method 1 (by changing the values): TC = O(n); SC = O(n)
 
-        # 1) Iterative Method 1 (by changing the values): TC = O(n); SC = O(n)
+    """
+    copy = head
+    vals = []
+    while copy:
+        vals.append(copy.val)  # saving values
+        copy = copy.next
 
-        """
-        copy = head
-        vals = []
-        while copy:
-            vals.append(copy.val)  # saving values
-            copy = copy.next
+    copy = head
+    for v in vals[::-1]:  # reverse traversing
+        copy.val = v  # altering them
+        copy = copy.next
 
-        copy = head
-        for v in vals[::-1]:  # reverse traversing
-            copy.val = v  # altering them
-            copy = copy.next
+    return head
+    """
 
-        return head
-        """
+    # 2) Iterative Method 2 (by changing the direction of the pointers): TC = O(n); SC = O(1)
 
-        # 2) Iterative Method 2 (by changing the direction of the pointers): TC = O(n); SC = O(1)
+    """
+    prev = None  # at first (as the end of the linked list is 'None')
 
-        """
-        prev = None  # at first (as the end of the linked list is 'None')
+    while head:  # iterating till the end of the linked list (till head is not 'None')
 
-        while head:  # iterating till the end of the linked list (till head is not 'None')
+        n = head.next  # saving ref to the next of cur node
+        head.next = prev  # changing the pointer direction from next to prev node (reversing)
+        
+        prev = head  # updating the prev node
+        head = n  # moving the head node to the next
 
-            n = head.next  # saving ref to the next of cur node
-            head.next = prev  # changing the pointer direction from next to prev node (reversing)
-            
-            prev = head  # updating the prev node
-            head = n  # moving the head node to the next
+    return prev  # returning prev, that would be the last node but as the direction of pointers are changed, prev basically now is head!
+    """
 
-        return prev  # returning prev, that would be the last node but as the direction of pointers are changed, prev basically now is head!
-        """
+    # 3) Recursive (same method as above):
 
-        # 3) Recursive (same method as above):
+    return _reverse(cur=head)
 
-        return self._reverse(cur=head)
 
-    def _reverse(self, cur, prev=None):
+def _reverse(cur, prev=None):
 
-        if not cur:  # base condition
-            return prev
+    if not cur:  # base condition
+        return prev
 
-        n = cur.next  # saving ref to the next of cur node
-        cur.next = prev  # changing the pointer direction from next to prev node (reversing)
+    n = cur.next  # saving ref to the next of cur node
+    cur.next = prev  # changing the pointer direction from next to prev node (reversing)
 
-        return self._reverse(cur=n, prev=cur)
+    return _reverse(cur=n, prev=cur)
