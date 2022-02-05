@@ -9,14 +9,7 @@ def firstUniqChar(s: str) -> int:
 
     """
     for i, c in enumerate(s):
-
-        count = 0
-        for c_ in s:
-            if c_ == c:
-                count += 1
-                if count > 1:
-                    break
-        if count == 1:
+        if s.count(c) == 1:
             return i
 
     return -1
@@ -24,15 +17,25 @@ def firstUniqChar(s: str) -> int:
 
     # 2) Using Hash Table: TC = O(n); SC = O(1) (because of Q. constraint 2: "s consists of only lowercase English letters")
 
-    ht = {}  # key = character, value = 1 if character is non-repeating else 0
+    """
+    from collections import Counter
+    ht = Counter(s)
+
+    for i, c in enumerate(s):
+        if ht[c] == 1:
+            return i
+    return -1    
+    """
+
+    ht = {}  # key = chr, value = 1 if chr is non-repeating else 0
     for c in s:
-        if c in ht:
+        if c in ht:  # O(1) coz ht will have 26 items at max
             ht[c] = 0
         else:
             ht[c] = 1
     print(ht)  # debug
 
-    for c in s:
+    for i, c in enumerate(s):
         if ht[c]:
-            return s.index(c)
+            return i
     return -1
