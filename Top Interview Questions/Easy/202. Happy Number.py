@@ -5,18 +5,21 @@ https://leetcode.com/problems/happy-number/
 
 def isHappy(n: int) -> bool:
 
-    # Approach 1 (Straight): TC = O(log n); SC = O(log n)
+    def next_(num: int) -> int:  # TC = O(log n); because the number of digits in a number is given by log n; Here's why: https://math.stackexchange.com/a/231745
+        """Helper Function"""
+        return sum([int(x)**2 for x in str(num)])  # https://stackoverflow.com/questions/1247486/list-comprehension-vs-map
+
+    # Approach 1 (Using Hash Set): TC = O(log n); SC = O(log n); why? read on solution page 💯
 
     """
-    occurred = set()  # SET OVER LIST because https://www.geeksforgeeks.org/internal-working-of-set-in-python
+    occurred = {n}  # SET OVER LIST because https://www.geeksforgeeks.org/internal-working-of-set-in-python
 
     while n != 1:
 
-        n = sum(map(lambda x: int(x) ** 2, str(n)))
-        print(n)  # debug
+        n = next_(n)
 
         if n in occurred:  # O(1) op. on an avg.
-            return False
+            return False  # loop formed => isHappy = False
         else:
             occurred.add(n)
 
@@ -25,18 +28,26 @@ def isHappy(n: int) -> bool:
 
     # Approach 2 (Floyd's Cycle-Finding Algorithm; https://leetcode.com/problems/linked-list-cycle): TC = O(log n); SC = O(1)
 
-    def get_next(num: int) -> int:
-        return sum(map(lambda x: int(x) ** 2, str(num)))
-
     slow = n
-    fast = get_next(get_next(n))
+    fast = next_(next_(n))
 
     while fast != 1 and slow != 1:  # loop while 1 not comes
 
-        if slow == fast:  # slow = fast at any point => cycle is there so stop
+        if slow == fast:  # slow=fast at any point => cycle is there, so stop
             return False
 
-        slow = get_next(slow)  # +1
-        fast = get_next(get_next(fast))  # +2
+        slow = next_(slow)  # +1
+        fast = next_(next_(fast))  # +2
 
     return True
+
+
+# MUST READ: https://leetcode.com/problems/happy-number/solution
+
+"""
+for i in range(1, 9+1):
+    n = 10**i-1
+    print(n)
+    print(isHappy(n))
+    print()
+"""
