@@ -1,6 +1,6 @@
-# LeetCode Interview-Preparation
+# [LeetCode](https://leetcode.com/) Interview-Preparation
 
-Solutions to LeetCode's Top Interview Questions.
+Solutions to [LeetCode's Top Interview Questions](https://leetcode.com/problemset/all/?listId=wpwgkgt&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJBQ19SQVRFIn1d).
 
 ## Features
 
@@ -13,6 +13,6 @@ Solutions to LeetCode's Top Interview Questions.
 
 ### [LeetCode Profile](https://leetcode.com/samyak1409/) Timeline
 
-- After completing [Easy](Top%20Interview%20Questions/Easy)
+- After completing [Easy](https://leetcode.com/problemset/all/?listId=wpwgkgt&difficulty=EASY&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJBQ19SQVRFIn1d)
 
 <img src="AfterEasy.png">
