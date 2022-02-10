@@ -16,7 +16,7 @@ class TreeNode:
 
 def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
 
-    # Using Recursive Binary Search Algorithm: TC = O(n); SC = O(log n) (log n: height of BST)
+    # Recursive Binary Search Algorithm: TC = O(n); SC = O(h) (height of BST) = O(n) in worst case and O(log n) in best case
 
     def construct(l, r):  # recursive function
 

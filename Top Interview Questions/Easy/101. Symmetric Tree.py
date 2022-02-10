@@ -16,17 +16,20 @@ class TreeNode:
 
 def isSymmetric(root: Optional[TreeNode]) -> bool:
 
-    # Recursion <3: TC = O(n); SC = O(h), h being the height of the binary tree
+    # Recursive <3:
+    # TC = O(n)
+    # SC = O(h) (height of the binary tree)
+    # = O(n) in worst case (https://leetcode.com/problems/symmetric-tree/discuss/33050/Recursively-and-iteratively-solution-in-Python/1261395)
+    # and = O(log n) in best case
 
     def are_symmetric(l_node, r_node):
-        """Returns whether l_node and r_node are symmetric."""
 
-        if not l_node and not r_node:
+        if not (l_node or r_node):  # base condition: no more nodes are there
             return True
 
-        if (l_node and r_node) and (l_node.val == r_node.val):
+        if l_node and r_node and l_node.val == r_node.val:
             return are_symmetric(l_node.left, r_node.right) and are_symmetric(l_node.right, r_node.left)
 
-        return False
+        # return False  # optional, because None is returned by default
 
     return are_symmetric(root.left, root.right)

@@ -18,13 +18,13 @@ def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
 
     # TC = O(n)
 
-    #           = O(n) for worst case (Degenerate (or Pathological) Binary Tree)
-    # SC = O(h)
-    #           = O(log n) for best case (Perfect Binary Tree)
+    #                                       = O(n) for worst case (Degenerate (or Pathological) Binary Tree)
+    # SC = O(h) (height of the binary tree)
+    #                                       = O(log n) for best case (Perfect Binary Tree)
 
     # Different Types of Binary Tree with colourful illustrations: https://images.app.goo.gl/4pZvqA9xWmkdvo3dA
 
-    # 1) Using Recursion:
+    # 1) Recursive:
 
     """
     vals = []
@@ -40,7 +40,7 @@ def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
     return vals
     """
 
-    # 2) Using Iteration: (How to approach this? Just try to build the exact same program flow (like recursion algo) using iterations! (not hard))
+    # 2) Iterative: (How to approach this? Just try to build the exact same program flow (like recursion algo) using iterations! (not hard))
 
     stack, vals = [], []
 
