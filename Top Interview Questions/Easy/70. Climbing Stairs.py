@@ -5,13 +5,13 @@ https://leetcode.com/problems/climbing-stairs/
 
 def climbStairs(n: int) -> int:
 
-    # Fibonacci Sequence: TC = O(n); SC = O(1)
+    # DP! https://youtu.be/Y0lT9Fck7qI?t=707: TC = O(n); SC = O(1)
 
-    a = b = 1
+    n1, n2 = 1, 1
 
-    for _ in range(n):
-        a, b = b, a + b
+    for _ in range(n-1):
+        n1, n2 = n1+n2, n1
 
-    return a
+    return n1
 
-    # I was thinking of permutations or something, but thought of taking a look at the output in case some kind of sequence is forming, and YES.
+    # https://leetcode.com/problems/climbing-stairs/discuss/25299/Basically-it's-a-fibonacci.
