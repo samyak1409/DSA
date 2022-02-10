@@ -16,10 +16,11 @@ class TreeNode:
 
 def maxDepth(root: Optional[TreeNode]) -> int:
 
-    # Using Queue:
+    # Iterative:
     # TC = O(n) (we are just going through each and every node in the tree one time)
     # SC = O(n) (last level of the binary tree have (n+1)/2 nodes at most)
 
+    """
     queue = [root]
     height = -1
 
@@ -36,3 +37,11 @@ def maxDepth(root: Optional[TreeNode]) -> int:
                 queue.extend([node.left, node.right])
 
     return height
+    """
+
+    # Recursive: TC = O(n); SC = O(h) (height of the binary tree) = O(n) in worst case and O(log n) in best case
+
+    if not root:  # base condition
+        return 0
+
+    return max(maxDepth(root.left), maxDepth(root.right)) + 1
