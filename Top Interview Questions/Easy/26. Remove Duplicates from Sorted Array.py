@@ -8,40 +8,26 @@ from typing import List
 
 def removeDuplicates(nums: List[int]) -> int:
 
-    # Method 1 (Generic): TC = O(n^2); SC = O(1)
+    # Two Pointers: TC = O(n); SC = O(1)
 
     """
-    prev = 101  # acc. to constraints
+    prev = None
+    i = -1
+    
+    for num in nums:
+        if num != prev:
+            i += 1
+            nums[i] = num
+            prev = num
+
+    return i+1
+    """
+
     i = 0
 
-    for _ in range(len(nums)):  # O(n)
-
-        if nums[i] == prev:
-            nums.pop(i)  # O(n)
-
-        else:
-            prev = nums[i]
+    for num in nums[1:]:
+        if num != nums[i]:
             i += 1
+            nums[i] = num
 
-    return len(nums)
-    """
-
-    # Method 2 (Pythonic): TC = O(n log n); SC = O(n)
-
-    """
-    nums[:] = sorted(set(nums))  # nums[:] -> not creating new object
-    return len(nums)
-    """
-
-    # Method 3 (Best, as acc. to the Q. we don't have to worry what is at the end of the array): TC = O(n); SC = O(1)
-
-    x = 1
-
-    for i in range(len(nums)-1):
-
-        if nums[i] != nums[i+1]:
-
-            nums[x] = nums[i+1]
-            x += 1
-
-    return x
+    return i+1
