@@ -12,7 +12,22 @@ class ListNode:
 
 def hasCycle(head: ListNode) -> bool:
 
-    # Slow and Fast Pointer Approach <3 (https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare): TC = O(n); SC = O(1)
+    # 0) Using HashSet: TC = O(n); SC = O(n)
+
+    """
+    occurred = set()
+
+    while head not in occurred:  # TC of "in" = O(1) because HashSet
+        occurred.add(head)  # store this node
+        try:
+            head = head.next  # go to next node
+        except AttributeError:  # reached end of the list
+            return False  # no cycle
+
+    return True  # node was in occurred => cycle is there
+    """
+
+    # 1) Floyd's Slow and Fast Pointer Approach <3 (https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare): TC = O(n); SC = O(1)
 
     slow = fast = head  # at first both pointing at head
 
@@ -25,3 +40,5 @@ def hasCycle(head: ListNode) -> bool:
             return True  # loop is there
 
     return False  # else not
+
+    # Also read: https://leetcode.com/problems/linked-list-cycle/discuss/44494/Except-ionally-fast-Python 👌
