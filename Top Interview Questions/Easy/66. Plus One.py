@@ -8,27 +8,35 @@ from typing import List
 
 def plusOne(digits: List[int]) -> List[int]:
 
-    # Method 1 (Pythonic): TC = O(n); SC = O(1)
-
-    for i in str(int(''.join(map(str, digits)))+1):
-        yield int(i)
-
-    # Method 2 (Generic): TC = O(n); SC = O(1)
+    # 1) Amateur: TC = O(n); SC = O(1)
 
     """
-    i = len(digits) - 1  # (reverse traversal)
+    plus_one = int(''.join(map(str, digits))) + 1
 
-    while i >= 0:  # O(n)
+    # return list(map(int, str(plus_one)))
+    # or:
+    yield from map(int, str(plus_one))
+    """
+
+    # 2) Standard: TC = O(n); SC = O(1)
+
+    for i in range(len(digits) - 1, -1, -1):  # (reverse traversal)
 
         if digits[i] != 9:  # addition without carry
             digits[i] += 1
-            break
+            break  # done
 
         else:  # addition with carry
-            digits[i] = 0
-            i -= 1
-            if i == -1:  # no more MSBs
-                digits.insert(0, 1)  # O(1) cause this case will only occur one time
+
+            if i != 0:  # digits[i] is not MSB
+                digits[i] = 0
+                # and then for loop continues
+
+            else:  # digits[i] is MSB
+                digits[i] = 1
+                digits.append(0)  # add a 0 to the end
+                # and then digits is returned (this was the last iteration)
 
     return digits
-    """
+
+    # Also read: https://leetcode.com/problems/plus-one/discuss/24082/My-Simple-Java-Solution
