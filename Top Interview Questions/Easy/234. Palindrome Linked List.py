@@ -23,8 +23,8 @@ def isPalindrome(head: Optional[ListNode]) -> bool:
     while node:
         vals.append(node.val)
         node = node.next
-    n = len(vals)
-    return vals[:n//2] == vals[(n//2)+(n%2):][::-1]  # (n % 2) = (0 if n % 2 == 0 else 1)
+    half = len(vals) // 2
+    return vals[:half] == vals[::-1][:half]
     # or simply:
     # return vals == vals[::-1]  # (O(n/2) = O(n))
     """
