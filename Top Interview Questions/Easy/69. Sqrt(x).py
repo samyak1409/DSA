@@ -27,20 +27,23 @@ def mySqrt(x: int) -> int:
 
     # https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution/24042:
 
-    l, h = 0, x
+    low = 0  # Because 0 is sqrt of the smallest possible non-negative integer, i.e. 0. {sqrt(min(x)) = sqrt(0) = 0}
+    high = x  # Because sqrt(x) will always be lesser than or equal to x. {sqrt(x) <= x for any non-negative integer x}
 
-    while l <= h:
+    # Now Standard Binary Search:
 
-        m = (l+h) // 2
-        m_x_m = m * m
+    while low <= high:
 
-        if m_x_m == x:
-            return m
+        mid = (low+high) // 2
+        mid_sq = mid * mid
 
-        elif m_x_m < x:
-            l = m+1
+        if mid_sq == x:  # sqrt found; if mid_sq = x => mid = sqrt(x)
+            return mid
 
-        else:  # m_x_m > x
-            h = m-1
+        elif mid_sq < x:  # => mid is < sqrt(x)
+            low = mid+1
 
-    return h
+        else:  # (mid_sq > x) => mid is > sqrt(x)
+            high = mid-1
+
+    return high  # if mid is not returned above, => x is not a perfect square => sqrt(x) = floating point number, so returning the floor integer value
