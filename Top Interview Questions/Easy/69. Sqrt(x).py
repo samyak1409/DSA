@@ -4,45 +4,43 @@ https://leetcode.com/problems/sqrtx/
 
 
 def mySqrt(x: int) -> int:
+    """Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5."""
 
-    # 1) Brute Force: TC = O(n^.5); SC = O(1)
+    # NOTE: Python doesn't bound integer limit, otherwise will have to use i < x/i instead of i*i < x for comparisons, to avoid exceeding integer upper limit.
 
-    """
-    sqrt_int = 0
-    num = 0
-
-    while num**2 <= x:
-        sqrt_int = num
-        num += 1
-
-    return sqrt_int
-    """
-
-    # 2) https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method: TC = O(?); SC = O(1)
+    # 1) Brute Force: TC = O(√x); SC = O(1)
 
     """
-    r = x
-    while r**2 > x:
-        r = (r + x//r) // 2
-    return r
+    sqrt = 0
+
+    while sqrt*sqrt < x:
+        sqrt += 1
+
+    return sqrt if (sqrt*sqrt == x) else sqrt-1
     """
 
-    # 3) Iterative Binary Search: TC = O(log n); SC = O(1)
+    # 2) Newton's Method (Harder and Slower than Binary Search): TC = O(log x); SC = O(1)
+    # https://leetcode.com/problems/sqrtx/discuss/25057/3-4-short-lines-Integer-Newton-Every-Language
+    # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton's_method
 
-    l, h = 1, x
-    not_found, m = False, 0
+    # 3) Binary Search (Iterative): TC = O(log x); SC = O(1)
+
+    # https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution/24042:
+
+    l, h = 0, x
 
     while l <= h:
 
-        not_found = False
         m = (l+h) // 2
-        sq = m ** 2
-        if sq == x:
-            return m
-        elif sq < x:
-            l = m + 1
-        else:  # sq > x
-            h = m - 1
-            not_found = True  # if loop end with not_found = True; m = m-1
+        m_x_m = m * m
 
-    return m - int(not_found)
+        if m_x_m == x:
+            return m
+
+        elif m_x_m < x:
+            l = m+1
+
+        else:  # m_x_m > x
+            h = m-1
+
+    return h
