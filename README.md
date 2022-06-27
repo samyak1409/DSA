@@ -1,6 +1,11 @@
 # [LeetCode](https://leetcode.com) Interview-Preparation
 
-This repository contains the code solutions to [LeetCode's Top Interview Questions](https://leetcode.com/problemset/all/?listId=wpwgkgt&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJBQ19SQVRFIn1d).
+This repository contains the code solutions to **LeetCode's official curated list of Top classic interview questions** 
+(divided into: 
+[Easy Collection](https://leetcode.com/explore/interview/card/top-interview-questions-easy), 
+[Medium Collection](https://leetcode.com/explore/interview/card/top-interview-questions-medium), 
+[Hard Collection](https://leetcode.com/explore/interview/card/top-interview-questions-hard)).
+
 
 ## Features
 
@@ -9,15 +14,3 @@ This repository contains the code solutions to [LeetCode's Top Interview Questio
 - Readability 👌 (good variable names and descriptive comments)
 - Multiple Approaches 🔥
 - Complexity Analysis 🕐
-
-##
-
-### [LeetCode Profile](https://leetcode.com/samyak1409) Timeline
-
-- After completing [Easy](https://leetcode.com/problemset/all/?listId=wpwgkgt&difficulty=EASY&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJBQ19SQVRFIn1d)
-
-<img src="ScreenShots/AfterEasy.png">
-
-- After revising [Easy](https://leetcode.com/problemset/all/?listId=wpwgkgt&difficulty=EASY&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJBQ19SQVRFIn1d)
-
-<img src="ScreenShots/AfterEasy2.png">
