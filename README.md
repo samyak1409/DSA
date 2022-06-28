@@ -1,10 +1,6 @@
-# [LeetCode](https://leetcode.com) Interview-Preparation
+# Interview Preparation
 
-This repository contains the code solutions to **LeetCode's official curated list of Top classic interview questions** 
-(divided into: 
-[Easy Collection](https://leetcode.com/explore/interview/card/top-interview-questions-easy), 
-[Medium Collection](https://leetcode.com/explore/interview/card/top-interview-questions-medium), 
-[Hard Collection](https://leetcode.com/explore/interview/card/top-interview-questions-hard)).
+This repository contains the code solutions to [Striver’s SDE Sheet – Top Coding Interview Problems](https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems).
 
 
 ## Features
