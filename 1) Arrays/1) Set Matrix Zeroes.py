@@ -21,7 +21,7 @@ def setZeroes(matrix: List[List[int]]) -> None:
         for j in range(n):
             if matrix[i][j] == 0:
                 zeroes.append((i, j))  # SC = O(m*n)
-    print(zeroes)  # debugging
+    # print(zeroes)  #debugging
 
     for i, j in zeroes:  # problem: if whole matrix is 0, then this loop will run O(m*n) times, and so total TC will ⬆ to O(m*n*(m+n))
         # making rows 0:
@@ -67,7 +67,7 @@ def setZeroes(matrix: List[List[int]]) -> None:
             if matrix[i][j] == 0:
                 rows.add(i)
                 columns.add(j)  # SC = O(m+n)
-    print(rows, columns)  # debugging
+    # print(rows, columns)  #debugging
 
     for i in range(m):
         for j in range(n):
