@@ -11,19 +11,19 @@ def setZeroes(matrix: List[List[int]]) -> None:
     Do not return anything, modify matrix in-place instead.
     """
 
-    # 0) Brute-force (storing co-ordinates in a list): TC = O(m*n*(m+n)); SC = O(m*n)
+    # 0) Brute-force (storing co-ordinates "(i, j)" in an array): TC = O(m*n*(m+n)); SC = O(m*n)
 
     """
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
 
     zeroes = []  # for storing co-ordinates of 0s
-    for i in range(m):
+    for i in range(m):  # TC = O(m*n)
         for j in range(n):
             if matrix[i][j] == 0:
-                zeroes.append((i, j))  # SC = O(m*n)
+                zeroes.append((i, j))  # if whole matrix is 0, SC = O(m*n)
     # print(zeroes)  #debugging
 
-    for i, j in zeroes:  # problem: if whole matrix is 0, then this loop will run O(m*n) times, and so total TC will ⬆ to O(m*n*(m+n))
+    for i, j in zeroes:  # if whole matrix is 0, then this loop will run O(m*n) times, so total TC = O(m*n*(m+n))
         # making rows 0:
         for index in range(n):
             matrix[i][index] = 0
@@ -56,34 +56,34 @@ def setZeroes(matrix: List[List[int]]) -> None:
                 matrix[i][j] = 0
     """
 
-    # 2) Using Sets: TC = O(m*n); SC = O(m+n)
+    # 2) Using row & column arrays for/and marking 0s: TC = O(m*n); SC = O(m+n)
 
     """
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
 
-    rows, columns = set(), set()  # for storing distinct row & column indices containing 0
+    row, column = [False]*m, [False]*n  # for marking row & column indices of 0s; SC = O(m+n)
     for i in range(m):
         for j in range(n):
             if matrix[i][j] == 0:
-                rows.add(i)
-                columns.add(j)  # SC = O(m+n)
-    # print(rows, columns)  #debugging
+                row[i] = True
+                column[j] = True
+    # print(row, column)  #debugging
 
     for i in range(m):
         for j in range(n):
-            if i in rows or j in columns:  # O(1)
+            if row[i] or column[j]:
                 matrix[i][j] = 0
     """
 
-    # 3) Smart 👌: TC = O(m*n); SC = O(1)
+    # 3) Best (same logic as above, just using the first row & column of the matrix itself): TC = O(m*n); SC = O(1)
+    # the main trick in this algo (which allows solution in O(1) space):
+    # saving whether the rows/columns need to be set to 0s in the first row & column of the matrix,
+    # to be more accurate, first cell of every row/column which needs to be set to 0
+    # AND the same mark of first row & column will be saved in two constant space vars, resulting in O(1) SC!!
 
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
 
-    first_row_zero, first_column_zero = 0 in matrix[0], 0 in [row[0] for row in matrix]
-    # saving whether the first row and column contain any 0s or not, this is the main trick in this algo (which allows solution in O(1) space):
-    # what we're doing here is saving whether the rows/columns need to be set to 0s in the first row and column of the matrix,
-    # to be more accurate, first cell of every row/column which needs to be set to 0, AND the same mark of first row and
-    # column will be saved in two constant space vars, resulting in O(1) SC!!
+    first_row_zero, first_column_zero = 0 in matrix[0], 0 in [row[0] for row in matrix]  # saving whether the first row & column contain any 0s or not
 
     for i in range(m):
         for j in range(n):
@@ -91,8 +91,8 @@ def setZeroes(matrix: List[List[int]]) -> None:
                 matrix[i][0] = 0  # first row cell to 0
                 matrix[0][j] = 0  # first column cell to 0
 
-    # setting rows and columns to 0:
-    for i in range(1, m):  # imp: skipping 1st row and column (next line), do you know why? :D (will destroy what we saved in the first row and column)
+    # setting rows & columns to 0:
+    for i in range(1, m):  # IMP: skipping 1st row & column (next line), do you know why? :D (will destroy what we saved in the first row & column)
         for j in range(1, n):
             if matrix[i][0] == 0 or matrix[0][j] == 0:
                 matrix[i][j] = 0
