@@ -8,6 +8,19 @@ from typing import List
 
 def maxSubArray(nums: List[int]) -> int:
 
+    # 0) Brute-force: Calculating sum of all the possible sub-arrays. TC = O(n^2); SC = O(1)
+
+    """
+    largest_sum = float('-inf')  # because nums consists of integers
+    for i in range(len(nums)):
+        current_sum = 0  # restart the sub-array formation from next element
+        for j in range(i, len(nums)):
+            current_sum += nums[j]  # increase the size of current sub-array by one element
+            if current_sum > largest_sum:
+                largest_sum = current_sum
+    return largest_sum
+    """
+
     # 1) https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm: TC = O(n); SC = O(1)
 
     # The thought follows a simple rule:
@@ -33,7 +46,7 @@ def maxSubArray(nums: List[int]) -> int:
     current_sum = largest_sum = 0
     for num in nums:
         current_sum = max(current_sum+num, 0)
-        largest_sum = max(current_sum, largest_sum)
+        largest_sum = max(largest_sum, current_sum)
     return largest_sum
     """
 
@@ -55,19 +68,20 @@ def maxSubArray(nums: List[int]) -> int:
 
     # 1.3) Perfect:
 
-    """
     current_sum, largest_sum = 0, float('-inf')  # so that any (negative) integer will be greater
     for num in nums:
-        if current_sum < 0:
-            current_sum = 0  # reset, we don't want to take negative sum ahead!
         current_sum += num
         if current_sum > largest_sum:
             largest_sum = current_sum
+        if current_sum < 0:
+            current_sum = 0  # reset, we don't want to take negative sum ahead!
     return largest_sum
-    """
     # (Same Algo:)
+    """
     current_sum, largest_sum = 0, float('-inf')  # so that any (negative) integer will be greater
     for num in nums:
-        current_sum = max(current_sum, 0) + num
-        largest_sum = max(current_sum, largest_sum)
+        current_sum += num
+        largest_sum = max(largest_sum, current_sum)
+        current_sum = max(current_sum, 0)
     return largest_sum
+    """
