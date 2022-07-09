@@ -11,7 +11,7 @@ def nextPermutation(nums: List[int]) -> None:
     Do not return anything, modify nums in-place instead.
     """
 
-    # 0) Brute-force: Generate all the permutations and then return the "next permutation". TC = O(n!); SC = O(n)
+    # 0) Brute-force (Generating all the permutations and then returning the "next permutation"): TC = O(n!); SC = O(n)
 
     # 1) Correct but Redundant (I came up with this): TC = O(n^2); SC = O(n)
 

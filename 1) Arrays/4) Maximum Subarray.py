@@ -8,7 +8,7 @@ from typing import List
 
 def maxSubArray(nums: List[int]) -> int:
 
-    # 0) Brute-force: Calculating sum of all the possible sub-arrays. TC = O(n^2); SC = O(1)
+    # 0) Brute-force (Calculating sum of all the possible sub-arrays) (TLE): TC = O(n^2); SC = O(1)
 
     """
     n = len(nums)

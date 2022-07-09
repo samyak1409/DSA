@@ -17,7 +17,7 @@ def sortColors(nums: List[int]) -> None:
     nums.sort()
     """
 
-    # 1) Counting Sort (two-pass algorithm using constant extra space): TC = O(n); SC = O(1)
+    # 1) Counting Sort (Two-pass algorithm using constant extra space): TC = O(n); SC = O(1)
 
     """
     from collections import Counter
@@ -29,7 +29,7 @@ def sortColors(nums: List[int]) -> None:
     # New Discovery: e.g. 2 is not there in nums, still n[2] will not give an error because n is a Counter object, and it handles that (by default returns 0 value if a key is not there)
     """
 
-    # 2) The "Running But Don't Know How" Algo (one-pass algorithm using constant extra space): TC = O(n); SC = O(1)
+    # 2) The "Running But Don't Know How" Algo (One-pass algorithm using constant extra space): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/sort-colors/discuss/26500/Four-different-solutions/160956
 
     """
@@ -53,7 +53,7 @@ def sortColors(nums: List[int]) -> None:
                 nums[n0] = 0
     """
 
-    # 3) Swapping (one-pass algorithm using constant extra space): TC = O(n); SC = O(1)
+    # 3) Swapping (One-pass algorithm using constant extra space): TC = O(n); SC = O(1)
     # https://en.wikipedia.org/wiki/Dutch_national_flag_problem
     # https://leetcode.com/problems/sort-colors/discuss/26472/Share-my-at-most-two-pass-constant-space-10-line-solution/25489; https://leetcode.com/problems/sort-colors/discuss/26481/Python-O(n)-1-pass-in-place-solution-with-explanation
     # The idea is to sweep all 0s to the left and all 2s to the right, then all 1s are left in the middle.
