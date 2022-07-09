@@ -11,10 +11,11 @@ def maxSubArray(nums: List[int]) -> int:
     # 0) Brute-force: Calculating sum of all the possible sub-arrays. TC = O(n^2); SC = O(1)
 
     """
+    n = len(nums)
     largest_sum = float('-inf')  # because nums consists of integers
-    for i in range(len(nums)):
+    for i in range(n):
         current_sum = 0  # restart the sub-array formation from next element
-        for j in range(i, len(nums)):
+        for j in range(i, n):
             current_sum += nums[j]  # increase the size of current sub-array by one element
             if current_sum > largest_sum:
                 largest_sum = current_sum
