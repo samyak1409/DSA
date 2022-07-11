@@ -9,11 +9,11 @@ from typing import List
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     """Do not return anything, modify nums1 in-place instead."""
 
-    # 0) Brute-force (Add nums2 to nums1[m:], sort num1): TC = O((m+n)*log(m+n)); SC = O(1)
+    # 0) Brute-force (Add nums2 to nums1[m:], sort num1): TC = O((m+n)*log(m+n)); SC = O(m+n)
 
     """
     nums1[m:] = nums2  # TC = O(n)
-    nums1.sort()  # TC = O((m+n)*log(m+n))
+    nums1.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
     """
 
     # 1) Better (Copy, Traverse & Compare): TC = O(m+n); SC = O(m)
@@ -54,7 +54,7 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
 
     """
     temp_arr = nums1 + nums2  # TC = SC = O(m+n)
-    temp_arr.sort()  # TC = O((m+n)*log(m+n))
+    temp_arr.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
     nums1[:], nums2[:] = temp_arr  # IMP: "[:]" (not creating a new object (i.e. new memory address) but modifying it only); TC = O(m+n)
     """
     # In-short:

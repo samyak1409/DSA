@@ -11,7 +11,7 @@ def sortColors(nums: List[int]) -> None:
     Do not return anything, modify nums in-place instead.
     """
 
-    # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(1)
+    # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n) {In Python, the sort() function is implemented using the Timsort algorithm, which has a worst-case space complexity of O(n)}
 
     """
     nums.sort()

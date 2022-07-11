@@ -34,9 +34,9 @@ def merge(intervals: List[List[int]]) -> List[List[int]]:
         i += 1
     """
 
-    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(1)
+    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n)
 
-    intervals.sort(key=lambda x: x[0])  # sort by start value of the intervals; TC = O(n*log(n))
+    intervals.sort(key=lambda x: x[0])  # sort by start value of the intervals; TC = O(n*log(n)); SC = O(n)
 
     previous = intervals[0]
     for i in range(1, len(intervals)):  # TC = O(n)
