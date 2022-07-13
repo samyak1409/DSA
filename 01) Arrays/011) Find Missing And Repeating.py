@@ -6,6 +6,54 @@ https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
 from typing import List
 
 
-def findTwoElement(arr: List[int], n: int) -> int:
+def findTwoElement(arr: List[int], n: int) -> List[int]:
 
-    pass
+    # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
+
+    """
+    sorted_arr = sorted(arr)
+    repeating = None
+    for i in range(n):  # finding repeating number
+        current, next_ = sorted_arr[i], sorted_arr[i+1]
+        if next_ == current:  # simple
+            repeating = next_
+            break
+    missing = 1  # starting from 1
+    for i in range(n):  # finding missing number
+        current = sorted_arr[i]
+        if current > missing:  # if at any point, "current" exceeds "missing" => "missing" is the number which didn't occur in arr
+            break
+        missing = current+1  # else missing = next number that should be
+    return [repeating, missing]
+    """
+
+    # 0.2) Brute-force (HashSet): TC = O(n); SC = O(n)
+
+    """
+    hashset = set()  # to track existence in O(1)
+    repeating = None
+    for num in arr:  # finding repeating number
+        if num in hashset:
+            repeating = num
+        hashset.add(num)
+    missing = None
+    for num in range(1, n+1):  # finding missing number
+        if num not in hashset:
+            missing = num
+            break
+    return [repeating, missing]
+    """
+
+    # 0.3) Brute-force (Count & Store Occurrences): TC = O(n); SC = O(n)
+    # Rather than using HashMap, we can simply use Array here in which the indices will work like keys.
+    # As the contents of "arr" will be in b/w 1 and n; the task can be easily performed by Array rather than HashMap.
+    # Why give priority to Array over HashMap? > Less Space!
+
+    """
+    counts = [0] * n
+    for num in arr:  # counting
+        counts[num-1] += 1  # num-1 = index
+    return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
+    """
+
+    # 1) 
