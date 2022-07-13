@@ -56,4 +56,59 @@ def findTwoElement(arr: List[int], n: int) -> List[int]:
     return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
     """
 
-    # 1) 
+    # 1) Negating Numbers: TC = O(n); SC = O(1)
+
+    """
+    repeating = None
+    for i in range(n):  # finding repeating number
+        index = abs(arr[i])-1  # index to leave mark at; abs() because arr[i] can be a negated value
+        if arr[index] < 0:  # value at "index" found negated => index+1 (arr[i]) is the repeating number!
+            repeating = index+1
+            continue  # so that next line doesn't make negated value back positive
+        arr[index] *= -1  # leaving mark
+    missing = None
+    for i in range(n):  # finding missing number
+        if arr[i] > 0:  # positive value found, it must be because of the missing number
+            missing = i+1
+        else:  # turning the negated values back positive
+            arr[i] *= -1
+    return [repeating, missing]
+    """
+
+    # 2) Maths (Sum of n and n^2 terms): TC = O(n); SC = O(1)
+
+    # In Short:
+    """
+    x = n*(n+1)//2 - sum(arr)
+    y = ((n*(n+1)*(2*n+1)//6)-(sum(map(lambda term: term**2, arr)))) // x
+    missing = (x+y) // 2
+    repeating = missing - x
+    return [repeating, missing]
+    """
+
+    # With Derivation:
+    # sum(arr) + missing - repeating = n*(n+1) // 2  # sum of n terms
+    # => missing - repeating = n*(n+1)//2 - sum(arr)
+    # Let x = missing - repeating  # ...(1)
+    x = n*(n+1)//2 - sum(arr)
+    # print(x)  #debugging
+
+    # sum(map(lambda term: term**2, arr)) + missing**2 - repeating**2 = n*(n+1)*(2*n+1) // 6  # sum of n^2 terms
+    # => missing**2 - repeating**2 = n*(n+1)*(2*n+1)//6 - sum(map(lambda term: term**2, arr))
+    # Since a^2 - b^2 = (a+b)(a-b):
+    # => (missing+repeating) * (missing-repeating) = n*(n+1)*(2*n+1)//6 - sum(map(lambda term: term**2, arr))
+    # From equation (1), (missing-repeating) = x, so:
+    # => (missing+repeating) * x = n*(n+1)*(2*n+1)//6 - sum(map(lambda term: term**2, arr))
+    # => missing + repeating = ((n*(n+1)*(2*n+1)//6)-(sum(map(lambda term: term**2, arr)))) // x
+    # Let y = missing + repeating
+    y = ((n*(n+1)*(2*n+1)//6)-(sum(map(lambda term: term**2, arr)))) // x
+    # print(y)  #debugging
+
+    # x + y = (missing-repeating) + (missing+repeating)
+    # => x + y = 2 * missing
+    # => missing = (x+y) // 2
+    missing = (x+y) // 2
+    # And from equation (1), repeating = missing - x, so:
+    # => repeating = (x+y)//2 - x
+    repeating = missing - x
+    return [repeating, missing]
