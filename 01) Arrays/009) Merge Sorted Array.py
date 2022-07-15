@@ -35,12 +35,12 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
     # 2) Optimal (Reverse Traverse 👌 and Compare) (https://leetcode.com/problems/merge-sorted-array/discuss/29503/Beautiful-Python-Solution): TC = O(m+n); SC = O(1)
 
     while m > 0 and n > 0:
-        num1, num2 = nums1[m - 1], nums2[n - 1]
+        num1, num2 = nums1[m-1], nums2[n-1]
         if num1 > num2:
-            nums1[m + n - 1] = num1
+            nums1[m+n-1] = num1
             m -= 1
         else:
-            nums1[m + n - 1] = num2
+            nums1[m+n-1] = num2
             n -= 1
     nums1[:n] = nums2[:n]  # if nums1 had lesser no. of elements than nums2 (m < n)
     # otherwise (if m > n) the elements are already on the right place only!
