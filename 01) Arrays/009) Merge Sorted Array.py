@@ -29,7 +29,8 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1[i+j:] = nums1_copy[i:] or nums2[j:]
     """
 
-    # 2) Optimal (Reverse Traverse 👌 and Compare) (https://leetcode.com/problems/merge-sorted-array/discuss/29503/Beautiful-Python-Solution): TC = O(m+n); SC = O(1)
+    # 2) Optimal (Reverse Traverse 👌 and Compare): TC = O(m+n); SC = O(1)
+    # https://leetcode.com/problems/merge-sorted-array/discuss/29503/Beautiful-Python-Solution
 
     while m > 0 and n > 0:
         num1, num2 = nums1[m-1], nums2[n-1]

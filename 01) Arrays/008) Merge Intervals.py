@@ -6,7 +6,7 @@ https://leetcode.com/problems/merge-intervals
 def merge(intervals: list[list[int]]) -> list[list[int]]:
     """"""
 
-    # 0) Tried a different logic but Failed (Wrong Answer): TC = O(n^2); SC = O(n)
+    # 0) Tried a different logic but Failed (WRONG ANSWER): TC = O(n^2); SC = O(n)
     # Only and only due to following case: When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5,6]] :(
     # Following algorithm can't differentiate between the test cases [[1, 6]] and [[1, 4], [5,6]]
     # And returns the same output for the both.

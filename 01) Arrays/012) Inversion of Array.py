@@ -23,11 +23,11 @@ def inversionCount(arr: list[int], n: int) -> int:
     def get_count(array: list[int], length: int) -> int:
         count = 0
         if length > 1:
-            # Step1) Dividing:
+            # Step-1) Dividing:
             mid_index = length // 2
             left, right = array[:mid_index], array[mid_index:]
             count = get_count(array=left, length=mid_index) + get_count(array=right, length=length-mid_index)
-            # Step2) Merging:
+            # Step-2) Merging:
             i = j = 0
             while i < len(left) and j < len(right):
                 if left[i] <= right[j]:

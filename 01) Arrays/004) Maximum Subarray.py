@@ -20,7 +20,8 @@ def maxSubArray(nums: list[int]) -> int:
     return largest_sum
     """
 
-    # 1) https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm: TC = O(n); SC = O(1)
+    # 1) Kadane's Algorithm : TC = O(n); SC = O(1)
+    # https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm
 
     # The thought follows a simple rule:
     # If the sum of a sub-array is positive, it has possible to make the next value bigger, so we keep do it until it turn to negative.

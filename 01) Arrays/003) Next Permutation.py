@@ -8,7 +8,8 @@ def nextPermutation(nums: list[int]) -> None:
     Do not return anything, modify nums in-place instead.
     """
 
-    # 0) Brute-force (Generating all the permutations and then returning the "next permutation"): TC = O(n!); SC = O(n)
+    # 0) Brute-force (Generating all the permutations and then returning the "next permutation") (TLE): TC = O(n!); SC = O(n)
+    # Not coding this approach because it's just way too inefficient to accept as an approach at the first place.
 
     # 1) Correct but Redundant (I came up with this): TC = O(n^2); SC = O(n)
 

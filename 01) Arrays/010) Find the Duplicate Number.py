@@ -51,7 +51,7 @@ def findDuplicate(nums: list[int]) -> int:
 
     """
     n = len(nums) - 1
-    return sum(nums) - n * (n+1) // 2
+    return sum(nums) - n*(n+1)//2
     """
 
     # 3) Floyd's Cycle Detection Algo: TC = O(n); SC = O(1)
