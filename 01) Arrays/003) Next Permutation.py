@@ -3,10 +3,7 @@ https://leetcode.com/problems/next-permutation
 """
 
 
-from typing import List
-
-
-def nextPermutation(nums: List[int]) -> None:
+def nextPermutation(nums: list[int]) -> None:
     """
     Do not return anything, modify nums in-place instead.
     """

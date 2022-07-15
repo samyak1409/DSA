@@ -3,10 +3,7 @@ https://leetcode.com/problems/merge-sorted-array
 """
 
 
-from typing import List
-
-
-def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     """Do not return anything, modify nums1 in-place instead."""
 
     # 0) Brute-force (Add nums2 to nums1[m:], sort num1): TC = O((m+n)*log(m+n)); SC = O(m+n)

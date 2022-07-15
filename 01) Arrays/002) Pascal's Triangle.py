@@ -3,10 +3,7 @@ https://leetcode.com/problems/pascals-triangle
 """
 
 
-from typing import List
-
-
-def generate(num_rows: int) -> List[List[int]]:
+def generate(num_rows: int) -> list[list[int]]:
     """"""
 
     # 1) Aam Zindagi: TC = O(n^2); SC = O(n) {because on any iteration we only require previous row in order to calc. the present row,

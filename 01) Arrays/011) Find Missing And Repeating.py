@@ -3,10 +3,7 @@ https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
 """
 
 
-from typing import List
-
-
-def findTwoElement(arr: List[int], n: int) -> List[int]:
+def findTwoElement(arr: list[int], n: int) -> list[int]:
     """"""
 
     # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)

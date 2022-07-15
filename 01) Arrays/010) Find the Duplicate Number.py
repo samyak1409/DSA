@@ -3,10 +3,7 @@ https://leetcode.com/problems/find-the-duplicate-number
 """
 
 
-from typing import List
-
-
-def findDuplicate(nums: List[int]) -> int:
+def findDuplicate(nums: list[int]) -> int:
     """You must solve the problem without modifying the array nums and uses only constant extra space."""
 
     # 0.1) Brute-force (Sort and Traverse): TC = O(n*log(n)); SC = O(n)

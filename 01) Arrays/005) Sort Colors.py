@@ -3,10 +3,7 @@ https://leetcode.com/problems/sort-colors
 """
 
 
-from typing import List
-
-
-def sortColors(nums: List[int]) -> None:
+def sortColors(nums: list[int]) -> None:
     """
     Do not return anything, modify nums in-place instead.
     """

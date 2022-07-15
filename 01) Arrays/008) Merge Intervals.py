@@ -3,10 +3,7 @@ https://leetcode.com/problems/merge-intervals
 """
 
 
-from typing import List
-
-
-def merge(intervals: List[List[int]]) -> List[List[int]]:
+def merge(intervals: list[list[int]]) -> list[list[int]]:
     """"""
 
     # 0) Tried a different logic but Failed (Wrong Answer): TC = O(n^2); SC = O(n)

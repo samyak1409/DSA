@@ -3,10 +3,7 @@ https://leetcode.com/problems/maximum-subarray
 """
 
 
-from typing import List
-
-
-def maxSubArray(nums: List[int]) -> int:
+def maxSubArray(nums: list[int]) -> int:
     """"""
 
     # 0) Brute-force (Calculating sum of all the possible sub-arrays) (TLE): TC = O(n^2); SC = O(1)

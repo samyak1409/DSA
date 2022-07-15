@@ -3,10 +3,7 @@ https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 """
 
 
-from typing import List
-
-
-def inversionCount(arr: List[int], n: int) -> int:
+def inversionCount(arr: list[int], n: int) -> int:
     """"""
 
     # 0) Brute-force (Two Loops) (TLE): TC = O(n^2); SC = O(1)

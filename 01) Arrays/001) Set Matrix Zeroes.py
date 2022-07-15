@@ -3,10 +3,7 @@ https://leetcode.com/problems/set-matrix-zeroes
 """
 
 
-from typing import List
-
-
-def setZeroes(matrix: List[List[int]]) -> None:
+def setZeroes(matrix: list[list[int]]) -> None:
     """
     Do not return anything, modify matrix in-place instead.
     """
