@@ -7,6 +7,7 @@ from typing import List
 
 
 def findTwoElement(arr: List[int], n: int) -> List[int]:
+    """"""
 
     # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
 

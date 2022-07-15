@@ -7,6 +7,7 @@ from typing import List
 
 
 def inversionCount(arr: List[int], n: int) -> int:
+    """"""
 
     # 0) Brute-force (Two Loops) (TLE): TC = O(n^2); SC = O(1)
 

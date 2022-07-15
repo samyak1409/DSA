@@ -7,6 +7,7 @@ from typing import List
 
 
 def merge(intervals: List[List[int]]) -> List[List[int]]:
+    """"""
 
     # 0) Tried a different logic but Failed (Wrong Answer): TC = O(n^2); SC = O(n)
     # Only and only due to following case: When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5,6]] :(

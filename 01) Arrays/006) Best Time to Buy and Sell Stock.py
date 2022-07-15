@@ -7,6 +7,7 @@ from typing import List
 
 
 def maxProfit(prices: List[int]) -> int:
+    """"""
 
     # 0) Brute-force (Calculating profits for all the combinations) (TLE): TC = O(n^2); SC = O(1)
 

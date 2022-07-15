@@ -7,6 +7,7 @@ from typing import List
 
 
 def generate(num_rows: int) -> List[List[int]]:
+    """"""
 
     # 1) Aam Zindagi: TC = O(n^2); SC = O(n) {because on any iteration we only require previous row in order to calc. the present row,
     #                                         and the other rows are just being saved for the purpose of returning the answer}
