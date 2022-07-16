@@ -31,7 +31,7 @@ def searchMatrix(matrix: list[list[int]], target: int) -> bool:
     low, high = 0, m*n - 1
     while low <= high:
         mid = (low+high) // 2
-        integer = matrix[mid // n][mid % n]
+        integer = matrix[mid // n][mid % n]  # easy
         if integer == target:
             return True
         elif integer < target:
