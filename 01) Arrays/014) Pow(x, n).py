@@ -21,7 +21,7 @@ def myPow(x: float, n: int) -> float:
     return math.pow(x, n)
     """
 
-    # 0) Brute-force (Using Loop) (TLE): TC = O(n); SC = O(1)
+    # 0) (TLE) Brute-force (Using Loop): TC = O(n); SC = O(1)
 
     """
     ans = 1

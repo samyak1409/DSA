@@ -42,7 +42,7 @@ def findDuplicate(nums: list[int]) -> int:
         # print(nums)  #debugging
     """
 
-    # 2) Maths (Sum of n terms) (WRONG ANSWER): TC = O(n); SC = O(1)
+    # 2) (WA) Maths (Sum of n terms): TC = O(n); SC = O(1)
     # WA because nums can be = [2, 2, 2, 2, 2]
     # "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive."
     # doesn't mean array will have all numbers from 1 to n and 1 number from the range repeating,

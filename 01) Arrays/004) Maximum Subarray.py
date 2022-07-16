@@ -6,7 +6,7 @@ https://leetcode.com/problems/maximum-subarray
 def maxSubArray(nums: list[int]) -> int:
     """"""
 
-    # 0) Brute-force (Calculating sum of all the possible sub-arrays) (TLE): TC = O(n^2); SC = O(1)
+    # 0) (TLE) Brute-force (Calculating sum of all the possible sub-arrays): TC = O(n^2); SC = O(1)
 
     """
     n = len(nums)

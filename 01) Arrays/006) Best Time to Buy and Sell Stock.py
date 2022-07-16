@@ -6,7 +6,7 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock
 def maxProfit(prices: list[int]) -> int:
     """"""
 
-    # 0) Brute-force (Calculating profits for all the combinations) (TLE): TC = O(n^2); SC = O(1)
+    # 0) (TLE) Brute-force (Calculating profits for all the combinations): TC = O(n^2); SC = O(1)
 
     """
     n = len(prices)
