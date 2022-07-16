@@ -14,3 +14,44 @@ What is SDE Sheet?
 - Clean Codes ([PEP 8](https://www.python.org/dev/peps/pep-0008) ✅)
 - Readability (Good [Naming Convention](https://en.wikipedia.org/wiki/Naming_convention_(programming))) 👌
 - [Complexity](https://en.wikipedia.org/wiki/Computational_complexity) Analysis 🕐
+
+
+## Template
+
+- Directory: `XX) Topic Name`
+  - File: `XXX) Problem Name.py`
+    - Content: 
+
+```py
+"""
+Question URL
+"""
+
+
+def function(arg: type) -> type:
+    """"""
+
+    # 0) Brute-force (Technique Used): TC = O(n); SC = O(n)
+    # (Optional) Any Helpful Link
+    # (Optional) Intuition
+
+    """
+    PEP 8 Code with Explanatory Comments
+    """
+
+    # 1) Better (Technique Used): TC = O(n); SC = O(n)
+    # (Optional) Any Helpful Link
+    # (Optional) Intuition
+
+    """
+    PEP 8 Code with Explanatory Comments
+    """
+
+    # 2) Optimal (Technique Used): TC = O(n); SC = O(n)
+    # (Optional) Any Helpful Link
+    # (Optional) Intuition
+
+    ans = arg  # explanation if required
+    return ans  # explanation if required
+
+```
