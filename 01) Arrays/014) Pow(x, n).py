@@ -25,9 +25,7 @@ def myPow(x: float, n: int) -> float:
 
     """
     if n < 0:  # n can also be negative, making positive in order to proceed with the algo
-        # (x ^ -n = x^-1 ^ n = 1/x ^ n = 1/x * 1/x * 1/x ... n times)
-        x = 1 / x
-        n *= -1
+        x, n = 1/x, -n  # (x ^ -n = x^-1 ^ n = 1/x ^ n = 1/x * 1/x * 1/x ... n times)
 
     ans = 1
     for _ in range(n):
@@ -35,20 +33,20 @@ def myPow(x: float, n: int) -> float:
     return ans
     """
 
-    # 1) Optimal (Using Power Property): TC = O(log(n)); SC = O(1)
+    # 1) Optimal (By me; correct logic but bad implementation) (Using Power Property): TC = O(log(n)); SC = O(1)
     # Property: x^(2y) = (x^y)^2
     # So e.g. if n = 4, we won't calc. x * x * x * x, but
     # 1) product = x * x
     # 2) ans = product * product
     # Great! No. of operations reduced from n to log(n).
+    # e.g. if n = 4294967296 (2^32); log(n) = 32 only!
 
+    """
     if n == 0:  # edge case
         return 1
 
     if n < 0:  # n can also be negative, making positive in order to proceed with the algo
-        # (x ^ -n = x^-1 ^ n = 1/x ^ n)
-        x = 1 / x
-        n *= -1
+        x, n = 1/x, -n  # (x ^ -n = x^-1 ^ n = 1/x ^ n)
 
     if n == 1:  # min power required for this algo = 2
         return x
@@ -69,3 +67,60 @@ def myPow(x: float, n: int) -> float:
     if power_left == 1:
         ans *= x  # e.g. if n = 3; above loop will run only 1 time and power_left = 1
     return ans
+    """
+
+    # 2) Optimal (Exponentiation by Squaring) (Same logic as mine, but well implemented): TC = O(log(n)); SC = O(1)
+    # Also known as Square-and-Multiply Algorithm or Binary Exponentiation
+    # https://en.wikipedia.org/wiki/Exponentiation_by_squaring
+
+    # 2.1) Iterative:
+    # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
+
+    """
+    if n < 0:  # handling negative power
+        x, n = 1/x, -n  # update values
+
+    ans = 1
+    while n != 0:
+        if n % 2 == 0:  # power even
+            x *= x  # square
+            n //= 2
+        else:  # power odd
+            ans *= x  # multiply
+            x *= x  # square
+            n -= 1
+            n //= 2
+    return ans
+    """
+    # In short:
+    """
+    if n < 0:  # handling negative power
+        x, n = 1/x, -n  # update values
+
+    ans = 1
+    while n:  # while n != 0
+        if n & 1:  # if n % 2 == 1 (if n is odd)
+            ans *= x  # multiply
+            n -= 1
+        x *= x  # square
+        n >>= 1  # n //= 2
+    return ans
+    """
+
+    # 2.2) Recursive (Easiest):
+    # https://leetcode.com/problems/powx-n/discuss/19546/Short-and-easy-to-understand-solution
+    # https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Recursive_version
+    # The method is based on the observation that, for a positive integer n, one has
+    #         (x^2) ^ (n/2), if n is even
+    # x ^ n =
+    #         x * {(x^2) ^ [(n-1)/2]}, if n is odd
+    # (https://wikimedia.org/api/rest_v1/media/math/render/svg/46fe9e68c70c04df4c3d22c469a57d4655b50539)
+
+    if n < 0:  # handling negative power
+        x, n = 1/x, -n  # update values
+
+    if n == 0:  # base case
+        return 1  # recurse out
+
+    return myPow(x*x, n//2) if (n % 2 == 0) else x * myPow(x*x, (n-1)//2)  # recurse in
+    # note: change "myPow" above to "self.myPow" for running inside class
