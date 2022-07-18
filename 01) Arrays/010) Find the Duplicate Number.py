@@ -27,7 +27,7 @@ def findDuplicate(nums: list[int]) -> int:
         hash_set.add(num)  # SC = O(n)
     """
 
-    # 1) Negating Numbers: TC = O(n); SC = O(1)
+    # 1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
     # Note: This algorithm modifies the array temporarily.
 
     """
@@ -42,8 +42,8 @@ def findDuplicate(nums: list[int]) -> int:
         # print(nums)  #debugging
     """
 
-    # 2) (WA) Maths (Sum of n terms): TC = O(n); SC = O(1)
-    # WA because nums can be = [2, 2, 2, 2, 2]
+    # 2) (WA) Maths: Sum of n terms: TC = O(n); SC = O(1)
+    # Because nums can be = [2, 2, 2, 2, 2]
     # "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive."
     # doesn't mean array will have all numbers from 1 to n and 1 number from the range repeating,
     # but means if the array has n + 1 numbers, every number will be between 1 and n!!
@@ -54,7 +54,7 @@ def findDuplicate(nums: list[int]) -> int:
     return sum(nums) - n*(n+1)//2
     """
 
-    # 3) Floyd's Cycle Detection Algo: TC = O(n); SC = O(1)
+    # 3) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
     # Cycle will be there for sure as the array contain duplicate for sure; we have to find the start point of cycle,
     # because start point will be the duplicate only for sure
 

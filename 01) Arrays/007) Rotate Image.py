@@ -19,7 +19,7 @@ def rotate(matrix: list[list[int]]) -> None:
             matrix[j][-i-1] = matrix_copy[i][j]
     """
 
-    # 1) Transpose & Mirror (Y-axis): TC = O(n^2); SC = O(1)
+    # 1) Optimal (Transpose & Mirror (Y-axis)): TC = O(n^2); SC = O(1)
     # Intuition: We can observe that, the first row of the output matrix is just the reverse of the first column of input matrix, and so on.
 
     n = len(matrix)

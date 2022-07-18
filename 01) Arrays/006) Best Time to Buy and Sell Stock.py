@@ -19,7 +19,7 @@ def maxProfit(prices: list[int]) -> int:
     return max_profit
     """
 
-    # 1) Kadane's Algo: TC = O(n); SC = O(1)
+    # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
 
     cost_price = prices[0]  # initialization
     max_profit = 0

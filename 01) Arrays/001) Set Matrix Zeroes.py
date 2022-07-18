@@ -29,7 +29,7 @@ def setZeroes(matrix: list[list[int]]) -> None:
             matrix[index][j] = 0
     """
 
-    # 1) Temporarily changing the values to a placeholder value: TC = O(m*n*(m+n)); SC = O(1)
+    # 1) Space-Optimal Brute-force (Temporarily changing the values to a placeholder value): TC = O(m*n*(m+n)); SC = O(1)
 
     """
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
@@ -53,7 +53,7 @@ def setZeroes(matrix: list[list[int]]) -> None:
                 matrix[i][j] = 0
     """
 
-    # 2) Using row & column arrays for/and marking 0s: TC = O(m*n); SC = O(m+n)
+    # 2) Better (Using row & column arrays for/and marking 0s): TC = O(m*n); SC = O(m+n)
 
     """
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
@@ -72,7 +72,7 @@ def setZeroes(matrix: list[list[int]]) -> None:
                 matrix[i][j] = 0
     """
 
-    # 3) Best (Same logic as above, just using the first row & column of the matrix itself): TC = O(m*n); SC = O(1)
+    # 3) Optimal (Same logic as above, just using the first row & column of the matrix itself): TC = O(m*n); SC = O(1)
     # the main trick in this algo (which allows solution in O(1) space):
     # saving whether the rows/columns need to be set to 0s in the first row & column of the matrix,
     # to be more accurate, first cell of every row/column which needs to be set to 0

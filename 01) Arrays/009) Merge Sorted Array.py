@@ -55,12 +55,12 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     temp_arr.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
     nums1[:], nums2[:] = temp_arr  # IMP: "[:]" (not creating a new object (i.e. new memory address) but modifying it only); TC = O(m+n)
     """
-    # In-short:
+    # In short:
     """
     nums1[:], nums2[:] = sorted(nums1+nums2)
     """
 
-    # 1.1) Time Optimal (Same intuition as above "1)": Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
+    # 1.1) Time-Optimal (Same intuition as above "1)": Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
     # When the nums1 & nums2 are sorted why just not benefit from this and not sort the summed array and make the TC go from O((m+n)*log(m+n)) to O(m+n).
 
     """
@@ -79,7 +79,7 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
     """
 
-    # 1.2) Space Optimal (Gap Algo): TC = O((m+n)*log(m+n)); SC = O(1)
+    # 1.2) Space-Optimal (Gap Algo): TC = O((m+n)*log(m+n)); SC = O(1)
 
     """
     from math import ceil

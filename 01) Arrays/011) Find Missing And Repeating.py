@@ -54,7 +54,7 @@ def findTwoElement(arr: list[int], n: int) -> list[int]:
     return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
     """
 
-    # 1) Negating Numbers: TC = O(n); SC = O(1)
+    # 1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
 
     """
     repeating = None
@@ -73,9 +73,9 @@ def findTwoElement(arr: list[int], n: int) -> list[int]:
     return [repeating, missing]
     """
 
-    # 2) Maths (Sum of n and n^2 terms): TC = O(n); SC = O(1)
+    # 2) Optimal (Maths: Sum of n and n^2 terms): TC = O(n); SC = O(1)
 
-    # In Short:
+    # In short:
     """
     x = n*(n+1)//2 - sum(arr)
     y = ((n*(n+1)*(2*n+1)//6)-(sum(map(lambda term: term**2, arr)))) // x

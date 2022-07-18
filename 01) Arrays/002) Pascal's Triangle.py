@@ -6,8 +6,8 @@ https://leetcode.com/problems/pascals-triangle
 def generate(num_rows: int) -> list[list[int]]:
     """"""
 
-    # 1) Aam Zindagi: TC = O(n^2); SC = O(n) {because on any iteration we only require previous row in order to calc. the present row,
-    #                                         and the other rows are just being saved for the purpose of returning the answer}
+    # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n) {because on any iteration we only require previous row
+    # in order to calc. the present row, and the other rows are just being saved for the purpose of returning the answer}
 
     """
     ans = [[1]]  # initialization
@@ -20,23 +20,21 @@ def generate(num_rows: int) -> list[list[int]]:
     return ans
     """
 
-    # 2) Mentos Zindagi https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map: TC = O(n^2); SC = O(n) {because
-    # on any iteration we only require previous row in order to calc. the present row, and the other rows are just being saved for the purpose of returning the answer}
-
-    """
-    Explanation: Any row can be constructed using the offset sum of the previous row.
-    
-    Example:
-              1 3 3 1  
-            +   1 3 3 1
-            = 1 4 6 4 1
-    """
+    # 2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n) {because on any iteration we only require previous row
+    # in order to calc. the present row, and the other rows are just being saved for the purpose of returning the answer}
+    # https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map
+    # Explanation: Any row can be constructed using the offset sum of the previous row. Example:
+    #                                                                                             1 3 3 1
+    #                                                                                           +   1 3 3 1
+    #                                                                                           = 1 4 6 4 1
 
     ans = [[1]]
     for _ in range(num_rows-1):
         ans.append([x+y for x, y in zip([0]+ans[-1], ans[-1]+[0])])  # using list comprehension
         # ans.append(list(map(lambda x, y: x+y, [0]+ans[-1], ans[-1]+[0])))  # using lambda function
     return ans
+
+    ####################################################################################################################
 
     # NOTE: Two other variations of this question can also be asked in the interview (https://youtu.be/6FLvhQjZqvM):
 
@@ -46,9 +44,9 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                                          1   3   3   1      -> 4
     # Solution:                                              1   4   6   4   1    -> 5
     #
-    # Approach 0) Using the default method (sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
+    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
     #
-    # Approach 1) Can be easily calculated using combinations formula C(m-1, n-1): TC = O(n) {because combinations contain factorial, which is O(n)}; SC = O(1)
+    # Approach 1) Optimal (Can be easily calculated using combinations formula C(m-1, n-1)): TC = O(n) {because combinations contain factorial, which is O(n)}; SC = O(1)
     #
     #             C(m-1, n-1) = (m-1)! / {(n-1)! * [(m-1)-(n-1)]!} = (m-1)! / [(n-1)! * (m-n)!]
     #             Let i = m-1; j = n-1 => Formula = C(i, j) = i! / [j! * (i-j)!]
@@ -67,11 +65,11 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                  1   3   3   1      -> 4
     # Solution:                      1   4   6   4   1    -> 5
     #
-    # Approach 0) Using the default method (sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
+    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
     #
-    # Approach 1) Using combinations formula C(m-1, n-1): TC = O(n^2) {nCr for n items of a row}; SC = O(1)
+    # Approach 1) Better (Using combinations formula C(m-1, n-1)): TC = O(n^2) {nCr for n items of a row}; SC = O(1)
     #
-    # Approach 2) Using pattern observed from combinations formula C(m-1, n-1): TC = O(n); SC = O(1)
+    # Approach 2) Optimal (Using pattern observed from combinations formula C(m-1, n-1)): TC = O(n); SC = O(1)
     #
     #             Let's take a look when we apply combinations formula on an entire row, let's take m = 7, (n = [1, 2, 3, 4, 5, 6, 7])
     #             C(6, 0) = 6! / [0! * (6-0)!]                             = 1   (directly 1 (initialization))

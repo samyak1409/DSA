@@ -11,7 +11,7 @@ def nextPermutation(nums: list[int]) -> None:
     # 0) (TLE) Brute-force (Generating all the permutations and then returning the "next permutation"): TC = O(n!); SC = O(n)
     # Not coding this approach because it's just way too inefficient to accept as an approach at the first place.
 
-    # 1) Correct but Redundant (I came up with this): TC = O(n^2); SC = O(n)
+    # 1) Better (I came up with this, Correct but Redundant): TC = O(n^2); SC = O(n)
 
     """
     from bisect import insort  # for a (throughout) sorted array
@@ -33,7 +33,7 @@ def nextPermutation(nums: list[int]) -> None:
     # ("While the next permutation of arr = [3,2,1] is [1,2,3] because [3,2,1] does not have a lexicographical larger rearrangement.")
     """
 
-    # 2) Correct and Efficient (From official solution, mine approach is doing the same thing though, but not efficiently): TC = O(n); SC = O(1)
+    # 2) Optimal (From official solution, mine approach is doing the same thing though, but not efficiently): TC = O(n); SC = O(1)
     # https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
 
     for i in range(len(nums)-1):  # finding first decreasing element (iterating from right to left)
