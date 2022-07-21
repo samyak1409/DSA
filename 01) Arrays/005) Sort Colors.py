@@ -18,7 +18,6 @@ def sortColors(nums: list[int]) -> None:
 
     """
     from collections import Counter
-
     n = Counter(nums)  # TC = O(n); SC = O(1)
     # print(n)  #debugging
 

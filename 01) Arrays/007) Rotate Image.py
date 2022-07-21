@@ -12,6 +12,7 @@ def rotate(matrix: list[list[int]]) -> None:
 
     """
     from copy import deepcopy
+
     n = len(matrix)
     matrix_copy = deepcopy(matrix)  # you should know what deepcopy is for 😁
     for i in range(n):
