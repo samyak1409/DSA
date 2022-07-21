@@ -6,8 +6,8 @@ https://leetcode.com/problems/majority-element
 def majorityElement(nums: list[int]) -> int:
     """"""
 
-    # 0.1) Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
-    # "element appears more than ⌊n / 2⌋ times" => count(x) > floor(n/2), so we can simply traverse the array to find the element.
+    # 0.1) (TLE) Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
+    # "element appears more than ⌊n / 2⌋ times" => count(x) > n//2, so we can simply traverse the array to find the element.
 
     """
     n = len(nums)
@@ -18,7 +18,7 @@ def majorityElement(nums: list[int]) -> int:
 
     # 0.3) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
     # Intuition: If an element x appears more than ⌊n / 2⌋ times (i.e. n >= count(x) > floor(n/2)),
-    # then in sorted(nums), it'll be always present at position = floor(n/2)+1, i.e. index = floor(n/2)
+    # then in sorted(nums), it'll be always present at position = n//2 + 1, i.e. index = n//2
 
     """
     return sorted(nums)[len(nums)//2]
@@ -41,8 +41,19 @@ def majorityElement(nums: list[int]) -> int:
         if count[num] > n//2:
             return num
     """
+    # Better:
+    """
+    from collections import Counter
+    count = Counter()
+    n = len(nums)
+    for num in nums:
+        count[num] += 1
+        if count[num] > n//2:
+            return num
+    """
 
     # 1) Better (Randomization): TC = Worst: O(inf); Average/Best: O(n); SC = O(1)
+    # Probability(choosing the majority element) > ~1/2
     # https://leetcode.com/problems/majority-element/solution
 
     """
@@ -72,7 +83,7 @@ def majorityElement(nums: list[int]) -> int:
                 major, relative_votes = num, 1
     return major  # ans.
     """
-    # or
+    # Or:
     major, relative_votes = None, 0  # initialization
     for num in nums:  # traverse
         if relative_votes == 0:  # change major
