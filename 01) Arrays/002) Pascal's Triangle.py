@@ -6,33 +6,35 @@ https://leetcode.com/problems/pascals-triangle
 def generate(num_rows: int) -> list[list[int]]:
     """"""
 
-    # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n) {because on any iteration we only require previous row
-    # in order to calc. the present row, and the other rows are just being saved for the purpose of returning the answer}
+    # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n)
 
     """
-    ans = [[1]]  # initialization
+    ans = [1]  # initialization
+    yield ans
     # Summation using a nested for loop:
     for i in range(num_rows-1):  # n-1 iterations ✔
-        ans.append([1])  # prefix 1
+        previous = ans
+        ans = [1]  # prefix 1
         for j in range(i):  # iteration range: [0, n-2] ✔
-            ans[i+1].append(ans[i][j]+ans[i][j+1])  # middle numbers
-        ans[i+1].append(1)  # suffix 1
-    return ans
+            ans.append(previous[j]+previous[j+1])  # middle numbers
+        ans.append(1)  # suffix 1
+        yield ans
     """
 
-    # 2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n) {because on any iteration we only require previous row
-    # in order to calc. the present row, and the other rows are just being saved for the purpose of returning the answer}
+    # 2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n)
     # https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map
     # Explanation: Any row can be constructed using the offset sum of the previous row. Example:
     #                                                                                             1 3 3 1
     #                                                                                           +   1 3 3 1
     #                                                                                           = 1 4 6 4 1
 
-    ans = [[1]]
+    ans = [1]  # initialization
+    yield ans
     for _ in range(num_rows-1):
-        ans.append([x+y for x, y in zip([0]+ans[-1], ans[-1]+[0])])  # using list comprehension
-        # ans.append(list(map(lambda x, y: x+y, [0]+ans[-1], ans[-1]+[0])))  # using lambda function
-    return ans
+        previous = ans
+        ans = [x+y for x, y in zip([0]+previous, previous+[0])]  # using list comprehension
+        # ans = list(map(lambda x, y: x+y, [0]+previous, previous+[0]))  # or using lambda function
+        yield ans
 
     ####################################################################################################################
 
