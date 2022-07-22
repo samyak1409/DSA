@@ -43,6 +43,7 @@ def majorityElement(nums: list[int]) -> list[int]:
     # Not working because we don't know how many majority elements will be there in the array (0/1/2)
     # So the loop will run infinitely, we don't know when to stop.
 
+    """
     from random import choice
 
     ans = []
@@ -55,3 +56,26 @@ def majorityElement(nums: list[int]) -> list[int]:
             if len(ans) == 2:  # if at any point after adding a majority element to the ans, len becomes 2, we can simply break, because we know no. of majority elements can't be > 2
                 break
     return ans
+    """
+
+    # 2) Optimal (Extended "Boyer-Moore Majority Voting Algorithm"): TC = O(n); SC = O(1)
+    # Check "Boyer-Moore Majority Voting Algorithm" @https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py
+    # Explanation of Extended "Boyer-Moore Majority Voting Algorithm": https://youtu.be/yDbkQd9t2ig?t=182
+
+    candidate1, candidate2, count1, count2 = None, None, 0, 0  # initialization
+    # taking two candidates only because at most only 2 majority elements can be there {Why? Because 1 <= n // [(n//3)+1] <= 2}
+    # 1st Pass (Assigning all the majority elements (at most 2) to "candidate1" & "candidate2"):
+    for num in nums:
+        if num == candidate1:
+            count1 += 1
+        elif num == candidate2:
+            count2 += 1
+        elif count1 == 0:
+            candidate1, count1 = num, 1
+        elif count2 == 0:
+            candidate2, count2 = num, 1
+        else:
+            count1, count2 = count1-1, count2-1
+    # 2nd Pass (When the array will contain no majority elements, then "candidate1" & "candidate2" will contain false positives
+    # which will be filtered out next):
+    return list(filter(lambda candidate: nums.count(candidate) > len(nums)//3, [candidate1, candidate2]))
