@@ -46,6 +46,7 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     # 2) Better (Sorting & Two-Pointers): TC = O(n*log(n)); SC = O(n)
     # https://leetcode.com/problems/two-sum/discuss/1378064/C%2B%2BJavaPython-HashMap-Two-pointers-Solutions-Clean-and-Concise#:~:text=%E2%9C%94%EF%B8%8F%20Solution%202%3A%20Sort%20then%20Two%20Pointers
 
+    """
     # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after sorting we'll lose original indices:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
@@ -61,3 +62,29 @@ def twoSum(nums: list[int], target: int) -> list[int]:
             low += 1  # considering next num (larger) in right
         else:  # if num1 + num2 > target => we want lesser sum
             high -= 1  # considering next num (smaller) in left
+    """
+
+    # 3) Optimal (HashMap): TC = O(n); SC = O(n)
+    # https://leetcode.com/problems/two-sum/solution
+    # https://youtu.be/dRUpbt8vHpo?t=150
+
+    """
+    # Storing all the nums in HashMap (for O(1) lookup) along with their indices (we need to return indices as answer):
+    hashmap = {num: index for index, num in enumerate(nums)}
+    # Taking every num one by one and checking for required_num2 in HashMap:
+    for index1, num1 in enumerate(nums):
+        index2 = hashmap.get(target-num1)  # target-num1 = required_num2
+        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; "index1" means num1 = num2
+            return [index1, index2]
+    """
+    # It turns out we can do it in one-pass:
+    # HashMap to store nums (for O(1) lookup) along with their indices (we need to return indices as answer):
+    hashmap = {}  # num: index
+    # Taking every num one by one and checking for required_num2 in HashMap:
+    for index1, num1 in enumerate(nums):
+        index2 = hashmap.get(target-num1)  # target-num1 = required_num2
+        if index2 is not None:
+            return [index1, index2]
+        hashmap[num1] = index1  # storing after checking so that we do not need to care about index2 == index1
+
+    # Did you notice that in this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in "0)", "1)" and "3)" respectively.
