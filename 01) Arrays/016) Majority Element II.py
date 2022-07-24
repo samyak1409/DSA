@@ -79,3 +79,5 @@ def majorityElement(nums: list[int]) -> list[int]:
     # 2nd Pass (When the array will contain no majority elements, then "candidate1" & "candidate2" will contain false positives
     # which will be filtered out next):
     return list(filter(lambda candidate: nums.count(candidate) > len(nums)//3, [candidate1, candidate2]))
+
+    # Give this a read too: https://leetcode.com/problems/majority-element-ii/discuss/63502/6-lines-general-case-O(N)-time-and-O(k)-space
