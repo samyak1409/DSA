@@ -56,6 +56,7 @@ def threeSum(nums: list[int]) -> list[list[int]]:
     """
     # Turns out that we can also just sort the input array and apply the above logic (without needing to sort the triplets): TC = O(n*log(n) + n^3); SC = O(n)
     # https://leetcode.com/problems/3sum/discuss/1363302#:~:text=Brute%20Force%20Solution
+    """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
@@ -68,6 +69,40 @@ def threeSum(nums: list[int]) -> list[list[int]]:
                     if triplet_tuple not in triplet_set:
                         yield triplet
                         triplet_set.add(triplet_tuple)
+    """
     # Why does this work?
     # Because if the input array is sorted, triplets will not form like [-1, 0, 1] & [0, 1, -1],
     # but like [-1, 0, 1] & [-1, 0, 1], i.e. by default sorted (i.e. in order)
+    # Since this sorting technique is more efficient than the previous one, will use this only in next approaches.
+
+    # 1) Optimal (3Sum -> Two Sums): TC = O(n^2); SC = O(n)
+    # 3Sum -> num1 + num2 + num3 = 0
+    #         => num2 + num3 = -num1
+    #         => -num1 = target
+    #         => num2 + num3 = target -> Two Sum
+
+    nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
+    n = len(nums)
+    triplet_set = set()  # for checking triplet's presence in O(1) time
+    for i in range(n):  # (for target in targets:)
+        num1 = nums[i]
+        if num1 > 0:  # optimization
+            break
+        target = -num1
+        hashset = set()  # for checking presence of required num in O(1) time
+        for j in range(i+1, n):  # starting from i+1 because already formed triplet with previous elements
+            num3 = nums[j]
+            num2 = target - num3  # num2 -> number added in hashset in previous iterations
+            if num2 in hashset:
+                triplet = [num1, num2, num3]
+                triplet_tuple = tuple(triplet)
+                if triplet_tuple not in triplet_set:
+                    yield triplet
+                    triplet_set.add(triplet_tuple)
+            hashset.add(num3)
+
+    # Similarly, we can apply other solutions of Two-Sum too to this problem (viz. Sorting & Binary Search; Sorting & Two-Pointers).
+    # https://leetcode.com/problems/3sum/discuss/1462423#:~:text=Two%20Pointer%20Approach%3A
+    # https://leetcode.com/problems/3sum/discuss/143636 (Two-Pointers)
+
+    # Also, checkout this different solution: https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated
