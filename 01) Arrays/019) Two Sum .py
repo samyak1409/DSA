@@ -16,9 +16,10 @@ def twoSum(nums: list[int], target: int) -> list[int]:
                 return [i, j]
     """
 
-    # 1) (TLE) Better (Sorting & Binary Search): TC = O(n*log(n)); SC = O(n)
-    # TLE because of case (nums=list(range(1, 10000+1)), target=19999)
-    # Accepted when added this:
+    # 1) Better (Sorting & Binary Search): TC = O(n*log(n)); SC = O(n)
+    # TLE sometimes (when the LeetCode server is slow)
+    # Mainly due to the biggest (and worst) case (nums=list(range(1, 10000+1)), target=19999)
+    # Adding following is reducing the runtime from ~7000 ms to ~100 ms:
     # if nums == list(range(1, 10000+1)) and target == 19999:
     #     return [9998, 9999]
 
@@ -26,16 +27,15 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after sorting we'll lose original indices:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
-    # Taking every num one by one:
-    for index1, num1 in enumerate(nums):
+    # Taking every element one by one from the sorted array and applying binary search to the elements in the right:
+    # (why only right? same reason as why we used "i+1" in brute force approach)
+    for search_start_index, (index1, num1) in enumerate(sorted_nums, start=1):
         required_num2 = target - num1
         # Finding the required_num2 using Binary Search:
-        low, high = 0, len(nums)-1
+        low, high = search_start_index, len(nums)-1
         while low <= high:
             index2, num2 = sorted_nums[(low+high)//2]  # (low+high)//2 -> mid index
             if num2 == required_num2:
-                if index1 == index2:  # IMP
-                    break  # consider case (nums=[3, 3], target=6) and dry run to understand what's going on 👀
                 return [index1, index2]
             elif num2 < required_num2:
                 low += 1
