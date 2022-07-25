@@ -54,7 +54,7 @@ def threeSum(nums: list[int]) -> list[list[int]]:
                         yield triplet
                         triplet_set.add(sorted_triplet_tuple)
     """
-    # Turns out that we can also just sort the input array and apply the above logic (without needing to sort the triplets): TC = O(n*log(n) + n^3); SC = O(n)
+    # Turns out that we can also just sort the input array and apply the above logic (without needing to sort the triplets): TC = O(n*log(n) + n^3); SC = O(n+n)
     # https://leetcode.com/problems/3sum/discuss/1363302#:~:text=Brute%20Force%20Solution
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
@@ -81,6 +81,8 @@ def threeSum(nums: list[int]) -> list[list[int]]:
     #         => -num1 = target
     #         => num2 + num3 = target -> Two Sum
 
+    # 1.1) HashMap: TC = O(n*log(n) + n^2); SC = O(n+n)
+
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
@@ -89,6 +91,7 @@ def threeSum(nums: list[int]) -> list[list[int]]:
         if num1 > 0:  # optimization
             break
         target = -num1
+        # Now https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L67
         hashset = set()  # for checking presence of required num in O(1) time
         for j in range(i+1, n):  # starting from i+1 because already formed triplet with previous elements
             num3 = nums[j]
@@ -101,8 +104,9 @@ def threeSum(nums: list[int]) -> list[list[int]]:
                     triplet_set.add(triplet_tuple)
             hashset.add(num3)
 
-    # Similarly, we can apply other solutions of Two-Sum too to this problem (viz. Sorting & Binary Search; Sorting & Two-Pointers).
+    # 1.2) Sorting & Two-Pointers: TC = O(n*log(n) + n^2); SC = O(n+n)
+    # Same technique: 3Sum -> Two Sums and then https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L46
     # https://leetcode.com/problems/3sum/discuss/1462423#:~:text=Two%20Pointer%20Approach%3A
-    # https://leetcode.com/problems/3sum/discuss/143636 (Two-Pointers)
+    # https://leetcode.com/problems/3sum/discuss/143636
 
-    # Also, checkout this different solution: https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated
+    # Also, checkout this DIFFERENT solution: https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated

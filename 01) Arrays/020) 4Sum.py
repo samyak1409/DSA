@@ -23,7 +23,7 @@ def fourSum(nums: list[int], target: int) -> list[list[int]]:
     #     Output: [[2,2,2,2]]
     #     Explanation:
     #     The only unique quadruplet is [2,2,2,2].
-    # We will keep track of the quadruplets already added to the answer set and will not consider any quadruplet again: TC = O(n*log(n) + n^4); SC = O(n)
+    # We will keep track of the quadruplets already added to the answer set and will not consider any quadruplet again: TC = O(n*log(n) + n^4); SC = O(n+n)
     # IMP: Checkout https://github.com/samyak1409/DSA/blob/07a6d0d0d6a232f151c2306d7971414a51ac830c/01%29%20Arrays/020%29%203Sum.py#L9
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
