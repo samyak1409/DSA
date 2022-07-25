@@ -79,7 +79,7 @@ def uniquePaths(m: int, n: int) -> int:
 
     # 2) Better (DP): TC = O(m*n); SC = O(m*n)
     # https://leetcode.com/problems/unique-paths/discuss/22954/C%2B%2B-DP
-    # https://leetcode.com/problems/unique-paths/discuss/1581998/C%2B%2BPython-5-Simple-Solutions-w-Explanation-or-Optimization-from-Brute-Force-to-DP-to-Math#:~:text=%E2%9C%94%EF%B8%8F%20Solution%20%2D%20III%20(Dynamic%20Programming%20%2D%20Tabulation)
+    # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20III%20(Dynamic%20Programming%20%2D%20Tabulation)
 
     # 3) Optimal (Maths): TC = O(min(m, n)); SC = O(1)
     # https://youtu.be/t_f0nwwdg5o?t=817
@@ -90,7 +90,7 @@ def uniquePaths(m: int, n: int) -> int:
     # Since we need an (m+n-2) number of steps to reach the end among those steps if we choose (m-1) downward direction or (n-1) rightward direction
     # and calculate the combinations (i.e.: C(m+n-2, m-1) or C(m+n-2, n-1)) we’ll get the total number of paths.
     # https://leetcode.com/problems/unique-paths/discuss/22958/Math-solution-O(1)-space
-    # https://leetcode.com/problems/unique-paths/discuss/1581998/C%2B%2BPython-5-Simple-Solutions-w-Explanation-or-Optimization-from-Brute-Force-to-DP-to-Math#:~:text=%E2%9C%94%EF%B8%8F%20Solution%20%2D%20V%20(Math)
+    # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20V%20(Math)
 
     """
     N = m + n - 2  # m-1 + n-1

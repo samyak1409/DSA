@@ -44,7 +44,7 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     """
 
     # 2) Better (Sorting & Two-Pointers): TC = O(n*log(n)); SC = O(n)
-    # https://leetcode.com/problems/two-sum/discuss/1378064/C%2B%2BJavaPython-HashMap-Two-pointers-Solutions-Clean-and-Concise#:~:text=%E2%9C%94%EF%B8%8F%20Solution%202%3A%20Sort%20then%20Two%20Pointers
+    # https://leetcode.com/problems/two-sum/discuss/1378064#:~:text=Solution%202%3A%20Sort%20then%20Two%20Pointers
 
     """
     # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after sorting we'll lose original indices:
