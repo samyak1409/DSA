@@ -45,8 +45,8 @@ def findDuplicate(nums: list[int]) -> int:
     # 2) (WA) Maths: Sum of n terms: TC = O(n); SC = O(1)
     # Because nums can be = [2, 2, 2, 2, 2]
     # "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive."
-    # doesn't mean array will have all numbers from 1 to n and 1 number from the range repeating,
-    # but means if the array has n + 1 numbers, every number will be between 1 and n!!
+    # doesn't mean array will have all numbers from 1 to n, and 1 number from the range repeating,
+    # but means if the array has n + 1 numbers, every number will be between 1 and n (inclusive)!!
     # This was to clarify that array would never be = e.g. [2, 3, 3, 10]; => n+1 = 4 => n = 3; but 10 is not in the range [1, 3].
 
     """
@@ -54,7 +54,17 @@ def findDuplicate(nums: list[int]) -> int:
     return sum(nums) - n*(n+1)//2
     """
 
-    # 3) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
+    # 3) (WA) Bit Manipulation: Using XOR: TC = O(n); SC = O(1)
+    # Same reason as above.
+
+    """
+    ans = nums[0]
+    for i in range(1, len(nums)):
+        ans ^= nums[i] ^ i
+    return ans
+    """
+
+    # 4) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
     # Cycle will be there for sure as the array contain duplicate for sure; we have to find the start point of cycle,
     # because start point will be the duplicate only for sure
 
