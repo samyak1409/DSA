@@ -3,7 +3,7 @@ https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
 """
 
 
-def findTwoElement(arr: list[int], n: int) -> list[int]:
+def find_two_element(arr: list[int], n: int) -> list[int]:
     """"""
 
     # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
@@ -19,7 +19,8 @@ def findTwoElement(arr: list[int], n: int) -> list[int]:
     missing = 1  # starting from 1
     for i in range(n):  # finding missing number
         current = sorted_arr[i]
-        if current > missing:  # if at any point, "current" exceeds "missing" => "missing" is the number which didn't occur in arr
+        if current > missing:  # if at any point, "current" exceeds "missing" => "missing" is the number which didn't
+            # occur in arr
             break
         missing = current+1  # else missing = next number that should be
     return [repeating, missing]

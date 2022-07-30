@@ -3,10 +3,10 @@ https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 """
 
 
-def inversionCount(arr: list[int], n: int) -> int:
+def inversion_count(arr: list[int], n: int) -> int:
     """"""
 
-    # 0) (TLE) Brute-force (Two Loops): TC = O(n^2); SC = O(1)
+    # 0) [TLE] Brute-force (Two Loops): TC = O(n^2); SC = O(1)
 
     """
     count = 0
@@ -36,7 +36,8 @@ def inversionCount(arr: list[int], n: int) -> int:
                 else:
                     array[i+j] = right[j]
                     j += 1
-                    count += (len(left)-i)  # when element from right list (right[j]) is considered before all left[i:] => total len(left)-i inversions will be there (only for this particular right[j])
+                    count += (len(left)-i)  # when element from right list (right[j]) is considered before all left[i:]
+                    # => total len(left)-i inversions will be there (only for this particular right[j])
             array[i+j:] = left[i:] or right[j:]
         return count
 

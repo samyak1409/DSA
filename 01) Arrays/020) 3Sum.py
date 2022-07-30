@@ -3,10 +3,10 @@ https://leetcode.com/problems/3sum
 """
 
 
-def threeSum(nums: list[int]) -> list[list[int]]:
+def three_sum(nums: list[int]) -> list[list[int]]:
     """"""
 
-    # 0) (TLE) Brute-force (Nested Loops & HashMap): TC = O(n^3); SC = O(n)
+    # 0) [TLE] Brute-force (Nested Loops & HashMap): TC = O(n^3); SC = O(n)
 
     # Core Logic: TC = O(n^3); SC = O(1)
     """
@@ -26,7 +26,8 @@ def threeSum(nums: list[int]) -> list[list[int]]:
     #     nums[1] + nums[2] + nums[4] =   0  + 1 + (-1) = 0.
     #     THE DISTINCT TRIPLETS ARE [-1, 0, 1] AND [-1, -1, 2].
     #     Notice that the order of the output and the order of the triplets does not matter.
-    # We will keep track of the triplets already added to the answer set and will not consider any triplet again: TC = O(n^3 * 3*log(3)); SC = O(n)
+    # We will keep track of the triplets already added to the answer set and will not consider any triplet again:
+    # TC = O(n^3 * 3*log(3)); SC = O(n)
     """
     # from collections import Counter
 
@@ -47,14 +48,15 @@ def threeSum(nums: list[int]) -> list[list[int]]:
                         yield triplet
                         triplet_set.add(triplet_counter)
                     '''
-                    # It's the problem, instead, we can sort the triplet (time will be O(1) only because len(triplet) is 3),
-                    # and since the triplets will be ordered now, we can use tuples (i.e. ordered and immutable):
+                    # It's the problem, instead, we can sort the triplet (time will be O(1) only because len(triplet) is
+                    # 3), and since the triplets will be ordered now, we can use tuples (i.e. ordered and immutable):
                     sorted_triplet_tuple = tuple(sorted(triplet))
                     if sorted_triplet_tuple not in triplet_set:
                         yield triplet
                         triplet_set.add(sorted_triplet_tuple)
     """
-    # Turns out that we can also just sort the input array and apply the above logic (without needing to sort the triplets): TC = O(n*log(n) + n^3); SC = O(n+n)
+    # Turns out that we can also just sort the input array and apply the above logic (without needing to sort the
+    # triplets): TC = O(n*log(n) + n^3); SC = O(n+n)
     # https://leetcode.com/problems/3sum/discuss/1363302#:~:text=Brute%20Force%20Solution
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
@@ -91,7 +93,8 @@ def threeSum(nums: list[int]) -> list[list[int]]:
         if num1 > 0:  # optimization
             break
         target = -num1
-        # Now https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L67
+        # Now:
+        # https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L67
         hashset = set()  # for checking presence of required num in O(1) time
         for j in range(i+1, n):  # starting from i+1 because already formed triplet with previous elements
             num3 = nums[j]
@@ -105,8 +108,10 @@ def threeSum(nums: list[int]) -> list[list[int]]:
             hashset.add(num3)
 
     # 1.2) Sorting & Two-Pointers: TC = O(n*log(n) + n^2); SC = O(n+n)
-    # Same technique: 3Sum -> Two Sums and then https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L46
+    # Same technique: 3Sum -> Two Sums and then:
+    # https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L46
     # https://leetcode.com/problems/3sum/discuss/1462423#:~:text=Two%20Pointer%20Approach%3A
     # https://leetcode.com/problems/3sum/discuss/143636
 
-    # Also, checkout this DIFFERENT solution: https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated
+    # Also, checkout this DIFFERENT solution:
+    # https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated

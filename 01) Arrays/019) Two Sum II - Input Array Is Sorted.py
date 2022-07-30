@@ -3,15 +3,16 @@ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
 """
 
 
-def twoSum(numbers: list[int], target: int) -> list[int]:
+def two_sum(numbers: list[int], target: int) -> list[int]:
     """"""
 
-    # NOTE: All the following solutions are from https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+    # NOTE: All the following solutions are from
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
     # because this problem is just a subset of https://leetcode.com/problems/two-sum.
 
     # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51249/Python-different-solutions-(two-pointer-dictionary-binary-search).
 
-    # 0) (TLE) Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
+    # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
 
     """
     n = len(numbers)
@@ -21,7 +22,7 @@ def twoSum(numbers: list[int], target: int) -> list[int]:
                 return [i+1, j+1]
     """
 
-    # 1) (TLE) Better (Binary Search): TC = O(n*log(n)); SC = O(1)
+    # 1) [TLE] Better (Binary Search): TC = O(n*log(n)); SC = O(1)
 
     """
     n = len(numbers)

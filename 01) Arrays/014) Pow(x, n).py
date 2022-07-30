@@ -3,7 +3,7 @@ https://leetcode.com/problems/powx-n
 """
 
 
-def myPow(x: float, n: int) -> float:
+def my_pow(x: float, n: int) -> float:
     """"""
 
     # -1) Not Allowed (Using operator or built-in function): TC = O(log(n)); SC = O(1)
@@ -21,7 +21,7 @@ def myPow(x: float, n: int) -> float:
     return math.pow(x, n)
     """
 
-    # 0) (TLE) Brute-force (Using Loop): TC = O(n); SC = O(1)
+    # 0) [TLE] Brute-force (Using Loop): TC = O(n); SC = O(1)
 
     """
     if n < 0:  # n can also be negative, making positive in order to proceed with the algo
@@ -58,9 +58,10 @@ def myPow(x: float, n: int) -> float:
             product *= product  # applying the property x^(2y) = (x^y)^2
             current_terms *= 2  # double
             power_left = n-current_terms  # update power_left
-        else:  # e.g. if n = 23, after current_terms = 8, power_left = 15, next, 2*current_terms = 16 which is less than power_left,
-            # but we can observe that power_left (15) is very close to n (23) which seems like we have not much benefited from this method,
-            # so, we'll not jump on to linear multiplication but re-apply the method on 15!
+        else:  # e.g. if n = 23, after current_terms = 8, power_left = 15, next, 2*current_terms = 16 which is less than
+            # power_left, but we can observe that power_left (15) is very close to n (23) which seems like we have not
+            # much benefited from this method, so, we'll not jump on to linear multiplication but re-apply the method on
+            # 15!
             ans *= product  # saving product calculated till here
             n, product, current_terms = power_left, x, 1  # reset
     ans *= product  # product of last iteration
@@ -122,5 +123,5 @@ def myPow(x: float, n: int) -> float:
     if n == 0:  # base case
         return 1  # recurse out
 
-    return myPow(x*x, n//2) if (n % 2 == 0) else x * myPow(x*x, (n-1)//2)  # recurse in
-    # note: change "myPow" above to "self.myPow" for running inside class
+    return my_pow(x*x, n//2) if (n % 2 == 0) else x * my_pow(x*x, (n-1)//2)  # recurse in
+    # note: change "my_pow" above to "self.my_pow" for running inside class

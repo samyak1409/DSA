@@ -6,8 +6,9 @@ https://leetcode.com/problems/merge-intervals
 def merge(intervals: list[list[int]]) -> list[list[int]]:
     """"""
 
-    # 0) (WA) Tried a different logic but Failed: TC = O(n^2); SC = O(n)
-    # Only and only due to following case: When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5,6]] :(
+    # 0) [WA] Brute-force (Spilling the nums of all the intervals): TC = O(n^2); SC = O(n)
+    # Tried a different logic but failed only and only due to the following case:
+    # When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5,6]]
     # Following algorithm can't differentiate between the test cases [[1, 6]] and [[1, 4], [5,6]]
     # And returns the same output for the both.
 
@@ -43,5 +44,6 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
             previous[1] = max(previous[1], interval[1])  # merging
         else:
             yield previous  # adding the non-overlapping intervals to the output
-            previous = interval  # saving the current interval in order to check if it can be merged with the following interval
+            previous = interval  # saving the current interval in order to check if it can be merged with the
+            # following interval
     yield previous  # adding the last (overlapping/non-overlapping) interval to the output

@@ -3,10 +3,10 @@ https://leetcode.com/problems/maximum-subarray
 """
 
 
-def maxSubArray(nums: list[int]) -> int:
+def max_sub_array(nums: list[int]) -> int:
     """"""
 
-    # 0) (TLE) Brute-force (Calculating sum of all the possible sub-arrays): TC = O(n^2); SC = O(1)
+    # 0) [TLE] Brute-force (Calculating sum of all the possible sub-arrays): TC = O(n^2); SC = O(1)
 
     """
     n = len(nums)
@@ -23,11 +23,12 @@ def maxSubArray(nums: list[int]) -> int:
     # 1) Optimal (Kadane's Algorithm): TC = O(n); SC = O(1)
     # https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane%27s_algorithm
     # The thought follows a simple rule:
-    # If the sum of a sub-array is positive, it has possible to make the next value bigger, so we keep do it until it turn to negative.
+    # If the sum of a sub-array is positive, it has possible to make the next value bigger, so we keep do it until it
+    # turn to negative.
     # If the sum is negative, it has no use to the next element, so we break.
     # It is a game of sum, not the elements.
 
-    # 1.0) (WA) THIS VERSION OF THE ALGORITHM WILL RETURN 0 IF THE INPUT CONTAINS ALL NEGATIVE ELEMENTS:
+    # 1.0) [WA] This version of the algorithm will return 0 if the input contained all negative elements:
     """
     current_sum = largest_sum = 0
     for num in nums:
@@ -36,7 +37,8 @@ def maxSubArray(nums: list[int]) -> int:
             if current_sum > largest_sum:
                 largest_sum = current_sum
         else:
-            current_sum = 0  # reset, because we didn't consider num (because it was making the sum go negative), so the array is no more contiguous
+            current_sum = 0  # reset, because we didn't consider num (because it was making the sum go negative), so the
+            # array is no more contiguous
     return largest_sum
     """
     # (Same Algo:)
@@ -48,7 +50,7 @@ def maxSubArray(nums: list[int]) -> int:
     return largest_sum
     """
 
-    # 1.1) An extension to "1.0)", handling "the input contains all negative elements" case explicitly (ACCEPTED):
+    # 1.1) An extension to "1.0)", handling "the input contains all negative elements" case explicitly (Accepted):
     """
     largest_element = max(nums)
     if largest_element < 0:
@@ -56,7 +58,7 @@ def maxSubArray(nums: list[int]) -> int:
     # And then same code as "1.0)".
     """
 
-    # 1.2) Correct but modifies the array (which can be avoided):
+    # 1.2) Correct but modifies the array and takes 2 passes (which can be avoided):
     """
     for i in range(len(nums)-1):
         if nums[i] > 0:

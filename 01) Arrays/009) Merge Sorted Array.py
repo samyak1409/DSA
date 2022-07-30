@@ -46,14 +46,16 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     ####################################################################################################################
 
     # ALSO, the same question with a little variation (https://youtu.be/hVl2b3bLzBw)
-    # If "To accommodate this, nums1 has a length of m + n" is not the case, and nums1 & nums2 has really the length m & n respectively.
+    # If "To accommodate this, nums1 has a length of m + n" is not the case, and nums1 & nums2 has really the length
+    # m & n respectively.
 
     # 0) Brute-force (Same intuition as above "0)"): TC = O((m+n)*log(m+n)); SC = O(m+n)
 
     """
     temp_arr = nums1 + nums2  # TC = SC = O(m+n)
     temp_arr.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
-    nums1[:], nums2[:] = temp_arr  # IMP: "[:]" (not creating a new object (i.e. new memory address) but modifying it only); TC = O(m+n)
+    nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
+    # IMP: "[:]" (not creating a new object (i.e. new memory address) but modifying it only)
     """
     # In short:
     """
@@ -61,7 +63,8 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     """
 
     # 1.1) Time-Optimal (Same intuition as above "1)": Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
-    # When the nums1 & nums2 are sorted why just not benefit from this and not sort the summed array and make the TC go from O((m+n)*log(m+n)) to O(m+n).
+    # When the nums1 & nums2 are sorted why just not benefit from this and not sort the summed array and make the TC go
+    # from O((m+n)*log(m+n)) to O(m+n).
 
     """
     # TC = SC = O(m+n) for following 11 lines:

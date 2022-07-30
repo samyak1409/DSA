@@ -46,9 +46,11 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                                          1   3   3   1      -> 4
     # Solution:                                              1   4   6   4   1    -> 5
     #
-    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
+    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2);
+    #                                                                                               SC = O(n)
     #
-    # Approach 1) Optimal (Can be easily calculated using combinations formula C(m-1, n-1)): TC = O(n) {because combinations contain factorial, which is O(n)}; SC = O(1)
+    # Approach 1) Optimal (Can be easily calculated using combinations formula C(m-1, n-1)):
+    #             TC = O(n) {because combinations contain factorial, which is O(n)}; SC = O(1)
     #
     #             C(m-1, n-1) = (m-1)! / {(n-1)! * [(m-1)-(n-1)]!} = (m-1)! / [(n-1)! * (m-n)!]
     #             Let i = m-1; j = n-1 => Formula = C(i, j) = i! / [j! * (i-j)!]
@@ -67,13 +69,15 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                  1   3   3   1      -> 4
     # Solution:                      1   4   6   4   1    -> 5
     #
-    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
+    # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2);
+    #                                                                                               SC = O(n)
     #
     # Approach 1) Better (Using combinations formula C(m-1, n-1)): TC = O(n^2) {nCr for n items of a row}; SC = O(1)
     #
     # Approach 2) Optimal (Using pattern observed from combinations formula C(m-1, n-1)): TC = O(n); SC = O(1)
     #
-    #             Let's take a look when we apply combinations formula on an entire row, let's take m = 7, (n = [1, 2, 3, 4, 5, 6, 7])
+    #             Let's take a look when we apply combinations formula on an entire row,
+    #             let's take m = 7, (n = [1, 2, 3, 4, 5, 6, 7])
     #             C(6, 0) = 6! / [0! * (6-0)!]                             = 1   (directly 1 (initialization))
     #             C(6, 1) = 6! / [1! * (6-1)!] =           6 / 1           = 6   (next = previous*6/1 =  1*6/1 = 6)
     #             C(6, 2) = 6! / [2! * (6-2)!] =         6*5 / 2*1         = 15  (next = previous*5/2 =  6*5/2 = 15)
@@ -84,4 +88,5 @@ def generate(num_rows: int) -> list[list[int]]:
     #
     #             Hence, we got the pattern which can be easily programmed with O(n) time.
 
-    # INTERESTINGLY: Using this approach for the main question (building full Pascal Triangle), will reduce its SC from O(n) to O(1)!
+    # INTERESTINGLY: Using this approach for the main question (building full Pascal Triangle),
+    #                will reduce its SC from O(n) to O(1)!

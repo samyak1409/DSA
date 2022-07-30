@@ -3,12 +3,13 @@ https://leetcode.com/problems/sort-colors
 """
 
 
-def sortColors(nums: list[int]) -> None:
+def sort_colors(nums: list[int]) -> None:
     """
     Do not return anything, modify nums in-place instead.
     """
 
-    # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n) {In Python, the sort() function is implemented using the Timsort algorithm, which has a worst-case space complexity of O(n)}
+    # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n) {In Python, the sort() function is implemented using the
+    #                                             Timsort algorithm, which has a worst-case space complexity of O(n)}
 
     """
     nums.sort()
@@ -22,7 +23,8 @@ def sortColors(nums: list[int]) -> None:
     # print(n)  #debugging
 
     nums[:] = [0]*n[0] + [1]*n[1] + [2]*n[2]  # O(n)
-    # New Discovery: e.g. 2 is not there in nums, still n[2] will not give an error because n is a Counter object, and it handles that (by default returns 0 value if a key is not there)
+    # New Discovery: e.g. 2 is not there in nums, still n[2] will not give an error because n is a Counter object,
+    #                and it handles that (by default returns 0 value if a key is not there)
     """
 
     # 2) Optimal (The "Running But Don't Know How" Algo) (One-pass): TC = O(n); SC = O(1)
@@ -51,7 +53,8 @@ def sortColors(nums: list[int]) -> None:
 
     # 3) Optimal (Swapping) (One-pass): TC = O(n); SC = O(1)
     # https://en.wikipedia.org/wiki/Dutch_national_flag_problem
-    # https://leetcode.com/problems/sort-colors/discuss/26472/Share-my-at-most-two-pass-constant-space-10-line-solution/25489; https://leetcode.com/problems/sort-colors/discuss/26481/Python-O(n)-1-pass-in-place-solution-with-explanation
+    # https://leetcode.com/problems/sort-colors/discuss/26472/Share-my-at-most-two-pass-constant-space-10-line-solution/25489
+    # https://leetcode.com/problems/sort-colors/discuss/26481/Python-O(n)-1-pass-in-place-solution-with-explanation
     # The idea is to sweep all 0s to the left and all 2s to the right, then all 1s are left in the middle.
 
     i, low, high = 0, 0, len(nums)-1

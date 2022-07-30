@@ -3,11 +3,12 @@ https://leetcode.com/problems/majority-element
 """
 
 
-def majorityElement(nums: list[int]) -> int:
+def majority_element(nums: list[int]) -> int:
     """"""
 
-    # 0.1) (TLE) Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
-    # "element appears more than ⌊n / 2⌋ times" => count(x) > n//2, so we can simply traverse the array to find the element.
+    # 0.1) [TLE] Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
+    # "element appears more than ⌊n / 2⌋ times" => count(x) > n//2, so we can simply traverse the array to find the
+    # element.
 
     """
     n = len(nums)
@@ -69,8 +70,8 @@ def majorityElement(nums: list[int]) -> int:
     # 2) Optimal (Boyer-Moore Majority Voting Algorithm 💘): TC = O(n); SC = O(1)
     # https://www.cs.utexas.edu/~moore/best-ideas/mjrty
     # https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
-    # Intuition: If we had some way of counting instances of the majority element as +1 and instances of any other element as −1,
-    # summing them would make it obvious that the majority element is indeed the majority element.
+    # Intuition: If we had some way of counting instances of the majority element as +1 and instances of any other
+    # element as −1, summing them would make it obvious that the majority element is indeed the majority element.
 
     """
     major, relative_votes = None, 0  # initialization

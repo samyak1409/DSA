@@ -3,7 +3,7 @@ https://leetcode.com/problems/set-matrix-zeroes
 """
 
 
-def setZeroes(matrix: list[list[int]]) -> None:
+def set_zeroes(matrix: list[list[int]]) -> None:
     """
     Do not return anything, modify matrix in-place instead.
     """
@@ -29,7 +29,8 @@ def setZeroes(matrix: list[list[int]]) -> None:
             matrix[index][j] = 0
     """
 
-    # 1) Space-Optimal Brute-force (Temporarily changing the values to a placeholder value): TC = O(m*n*(m+n)); SC = O(1)
+    # 1) Space-Optimal Brute-force (Temporarily changing the values to a placeholder value): TC = O(m*n*(m+n));
+    #                                                                                        SC = O(1)
 
     """
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
@@ -39,14 +40,17 @@ def setZeroes(matrix: list[list[int]]) -> None:
             if matrix[i][j] == 0:
                 # making rows 0:
                 for k in range(n):  # O(n)
-                    if matrix[i][k] != 0:  # because if we'll change it to None then it (and so it's column) will be skipped in future iterations
+                    if matrix[i][k] != 0:  # because if we'll change it to None, it (and so it's column) will be
+                        # skipped in future iterations
                         matrix[i][k] = None
                 # making columns 0:
                 for k in range(m):  # O(m)
-                    if matrix[k][j] != 0:  # because if we'll change it to None then it (and so it's row) will be skipped in future iterations
+                    if matrix[k][j] != 0:  # because if we'll change it to None, it (and so it's row) will be
+                        # skipped in future iterations
                         matrix[k][j] = None
 
-    # after above iterations, the matrix will be solution ready just with None values in place of 0s, changing the None values back to 0:
+    # after above iterations, the matrix will be solution ready just with None values in place of 0s,
+    # changing the None values back to 0:
     for i in range(m):
         for j in range(n):
             if matrix[i][j] is None:
@@ -80,7 +84,8 @@ def setZeroes(matrix: list[list[int]]) -> None:
 
     m, n = len(matrix), len(matrix[0])  # getting no. of rows & columns
 
-    first_row_zero, first_column_zero = 0 in matrix[0], 0 in [row[0] for row in matrix]  # saving whether the first row & column contain any 0s or not
+    # saving whether the first row & column contain any 0s or not:
+    first_row_zero, first_column_zero = 0 in matrix[0], 0 in [row[0] for row in matrix]
     # Additional Note: Using "row[0] for row in matrix" instead of "matrix[i][0] for i in range(m)" above,
     # still the SC = O(1) because row has not allocated extra space but is pointing to the matrix only!
 
@@ -91,7 +96,8 @@ def setZeroes(matrix: list[list[int]]) -> None:
                 matrix[0][j] = 0  # first column cell to 0
 
     # setting rows & columns to 0:
-    for i in range(1, m):  # IMP: skipping 1st row & column (next line), do you know why? :D (will destroy what we saved in the first row & column)
+    for i in range(1, m):  # IMP: skipping 1st row & column (next line), do you know why? :D
+        # (will destroy what we saved in the first row & column)
         for j in range(1, n):
             if matrix[i][0] == 0 or matrix[0][j] == 0:
                 matrix[i][j] = 0

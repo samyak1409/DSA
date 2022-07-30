@@ -3,7 +3,7 @@ https://leetcode.com/problems/two-sum
 """
 
 
-def twoSum(nums: list[int], target: int) -> list[int]:
+def two_sum(nums: list[int], target: int) -> list[int]:
     """"""
 
     # 0) Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
@@ -24,7 +24,8 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     #     return [9998, 9999]
 
     """
-    # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after sorting we'll lose original indices:
+    # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after
+    # sorting we'll lose original indices:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
     # Taking every element one by one from the sorted array and applying binary search to the elements in the right:
@@ -47,7 +48,8 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     # https://leetcode.com/problems/two-sum/discuss/1378064#:~:text=Solution%202%3A%20Sort%20then%20Two%20Pointers
 
     """
-    # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after sorting we'll lose original indices:
+    # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after
+    # sorting we'll lose original indices:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
     # Finding the 2 nums using Two-Pointers:
@@ -74,7 +76,8 @@ def twoSum(nums: list[int], target: int) -> list[int]:
     # Taking every num one by one and checking for required_num2 in HashMap:
     for index1, num1 in enumerate(nums):
         index2 = hashmap.get(target-num1)  # target-num1 = required_num2
-        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; "index1" means num1 = num2
+        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; "index1" means
+            # num1 = num2
             return [index1, index2]
     """
     # It turns out we can do it in one-pass:
@@ -87,4 +90,6 @@ def twoSum(nums: list[int], target: int) -> list[int]:
             return [index1, index2]
         hashmap[num1] = index1  # storing after checking so that we do not need to care about index2 == index1
 
-    # Did you notice that in this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in "0)", "1)" and "3)" respectively.
+    # Did you notice?
+    # In this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in
+    # "0)", "1)" and "3)" respectively.

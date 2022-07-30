@@ -3,7 +3,7 @@ https://leetcode.com/problems/search-a-2d-matrix
 """
 
 
-def searchMatrix(matrix: list[list[int]], target: int) -> bool:
+def search_matrix(matrix: list[list[int]], target: int) -> bool:
     """"""
 
     # 0) Brute-force (Linear Search): TC = O(m*n); SC = O(1)

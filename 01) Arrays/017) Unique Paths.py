@@ -3,12 +3,14 @@ https://leetcode.com/problems/unique-paths
 """
 
 
-def uniquePaths(m: int, n: int) -> int:
+def unique_paths(m: int, n: int) -> int:
     """"""
 
-    # 0) (TLE) Brute-force (Recursion): TC = O(2^(m+n)); SC = O(m+n)
-    # The formula to determine the time complexity for recursion = branches ^ depth = the number of nodes in the recursion tree
-    # In our case, we have 2 possible branches (going down or going right), while for the depth, is the maximum possible distance taken to get (m, n) which is m + n.
+    # 0) [TLE] Brute-force (Recursion): TC = O(2^(m+n)); SC = O(m+n)
+    # The formula to determine the time complexity for recursion = branches ^ depth = the number of nodes in the
+    # recursion tree.
+    # In our case, we have 2 possible branches (going down or going right), while for the depth, is the maximum possible
+    # distance taken to get (m, n) which is m + n.
     # Given this, we can also mention the space complexity taken on the stack: O(m+n)
 
     """
@@ -28,11 +30,12 @@ def uniquePaths(m: int, n: int) -> int:
     # 1) Better (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
     # In the brute-force approach, time complexity is increasing because of duplicate recursive calls
     # (check in recursion tree here: https://youtu.be/t_f0nwwdg5o?t=612)
-    # So, we can simply store (MEMOIZE) the results of every recursive call in HashMap so that the same recursive call will never be made again,
-    # rather it's result will be returned immediately.
+    # So, we can simply store (MEMOIZE) the results of every recursive call in HashMap so that the same recursive call
+    # will never be made again, rather it's result will be returned immediately.
     # Note: Turns out that since this is a recursive solution, and now we are using memoization in it,
     # it can apparently be called "DP (Memoization)"
-    # DP: https://en.wikipedia.org/wiki/Dynamic_programming; https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
+    # DP: https://en.wikipedia.org/wiki/Dynamic_programming;
+    #     https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
     # Memoization: https://en.wikipedia.org/wiki/Memoization
 
     """
@@ -85,9 +88,12 @@ def uniquePaths(m: int, n: int) -> int:
     # https://youtu.be/t_f0nwwdg5o?t=817
     # Intuition: If we observe examples there is a similarity in paths from start to end.
     # Each time we are taking exactly (m+n-2) number of steps to reach the end.
-    # From start to reach the end we need a certain number of rightward directions and a certain number of downward directions.
-    # So we can figure out we need (m-1) no. of downward direction and (n-1) no. of rightward direction to reach the endpoint.
-    # Since we need an (m+n-2) number of steps to reach the end among those steps if we choose (m-1) downward direction or (n-1) rightward direction
+    # From start to reach the end we need a certain number of rightward directions and a certain number of downward
+    # directions.
+    # So we can figure out we need (m-1) no. of downward direction and (n-1) no. of rightward direction to reach the
+    # endpoint.
+    # Since we need an (m+n-2) number of steps to reach the end among those steps if we choose (m-1) downward direction
+    # or (n-1) rightward direction
     # and calculate the combinations (i.e.: C(m+n-2, m-1) or C(m+n-2, n-1)) we’ll get the total number of paths.
     # https://leetcode.com/problems/unique-paths/discuss/22958/Math-solution-O(1)-space
     # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20V%20(Math)
