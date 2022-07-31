@@ -16,7 +16,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
                 return [i, j]
     """
 
-    # 1) Better (Sorting & Binary Search): TC = O(n*log(n)); SC = O(n)
+    # 1) Better (Sorting & Binary Search): TC = O(n*log(n) + n*log(n)); SC = O(n)
     # TLE sometimes (when the LeetCode server is slow)
     # Mainly due to the biggest (and worst) case (nums=list(range(1, 10000+1)), target=19999)
     # Adding following is reducing the runtime from ~7000 ms to ~100 ms:
@@ -40,11 +40,11 @@ def two_sum(nums: list[int], target: int) -> list[int]:
                 return [index1, index2]
             elif num2 < required_num2:
                 low += 1
-            else:  # if num2 > required_num2
+            else:  # (if num2 > required_num2)
                 high -= 1
     """
 
-    # 2) Better (Sorting & Two-Pointers): TC = O(n*log(n)); SC = O(n)
+    # 2) Better (Sorting & Two-Pointers): TC = O(n*log(n) + n); SC = O(n)
     # https://leetcode.com/problems/two-sum/discuss/1378064#:~:text=Solution%202%3A%20Sort%20then%20Two%20Pointers
 
     """
@@ -62,7 +62,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
             return [index1, index2]
         elif num1 + num2 < target:  # => we want greater sum
             low += 1  # considering next num (larger) in right
-        else:  # if num1 + num2 > target => we want lesser sum
+        else:  # (if num1 + num2 > target) => we want lesser sum
             high -= 1  # considering next num (smaller) in left
     """
 

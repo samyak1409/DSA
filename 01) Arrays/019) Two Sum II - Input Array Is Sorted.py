@@ -32,13 +32,13 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
         # Finding the required_num2 using Binary Search:
         low, high = index1+1, n-1
         while low <= high:
-            index2 = (low+high)//2  # mid index
+            index2 = (low+high) // 2  # mid index
             num2 = numbers[index2]
             if num2 == required_num2:
                 return [index1+1, index2+1]
             elif num2 < required_num2:
                 low += 1
-            else:  # if num2 > required_num2
+            else:  # (if num2 > required_num2)
                 high -= 1
     """
 
@@ -56,5 +56,5 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
             return [low+1, high+1]
         elif num1 + num2 < target:  # => we want greater sum
             low += 1  # considering next num (larger) in right
-        else:  # if num1 + num2 > target => we want lesser sum
+        else:  # (if num1 + num2 > target) => we want lesser sum
             high -= 1  # considering next num (smaller) in left
