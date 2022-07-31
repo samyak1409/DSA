@@ -55,7 +55,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # Finding the 2 nums using Two-Pointers:
     n = len(nums)
     low, high = 0, n-1  # initialization
-    for _ in range(n-1):  # we'll need at most (n-1) iterations
+    while low < high:
         index1, num1 = sorted_nums[low]
         index2, num2 = sorted_nums[high]
         if num1 + num2 == target:

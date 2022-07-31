@@ -7,7 +7,7 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
     """"""
 
     # NOTE: All the following solutions are from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum%20.py
     # because this problem is just a subset of https://leetcode.com/problems/two-sum.
 
     # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51249/Python-different-solutions-(two-pointer-dictionary-binary-search).
@@ -50,7 +50,7 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
     # Finding the 2 numbers using Two-Pointers:
     n = len(numbers)
     low, high = 0, n-1  # initialization
-    for _ in range(n-1):  # we'll need at most (n-1) iterations
+    while low < high:
         num1, num2 = numbers[low], numbers[high]
         if num1 + num2 == target:
             return [low+1, high+1]
