@@ -78,13 +78,44 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # Since this sorting beforehand technique is more efficient than the previous one, will use this only in next
     # approaches.
 
-    # 1) Optimal (3Sum -> Two Sums): TC = O(n^2); SC = O(n)
+    # NOTE:
     # 3Sum -> num1 + num2 + num3 = 0
     #         => num2 + num3 = -num1
     #         Let -num1 = target
     #         => num2 + num3 = target -> Two Sum
 
-    # 1.1) HashMap: TC = O(n*log(n) + n^2); SC = O(n+n+n)
+    # 1) [TLE] Better (Sorting + Binary Search): TC = O(n*log(n) + (n^2)*log(n)); SC = O(n+n)
+
+    """
+    nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
+
+    n = len(nums)
+    triplet_set = set()  # for checking triplet's presence in O(1) time
+    for i in range(n):
+        num1 = nums[i]
+        for j in range(i+1, n):
+            num2 = nums[j]
+            required_num3 = -num1 + -num2  # target
+            # Now, finding num3 using Binary Search:
+            # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L19
+            low, high = j+1, n-1
+            while low <= high:
+                mid = (low+high) // 2
+                num3 = nums[mid]
+                if num3 == required_num3:  # => triplet found
+                    triplet = [num1, num2, num3]
+                    triplet_tuple = tuple(triplet)
+                    if triplet_tuple not in triplet_set:
+                        yield triplet
+                        triplet_set.add(triplet_tuple)
+                    break  # imp to break out once we get our num3 otherwise it will be an inf loop
+                elif num3 < required_num3:
+                    high = mid - 1
+                else:  # (if num3 > required_num3)
+                    low = mid + 1
+    """
+
+    # 2) Optimal (HashMap): TC = O(n*log(n) + n^2); SC = O(n+n+n)
 
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
@@ -95,8 +126,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
         if num1 > 0:  # optimization
             break
         target = -num1
-        # Now:
-        # https://github.com/samyak1409/DSA/blob/11be1e7e3bf80f7efd7f7d7f853d2af53e731c0f/01%29%20Arrays/019%29%20Two%20Sum%20.py#L69
+        # Now, finding the 2 nums using HashMap:
+        # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L69
         hashset = set()  # for checking presence of required num in O(1) time
         for j in range(i+1, n):  # starting from i+1 because we have nums[i] to be num1 already
             num3 = nums[j]
@@ -110,10 +141,11 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             hashset.add(num3)
     """
 
-    # 1.2) Sorting & Two-Pointers: TC = O(n*log(n) + n^2); SC = O(n+n)
+    # 3) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n+n)
     # https://leetcode.com/problems/3sum/discuss/143636
 
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
+
     n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
     for i in range(n):  # (for target in targets:)
@@ -121,9 +153,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
         if num1 > 0:  # optimization
             break
         target = -num1
-        # Now:
-        # https://github.com/samyak1409/DSA/blob/11be1e7e3bf80f7efd7f7d7f853d2af53e731c0f/01%29%20Arrays/019%29%20Two%20Sum%20.py#L47
-        # Finding the 2 nums using Two-Pointers:
+        # Now, finding the 2 nums using Two-Pointers:
+        # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L47
         low, high = i+1, n-1  # starting from i+1 because we have nums[i] to be num1 already
         while low < high:
             num2, num3 = nums[low], nums[high]
