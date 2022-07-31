@@ -63,8 +63,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
     for i in range(n):
-        for j in range(i + 1, n):
-            for k in range(j + 1, n):
+        for j in range(i+1, n):
+            for k in range(j+1, n):
                 if nums[i] + nums[j] + nums[k] == 0:
                     triplet = [nums[i], nums[j], nums[k]]
                     triplet_tuple = tuple(triplet)
@@ -75,15 +75,43 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # Why does this work?
     # Because if the input array is sorted, triplets will not form like [-1, 0, 1] & [0, 1, -1],
     # but like [-1, 0, 1] & [-1, 0, 1], i.e. by default sorted (i.e. in order)
-    # Since this sorting technique is more efficient than the previous one, will use this only in next approaches.
+    # Since this sorting beforehand technique is more efficient than the previous one, will use this only in next
+    # approaches.
 
     # 1) Optimal (3Sum -> Two Sums): TC = O(n^2); SC = O(n)
     # 3Sum -> num1 + num2 + num3 = 0
     #         => num2 + num3 = -num1
-    #         => -num1 = target
+    #         Let -num1 = target
     #         => num2 + num3 = target -> Two Sum
 
-    # 1.1) HashMap: TC = O(n*log(n) + n^2); SC = O(n+n)
+    # 1.1) HashMap: TC = O(n*log(n) + n^2); SC = O(n+n+n)
+
+    """
+    nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
+    n = len(nums)
+    triplet_set = set()  # for checking triplet's presence in O(1) time
+    for i in range(n):  # (for target in targets:)
+        num1 = nums[i]
+        if num1 > 0:  # optimization
+            break
+        target = -num1
+        # Now:
+        # https://github.com/samyak1409/DSA/blob/11be1e7e3bf80f7efd7f7d7f853d2af53e731c0f/01%29%20Arrays/019%29%20Two%20Sum%20.py#L69
+        hashset = set()  # for checking presence of required num in O(1) time
+        for j in range(i+1, n):  # starting from i+1 because we have nums[i] to be num1 already
+            num3 = nums[j]
+            num2 = target - num3  # num2 -> number added in hashset in previous iterations
+            if num2 in hashset:
+                triplet = [num1, num2, num3]
+                triplet_tuple = tuple(triplet)
+                if triplet_tuple not in triplet_set:
+                    yield triplet
+                    triplet_set.add(triplet_tuple)
+            hashset.add(num3)
+    """
+
+    # 1.2) Sorting & Two-Pointers: TC = O(n*log(n) + n^2); SC = O(n+n)
+    # https://leetcode.com/problems/3sum/discuss/143636
 
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
@@ -94,24 +122,26 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             break
         target = -num1
         # Now:
-        # https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L67
-        hashset = set()  # for checking presence of required num in O(1) time
-        for j in range(i+1, n):  # starting from i+1 because already formed triplet with previous elements
-            num3 = nums[j]
-            num2 = target - num3  # num2 -> number added in hashset in previous iterations
-            if num2 in hashset:
+        # https://github.com/samyak1409/DSA/blob/11be1e7e3bf80f7efd7f7d7f853d2af53e731c0f/01%29%20Arrays/019%29%20Two%20Sum%20.py#L47
+        # Finding the 2 nums using Two-Pointers:
+        low, high = i+1, n-1  # starting from i+1 because we have nums[i] to be num1 already
+        while low < high:
+            num2, num3 = nums[low], nums[high]
+            if num2 + num3 == target:
                 triplet = [num1, num2, num3]
                 triplet_tuple = tuple(triplet)
                 if triplet_tuple not in triplet_set:
                     yield triplet
                     triplet_set.add(triplet_tuple)
-            hashset.add(num3)
-
-    # 1.2) Sorting & Two-Pointers: TC = O(n*log(n) + n^2); SC = O(n+n)
-    # Same technique: 3Sum -> Two Sums and then:
-    # https://github.com/samyak1409/DSA/blob/4fe6caa36632d1f6e9b0e6ceda05b29690972983/01%29%20Arrays/019%29%20Two%20Sum.py#L46
-    # https://leetcode.com/problems/3sum/discuss/1462423#:~:text=Two%20Pointer%20Approach%3A
-    # https://leetcode.com/problems/3sum/discuss/143636
+                # not breaking but continuing with:
+                low += 1
+                high -= 1
+                # because consider input: nums = [-2, 0, 1, 1, 2]
+                # output would be: [[-2, 0, 2], [-2, 1, 1]] and not [[-2, 0, 2]]
+            elif num2 + num3 < target:
+                low += 1
+            else:  # (if num2 + num3 > target)
+                high -= 1
 
     # Also, checkout this DIFFERENT solution:
     # https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated
