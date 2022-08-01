@@ -41,4 +41,12 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
                             yield quadruplet
                             quadruplet_set.add(quadruplet_tuple)
 
+    # We can implement 4Sum by wrapping 3Sum in another loop.
+    # But wait - there is a catch.
+    # If an interviewer asks you to solve 4Sum, they can follow up with 5Sum, 6Sum, and so on.
+    # What they are really expecting at this point is a k_sum solution.
+    # Therefore, we will focus on a generalized implementation here.
     # https://leetcode.com/problems/4sum/solution
+
+
+# Similar Question: https://leetcode.com/problems/4sum-ii

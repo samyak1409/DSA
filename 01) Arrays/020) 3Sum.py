@@ -176,3 +176,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
 
     # Also, checkout this DIFFERENT solution:
     # https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated
+
+
+# Similar Questions:
+# https://leetcode.com/problems/3sum-closest
+# https://leetcode.com/problems/3sum-with-multiplicity

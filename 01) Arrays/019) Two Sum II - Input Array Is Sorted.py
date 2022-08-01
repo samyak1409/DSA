@@ -48,8 +48,7 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
     # 2) Optimal (Two-Pointers): TC = O(n); SC = O(1)
 
     # Finding the 2 numbers using Two-Pointers:
-    n = len(numbers)
-    low, high = 0, n-1  # initialization
+    low, high = 0, len(numbers)-1  # initialization
     while low < high:
         num1, num2 = numbers[low], numbers[high]
         if num1 + num2 == target:
@@ -58,3 +57,6 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
             low += 1  # considering next num (larger) in right
         else:  # (if num1 + num2 > target) => we want lesser sum
             high -= 1  # considering next num (smaller) in left
+
+
+# Similar Question: https://leetcode.com/problems/two-sum-iv-input-is-a-bst

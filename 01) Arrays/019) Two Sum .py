@@ -53,8 +53,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
     # Finding the 2 nums using Two-Pointers:
-    n = len(nums)
-    low, high = 0, n-1  # initialization
+    low, high = 0, len(nums)-1  # initialization
     while low < high:
         index1, num1 = sorted_nums[low]
         index2, num2 = sorted_nums[high]
