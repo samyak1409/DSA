@@ -6,7 +6,7 @@ https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 def inversion_count(arr: list[int], n: int) -> int:
     """"""
 
-    # 0) [TLE] Brute-force (Two Loops): TC = O(n^2); SC = O(1)
+    # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
 
     """
     count = 0
