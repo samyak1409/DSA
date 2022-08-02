@@ -97,7 +97,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             num2 = nums[j]
             required_num3 = -num1 + -num2  # target
             # Now, finding num3 using Binary Search:
-            # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L19
+            # https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/019%29%20Two%20Sum%20.py#L19
             low, high = j+1, n-1
             while low <= high:
                 mid = (low+high) // 2
@@ -127,7 +127,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             break
         target = -num1
         # Now, finding the 2 nums using HashMap:
-        # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L69
+        # https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/019%29%20Two%20Sum%20.py#L68
         hashset = set()  # for checking presence of required num in O(1) time
         for j in range(i+1, n):  # starting from i+1 because we have nums[i] to be num1 already
             num3 = nums[j]
@@ -154,7 +154,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             break
         target = -num1
         # Now, finding the 2 nums using Two-Pointers:
-        # https://github.com/samyak1409/DSA/blob/9474a477e42257f792bdf3e7f4814f8754757920/01%29%20Arrays/019%29%20Two%20Sum%20.py#L47
+        # https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/019%29%20Two%20Sum%20.py#L47
         low, high = i+1, n-1  # starting from i+1 because we have nums[i] to be num1 already
         while low < high:
             num2, num3 = nums[low], nums[high]
@@ -164,7 +164,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                 if triplet_tuple not in triplet_set:
                     yield triplet
                     triplet_set.add(triplet_tuple)
-                # not breaking but continuing with:
+                # not stopping but continuing with:
                 low += 1
                 high -= 1
                 # because consider input: nums = [-2, 0, 1, 1, 2]
