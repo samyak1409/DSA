@@ -53,7 +53,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # https://leetcode.com/problems/4sum/discuss/8545/Python-140ms-beats-100-and-works-for-N-sum-(Ngreater2)
     # It's Easy! First of all try to convert the bruteforce algorithm (which is iterative) to recursive.
     # Then generalize it (i.e. add a parameter k).
-    # Lastly, add the Two-Pointer approach to find the last two numbers!
+    # Lastly, add the Two-Pointers approach to find the last two numbers!
 
     def two_sum(nums__, target__):
         """
