@@ -8,6 +8,7 @@ def longest_consecutive(nums: list[int]) -> int:
 
     # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
 
+    """
     if not nums:  # edge case
         return 0
 
@@ -23,6 +24,7 @@ def longest_consecutive(nums: list[int]) -> int:
         if current_length > longest_length:
             longest_length = current_length
     return longest_length
+    """
 
     # 1) [MLE] Time-Optimal (Sorting using Counting Sort): TC = O(n); SC = O(max(nums)-min(nums))
     #                                                                 {Worst Case: max(nums)-min(nums) = 10^18}
@@ -53,3 +55,20 @@ def longest_consecutive(nums: list[int]) -> int:
             longest_length = current_length
     return longest_length
     """
+
+    # 2) Optimal (HashSet): TC = O(n); SC = O(n)
+    # This is an Easy problem! https://youtu.be/qgizvmgeyUM
+    # https://leetcode.com/problems/longest-consecutive-sequence/discuss/41057/Simple-O(n)-with-Explanation-Just-walk-each-streak
+
+    nums = set(nums)  # (new local var); set for O(1) lookup; TC = O(n); SC = O(n)
+
+    longest_length = 0
+    for num in nums:
+        if num-1 not in nums:  # finding the smallest num of a consecutive sequence
+            current_length = 1
+            while num+1 in nums:  # next num in consecutive sequence
+                current_length += 1
+                num += 1
+            if current_length > longest_length:
+                longest_length = current_length
+    return longest_length
