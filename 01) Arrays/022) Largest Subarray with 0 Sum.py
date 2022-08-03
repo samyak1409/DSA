@@ -10,7 +10,7 @@ def max_len(n: int, arr: list[int]) -> int:
 
     """
     largest_len = 0
-    for i in range(n):
+    for i in range(n):  # choose every element one by one
         sum_ = 0  # init
         for j in range(i, n):
             sum_ += arr[j]  # increase the length of sub-array
