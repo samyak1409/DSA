@@ -6,8 +6,16 @@ https://www.codingninjas.com/codestudio/problems/1115652
 def sub_arrays_xor(arr: list[int], x: int) -> int:
     """"""
 
+    # This problem is solved using the same outer logic as
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Largest%20Subarray%20with%200%20Sum.py.
+
+    # Properties of XOR:
+    # A ^ 0 = A
+    # A ^ A = 0
+
     # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
 
+    """
     n = len(arr)
     count = 0
     for i in range(n):  # choose every element one by one
@@ -17,3 +25,30 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
             if xor_value == x:  # if xor_value of sub-array arr[i:j+1] = x
                 count += 1
     return count
+    """
+
+    # 1) Optimal (Prefix-XOR & HashSet): TC = O(n); SC = O(n)
+    # Explanation: https://youtu.be/lO9R5CaGRPY
+
+    prefix_xor = 0
+    count = 0
+    hashset = {prefix_xor: 1}  # O(1) lookup
+    # initializing with "prefix_xor: 1" because:
+    # dry run the algo with input (arr=[6, 6], x=6), you'll get the answer.
+    for element in arr:  # O(n)
+        prefix_xor ^= element
+        # using the inverse logic:
+        y = prefix_xor ^ x
+        if y in hashset:  # O(1)
+            count += hashset[y]
+        # add/update prefix_xor occurred:
+        hashset[prefix_xor] = hashset.get(prefix_xor, 0) + 1
+    return count
+
+    # Explanation of "inverse logic":
+    # If at any iteration, (prefix_xor ^ x) = y is present in the hashset,
+    # this means that from index (index(y)+1) till current index i.e. index(element),
+    # the sub-array's XOR is x, that's why we got current prefix_xor from y (if a ^ b = c, then a = b ^ c).
+    # Solve this problem for complete understanding: https://leetcode.com/problems/subarray-sum-equals-k
+    # (whose sub-problem is:
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Largest%20Subarray%20with%200%20Sum.py)

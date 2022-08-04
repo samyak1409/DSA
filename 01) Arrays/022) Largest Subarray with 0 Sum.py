@@ -31,14 +31,14 @@ def max_len(n: int, arr: list[int]) -> int:
     prefix_sum = 0
     hashset = {prefix_sum: -1}  # O(1) lookup
     # initializing with "prefix_sum: -1" because:
-    # dry run the algo with input arr = [1, -1, 1, -1], you'll get your answer.
+    # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.
     longest_len = 0
-    for i in range(n):  # O(n)
-        prefix_sum += arr[i]
+    for index in range(n):  # O(n)
+        prefix_sum += arr[index]
         if prefix_sum in hashset:  # O(1)
-            longest_len = max(longest_len, i-hashset[prefix_sum])
+            longest_len = max(longest_len, index-hashset[prefix_sum])
         else:
-            hashset[prefix_sum] = i
+            hashset[prefix_sum] = index
     return longest_len
 
 
