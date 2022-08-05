@@ -29,6 +29,7 @@ def length_of_longest_substring(s: str) -> int:
     # 1) Optimal (Sliding Window & HashMap): TC = O(n); SC = O(1) because of Q. constraint
     #                                                   "s consists of English letters, digits, symbols and spaces."
 
+    """
     occurred = {}  # for O(1) lookup and storing unique elements (dict keys must be unique)
     longest_len = current_len = 0
     for index, char in enumerate(s):  # O(n)
@@ -46,4 +47,22 @@ def length_of_longest_substring(s: str) -> int:
                     break
         occurred[char] = index  # add to the hashmap
         longest_len = max(longest_len, current_len)  # calc the longest length
+    return longest_len
+    """
+    # We don't really need to "Remove all the previously saved_chars before new start index of current substring"
+    # We can just have a start_index and instead of removing previously saved chars we can just check if they come
+    # before or after our new index.
+    # Easy https://youtu.be/qtVh-XEpsJo?t=847
+    # https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/#:~:text=Approach%203%3A%20Sliding%20Window%20Optimized
+    occurred = {}  # for O(1) lookup and storing unique elements (dict keys must be unique)
+    start_index = 0
+    longest_len = 0
+    for current_index, char in enumerate(s):  # O(n)
+        if char in occurred:  # O(1)
+            # IMP: only setting the start_index to occurred[char]+1 if occurred[char]+1 is in the right of start_index
+            #      else just ignoring
+            start_index = max(start_index, occurred[char]+1)
+            # dry run the algo on input s = "abba" to understand what's going on.
+        occurred[char] = current_index  # add/update to the hashmap
+        longest_len = max(longest_len, current_index-start_index+1)  # calc the longest length
     return longest_len
