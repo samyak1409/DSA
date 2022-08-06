@@ -1,9 +1,9 @@
 """
-https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
+https://www.codingninjas.com/codestudio/problems/615
 """
 
 
-def inversion_count(arr: list[int], n: int) -> int:
+def get_inversions(arr: list[int], n: int) -> int:
     """"""
 
     # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
@@ -18,7 +18,7 @@ def inversion_count(arr: list[int], n: int) -> int:
     """
 
     # 1) Optimal (Using Merge Sort): TC = O(n*log(n)); SC = O(n)
-    # Prerequisite: https://github.com/samyak1409/python-lab-assignments/blob/main/10/a.py (Merge Sort Algorithm)
+    # Prerequisite: https://github.com/samyak1409/python-lab-assignments/blob/main/10/a.py (Merge Sort)
 
     def get_count(array: list[int], length: int) -> int:
         count = 0
@@ -36,7 +36,7 @@ def inversion_count(arr: list[int], n: int) -> int:
                 else:
                     array[i+j] = right[j]
                     j += 1
-                    count += (len(left)-i)  # when element from right list (right[j]) is considered before all left[i:]
+                    count += len(left)-i  # when element from right list (right[j]) is considered before all left[i:]
                     # => total len(left)-i inversions will be there (only for this particular right[j])
             array[i+j:] = left[i:] or right[j:]
         return count

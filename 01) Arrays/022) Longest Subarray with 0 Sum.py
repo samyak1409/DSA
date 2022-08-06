@@ -1,22 +1,23 @@
 """
-https://practice.geeksforgeeks.org/problems/largest-subarray-with-0-sum/1
+https://www.codingninjas.com/codestudio/problems/920321
 """
 
 
-def max_len(n: int, arr: list[int]) -> int:
+def longest_subarray_with_0_sum(arr: list[int]) -> int:
     """"""
 
     # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
 
     """
-    largest_len = 0
+    n = len(arr)
+    longest_len = 0
     for i in range(n):  # choose every element one by one
         sum_ = 0  # init
         for j in range(i, n):
             sum_ += arr[j]  # increase the length of sub-array
             if sum_ == 0:  # whenever sum_ becomes 0, check the length of the sub-array
-                largest_len = max(largest_len, j-i+1)
-    return largest_len
+                longest_len = max(longest_len, j-i+1)
+    return longest_len
     """
 
     # Sorting?
@@ -33,7 +34,7 @@ def max_len(n: int, arr: list[int]) -> int:
     # initializing with "prefix_sum: -1" because:
     # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.
     longest_len = 0
-    for index in range(n):  # O(n)
+    for index in range(len(arr)):  # O(n)
         prefix_sum += arr[index]
         if prefix_sum in hashset:  # O(1)
             longest_len = max(longest_len, index-hashset[prefix_sum])

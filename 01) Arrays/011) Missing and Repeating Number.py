@@ -1,21 +1,15 @@
 """
-https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+https://www.codingninjas.com/codestudio/problems/873366
 """
 
 
-def find_two_element(arr: list[int], n: int) -> list[int]:
+def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     """"""
 
     # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
 
     """
     sorted_arr = sorted(arr)
-    repeating = None
-    for i in range(n):  # finding repeating number
-        current, next_ = sorted_arr[i], sorted_arr[i+1]
-        if next_ == current:  # simple
-            repeating = next_
-            break
     missing = 1  # starting from 1
     for i in range(n):  # finding missing number
         current = sorted_arr[i]
@@ -23,7 +17,13 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
             # occur in arr
             break
         missing = current+1  # else missing = next number that should be
-    return [repeating, missing]
+    repeating = None
+    for i in range(n):  # finding repeating number
+        current, next_ = sorted_arr[i], sorted_arr[i+1]
+        if next_ == current:  # simple
+            repeating = next_
+            break
+    return [missing, repeating]
     """
 
     # 0.2) Brute-force (HashSet): TC = O(n); SC = O(n)
@@ -40,7 +40,7 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
         if num not in hashset:
             missing = num
             break
-    return [repeating, missing]
+    return [missing, repeating]
     """
 
     # 0.3) Brute-force (Count & Store Occurrences): TC = O(n); SC = O(n)
@@ -52,7 +52,7 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
     counts = [0] * n
     for num in arr:  # counting
         counts[num-1] += 1  # num-1 = index
-    return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
+    return [counts.index(0)+1, counts.index(2)+1]  # missing, repeating
     """
 
     # 1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
@@ -63,15 +63,15 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
         index = abs(arr[i])-1  # index to leave mark at; abs() because arr[i] can be a negated value
         if arr[index] < 0:  # value at "index" found negated => index+1 (arr[i]) is the repeating number!
             repeating = index+1
-            continue  # so that next line doesn't make negated value back positive
-        arr[index] *= -1  # leaving mark
+        else:
+            arr[index] *= -1  # leaving mark
     missing = None
     for i in range(n):  # finding missing number
         if arr[i] > 0:  # positive value found, it must be because of the missing number
             missing = i+1
         else:  # turning the negated values back positive
             arr[i] *= -1
-    return [repeating, missing]
+    return [missing, repeating]
     """
 
     # 2) Optimal (Maths: Sum of n and n^2 terms): TC = O(n); SC = O(1)
@@ -82,7 +82,7 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
     y = ((n*(n+1)*(2*n+1)//6)-(sum(map(lambda term: term**2, arr)))) // x
     missing = (x+y) // 2
     repeating = missing - x
-    return [repeating, missing]
+    return [missing, repeating]
     """
 
     # With Derivation:
@@ -110,4 +110,4 @@ def find_two_element(arr: list[int], n: int) -> list[int]:
     # And from equation (1), repeating = missing - x, so:
     # => repeating = (x+y)//2 - x
     repeating = missing - x
-    return [repeating, missing]
+    return [missing, repeating]
