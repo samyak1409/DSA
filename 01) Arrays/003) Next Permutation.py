@@ -18,7 +18,6 @@ def next_permutation(nums: list[int]) -> None:
     from bisect import insort  # for a (throughout) sorted array
 
     bucket = []
-
     for i in range(len(nums)-1):
         insort(bucket, nums[-i-1])  # insert the last number (next to curr) keeping the array sorted
         curr = nums[-i-2]  # number which is in consideration currently (for this particular iteration)

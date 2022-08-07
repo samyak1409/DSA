@@ -33,7 +33,8 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
         i += 1
     """
 
-    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n)
+    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n) {In Python, the sort() function is
+    # implemented using the Timsort algorithm, which has a worst-case space complexity of O(n)}
 
     intervals.sort(key=lambda x: x[0])  # sort by start value of the intervals; TC = O(n*log(n)); SC = O(n)
 
