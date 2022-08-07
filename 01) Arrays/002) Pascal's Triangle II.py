@@ -10,20 +10,29 @@ def get_row(row_index: int) -> list[int]:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/002%29%20Pascal%27s%20Triangle%20.py
 
     # 0) Brute-force (Nested Loop): TC = O(n^2); SC = O(n)
-    # Surprisingly: https://leetcode.com/submissions/detail/767581085
 
     """
+    from itertools import chain
+
     row = [1]  # init.
     for _ in range(row_index):
-        row = [i+j for i, j in zip(row+[0], [0]+row)]
+        row = [i+j for i, j in zip(chain(row, [0]), chain([0], row))]
     return row
     """
 
     # 1) Better (Combinations): TC = O(n^2); SC = O(1)
 
+    """
     from math import comb
 
     for i in range(row_index+1):  # +1 coz index
         yield comb(row_index, i)
+    """
 
-    # 2) Optimal (Pattern): TC = O(n); SC = O(1)
+    # 2) Optimal (Benefiting Combinations' Pattern): TC = O(n); SC = O(1)
+
+    value = 1
+    yield value
+    for i in range(row_index):
+        value = (value*(row_index-i)) // (i+1)
+        yield value

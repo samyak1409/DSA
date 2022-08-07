@@ -36,10 +36,21 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                                                                           +   1 3 3 1
     #                                                                                           = 1 4 6 4 1
 
+    """
     row = [1]  # initialization
     yield row
     for _ in range(num_rows-1):
         row = [x+y for x, y in zip(row+[0], [0]+row)]  # using list comprehension
+        yield row
+    """
+    # row+[0] & [0]+row construct new lists and also allocate extra space, instead use itertools.chain
+    # https://www.youtube.com/watch?v=Qu3dThVy6KQ&t=1300s&ab_channel=CoreySchafer
+    from itertools import chain
+
+    row = [1]  # initialization
+    yield row
+    for _ in range(num_rows-1):
+        row = [x+y for x, y in zip(chain(row, [0]), chain([0], row))]  # using list comprehension
         yield row
 
     ####################################################################################################################
@@ -85,12 +96,12 @@ def generate(num_rows: int) -> list[list[int]]:
     #             Let's take a look when we apply combinations formula on an entire row,
     #             let's take m = 7, (n = [1, 2, 3, 4, 5, 6, 7])
     #             C(6, 0) = 6! / [0! * (6-0)!]                             = 1   (directly 1 (initialization))
-    #             C(6, 1) = 6! / [1! * (6-1)!] =           6 / 1           = 6   (next = previous*6/1 =  1*6/1 = 6)
-    #             C(6, 2) = 6! / [2! * (6-2)!] =         6*5 / 2*1         = 15  (next = previous*5/2 =  6*5/2 = 15)
-    #             C(6, 3) = 6! / [3! * (6-3)!] =       6*5*4 / 3*2*1       = 20  (next = previous*4/3 = 15*4/3 = 20)
-    #             C(6, 4) = 6! / [4! * (6-4)!] =     6*5*4*3 / 4*3*2*1     = 15  (next = previous*3/4 = 20*3/4 = 15)
-    #             C(6, 5) = 6! / [5! * (6-5)!] =   6*5*4*3*2 / 5*4*3*2*1   = 6   (next = previous*2/5 = 15*2/5 = 6)
-    #             C(6, 6) = 6! / [6! * (6-6)!] = 6*5*4*3*2*1 / 6*5*4*3*2*1 = 1   (next = previous*1/6 =  6*1/6 = 1)
+    #             C(6, 1) = 6! / [1! * (6-1)!] =           6 / 1           = 6   (next = (previous*6)/1 =  (1*6)/1 = 6)
+    #             C(6, 2) = 6! / [2! * (6-2)!] =         6*5 / 2*1         = 15  (next = (previous*5)/2 =  (6*5)/2 = 15)
+    #             C(6, 3) = 6! / [3! * (6-3)!] =       6*5*4 / 3*2*1       = 20  (next = (previous*4)/3 = (15*4)/3 = 20)
+    #             C(6, 4) = 6! / [4! * (6-4)!] =     6*5*4*3 / 4*3*2*1     = 15  (next = (previous*3)/4 = (20*3)/4 = 15)
+    #             C(6, 5) = 6! / [5! * (6-5)!] =   6*5*4*3*2 / 5*4*3*2*1   = 6   (next = (previous*2)/5 = (15*2)/5 = 6)
+    #             C(6, 6) = 6! / [6! * (6-6)!] = 6*5*4*3*2*1 / 6*5*4*3*2*1 = 1   (next = (previous*1)/6 =  (6*1)/6 = 1)
     #
     #             Hence, we got the pattern which can be easily programmed with O(n) time.
 
