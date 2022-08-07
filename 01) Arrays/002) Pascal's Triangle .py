@@ -9,16 +9,24 @@ def generate(num_rows: int) -> list[list[int]]:
     # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n)
 
     """
-    ans = [1]  # initialization
-    yield ans
+    row = [1]  # initialization
+    yield row
     # Summation using a nested for loop:
     for i in range(num_rows-1):  # n-1 iterations ✔
-        previous = ans
-        ans = [1]  # prefix 1
+        prev = row
+        row = [1]  # prefix 1
         for j in range(i):  # iteration range: [0, n-2] ✔
-            ans.append(previous[j]+previous[j+1])  # middle numbers
-        ans.append(1)  # suffix 1
-        yield ans
+            row.append(prev[j]+prev[j+1])  # middle numbers
+        row.append(1)  # suffix 1
+        yield row
+    """
+    # Concise:
+    """
+    row = [1]  # initialization
+    yield row
+    for i in range(num_rows-1):
+        row = [1] + [row[j]+row[j+1] for j in range(i)] + [1]  # prefix 1 + middle nums + suffix 1
+        yield row
     """
 
     # 2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n)
@@ -28,13 +36,11 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                                                                           +   1 3 3 1
     #                                                                                           = 1 4 6 4 1
 
-    ans = [1]  # initialization
-    yield ans
+    row = [1]  # initialization
+    yield row
     for _ in range(num_rows-1):
-        previous = ans
-        ans = [x+y for x, y in zip([0]+previous, previous+[0])]  # using list comprehension
-        # ans = list(map(lambda x, y: x+y, [0]+previous, previous+[0]))  # or using lambda function
-        yield ans
+        row = [x+y for x, y in zip(row+[0], [0]+row)]  # using list comprehension
+        yield row
 
     ####################################################################################################################
 
