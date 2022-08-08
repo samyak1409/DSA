@@ -8,7 +8,7 @@ def rotate(matrix: list[list[int]]) -> None:
     Do not return anything, modify matrix in-place instead.
     """
 
-    # 0) Brute-force (Using matrix copy): TC = O(n^2); SC = O(n^2)
+    # 0) Brute-force (Using Matrix Copy (Not Allowed)): TC = O(n^2); SC = O(n^2)
 
     """
     from copy import deepcopy
