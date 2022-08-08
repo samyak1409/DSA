@@ -67,17 +67,24 @@ def find_duplicate(nums: list[int]) -> int:
     """
 
     # 4) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
-    # Cycle will be there for sure as the array contain duplicate for sure; we have to find the start point of cycle,
-    # because start point will be the duplicate only for sure
 
     slow = fast = nums[0]  # start from start
     while True:  # imp: exit controlled (do-while) loop
-        slow = nums[slow]  # next
-        fast = nums[nums[fast]]  # next of next
+        slow, fast = nums[slow], nums[nums[fast]]  # next, next of next
         if slow == fast:  # cycle detected
             break
-    slow2 = nums[0]
+
+    slow2 = nums[0]  # start (of array)
     while slow2 != slow:  # finding the start point of cycle
-        slow2 = nums[slow2]
-        slow = nums[slow]
+        slow2, slow = nums[slow2], nums[slow]  # next, next
+
     return slow2  # duplicate found
+
+    # Why does this work? Why does cycle always form in the first place?
+    # Take an example: nums = [1, 4, 3, 4, 2]
+    #              (Indices:)  0  1  2  3  4
+    # So, cycle will always form because of the SIMPLE FACT that if a number (4) is occurring x times {x > 1},
+    # then it will be there at x indices (1 & 3), and so simply implying that x numbers (1 & 3) will be pointing to that
+    # particular number (4), thus making a cycle!
+    #                                             1 -> 4 -> 2 -> 3
+    #                                                  ↑_________|
