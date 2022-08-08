@@ -13,7 +13,7 @@ class ListNode:
         self.nxt = nxt
 
 
-def merge_two_lists(ln1: Optional[ListNode], ln2: Optional[ListNode]) -> Optional[ListNode]:
+def merge_two_lists(node1: Optional[ListNode], node2: Optional[ListNode]) -> Optional[ListNode]:
     """"""
 
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L16
@@ -21,17 +21,19 @@ def merge_two_lists(ln1: Optional[ListNode], ln2: Optional[ListNode]) -> Optiona
     # Brute-force = Optimal (Traverse & Compare): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/merge-two-sorted-lists/discuss/1826693/Python3-MERGING-Explained
 
-    head = ln = ListNode()  # head -> saving ref (coz singly linked list)
+    ptr_to_head = node = ListNode()  # ptr_to_head -> saving ref to return (because singly linked list)
 
-    while ln1 and ln2:  # while both linked lists have nodes left
-        if ln1.val < ln2.val:
-            ln.nxt = ln1
-            ln1 = ln1.nxt  # inc
+    while node1 and node2:  # while both linked lists have nodes left
+        # IMP: not copying the value but assigning the pointer to the existence address because
+        # "The list should be made by splicing together the nodes of the first two lists."
+        if node1.val < node2.val:
+            node.nxt = node1
+            node1 = node1.nxt  # move ahead
         else:
-            ln.nxt = ln2
-            ln2 = ln2.nxt  # inc
-        ln = ln.nxt  # inc
+            node.nxt = node2
+            node2 = node2.nxt  # move ahead
+        node = node.nxt  # move ahead
 
-    ln.nxt = ln1 or ln2  # remaining node(s) from ln1 if ln1 else ln2
+    node.nxt = node1 or node2  # remaining node(s)
 
-    return head.nxt
+    return ptr_to_head.nxt
