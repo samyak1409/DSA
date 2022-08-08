@@ -6,8 +6,9 @@ https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotati
 def find_rotation(mat: list[list[int]], target: list[list[int]]) -> bool:
     """"""
 
-    # 1) Brute-force = Optimal (Rotate & Check 3 Times): TC = O(n^2); SC = O(1)
     # From: https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/007%29%20Rotate%20Image.py
+
+    # 1) Brute-force = Optimal (Rotate & Check 3 Times): TC = O(n^2); SC = O(1)
 
     if mat == target:  # 0° / 360°
         return True
