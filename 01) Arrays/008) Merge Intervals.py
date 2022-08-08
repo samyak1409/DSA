@@ -8,8 +8,8 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
 
     # 0) [WA] Brute-force (Spilling the nums of all the intervals): TC = O(n^2); SC = O(n)
     # Tried a different logic but failed only and only due to the following case:
-    # When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5,6]]
-    # Following algorithm can't differentiate between the test cases [[1, 6]] and [[1, 4], [5,6]]
+    # When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5, 6]]
+    # Following algorithm can't differentiate between the test cases [[1, 6]] and [[1, 4], [5, 6]]
     # And returns the same output for the both.
 
     """
@@ -33,18 +33,17 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
         i += 1
     """
 
-    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n) {In Python, the sort() function is
-    # implemented using the Timsort algorithm, which has a worst-case space complexity of O(n)}
+    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n) {In Python, sorting is implemented
+    # using the Timsort algorithm, which has a worst-case space complexity of O(n)}
 
-    intervals.sort(key=lambda x: x[0])  # sort by start value of the intervals; TC = O(n*log(n)); SC = O(n)
+    intervals = sorted(intervals, key=lambda x: x[0])  # sort by start value of the intervals; new local var created
 
-    previous = intervals[0]
-    for i in range(1, len(intervals)):  # TC = O(n)
-        interval = intervals[i]
-        if previous[1] >= interval[0]:  # => intervals are overlapping!
-            previous[1] = max(previous[1], interval[1])  # merging
+    prev = intervals[0]
+    for i in range(1, len(intervals)):
+        curr = intervals[i]
+        if curr[0] <= prev[1]:  # => intervals are overlapping!
+            prev[1] = max(prev[1], curr[1])  # merging
         else:
-            yield previous  # adding the non-overlapping intervals to the output
-            previous = interval  # saving the current interval in order to check if it can be merged with the
-            # following interval
-    yield previous  # adding the last (overlapping/non-overlapping) interval to the output
+            yield prev  # adding the non-overlapping intervals to the output
+            prev = curr  # updating previous in order to check if it can be merged with the following interval
+    yield prev  # adding the last (overlapping/non-overlapping) interval to the output
