@@ -26,7 +26,7 @@ def get_inversions(arr: list[int], n: int) -> int:
             # Step-1) Dividing:
             mid_index = length // 2
             left, right = array[:mid_index], array[mid_index:]
-            count = get_count(array=left, length=mid_index) + get_count(array=right, length=length-mid_index)
+            count = get_count(array=left, length=mid_index) + get_count(array=right, length=length-mid_index)  # RECURSE
             # Step-2) Merging:
             i = j = 0
             while i < len(left) and j < len(right):
@@ -38,6 +38,7 @@ def get_inversions(arr: list[int], n: int) -> int:
                     j += 1
                     count += len(left)-i  # when element from right list (right[j]) is considered before all left[i:]
                     # => total len(left)-i inversions will be there (only for this particular right[j])
+                    # EXPLANATION: https://youtu.be/kQ1mJlwW-c0?t=325
             array[i+j:] = left[i:] or right[j:]
         return count
 

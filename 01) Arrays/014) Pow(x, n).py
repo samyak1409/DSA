@@ -25,7 +25,7 @@ def my_pow(x: float, n: int) -> float:
 
     """
     if n < 0:  # n can also be negative, making positive in order to proceed with the algo
-        x, n = 1/x, -n  # (x ^ -n = x^-1 ^ n = 1/x ^ n = 1/x * 1/x * 1/x ... n times)
+        x, n = 1/x, -n  # (x ^ -n = (x^-1) ^ n = 1/x ^ n = 1/x * 1/x * 1/x ... n times)
 
     ans = 1
     for _ in range(n):
@@ -88,8 +88,8 @@ def my_pow(x: float, n: int) -> float:
             n //= 2
         else:  # power odd
             ans *= x  # multiply
-            x *= x  # square
             n -= 1
+            x *= x  # square
             n //= 2
     return ans
     """
@@ -99,8 +99,8 @@ def my_pow(x: float, n: int) -> float:
         x, n = 1/x, -n  # update values
 
     ans = 1
-    while n:  # while n != 0
-        if n & 1:  # if n % 2 == 1 (if n is odd)
+    while n:
+        if n & 1:  # if n % 2 == 1
             ans *= x  # multiply
             n -= 1
         x *= x  # square
@@ -125,3 +125,6 @@ def my_pow(x: float, n: int) -> float:
 
     return my_pow(x*x, n//2) if (n % 2 == 0) else x * my_pow(x*x, (n-1)//2)  # recurse in
     # note: change "my_pow" above to "self.my_pow" for running inside class
+
+
+# Similar Question: https://leetcode.com/problems/sqrtx

@@ -88,3 +88,9 @@ def find_duplicate(nums: list[int]) -> int:
     # particular number (4), thus making a cycle!
     #                                             1 -> 4 -> 2 -> 3
     #                                                  ↑_________|
+
+
+# Similar Questions:
+# https://leetcode.com/problems/single-number
+# https://leetcode.com/problems/missing-number
+# https://leetcode.com/problems/contains-duplicate

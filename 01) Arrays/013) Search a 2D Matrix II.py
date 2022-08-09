@@ -36,4 +36,4 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     return False
 
     # Note: This same algo can also be applied to https://leetcode.com/problems/search-a-2d-matrix.
-    # (Though it can be better solved by Finding the Target Row + Linear Search)
+    # (Though it is easier solved by `Finding the Target Row + Linear Search` with same Time & Space Complexity.)
