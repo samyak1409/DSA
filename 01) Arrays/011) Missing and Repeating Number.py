@@ -6,7 +6,7 @@ https://www.codingninjas.com/codestudio/problems/873366
 def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     """"""
 
-    # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
+    # 0.1) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
 
     """
     sorted_arr = sorted(arr)
@@ -29,7 +29,7 @@ def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     # 0.2) Brute-force (HashSet): TC = O(n); SC = O(n)
 
     """
-    hashset = set()  # to track existence in O(1)
+    hashset = set()  # for O(1) lookup
     repeating = None
     for num in arr:  # finding repeating number
         if num in hashset:
@@ -43,10 +43,10 @@ def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     return [missing, repeating]
     """
 
-    # 0.3) Brute-force (Count & Store Occurrences): TC = O(n); SC = O(n)
-    # Rather than using HashMap, we can simply use Array here in which the indices will work like keys.
-    # As the contents of "arr" will be in b/w 1 and n; the task can be easily performed by Array rather than HashMap.
-    # Why give priority to Array over HashMap? > Less Space!
+    # 0.3) Brute-force (Frequency Array): TC = O(n); SC = O(n)
+    # When it's given like "the array contain elements from 1 to n", use Array instead of HashSet for tracking
+    # occurrences.
+    # Benefit of using Array over HashSet? > Less Space!
 
     """
     counts = [0] * n
@@ -74,7 +74,7 @@ def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     return [missing, repeating]
     """
 
-    # 2) Optimal (Maths: Sum of n and n^2 terms): TC = O(n); SC = O(1)
+    # 2) Optimal (Maths: Sum of n & n^2 terms): TC = O(n); SC = O(1)
 
     # In short:
     """
@@ -108,6 +108,5 @@ def missing_and_repeating(arr: list[int], n: int) -> list[int]:
     # => missing = (x+y) // 2
     missing = (x+y) // 2
     # And from equation (1), repeating = missing - x, so:
-    # => repeating = (x+y)//2 - x
     repeating = missing - x
     return [missing, repeating]
