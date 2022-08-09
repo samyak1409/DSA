@@ -54,8 +54,8 @@ def majority_element(nums: list[int]) -> int:
     """
 
     # 1) Better (Randomization): TC = Worst: O(inf); Average/Best: O(n); SC = O(1)
-    # Probability(choosing the majority element) > ~1/2
-    # https://leetcode.com/problems/majority-element/solution
+    # Probability(choosing the majority element) >= ~1/2
+    # https://leetcode.com/problems/majority-element/solution/#approach-4-randomization
 
     """
     from random import choice
@@ -73,22 +73,32 @@ def majority_element(nums: list[int]) -> int:
     # Intuition: If we had some way of counting instances of the majority element as +1 and instances of any other
     # element as −1, summing them would make it obvious that the majority element is indeed the majority element.
 
+    # `016) Majority Element II.py` Style:
     """
-    major, relative_votes = None, 0  # initialization
+    major, relative_votes = None, 0  # init
     for num in nums:  # traverse
         if num == major:
             relative_votes += 1
-        else:  # num != major
+        elif relative_votes == 0:  # change major
+            major, relative_votes = num, 1
+        else:  # (num != major and relative_votes >= 1)
             relative_votes -= 1
-            if relative_votes == -1:  # change major
-                major, relative_votes = num, 1
     return major  # ans.
     """
-    # Or:
-    major, relative_votes = None, 0  # initialization
+    # Easier for current one:
+    """
+    major, relative_votes = None, 0  # init
     for num in nums:  # traverse
         if relative_votes == 0:  # change major
             major, relative_votes = num, 1
         else:  # current major's relative votes ++ or --
             relative_votes += 1 if (num == major) else -1
+    return major  # ans.
+    """
+    # Or:
+    major, relative_votes = None, 0  # init
+    for num in nums:  # traverse
+        if relative_votes == 0:  # change major
+            major = num
+        relative_votes += 1 if (num == major) else -1  # current major's relative votes ++ or --
     return major  # ans.
