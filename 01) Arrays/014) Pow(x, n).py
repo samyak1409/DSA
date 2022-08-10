@@ -52,7 +52,7 @@ def my_pow(x: float, n: int) -> float:
         return x
 
     ans = 1
-    power_left, product, current_terms = n, x, 1  # initialization
+    power_left, product, current_terms = n, x, 1  # init
     while power_left >= 2:  # min power required for this algo = 2
         if power_left >= 2*current_terms:
             product *= product  # applying the property x^(2y) = (x^y)^2

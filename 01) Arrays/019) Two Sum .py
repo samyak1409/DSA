@@ -53,7 +53,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
     # Finding the 2 nums using Two-Pointers:
-    low, high = 0, len(nums)-1  # initialization
+    low, high = 0, len(nums)-1  # init
     while low < high:
         index1, num1 = sorted_nums[low]
         index2, num2 = sorted_nums[high]
@@ -75,8 +75,8 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # Taking every num one by one and checking for required_num2 in HashMap:
     for index1, num1 in enumerate(nums):
         index2 = hashmap.get(target-num1)  # target-num1 = required_num2
-        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; "index1" means
-            # num1 = num2
+        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; 
+            # "index1" means num1 = num2
             return [index1, index2]
     """
     # It turns out we can do it in one-pass:

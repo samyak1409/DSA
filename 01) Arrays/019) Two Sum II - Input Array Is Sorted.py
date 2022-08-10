@@ -48,7 +48,7 @@ def two_sum(numbers: list[int], target: int) -> list[int]:
     # 2) Optimal (Two-Pointers): TC = O(n); SC = O(1)
 
     # Finding the 2 numbers using Two-Pointers:
-    low, high = 0, len(numbers)-1  # initialization
+    low, high = 0, len(numbers)-1  # init
     while low < high:
         num1, num2 = numbers[low], numbers[high]
         if num1 + num2 == target:

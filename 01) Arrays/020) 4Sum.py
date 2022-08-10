@@ -61,13 +61,13 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
         https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/019%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py#L48
         """
         two_nums_set = set()
-        low, high = 0, len(nums__)-1  # initialization
+        low, high = 0, len(nums__)-1  # init
         while low < high:
             num1, num2 = nums__[low], nums__[high]
             if num1 + num2 == target__:
                 two_nums_tup = (num1, num2)
                 two_nums_set.add(two_nums_tup)  # only storing unique two-nums
-                # not stopping but continuing with:
+                # Not stopping but continuing with:
                 low += 1
                 high -= 1
                 # because consider input: (nums=[0, 1, 1, 2], target=2)
@@ -81,16 +81,20 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     def k_sum(k, nums_, target_):
         if k == 2:  # base case
             return two_sum(nums__=nums_, target__=target_)
-        # k-2 for-loops:
+        # (k-2) for-loops:
         sub_ans_set = set()  # new
         for i in range(len(nums_)-k+1):
             num = nums_[i]
-            sub_ans_set_ = k_sum(k=k-1, nums_=nums_[i+1:], target_=target_-num)  # old
-            # concatenating: e.g. if num = -2 & sub_ans_set_ = {(0, 2), (1, 1)}
-            # then sub_ans_set = {(-2, 0, 2), (-2, 1, 1)}
+            sub_ans_set_ = k_sum(k=k-1, nums_=nums_[i+1:], target_=target_-num)  # RECURSE; old
+            # Concatenating:
+            # e.g. if num = -2 & sub_ans_set_ = {(0, 2), (1, 1)}, then sub_ans_set = {(-2, 0, 2), (-2, 1, 1)}
+            """
             for sub_ans_tup_ in sub_ans_set_:
                 sub_ans_tup = (num, *sub_ans_tup_)
                 sub_ans_set.add(sub_ans_tup)
+            """
+            # In short:
+            sub_ans_set.update([(num, *sub_ans_tup_) for sub_ans_tup_ in sub_ans_set_])
         return sub_ans_set
 
     ans_set = k_sum(k=4, nums_=sorted(nums), target_=target)

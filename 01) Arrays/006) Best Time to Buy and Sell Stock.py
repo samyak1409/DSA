@@ -21,7 +21,7 @@ def max_profit(prices: list[int]) -> int:
 
     # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
 
-    cost_price = float('inf')  # initialization
+    cost_price = float('inf')  # init
     max_profit_ = 0
     for price in prices:
         if price < cost_price:

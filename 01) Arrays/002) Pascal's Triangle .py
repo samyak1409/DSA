@@ -9,7 +9,7 @@ def generate(num_rows: int) -> list[list[int]]:
     # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n)
 
     """
-    row = [1]  # initialization
+    row = [1]  # init
     yield row
     # Summation using a nested for loop:
     for i in range(num_rows-1):  # n-1 iterations ✔
@@ -22,7 +22,7 @@ def generate(num_rows: int) -> list[list[int]]:
     """
     # Concise:
     """
-    row = [1]  # initialization
+    row = [1]  # init
     yield row
     for i in range(num_rows-1):
         row = [1] + [row[j]+row[j+1] for j in range(i)] + [1]  # prefix 1 + middle nums + suffix 1
@@ -37,7 +37,7 @@ def generate(num_rows: int) -> list[list[int]]:
     #                                                                                           = 1 4 6 4 1
 
     """
-    row = [1]  # initialization
+    row = [1]  # init
     yield row
     for _ in range(num_rows-1):
         row = [x+y for x, y in zip(row+[0], [0]+row)]  # using list comprehension
@@ -47,7 +47,7 @@ def generate(num_rows: int) -> list[list[int]]:
     # https://www.youtube.com/watch?v=Qu3dThVy6KQ&t=1300s&ab_channel=CoreySchafer
     from itertools import chain
 
-    row = [1]  # initialization
+    row = [1]  # init
     yield row
     for _ in range(num_rows-1):
         row = [x+y for x, y in zip(chain(row, [0]), chain([0], row))]  # using list comprehension
@@ -92,7 +92,7 @@ def generate(num_rows: int) -> list[list[int]]:
 #
 #             Let's take a look when we apply combinations formula on an entire row,
 #             let's take m = 7, (n = [1, 2, 3, 4, 5, 6, 7])
-#             C(6, 0) = 6! / [0! * (6-0)!]                             = 1   (directly 1 (initialization))
+#             C(6, 0) = 6! / [0! * (6-0)!]                             = 1   (directly 1 (init))
 #             C(6, 1) = 6! / [1! * (6-1)!] =           6 / 1           = 6   (next = (previous*6) / 1 =  (1*6) / 1 = 6)
 #             C(6, 2) = 6! / [2! * (6-2)!] =         6*5 / 2*1         = 15  (next = (previous*5) / 2 =  (6*5) / 2 = 15)
 #             C(6, 3) = 6! / [3! * (6-3)!] =       6*5*4 / 3*2*1       = 20  (next = (previous*4) / 3 = (15*4) / 3 = 20)

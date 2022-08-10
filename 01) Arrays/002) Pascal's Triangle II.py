@@ -14,7 +14,7 @@ def get_row(row_index: int) -> list[int]:
     """
     from itertools import chain
 
-    row = [1]  # init.
+    row = [1]  # init
     for _ in range(row_index):
         row = [i+j for i, j in zip(chain(row, [0]), chain([0], row))]
     return row
