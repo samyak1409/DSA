@@ -24,22 +24,24 @@ def longest_subarray_with_0_sum(arr: list[int]) -> int:
     # i) Sort the array
     # ii) Go to the integer which is closet to 0
     # iii) Use Two-Pointers to move left and right to find the largest sub-array with 0 sum
-    # WRONG (Obviously): Sub-array means sub-array in the input array, sorting will change the order!
+    # WRONG (Obviously): Sub-array means sub-array of original array, sorting will change the order!
+    # It's possible in case like Two Sum (see:
+    # https://github.com/samyak1409/DSA/blob/268cbaaf16b5d5441e5ffd3544abf190c3ca2b94/01%29%20Arrays/019%29%20Two%20Sum%20.py#L51),
+    # but not in the case of subarrays / subsequences (basically contiguous).
 
-    # 1) Optimal (Prefix-Sum & HashSet): TC = O(n); SC = O(n)
+    # 1) Optimal (Prefix-Sum & HashMap): TC = O(n); SC = O(n)
     # Easy https://youtu.be/xmguZ6GbatA
 
     prefix_sum = 0
-    hashset = {prefix_sum: -1}  # O(1) lookup
-    # initializing with "prefix_sum: -1" because:
+    leftmost_index = {prefix_sum: -1}  # for O(1) lookup; initializing with "prefix_sum: -1" because:
     # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.
     longest_len = 0
     for index in range(len(arr)):  # O(n)
         prefix_sum += arr[index]
-        if prefix_sum in hashset:  # O(1)
-            longest_len = max(longest_len, index-hashset[prefix_sum])
-        else:
-            hashset[prefix_sum] = index
+        if (leftmost := leftmost_index.get(prefix_sum)) is not None:  # O(1); => this prefix_sum has occurred before
+            longest_len = max(longest_len, index-leftmost)  # `index-leftmost` = length of 0 sum subarray
+        else:  # this prefix_sum has occurred 1st time
+            leftmost_index[prefix_sum] = index  # save `prefix_sum: index`
     return longest_len
 
 
