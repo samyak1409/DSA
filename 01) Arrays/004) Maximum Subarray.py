@@ -67,6 +67,7 @@ def max_sub_array(nums: list[int]) -> int:
     """
 
     # 1.3) Perfect:
+    """
     current_sum, largest_sum = 0, float('-inf')  # so that any (negative) integer will be greater
     for num in nums:
         current_sum += num
@@ -75,12 +76,14 @@ def max_sub_array(nums: list[int]) -> int:
         if current_sum < 0:
             current_sum = 0  # reset, we don't want to take negative sum ahead!
     return largest_sum
-    # (Same Algo:)
     """
+    # (Same Algo:)
     current_sum, largest_sum = 0, float('-inf')  # so that any (negative) integer will be greater
     for num in nums:
         current_sum += num
         largest_sum = max(largest_sum, current_sum)
-        current_sum = max(current_sum, 0)
+        current_sum = max(current_sum, 0)  # if current_sum < 0: reset, we don't want to take negative sum ahead
     return largest_sum
-    """
+
+
+# Similar Question: https://leetcode.com/problems/best-time-to-buy-and-sell-stock
