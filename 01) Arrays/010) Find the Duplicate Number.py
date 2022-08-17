@@ -33,7 +33,7 @@ def find_duplicate(nums: list[int]) -> int:
     """
     for i in range(len(nums)):
         index = abs(nums[i])  # index to leave mark at; abs() because nums[i] can be a negated value
-        if nums[index] < 0:  # value at "index" found negated => "index" (nums[i]) is the duplicate number!
+        if nums[index] < 0:  # value at `index` found negated => `index` (nums[i]) is the duplicate number!
             for j in range(i):  # turning the negated elements back positive; range(i) because elements were
                 # negated till here only
                 nums[abs(nums[j])] *= -1

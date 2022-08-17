@@ -9,7 +9,7 @@ def four_sum_count(nums1: list[int], nums2: list[int], nums3: list[int], nums4: 
     # 0) [TLE] Brute-force (4 Loops): TC = O(n^4); SC = O(1)
 
     # 1.1) [WA, TLE] Better (Sort & Two Pointers): TC = O(n^3); SC = O(1)
-    # WA: Same reason as "019.4) Count Good Meals.py"'s "1)".
+    # WA: Same reason as `019.4) Count Good Meals.py`'s `1)`.
 
     """
     n = len(nums1)

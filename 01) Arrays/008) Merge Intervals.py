@@ -18,10 +18,10 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
         arr_start, arr_end = min(arr_start, *interval), max(arr_end, *interval)
 
     arr_len = arr_end - arr_start + 1
-    arr = [False] * arr_len  # initialize an array with all "False"(s); SC = O(n)
+    arr = [False] * arr_len  # initialize an array with all `False`(s); SC = O(n)
     for interval in intervals:  # TC = O(n^2)
         start, end = interval[0]-arr_start, interval[1]-arr_start
-        arr[start:end+1] = [True] * (end-start+1)  # insert "True" at all the indices which lie in an interval
+        arr[start:end+1] = [True] * (end-start+1)  # insert `True` at all the indices which lie in an interval
 
     i = 0
     while i < arr_len:  # TC = O(n)

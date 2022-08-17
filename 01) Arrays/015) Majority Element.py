@@ -26,7 +26,7 @@ def majority_element(nums: list[int]) -> int:
     """
 
     # 0.2) Brute-force (HashMap): TC = O(n); SC = O(n)
-    # Optimization of "0.1)" with the help of HashMap.
+    # Optimization of `0.1)` with the help of HashMap.
 
     """
     from collections import Counter

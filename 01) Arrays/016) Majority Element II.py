@@ -14,7 +14,7 @@ def majority_element(nums: list[int]) -> list[int]:
     ans = []  # SC = O(1) because at most only 2 majority elements can be there {Why? Because 1 <= n // [(n//3)+1] <= 2}
     n = len(nums)
     for num in nums:
-        if num not in ans and nums.count(num) > n//3:  # "num not in ans" so that if num is a majority element, it does
+        if num not in ans and nums.count(num) > n//3:  # `num not in ans` so that if num is a majority element, it does
             # not get added to ans everytime it appears
             ans.append(num)
             if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
@@ -24,7 +24,7 @@ def majority_element(nums: list[int]) -> list[int]:
     """
 
     # 0.2) Brute-force (HashMap): TC = O(n); SC = O(n)
-    # Optimization of "0.1)" with the help of HashMap.
+    # Optimization of `0.1)` with the help of HashMap.
 
     """
     from collections import Counter
@@ -33,7 +33,7 @@ def majority_element(nums: list[int]) -> list[int]:
     n = len(nums)
     for num in nums:
         count[num] += 1
-        if num not in ans and count[num] > n//3:  # "num not in ans" so that if num is a majority element, it does not
+        if num not in ans and count[num] > n//3:  # `num not in ans` so that if num is a majority element, it does not
             # get added to ans everytime it appears
             ans.append(num)
             if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
@@ -56,7 +56,7 @@ def majority_element(nums: list[int]) -> list[int]:
     while True:
         rand_num = choice(seq=nums)  # choose a random element from the array
         # check if the chosen element is the majority element or not:
-        if rand_num not in ans and nums.count(rand_num) > n//3:  # "rand_num not in ans" so that if rand_num is a
+        if rand_num not in ans and nums.count(rand_num) > n//3:  # `rand_num not in ans` so that if rand_num is a
             # majority element, it does not get added to ans everytime chose
             ans.append(rand_num)
             if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
@@ -65,10 +65,10 @@ def majority_element(nums: list[int]) -> list[int]:
     return ans
     """
 
-    # 2) Optimal (Extended `Boyer-Moore Majority Voting Algorithm`): TC = O(n); SC = O(1)
-    # Check `Boyer-Moore Majority Voting Algorithm` at:
+    # 2) Optimal (Extended "Boyer-Moore Majority Voting Algorithm"): TC = O(n); SC = O(1)
+    # Check "Boyer-Moore Majority Voting Algorithm" at:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py
-    # Explanation of Extended `Boyer-Moore Majority Voting Algorithm`: https://youtu.be/yDbkQd9t2ig?t=182
+    # Explanation of Extended "Boyer-Moore Majority Voting Algorithm": https://youtu.be/yDbkQd9t2ig?t=182
     # More Explanations:
     # https://leetcode.com/problems/majority-element-ii/discuss/63520/Boyer-Moore-Majority-Vote-algorithm-and-my-elaboration/112881
     # https://assets.leetcode.com/users/andriy111/image_1584562040.png (From
@@ -77,7 +77,7 @@ def majority_element(nums: list[int]) -> list[int]:
     major1, major2, count1, count2 = None, None, 0, 0  # init
     # taking two vars only because at most only 2 majority elements can be there
     # {Why? Because 1 <= n // [(n//3)+1] <= 2}
-    # 1st Pass (Extended `Boyer-Moore Majority Voting Algorithm`):
+    # 1st Pass (Extended "Boyer-Moore Majority Voting Algorithm"):
     for num in nums:  # O(n)
         if num == major1:
             count1 += 1
@@ -89,7 +89,7 @@ def majority_element(nums: list[int]) -> list[int]:
             major2, count2 = num, 1
         else:  # if (num not in (major1, major2)) and (count1 >= 1 and count2 >= 1)
             count1, count2 = count1-1, count2-1  # relative_votes--
-    # 2nd Pass (When the array will contain no majority elements, then "major1" & "major2" will contain false
+    # 2nd Pass (When the array will contain no majority elements, then `major1` & `major2` will contain false
     # positives which will be filtered out next):
     return list(filter(lambda major: nums.count(major) > len(nums)//3, [major1, major2]))  # O(n)
 

@@ -33,7 +33,7 @@ def longest_subarray_with_0_sum(arr: list[int]) -> int:
     # Easy https://youtu.be/xmguZ6GbatA
 
     prefix_sum = 0
-    leftmost_index = {prefix_sum: -1}  # for O(1) lookup; initializing with "prefix_sum: -1" because:
+    leftmost_index = {prefix_sum: -1}  # for O(1) lookup; initializing with `prefix_sum: -1` because:
     # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.
     longest_len = 0
     for index in range(len(arr)):  # O(n)

@@ -15,7 +15,7 @@ def sub_array_sum(nums: list[int], k: int) -> int:
     from collections import Counter
     frequency = Counter()  # Counter for easy working with counts
     prefix_sum = 0
-    frequency[prefix_sum] = 1  # initializing with "prefix_sum: 1" because:
+    frequency[prefix_sum] = 1  # initializing with `prefix_sum: 1` because:
     # dry run the algo with input (nums=[6, 6], x=6), you'll get the answer.
     count = 0
     for num in nums:

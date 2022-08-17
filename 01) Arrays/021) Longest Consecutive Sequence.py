@@ -35,7 +35,7 @@ def longest_consecutive(nums: list[int]) -> int:
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive
-        elif nxt != cur:  # `if nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
+        elif nxt != cur:  # if `nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
             current = 1  # reset
     return longest
     """
@@ -63,12 +63,12 @@ def longest_consecutive(nums: list[int]) -> int:
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive
-        elif nxt != cur:  # `if nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
+        elif nxt != cur:  # if `nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
             current = 1  # reset
     return longest
     """
 
-    # Notice the only difference in this algo from "0.2)" is Sorting using Counting Sort,
+    # Notice the only difference in this algo from `0.2)` is Sorting using Counting Sort,
     # which leads us from Linearithmic (Linear*Logarithmic) to Linear time.
 
     # 2) Optimal (HashSet): TC = O(n); SC = O(n)
@@ -86,7 +86,7 @@ def longest_consecutive(nums: list[int]) -> int:
             longest = max(longest, current)
     return longest
 
-    # Notice the only difference in this algo from "0.1)" is the line `if num-1 not in nums:` 👌,
+    # Notice the only difference in this algo from `0.1)` is the line `if num-1 not in nums:` 👌,
     # which intelligently leads us from Quadratic to Linear time!
 
 

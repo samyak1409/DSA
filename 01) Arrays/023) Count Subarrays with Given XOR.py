@@ -33,7 +33,7 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
     from collections import Counter
     frequency = Counter()  # Counter for easy working with counts
     prefix_xor = 0
-    frequency[prefix_xor] = 1  # initializing with "prefix_xor: 1" because:
+    frequency[prefix_xor] = 1  # initializing with `prefix_xor: 1` because:
     # dry run the algo with input (arr=[6, 6], x=6), you'll get the answer.
     count = 0
     for element in arr:

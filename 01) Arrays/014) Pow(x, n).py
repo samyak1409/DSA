@@ -124,7 +124,7 @@ def my_pow(x: float, n: int) -> float:
         return 1  # recurse out
 
     return my_pow(x*x, n//2) if (n % 2 == 0) else x*my_pow(x*x, (n-1)//2)  # recurse in
-    # note: change "my_pow" above to "self.my_pow" for running inside class
+    # note: change `my_pow` above to `self.my_pow` for running inside class
 
 
 # Similar Question: https://leetcode.com/problems/super-pow

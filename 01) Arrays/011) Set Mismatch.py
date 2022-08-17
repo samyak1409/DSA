@@ -20,7 +20,7 @@ def find_error_nums(nums: list[int]) -> list[int]:
     missing = 1  # starting from 1
     for i in range(n):  # finding missing number
         current = sorted_nums[i]
-        if current > missing:  # if at any point, "current" exceeds "missing" => "missing" is the number which didn't
+        if current > missing:  # if at any point, `current` exceeds `missing` => `missing` is the number which didn't
             # occur in nums
             break
         missing = current+1  # else missing = next number that should be
@@ -63,7 +63,7 @@ def find_error_nums(nums: list[int]) -> list[int]:
     repeating = None
     for i in range(n):  # finding repeating number
         index = abs(nums[i])-1  # index to leave mark at; abs() because nums[i] can be a negated value
-        if nums[index] < 0:  # value at "index" found negated => index+1 (nums[i]) is the repeating number!
+        if nums[index] < 0:  # value at `index` found negated => index+1 (nums[i]) is the repeating number!
             repeating = index+1
         else:
             nums[index] *= -1  # leaving mark

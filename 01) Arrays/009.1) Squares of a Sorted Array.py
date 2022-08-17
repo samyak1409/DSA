@@ -33,7 +33,7 @@ def sorted_squares(nums: list[int]) -> list[int]:
     """
 
     # 2) Optimal (Two Pointers & Traversal from Mid to Ends): TC = O(n); SC = O(1)
-    # Solves the problem of "1)".
+    # Solves the problem of `1)`.
 
     # Finding the middle index:
     # mid = nums.index(min(nums, key=lambda x: abs(x)))

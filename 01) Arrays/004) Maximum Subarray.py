@@ -50,12 +50,12 @@ def max_sub_array(nums: list[int]) -> int:
     return largest_sum
     """
 
-    # 1.1) An extension to "1.0)", handling "the input contains all negative elements" case explicitly (Accepted):
+    # 1.1) An extension to `1.0)`, handling "the input contains all negative elements" case explicitly (Accepted):
     """
     largest_element = max(nums)
     if largest_element < 0:
         return largest_element  # e.g. nums = [-1, -4, -3]; max_subarray = [-1] => ans = -1 = largest_element
-    # And then same code as "1.0)".
+    # And then same code as `1.0)`.
     """
 
     # 1.2) Correct but modifies the array and takes 2 passes (which can be avoided):

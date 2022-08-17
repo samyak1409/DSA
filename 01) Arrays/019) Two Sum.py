@@ -29,7 +29,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     sorted_nums = sorted(enumerate(nums), key=lambda tup: tup[1])
 
     # Taking every element one by one from the sorted array and applying binary search to the elements in the right:
-    # (why only right? same reason as why we used "i+1" in brute force approach)
+    # (why only right? same reason as why we used `i+1` in brute force approach)
     for search_start_index, (index1, num1) in enumerate(sorted_nums, start=1):
         required_num2 = target - num1
         # Finding the required_num2 using Binary Search:
@@ -74,8 +74,8 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # Taking every num one by one and checking for required_num2 in HashMap:
     for index1, num1 in enumerate(nums):
         index2 = hashmap.get(target-num1)  # target-num1 = required_num2
-        if index2 not in (None, index1):  # "None" means num1 doesn't form target sum with any number; 
-            # "index1" means num1 = num2
+        if index2 not in (None, index1):  # `None` means num1 doesn't form target sum with any number; 
+            # `index1` means num1 = num2
             return [index1, index2]
     """
     # It turns out we can do it in one-pass:
@@ -90,7 +90,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 
     # Did you notice?
     # In this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in
-    # "0)", "1)" and "3)" respectively.
+    # `0)`, `1)` and `3)` respectively.
 
 
 # Similar Questions:

@@ -32,7 +32,7 @@ def check_subarray_sum(nums: list[int], k: int) -> bool:
     # https://leetcode.com/problems/continuous-subarray-sum/discuss/236976/Python-solution
 
     prefix_sum = 0
-    leftmost_index = {prefix_sum: -1}  # hashmap for O(1) lookup; initializing with "prefix_sum: -1" because:
+    leftmost_index = {prefix_sum: -1}  # hashmap for O(1) lookup; initializing with `prefix_sum: -1` because:
     # dry run the algo with input (nums=[3,4], k=7), you'll get the answer.
     for index in range(len(nums)):
         prefix_sum += nums[index]

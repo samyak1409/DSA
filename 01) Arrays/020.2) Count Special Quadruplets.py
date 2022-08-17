@@ -44,4 +44,4 @@ def count_quadruplets(nums: list[int]) -> int:
     # https://leetcode.com/problems/count-special-quadruplets/discuss/1446988/JavaC%2B%2BPython3-Real-O(n2)-solution
     # https://leetcode.com/problems/count-special-quadruplets/discuss/1456709/Python-99-Clean-Code-Walkthrough-From-O(4)-greater-O(3)-greater-O(2)
     # https://leetcode.com/problems/count-special-quadruplets/discuss/1451080/JavaPython-O(n2)-solution-with-explanation
-    # Similar to "020.1) 4Sum II.py"'s "2)".
+    # Similar to `020.1) 4Sum II.py`'s `2)`.

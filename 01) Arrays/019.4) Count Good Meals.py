@@ -16,7 +16,7 @@ def count_pairs(nums: list[int]) -> int:
     sorted_nums = sorted(nums)
 
     pairs = 0
-    for target in map(lambda power: 2**power, range(22)):  # `0 <= nums[i] <= 2^20` => max pair sum =
+    for target in map(lambda power: 2**power, range(22)):  # "0 <= nums[i] <= 2^20" => max pair sum =
         # 2^20 + 2^20 = 2^20 * (1+1) = 2^20 * 2 = 2^21
         # Finding all pairs using Two-Pointers:
         low, high = 0, len(nums)-1  # init
@@ -38,7 +38,7 @@ def count_pairs(nums: list[int]) -> int:
     from collections import Counter
 
     pairs = 0
-    for target in map(lambda power: 2**power, range(22)):  # `0 <= nums[i] <= 2^20` => max pair sum =
+    for target in map(lambda power: 2**power, range(22)):  # "0 <= nums[i] <= 2^20" => max pair sum =
         # 2^20 + 2^20 = 2^20 * (1+1) = 2^20 * 2 = 2^21
         # Counter HashMap for easy working with the counts of nums:
         frequency = Counter()
@@ -53,7 +53,7 @@ def count_pairs(nums: list[int]) -> int:
     # https://leetcode.com/problems/count-good-meals/discuss/999170/Python3-frequency-table
     from collections import Counter
 
-    targets = [2**power for power in range(22)]  # `0 <= nums[i] <= 2^20` => max pair sum = 2^20 + 2^20 =
+    targets = [2**power for power in range(22)]  # "0 <= nums[i] <= 2^20" => max pair sum = 2^20 + 2^20 =
     # 2^20 * (1+1) = 2^20 * 2 = 2^21
     # Counter HashMap for easy working with the counts of nums:
     frequency = Counter()

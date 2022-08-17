@@ -20,7 +20,7 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     # https://leetcode.com/problems/search-a-2d-matrix-ii/discuss/66139/C%2B%2B-search-from-top-right
     # Why are we starting from top-right corner only?
     # Because we need to start from a corner from where one side is ascending and the other descending, why?
-    # Because otherwise we will not know in which direction to go if "target" is greater/lesser than both the elements
+    # Because otherwise we will not know in which direction to go if `target` is greater/lesser than both the elements
     # of both direction.
     # You guessed right! We can also start from bottom-left corner.
 
@@ -36,4 +36,4 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     return False
 
     # Note: This same algo can also be applied to https://leetcode.com/problems/search-a-2d-matrix.
-    # (Though it is easier solved by `Finding the Target Row + Linear Search` with same Time & Space Complexity.)
+    # (Though it is easier solved by "Finding the Target Row + Linear Search" with same Time & Space Complexity.)

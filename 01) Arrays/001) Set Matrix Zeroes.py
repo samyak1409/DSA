@@ -86,7 +86,7 @@ def set_zeroes(matrix: list[list[int]]) -> None:
 
     # saving whether the first row & column contain any 0s or not:
     first_row_zero, first_column_zero = 0 in matrix[0], 0 in [row[0] for row in matrix]
-    # Additional Note: Using "row[0] for row in matrix" instead of "matrix[i][0] for i in range(m)" above,
+    # Additional Note: Using `row[0] for row in matrix` instead of `matrix[i][0] for i in range(m)` above,
     # still the SC = O(1) because row has not allocated extra space but is pointing to the matrix only!
 
     for i in range(m):
