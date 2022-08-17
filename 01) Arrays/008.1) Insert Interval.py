@@ -19,7 +19,7 @@ def insert(intervals: list[list[int]], new_interval: list[int]) -> list[list[int
         intervals.append(new_interval)
 
     # Merging Any Overlapping Intervals (if formed after insertion):
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
     prev = intervals[0]
     for i in range(1, n+1):
         curr = intervals[i]

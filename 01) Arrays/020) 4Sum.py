@@ -26,7 +26,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # We will keep track of the quadruplets already added to the answer set and will not consider any quadruplet again:
     # TC = O(n*log(n) + n^4); SC = O(n+n)
     # IMP: Checkout:
-    # https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/020%29%203Sum.py#L78
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/019.2%29%203Sum.py#L78
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
@@ -58,7 +58,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     def two_sum(nums__, target__):
         """
         Finding the 2 numbers using Two-Pointers: TC = O(n); SC = O(1)
-        https://github.com/samyak1409/DSA/blob/4761050e1f66a9b35897823aa64594aa0750ed23/01%29%20Arrays/019%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py#L48
+        https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py#L48
         """
         two_nums_set = set()
         low, high = 0, len(nums__)-1  # init

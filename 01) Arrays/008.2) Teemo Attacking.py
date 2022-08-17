@@ -15,7 +15,7 @@ def find_poisoned_duration(time_series: list[int], duration: int) -> int:
         time_series[i] = [time_series[i], time_series[i]+duration-1]
 
     # Merging Overlapping Intervals in order to calc. Distinct Poisoned Durations:
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
     poisoned_duration = 0
     prev = time_series[0]
     for i in range(1, n):
@@ -28,7 +28,7 @@ def find_poisoned_duration(time_series: list[int], duration: int) -> int:
     return poisoned_duration + prev[1]-prev[0]+1  # adding the last (overlapping/non-overlapping) interval to the output
     """
     # OTG Forming the Time Intervals and Merging Overlapping Intervals in order to calc. Distinct Poisoned Durations:
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
     poisoned_duration = 0
     prev = [time_series[0], time_series[0]+duration-1]
     for i in range(1, len(time_series)):

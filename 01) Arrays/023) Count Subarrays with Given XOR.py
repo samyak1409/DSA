@@ -7,7 +7,7 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
     """"""
 
     # This problem is solved using the same core logic as
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Largest%20Subarray%20with%200%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py.
 
     # Properties of XOR:
     # A ^ 0 = A
@@ -51,7 +51,7 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
     # the sub-array's XOR is x, that's why we got current prefix_xor from y (if a ^ b = c, then a = b ^ c).
     # Solve this problem for complete understanding: https://leetcode.com/problems/subarray-sum-equals-k
     # (whose sub-problem is:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Largest%20Subarray%20with%200%20Sum.py)
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py)
 
 
 # Similar Questions:

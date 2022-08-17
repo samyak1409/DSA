@@ -14,7 +14,7 @@ def sorted_squares(nums: list[int]) -> list[int]:
 
     # 1) Time-Optimal (Two Pointers & Traversal from Ends to Mid): TC = O(n); SC = O(n)
     # Like:
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L32
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L32
     # https://leetcode.com/problems/squares-of-a-sorted-array/discuss/495394/C%2B%2B%3A-Simplest-one-pass-two-pointers
 
     """
@@ -45,7 +45,7 @@ def sorted_squares(nums: list[int]) -> list[int]:
     yield nums[mid] ** 2
 
     # Traversing (from Mid to Ends) and Comparing:
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L32
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L32
     n = len(nums)
     lo, hi = mid-1, mid+1
     while lo >= 0 and hi < n:

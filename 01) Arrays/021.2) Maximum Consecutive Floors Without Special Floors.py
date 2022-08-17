@@ -33,7 +33,7 @@ def max_consecutive(bottom: int, top: int, special: list[int]) -> int:
         else:
             special.remove(floor)
 
-    # https://github.com/samyak1409/DSA/blob/d81aed952797c645eedf2032ba8537fafb3412a9/01%29%20Arrays/021%29%20Longest%20Consecutive%20Sequence.py#L74
+    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/021%29%20Longest%20Consecutive%20Sequence.py#L74
     maxi = 0
     for floor in floors:
         if floor-1 not in floors:  # finding the smallest num of a consecutive sequence
