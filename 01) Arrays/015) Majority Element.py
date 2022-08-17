@@ -102,3 +102,6 @@ def majority_element(nums: list[int]) -> int:
             major = num
         relative_votes += 1 if (num == major) else -1  # current major's relative votes ++ or --
     return major  # ans.
+
+
+# Similar Question: https://leetcode.com/problems/majority-element-ii

@@ -88,3 +88,8 @@ def longest_consecutive(nums: list[int]) -> int:
 
     # Notice the only difference in this algo from "0.1)" is the line `if num-1 not in nums:` 👌,
     # which intelligently leads us from Quadratic to Linear time!
+
+
+# Similar Questions:
+# https://leetcode.com/problems/find-three-consecutive-integers-that-sum-to-a-given-number
+# https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors

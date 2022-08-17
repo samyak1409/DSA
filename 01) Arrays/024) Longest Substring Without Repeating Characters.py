@@ -59,10 +59,15 @@ def length_of_longest_substring(s: str) -> int:
     longest_len = 0
     for current_index, char in enumerate(s):  # O(n)
         if (last := last_index.get(char)) is not None:  # O(1)
+            start_index = max(start_index, last+1)
             # IMP: only setting the start_index to last_index[char]+1 if it is in the right of start_index
             #      else just ignoring because it means that we have already came ahead.
-            start_index = max(start_index, last+1)
             # dry run the algo on input s = "abba" to understand what's going on.
-        last_index[char] = current_index  # add/update to the hashmap
         longest_len = max(longest_len, current_index-start_index+1)  # calc the longest length
+        last_index[char] = current_index  # add/update to the hashmap
     return longest_len
+
+
+# Similar Questions:
+# https://leetcode.com/problems/maximum-erasure-value
+# https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up

@@ -104,3 +104,6 @@ def generate(num_rows: int) -> list[list[int]]:
 
 # INTERESTINGLY: Using this approach for the main question (building full Pascal Triangle), will reduce its SC from O(n)
 #                to O(1)!
+
+
+# Similar Question: https://leetcode.com/problems/pascals-triangle-ii

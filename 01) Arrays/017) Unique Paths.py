@@ -21,7 +21,7 @@ def unique_paths(m: int, n: int) -> int:
         # Base Case 2 (Reached Finish Point):
         if i == m-1 and j == n-1:
             return 1
-        # Recurse (Move Bottom | Move Right):
+        # Recurse In (Move Down | Move Right):
         return get_unique_paths(i+1, j) + get_unique_paths(i, j+1)
 
     return get_unique_paths()
@@ -51,7 +51,7 @@ def unique_paths(m: int, n: int) -> int:
             return 1
         # If this is not a duplicate recursive call:
         if memoized.get((i, j)) is None:
-            # Recurse (Move Bottom | Move Right) and Memoize the Result:
+            # Recurse In (Move Down | Move Right) and Memoize the Result:
             memoized[(i, j)] = get_unique_paths(i+1, j, memoized) + get_unique_paths(i, j+1, memoized)
         # Return Result:
         return memoized[(i, j)]
@@ -68,13 +68,13 @@ def unique_paths(m: int, n: int) -> int:
 
     @cache
     def get_unique_paths(i: int = 0, j: int = 0) -> int:  # default cell (0, 0) -> start point
-        # Base Case 1 (Reached Finish Point):
-        if i == m-1 and j == n-1:
-            return 1
-        # Base Case 2 (IndexOutOfBound (Jumped of the Matrix)):
+        # Base Case 1 (IndexOutOfBound (Jumped of the Matrix)):
         if i == m or j == n:
             return 0
-        # Recurse (Move Bottom | Move Right):
+        # Base Case 2 (Reached Finish Point):
+        if i == m-1 and j == n-1:
+            return 1
+        # Recurse In (Move Down | Move Right):
         return get_unique_paths(i+1, j) + get_unique_paths(i, j+1)
 
     return get_unique_paths()
@@ -84,7 +84,7 @@ def unique_paths(m: int, n: int) -> int:
     # https://leetcode.com/problems/unique-paths/discuss/22954/C%2B%2B-DP
     # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20III%20(Dynamic%20Programming%20%2D%20Tabulation)
 
-    # 3) Optimal (Maths): TC = O(min(m, n)); SC = O(1)
+    # 3) Optimal (Maths: PnC): TC = O(min(m, n)); SC = O(1)
     # https://youtu.be/t_f0nwwdg5o?t=817
     # Intuition: If we observe examples there is a similarity in paths from start to end.
     # From start to end we need a certain no. of down & right steps i.e. (m-1) & (n-1) respectively.
@@ -122,4 +122,6 @@ def unique_paths(m: int, n: int) -> int:
     return comb(m+n-2, min(m, n)-1)
 
 
-# Similar Question: https://leetcode.com/problems/unique-paths-ii
+# Similar Questions:
+# https://leetcode.com/problems/unique-paths-ii
+# https://leetcode.com/problems/minimum-path-sum

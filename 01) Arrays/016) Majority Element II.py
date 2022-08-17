@@ -67,7 +67,7 @@ def majority_element(nums: list[int]) -> list[int]:
 
     # 2) Optimal (Extended `Boyer-Moore Majority Voting Algorithm`): TC = O(n); SC = O(1)
     # Check `Boyer-Moore Majority Voting Algorithm` at:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element%20.py
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py
     # Explanation of Extended `Boyer-Moore Majority Voting Algorithm`: https://youtu.be/yDbkQd9t2ig?t=182
     # More Explanations:
     # https://leetcode.com/problems/majority-element-ii/discuss/63520/Boyer-Moore-Majority-Vote-algorithm-and-my-elaboration/112881

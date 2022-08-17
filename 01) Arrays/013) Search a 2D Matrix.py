@@ -40,3 +40,6 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
         else:
             high = mid - 1
     return False
+
+
+# Similar Question: https://leetcode.com/problems/search-a-2d-matrix-ii

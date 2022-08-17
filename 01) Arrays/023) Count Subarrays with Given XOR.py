@@ -17,32 +17,33 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
 
     """
     n = len(arr)
-    ans = 0
+    count = 0
     for i in range(n):  # choose every element one by one
         xor_value = 0  # init
         for j in range(i, n):
             xor_value ^= arr[j]  # increase the length of sub-array
             if xor_value == x:  # if xor_value of sub-array arr[i:j+1] == x
-                ans += 1
-    return ans
+                count += 1
+    return count
     """
 
     # 1) Optimal (Prefix-XOR & HashMap): TC = O(n); SC = O(n)
     # Explanation: https://youtu.be/lO9R5CaGRPY
 
+    from collections import Counter
+    frequency = Counter()  # Counter for easy working with counts
     prefix_xor = 0
-    ans = 0
-    frequency = {prefix_xor: 1}  # for O(1) lookup; initializing with "prefix_xor: 1" because:
+    frequency[prefix_xor] = 1  # initializing with "prefix_xor: 1" because:
     # dry run the algo with input (arr=[6, 6], x=6), you'll get the answer.
-    for element in arr:  # O(n)
+    count = 0
+    for element in arr:
         prefix_xor ^= element
         # using the inverse logic:
-        if (freq := frequency.get(prefix_xor ^ x)) is not None:  # O(1)
-            ans += freq  # ✔✔ if a pair is made with a prefix_xor, then it will also satisfy with any/every previous
-            # occurrences of that particular prefix_xor
+        count += frequency[prefix_xor ^ x]  # ✔✔ if a pair is made with a prefix_xor, then it will also satisfy with any
+        # & every previous occurrences of that particular prefix_xor
         # add/update frequency of prefix_xor:
-        frequency[prefix_xor] = frequency.get(prefix_xor, 0) + 1
-    return ans
+        frequency[prefix_xor] += 1
+    return count
 
     # Explanation of "inverse logic":
     # If at any iteration, (prefix_xor ^ x) = y is present in the hashmap,
@@ -51,3 +52,12 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
     # Solve this problem for complete understanding: https://leetcode.com/problems/subarray-sum-equals-k
     # (whose sub-problem is:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Largest%20Subarray%20with%200%20Sum.py)
+
+
+# Similar Questions:
+# https://www.codingninjas.com/codestudio/problems/920321
+# https://leetcode.com/problems/subarray-sum-equals-k
+# https://leetcode.com/problems/binary-subarrays-with-sum
+# https://leetcode.com/problems/xor-queries-of-a-subarray
+# https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum
+# https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum

@@ -104,4 +104,6 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # Similarly, we can implement the same concept with the base of HashMap too (instead of Two-Pointers).
 
 
-# Similar Question: https://leetcode.com/problems/4sum-ii
+# Similar Questions:
+# https://leetcode.com/problems/4sum-ii
+# https://leetcode.com/problems/count-special-quadruplets

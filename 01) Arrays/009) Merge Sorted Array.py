@@ -101,3 +101,8 @@ while i < m and j < n:
 temp_arr.extend(nums1[i:] or nums2[j:])
 nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 """
+
+
+# Similar Questions:
+# https://leetcode.com/problems/merge-two-sorted-lists
+# https://leetcode.com/problems/squares-of-a-sorted-array

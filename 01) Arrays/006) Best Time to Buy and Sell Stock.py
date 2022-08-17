@@ -22,8 +22,7 @@ def max_profit(prices: list[int]) -> int:
     # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
 
     """
-    cost_price = float('inf')  # init
-    max_profit_ = 0
+    cost_price, max_profit_ = float('inf'), 0  # init
     for price in prices:
         if price < cost_price:
             cost_price = price  # bought stock at a lesser price
@@ -33,8 +32,7 @@ def max_profit(prices: list[int]) -> int:
             max_profit_ = profit
     return max_profit_
     """
-    cost_price = float('inf')
-    max_profit_ = 0
+    cost_price, max_profit_ = float('inf'), 0
     for price in prices:
         cost_price = min(cost_price, price)
         max_profit_ = max(max_profit_, price-cost_price)  # `price-cost_price` = current profit
@@ -44,3 +42,4 @@ def max_profit(prices: list[int]) -> int:
 # Similar Questions:
 # https://leetcode.com/problems/maximum-subarray
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+# https://leetcode.com/problems/maximum-difference-between-increasing-elements

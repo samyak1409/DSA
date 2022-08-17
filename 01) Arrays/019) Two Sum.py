@@ -55,8 +55,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # Finding the 2 nums using Two-Pointers:
     low, high = 0, len(nums)-1  # init
     while low < high:
-        index1, num1 = sorted_nums[low]
-        index2, num2 = sorted_nums[high]
+        (index1, num1), (index2, num2) = sorted_nums[low], sorted_nums[high]
         if num1 + num2 == target:
             return [index1, index2]
         elif num1 + num2 < target:  # => we want greater sum
@@ -92,3 +91,19 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # Did you notice?
     # In this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in
     # "0)", "1)" and "3)" respectively.
+
+
+# Similar Questions:
+# https://leetcode.com/problems/3sum
+# https://leetcode.com/problems/4sum
+# https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
+# https://leetcode.com/problems/subarray-sum-equals-k
+# https://leetcode.com/problems/two-sum-iv-input-is-a-bst
+# https://leetcode.com/problems/max-number-of-k-sum-pairs
+# https://leetcode.com/problems/count-good-meals
+# https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k
+# https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target
+# https://leetcode.com/problems/find-all-k-distant-indices-in-an-array
+# https://leetcode.com/problems/first-letter-to-appear-twice
+# https://leetcode.com/problems/number-of-arithmetic-triplets
+# https://leetcode.com/problems/node-with-highest-edge-score

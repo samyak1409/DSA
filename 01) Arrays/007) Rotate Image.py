@@ -32,3 +32,6 @@ def rotate(matrix: list[list[int]]) -> None:
     # Mirroring on Y-axis:
     for i in range(n):  # O(n^2)
         matrix[i].reverse()
+
+
+# Similar Question: https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation

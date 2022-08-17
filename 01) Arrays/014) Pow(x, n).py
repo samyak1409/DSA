@@ -70,11 +70,11 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 2) Optimal (Exponentiation by Squaring) (Same logic as mine, but well implemented): TC = O(log(n)); SC = O(1)
+    # 2) Optimal (Exponentiation by Squaring) (Same logic as mine, but well implemented):
     # Also known as Square-and-Multiply Algorithm or Binary Exponentiation
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring
 
-    # 2.1) Iterative:
+    # 2.1) Iterative:  TC = O(log(n)); SC = O(1)
     # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
 
     """
@@ -108,7 +108,7 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 2.2) Recursive (Easiest):
+    # 2.2) Recursive (Easiest):  TC = O(log(n)); SC = O(log(n))
     # https://leetcode.com/problems/powx-n/discuss/19546/Short-and-easy-to-understand-solution
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Recursive_version
     # The method is based on the observation that, for a positive integer n, one has
@@ -123,8 +123,8 @@ def my_pow(x: float, n: int) -> float:
     if n == 0:  # base case
         return 1  # recurse out
 
-    return my_pow(x*x, n//2) if (n % 2 == 0) else x * my_pow(x*x, (n-1)//2)  # recurse in
+    return my_pow(x*x, n//2) if (n % 2 == 0) else x*my_pow(x*x, (n-1)//2)  # recurse in
     # note: change "my_pow" above to "self.my_pow" for running inside class
 
 
-# Similar Question: https://leetcode.com/problems/sqrtx
+# Similar Question: https://leetcode.com/problems/super-pow

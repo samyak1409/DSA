@@ -47,3 +47,10 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
             yield prev  # adding the non-overlapping intervals to the output
             prev = curr  # updating previous in order to check if it can be merged with the following interval
     yield prev  # adding the last (overlapping/non-overlapping) interval to the output
+
+
+# Similar Questions:
+# https://leetcode.com/problems/insert-interval
+# https://leetcode.com/problems/teemo-attacking
+# https://leetcode.com/problems/partition-labels
+# https://leetcode.com/problems/interval-list-intersections
