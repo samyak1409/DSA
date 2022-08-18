@@ -8,9 +8,9 @@ from typing import Optional
 
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, val=0, nxt=None):
+    def __init__(self, val=0, next_=None):
         self.val = val
-        self.nxt = nxt
+        self.next = next_
 
 
 def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
@@ -27,17 +27,17 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     # Saving:
     curr = head  # copying head coz singly LL
     for _ in range(left-1):  # skipping nodes in the left
-        curr = curr.nxt  # ++
+        curr = curr.next  # ++
     start = curr  # saving the start point (from where the nodes need to be reversed)
     vals = []
     for _ in range(right-left+1):  # saving the values in the range [left, right]
         vals.append(curr.val)
-        curr = curr.nxt  # ++
+        curr = curr.next  # ++
 
     # Changing:
     for i in range(-1, -len(vals)-1, -1):  # reverse traversing the saved vals
         start.val = vals[i]
-        start = start.nxt  # ++
+        start = start.next  # ++
 
     return head
     """
