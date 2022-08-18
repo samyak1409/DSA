@@ -20,17 +20,17 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
 
     """
     # Saving:
-    head_ = head  # copying head coz singly LL
+    curr = head  # copying head coz singly LL
     vals = []
-    while head_:
-        vals.append(head_.val)
-        head_ = head_.nxt  # ++
+    while curr:
+        vals.append(curr.val)
+        curr = curr.nxt  # ++
 
     # Changing:
-    head_ = head
+    curr = head
     for i in range(-1, -len(vals)-1, -1):  # reverse traverse the saved vals
-        head_.val = vals[i]
-        head_ = head_.nxt  # ++
+        curr.val = vals[i]
+        curr = curr.nxt  # ++
 
     return head
     """
@@ -72,3 +72,6 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     while head:  # iterate till the end
         head.nxt, head, prev = prev, head.nxt, head  # reverse ptr direction + update `head` + update `prev`
     return prev  # as the direction of pointers are reversed, `prev` (last node) basically is head now!
+
+
+# Similar Question: https://leetcode.com/problems/reverse-linked-list-ii
