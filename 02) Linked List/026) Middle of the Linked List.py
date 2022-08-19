@@ -1,0 +1,78 @@
+"""
+https://leetcode.com/problems/middle-of-the-linked-list
+"""
+
+
+from typing import Optional
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next_=None):
+        self.val = val
+        self.next = next_
+
+
+def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
+    """"""
+
+    # 0) Brute-force (One Pass: Copying the nodes to an array): TC = O(n); SC = O(n)
+
+    """
+    nodes = []
+    while head:
+        nodes.append(head)
+        head = head.next
+    return nodes[(len(nodes)//2)]
+    """
+    # Using Assignment Expression:
+    """
+    nodes = [head]
+    while head := head.next:
+        nodes.append(head)
+    return nodes[(len(nodes)//2)]
+    """
+
+    # 1) Better (Two Pass: Traverse): TC = O(n); SC = O(1)
+
+    """
+    node = head  # copy
+    n = 0
+    while node:
+        n += 1
+        node = node.next
+    for _ in range(n//2):
+        head = head.next
+    return head
+    """
+    # Using Assignment Expression:
+    """
+    node = head  # copy
+    n = 1
+    while node := node.next:
+        n += 1
+    for _ in range(n//2):
+        head = head.next
+    return head
+    """
+
+    # 2) Optimal (One Pass: Slow and Fast Pointer): TC = O(n); SC = O(1)
+
+    """
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+    """
+    # Using `head` only as slow:
+    fast = head
+    while fast and fast.next:
+        head = head.next
+        fast = fast.next.next
+    return head
+
+
+# Similar Questions:
+# https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list
+# https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list
