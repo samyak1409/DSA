@@ -77,3 +77,4 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
 # Similar Questions:
 # https://leetcode.com/problems/reverse-linked-list-ii
 # https://leetcode.com/problems/palindrome-linked-list
+# https://leetcode.com/problems/reverse-nodes-in-even-length-groups
