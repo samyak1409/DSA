@@ -109,3 +109,8 @@ def set_zeroes(matrix: list[list[int]]) -> None:
     if first_column_zero:
         for k in range(m):
             matrix[k][0] = 0
+
+
+# Similar Questions:
+# https://leetcode.com/problems/game-of-life
+# https://leetcode.com/problems/number-of-laser-beams-in-a-bank
