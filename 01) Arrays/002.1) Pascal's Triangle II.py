@@ -31,7 +31,7 @@ def get_row(row_index: int) -> list[int]:
 
     # 2) Optimal (Benefiting Combinations' Pattern): TC = O(n); SC = O(1)
 
-    value = 1
+    value = 1  # init
     yield value
     for i in range(row_index):
         value = (value*(row_index-i)) // (i+1)
