@@ -86,4 +86,9 @@ def max_sub_array(nums: list[int]) -> int:
     return largest_sum
 
 
-# Similar Question: https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+# Similar Questions:
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+# https://leetcode.com/problems/maximum-product-subarray
+# https://leetcode.com/problems/degree-of-an-array
+# https://leetcode.com/problems/longest-turbulent-subarray
+# https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray
