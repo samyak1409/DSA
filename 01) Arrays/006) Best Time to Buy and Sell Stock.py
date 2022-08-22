@@ -42,4 +42,5 @@ def max_profit(prices: list[int]) -> int:
 # Similar Questions:
 # https://leetcode.com/problems/maximum-subarray
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+# https://leetcode.com/problems/sum-of-beauty-in-the-array
 # https://leetcode.com/problems/maximum-difference-between-increasing-elements
