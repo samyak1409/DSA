@@ -88,3 +88,6 @@ def merge_two_lists(node1: Optional[ListNode], node2: Optional[ListNode]) -> Opt
     node.next = node1 or node2  # remaining node(s)
 
     return to_head.next
+
+
+# Similar Question: https://leetcode.com/problems/merge-sorted-array
