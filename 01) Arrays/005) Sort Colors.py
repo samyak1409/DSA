@@ -87,3 +87,6 @@ def sort_colors(nums: list[int]) -> None:
                 k -= 1
                 # NOTE: we're not moving j forward in this case because the value we got from k can be 0/1 which still
                 # needs to be checked
+
+
+# Similar Question: https://leetcode.com/problems/wiggle-sort-ii
