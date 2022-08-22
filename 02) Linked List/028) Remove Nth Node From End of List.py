@@ -15,3 +15,44 @@ class ListNode:
 
 def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     """"""
+
+    # https://leetcode.com/problems/remove-nth-node-from-end-of-list/discuss/1164537/Short-and-Simple-One-Pass-Solution-w-Explanation-or-Beats-100-or-No-dummy-node-required!
+
+    # 0) Brute-force (Calc Len): TC = O(n+n); SC = O(1)
+
+    """
+    # Calc Len (m) of LL:
+    node = head  # copy coz singly LL
+    m = 1
+    while node := node.next:
+        m += 1
+    # Handle Edge Case: Node to delete is head:
+    if n == m:
+        return head.next
+    # Go to the node before the node to delete:
+    node = head  # copy coz singly LL
+    for _ in range(m-n-1):
+        node = node.next
+    # Change Pointer:
+    node.next = node.next.next
+    return head
+    """
+
+    # Follow up: Could you do this in one pass?
+    # 1) Optimal (Two Pointers): TC = O(n); SC = O(1)
+    # Maintain two pointers and update one with a delay of n steps.
+
+    # Send one pointer to nth node:
+    n_ahead = head  # copy coz singly LL
+    for _ in range(n):
+        n_ahead = n_ahead.next
+    # Handle Edge Case: Node to delete is head:
+    if n_ahead is None:
+        return head.next
+    # Go to the node before the node to delete:
+    node = head  # copy coz singly LL
+    while n_ahead := n_ahead.next:  # while `n_ahead.next` is not None
+        node = node.next
+    # Change Pointer:
+    node.next = node.next.next
+    return head
