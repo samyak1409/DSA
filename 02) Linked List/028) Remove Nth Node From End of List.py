@@ -21,17 +21,17 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     # 0) Brute-force (Calc Len): TC = O(n+n); SC = O(1)
 
     """
-    # Calc Len (m) of LL:
+    # Calc Len (l) of LL:
     node = head  # copy coz singly LL
-    m = 1
+    l = 1
     while node := node.next:
-        m += 1
+        l += 1
     # Handle Edge Case: Node to delete is head:
-    if n == m:
+    if n == l:
         return head.next
     # Go to the node before the node to delete:
     node = head  # copy coz singly LL
-    for _ in range(m-n-1):
+    for _ in range(l-n-1):
         node = node.next
     # Change Pointer:
     node.next = node.next.next
@@ -56,3 +56,8 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     # Change Pointer:
     node.next = node.next.next
     return head
+
+
+# Similar Questions:
+# https://leetcode.com/problems/swapping-nodes-in-a-linked-list
+# https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list
