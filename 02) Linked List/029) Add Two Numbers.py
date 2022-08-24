@@ -37,3 +37,12 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
             node = node.next  # ++
         else:
             return head
+
+
+# Similar Questions:
+# https://leetcode.com/problems/multiply-strings
+# https://leetcode.com/problems/add-binary
+# https://leetcode.com/problems/sum-of-two-integers
+# https://leetcode.com/problems/add-strings
+# https://leetcode.com/problems/add-two-numbers-ii
+# https://leetcode.com/problems/add-to-array-form-of-integer
