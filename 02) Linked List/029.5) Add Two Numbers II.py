@@ -45,8 +45,9 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/687339/Java-O(N)-solution-with-follow-up-question-no-recursion-no-stacks
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/92624/C%2B%2B-O(1)-extra-space-except-for-output.-Reverse-output-instead.-Is-this-cheating
 
+    # Helper Function:
     def get_len(head: ListNode) -> int:
-        length = 1
+        length = 1  # len will be at least one as per the Q. constraint
         while head := head.next:
             length += 1
         return length
@@ -66,7 +67,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     # Values from both LL:
     for _ in range(min(m, n)):
         node = ListNode(val=l1.val+l2.val, next_=node)
-        l1, l2 = l1.next, l2.next  # ++, ++
+        l1, l2 = l1.next, l2.next  # ++
     # Fix Carry/ies if any and re-reverse the LL:
     carry = 0
     prev = None
