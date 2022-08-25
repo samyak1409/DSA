@@ -20,6 +20,7 @@ def get_inversions(arr: list[int], n: int) -> int:
     # 1) Optimal (Using Merge Sort): TC = O(n*log(n)); SC = O(n)
     # Prerequisite: https://github.com/samyak1409/python-lab-assignments/blob/main/10/a.py (Merge Sort)
 
+    # Recursive Function:
     def get_count(array: list[int], length: int) -> int:
         count = 0
         if length > 1:

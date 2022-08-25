@@ -9,7 +9,7 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
     # All the solutions are (modifications of the solutions) from
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py.
 
-    # 2) [WA] Optimal (Maths: PnC): TC = O(m*n); SC = O(1)
+    # 2.1) [WA] Optimal (Maths: PnC): TC = O(m*n); SC = O(1)
     # Because the matrix can have ANY NO. OF OBSTACLES, misunderstood the question that only 1 obstacle will be there.
     # If the matrix had only 1 obstacle and that too given explicitly, this approach would have solved the question in
     # O(min(m+n)), which would have been a big jump in performance when compared to the previous approach, exactly like
@@ -30,10 +30,11 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
                 # You ask how's this working? Check this: https://youtu.be/m7chPc7zIF4?t=246
     """
 
-    # 1) Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
+    # 1) Time-Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
 
     from functools import cache
 
+    # Recursive Function:
     @cache
     def get_unique_paths2(i: int = 0, j: int = 0) -> int:  # default cell (0, 0) -> start point
         # Base Case 1 (IndexOutOfBound (Jumped of the Matrix) OR Obstacle Found):
@@ -48,4 +49,5 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
     m, n = len(obstacle_grid), len(obstacle_grid[0])  # rows, cols
     return get_unique_paths2()
 
-    # Official Solution (DP): https://leetcode.com/problems/unique-paths-ii/solution
+    # 2.2) Optimal (DP): TC = O(m*n); SC = O(1)
+    # https://leetcode.com/problems/unique-paths-ii/solution

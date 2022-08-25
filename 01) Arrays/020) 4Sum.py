@@ -55,6 +55,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # Then generalize it (i.e. add a parameter k).
     # Lastly, add the Two-Pointers approach to find the last two numbers!
 
+    # Helper Function:
     def two_sum(nums__, target__):
         """
         Finding the 2 numbers using Two-Pointers: TC = O(n); SC = O(1)
@@ -78,6 +79,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
                 high -= 1
         return two_nums_set
 
+    # Recursive Function:
     def k_sum(k, nums_, target_):
         if k == 2:  # base case
             return two_sum(nums__=nums_, target__=target_)

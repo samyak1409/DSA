@@ -15,20 +15,23 @@ def multiply(num1: str, num2: str) -> str:
     # 1) No Type Casting but Direct Multiplication: TC = O(m+n); SC = O(m+n)
 
     """
-    # Convert into Integer:
+    # Helper Function:
     def to_int(num_str: str) -> int:
         num = 0
         for digit_chr in num_str:
             num = (num * 10) + ord(digit_chr) - 48  # ord('0') = 48 so ord('0')-48 = 0 ... ord('9')-48 = 9
         return num
-    # Calc. the Product:
+
+    # Convert into Integer and Calc. the Product:
     product = to_int(num_str=num1) * to_int(num_str=num2)
+
     # Convert into String:
     output = []  # using a list because str is immutable, so appending to str will be O(n) again & again instead of O(1)
     while product:
         digit = product % 10  # digit at unit place
         output.append(chr(digit+48))  # chr(48) = '0', so chr(0+48) = '0' ... chr(9+48) = '9'
         product //= 10
+
     return ''.join(output[::-1]) or '0'  # `or '0'` -> handles the edge case (num1="0", num2="0")
     """
 
@@ -46,12 +49,14 @@ def multiply(num1: str, num2: str) -> str:
             # print(digit2)  #debugging
             sub_product += 10**j * digit2*digit1
         product += 10**i * sub_product
+
     # Convert into String:
     output = []  # using a list because str is immutable, so appending to str will be O(n) again & again instead of O(1)
     while product:
         digit = product % 10  # digit at unit place
         output.append(chr(digit+48))  # chr(48) = '0', so chr(0+48) = '0' ... chr(9+48) = '9'
         product //= 10
+
     return ''.join(output[::-1]) or '0'  # `or '0'` -> handles the edge case (num1="0", num2="0")
 
     # Also Read:

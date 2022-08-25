@@ -9,10 +9,11 @@ def min_path_sum(grid: list[list[int]]) -> int:
     # All the solutions are (modifications of the solutions) from
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py.
 
-    # 1) Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
+    # 1) Time-Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
 
     from functools import cache
 
+    # Recursive Function:
     @cache
     def get_min_sum(i: int = 0, j: int = 0) -> (int, float):  # default cell (0, 0) -> start point
         # Base Case 1 (IndexOutOfBound (Jumped of the Matrix)):
@@ -27,5 +28,6 @@ def min_path_sum(grid: list[list[int]]) -> int:
     m, n = len(grid), len(grid[0])  # rows, cols
     return get_min_sum()
 
-    # Also Read: Easy DP Solution:
+    # 2) Optimal (DP): TC = O(m*n); SC = O(1)
+    # Easy:
     # https://leetcode.com/problems/minimum-path-sum/discuss/584967/Python-Grid-reduction-(Sounds-fancy-but-a-simple-method)-no-additional-space

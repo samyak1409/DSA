@@ -6,7 +6,7 @@ https://leetcode.com/problems/permutations
 def permute(nums: list[int]) -> list[list[int]]:
     """"""
 
-    # Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n)
+    # 1) Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n)
     # NOTE: Following is the solution using the technique of finding "Next Permutation", though it shouldn't be solved
     # like this, but by Backtracking.
 

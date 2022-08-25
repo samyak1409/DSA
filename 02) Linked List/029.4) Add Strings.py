@@ -18,10 +18,12 @@ def add_strings(num1: str, num2: str) -> str:
     # 1) Optimal (Reverse Traverse and Add): TC = O(max(m, n)); SC = O(max(m, n))
 
     bigger_len = max(len(num1), len(num2))
+
     # Making the strings of same length by adding 0s on the left of the smaller binary string (if any):
     num1, num2 = num1.zfill(bigger_len), num2.zfill(bigger_len)
     # Can also be done without this, by using the same paradigm we used in:
     # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py
+
     # Reverse Traverse and Add:
     output = []  # using a list because str is immutable, so appending to str will be O(n) again & again instead of O(1)
     carry = 0
@@ -31,4 +33,5 @@ def add_strings(num1: str, num2: str) -> str:
         output.append(chr(sum_+48))  # chr(48) = '0', so chr(0+48) = '0' ... chr(9+48) = '9'
     if carry:  # from the MSB
         output.append(chr(carry+48))  # chr(48) = '0', so chr(0+48) = '0' ... chr(9+48) = '9'
+
     return ''.join(output[::-1])

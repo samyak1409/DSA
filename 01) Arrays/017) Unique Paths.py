@@ -14,6 +14,7 @@ def unique_paths(m: int, n: int) -> int:
     # Given this, we can also mention the space complexity taken on the stack: O(m+n)
 
     """
+    # Recursive Function:
     def get_unique_paths(i: int = 0, j: int = 0) -> int:  # default cell (0, 0) -> start point
         # Base Case 1 (IndexOutOfBound (Jumped out of the Matrix)):
         if i == m or j == n:
@@ -27,7 +28,7 @@ def unique_paths(m: int, n: int) -> int:
     return get_unique_paths()
     """
 
-    # 1) Better (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
+    # 1.1) Better (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
     # In the brute-force approach, time complexity is increasing because of duplicate recursive calls
     # (check in recursion tree here: https://youtu.be/t_f0nwwdg5o?t=612)
     # So, we can simply store (MEMOIZE) the results of every recursive call in HashMap so that the same recursive call
@@ -39,6 +40,7 @@ def unique_paths(m: int, n: int) -> int:
     # Memoization: https://en.wikipedia.org/wiki/Memoization
 
     """
+    # Recursive Function:
     def get_unique_paths(i: int = 0, j: int = 0, memoized: dict = None) -> int:  # default cell (0, 0) -> start point
         # Initialization (@ first call):
         if memoized is None:
@@ -66,6 +68,7 @@ def unique_paths(m: int, n: int) -> int:
     """
     from functools import cache
 
+    # Recursive Function:
     @cache
     def get_unique_paths(i: int = 0, j: int = 0) -> int:  # default cell (0, 0) -> start point
         # Base Case 1 (IndexOutOfBound (Jumped of the Matrix)):
@@ -80,11 +83,11 @@ def unique_paths(m: int, n: int) -> int:
     return get_unique_paths()
     """
 
-    # 2) Better (DP): TC = O(m*n); SC = O(m*n)
+    # 1.2) Better (DP): TC = O(m*n); SC = O(m*n)
     # https://leetcode.com/problems/unique-paths/discuss/22954/C%2B%2B-DP
     # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20III%20(Dynamic%20Programming%20%2D%20Tabulation)
 
-    # 3) Optimal (Maths: PnC): TC = O(min(m, n)); SC = O(1)
+    # 2) Optimal (Maths: PnC): TC = O(min(m, n)); SC = O(1)
     # https://youtu.be/t_f0nwwdg5o?t=817
     # Intuition: If we observe examples there is a similarity in paths from start to end.
     # From start to end we need a certain no. of down & right steps i.e. (m-1) & (n-1) respectively.

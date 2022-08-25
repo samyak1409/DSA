@@ -19,7 +19,7 @@ def max_absolute_sum(nums: list[int]) -> int:
     return max_abs
     """
 
-    # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
+    # 1.1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
     # What if we asked for maximum sum, not absolute sum?
     # It's a standard problem that can be solved by Kadane's algorithm.
     # The key idea is the max absolute sum will be either the max sum or the min sum.
@@ -49,7 +49,7 @@ def max_absolute_sum(nums: list[int]) -> int:
     return max_abs_sum
     # We aren't tracking current sum, still why working? Because abs sum can't be < 0.
 
-    # Another Solution:
+    # 1.2) Optimal (Prefix Sum): TC = O(n); SC = O(1)
     # Just find the maximum prefix sum and the minimum prefix sum. Return max - min.
     # https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/discuss/1052527/JavaC%2B%2BPython-O(1)-Space
     # The proof idea behind the lee's intuition is using properties of modulus |a-b| = max(a,b) - min(a,b).

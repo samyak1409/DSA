@@ -115,7 +115,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     low = mid + 1
     """
 
-    # 2) Optimal (HashMap): TC = O(n*log(n) + n^2); SC = O(n+n+n)
+    # 2.1) Optimal (HashMap): TC = O(n*log(n) + n^2); SC = O(n+n+n)
 
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
@@ -141,7 +141,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             hashset.add(num3)
     """
 
-    # 3) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n+n)
+    # 2.2) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n+n)
     # https://leetcode.com/problems/3sum/discuss/143636
 
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))

@@ -33,7 +33,7 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 1) Optimal (By me; correct logic but bad implementation) (Using Power Property): TC = O(log(n)); SC = O(1)
+    # 1.1) Optimal (By me; correct logic but bad implementation) (Using Power Property): TC = O(log(n)); SC = O(1)
     # Property: x^(2y) = (x^y)^2
     # So e.g. if n = 4, we won't calc. x * x * x * x, but
     # 1) product = x * x
@@ -70,11 +70,11 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 2) Optimal (Exponentiation by Squaring) (Same logic as mine, but well implemented):
+    # 1.2) Optimal (Exponentiation by Squaring) (Same logic as mine, but well implemented):
     # Also known as Square-and-Multiply Algorithm or Binary Exponentiation
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring
 
-    # 2.1) Iterative:  TC = O(log(n)); SC = O(1)
+    # 1.2.1) Iterative:  TC = O(log(n)); SC = O(1)
     # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
 
     """
@@ -108,7 +108,7 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 2.2) Recursive (Easiest):  TC = O(log(n)); SC = O(log(n))
+    # 1.2.2) Recursive (Easiest):  TC = O(log(n)); SC = O(log(n))
     # https://leetcode.com/problems/powx-n/discuss/19546/Short-and-easy-to-understand-solution
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Recursive_version
     # The method is based on the observation that, for a positive integer n, one has

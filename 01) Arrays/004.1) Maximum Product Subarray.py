@@ -20,7 +20,7 @@ def max_product(nums: list[int]) -> int:
     return largest
     """
 
-    # 1) Optimal (Modified Kadane's Algo): TC = O(n); SC = O(1)
+    # 1.1) Optimal (Modified Kadane's Algo): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity/160464
     # Basically the same algo as
     # https://github.com/samyak1409/DSA/blob/7171f3a12eef0353d41cc42981c1280d7bf720b7/01%29%20Arrays/004%29%20Maximum%20Subarray.py,
@@ -41,7 +41,7 @@ def max_product(nums: list[int]) -> int:
         ans = max(ans, maxi)  # update
     return ans
 
-    # Another Solution:
+    # 1.2) Optimal (Prefix & Suffix Product): TC = O(n); SC = O(1)
     # Calculate prefix product in A. Calculate suffix product in A. Return the max.
     # https://leetcode.com/problems/maximum-product-subarray/discuss/183483/JavaC%2B%2BPython-it-can-be-more-simple
     # A way to understand the reason why the maximum subarray must be a prefix or suffix of the array:

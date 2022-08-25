@@ -13,6 +13,7 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
 
     # 1) Optimal (Traverse & Binary Search): TC = O(n*log(n)); SC = O(1)
 
+    # Helper Function:
     def index(x: int, arr: list[int], start: int = None, end: int = None) -> (int, None):
         """Using Binary Search"""
         lo, hi = start or 0, end or len(arr)-1

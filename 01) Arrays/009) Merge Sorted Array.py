@@ -61,7 +61,7 @@ nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 nums1[:], nums2[:] = sorted(nums1+nums2)
 """
 
-# 1.1) Space-Optimal (Gap Algo): TC = O((m+n)*log(m+n)); SC = O(1)
+# 1) Space-Optimal (Gap Algo): TC = O((m+n)*log(m+n)); SC = O(1)
 
 """
 from math import ceil
@@ -82,7 +82,7 @@ while gap > 0:  # (last iteration when gap = 1)
     gap = ceil(gap/2)
 """
 
-# 1.2) Time-Optimal (Same intuition as above `1)`: Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
+# 2) Time-Optimal (Same intuition as above `1)`: Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
 # When the nums1 & nums2 are sorted why just not benefit from this and not sort the summed array and make the TC go
 # from O((m+n)*log(m+n)) to O(m+n).
 

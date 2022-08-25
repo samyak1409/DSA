@@ -42,6 +42,7 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # 1.2) It can also be done Recursively: TC = O(n); SC = O(n) {recursion stack}
     # O(n) space, still writing, why? For Recursion practice!
     """
+    # Recursive Function:
     def reverse(curr, prev=None):
         # '''Recursively reverses a singly LL and returns the head node.'''
         if not curr:  # base case: traversed whole LL

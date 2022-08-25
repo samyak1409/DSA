@@ -18,10 +18,12 @@ def add_binary(a: str, b: str) -> str:
     # https://leetcode.com/problems/add-binary/discuss/1679423/Well-Detailed-Explaination-Java-C%2B%2B-Python-oror-Easy-for-mind-to-Accept-it
 
     bigger_len = max(len(a), len(b))
+
     # Making the binary strings of same length by adding 0s on the left of the smaller binary string (if any):
     a, b = a.zfill(bigger_len), b.zfill(bigger_len)
     # Can also be done without this, by using the same paradigm we used in:
     # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py
+
     # Reverse Traverse and Add:
     char = {0: '0', 1: '1'}  # dict for type casting without using builtins
     output = []  # using a list because str is immutable, so appending to str will be O(n) again & again instead of O(1)
@@ -31,4 +33,5 @@ def add_binary(a: str, b: str) -> str:
         output.append(char[sum_])
     if carry:  # from the MSB
         output.append(char[carry])
+
     return ''.join(output[::-1])

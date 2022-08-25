@@ -15,6 +15,7 @@ def min_sum_of_lengths(arr: list[int], target: int) -> int:
     # Expected: 23
 
     """
+    # Helper Function:
     def get_min_subarray(nums: list[int], k: int) -> tuple[int, int, int]:
         prefix_sum = 0
         last_index = {prefix_sum: -1}  # for O(1) lookup

@@ -27,7 +27,7 @@ def find_duplicate(nums: list[int]) -> int:
         hash_set.add(num)  # SC = O(n)
     """
 
-    # 1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
+    # 1.1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
     # Note: This algorithm modifies the array temporarily.
 
     """
@@ -43,7 +43,7 @@ def find_duplicate(nums: list[int]) -> int:
         # print(nums)  #debugging
     """
 
-    # 2) [WA] Optimal (Maths: Sum of n terms): TC = O(n); SC = O(1)
+    # 1.2) [WA] Optimal (Maths: Sum of n terms): TC = O(n); SC = O(1)
     # Because nums can be = [2, 2, 2, 2, 2]
     # "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive."
     # doesn't mean array will have all numbers from 1 to n, and 1 number from the range repeating,
@@ -56,7 +56,7 @@ def find_duplicate(nums: list[int]) -> int:
     return sum(nums) - n*(n+1)//2
     """
 
-    # 3) [WA] Optimal (Bit Manipulation: Using XOR): TC = O(n); SC = O(1)
+    # 1.3) [WA] Optimal (Bit Manipulation: Using XOR): TC = O(n); SC = O(1)
     # Same reason as above.
 
     """
@@ -66,7 +66,7 @@ def find_duplicate(nums: list[int]) -> int:
     return ans
     """
 
-    # 4) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
+    # 1.4) Optimal (Floyd's Cycle Detection Algo): TC = O(n); SC = O(1)
 
     slow = fast = nums[0]  # start from start
     while True:  # imp: exit controlled (do-while) loop

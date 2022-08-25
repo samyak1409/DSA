@@ -6,7 +6,7 @@ https://leetcode.com/problems/pascals-triangle
 def generate(num_rows: int) -> list[list[int]]:
     """"""
 
-    # 1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n)
+    # 1.1) Brute-force = Optimal (Aam Zindagi): TC = O(n^2); SC = O(n)
 
     """
     row = [1]  # init
@@ -29,7 +29,7 @@ def generate(num_rows: int) -> list[list[int]]:
         yield row
     """
 
-    # 2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n)
+    # 1.2) Brute-force = Optimal (Mentos Zindagi): TC = O(n^2); SC = O(n)
     # https://leetcode.com/problems/pascals-triangle/discuss/38128/Python-4-lines-short-solution-using-map
     # Explanation: Any row can be constructed using the offset sum of the previous row. Example:
     #                                                                                             1 3 3 1

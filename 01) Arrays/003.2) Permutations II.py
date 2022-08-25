@@ -6,7 +6,7 @@ https://leetcode.com/problems/permutations-ii
 def permute_unique(nums: list[int]) -> list[list[int]]:
     """"""
 
-    # Sub-Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n)
+    # 1) Sub-Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n)
     # NOTE: Following is the solution using the technique of finding "Next Permutation", though it shouldn't be solved
     # like this, but by Backtracking.
     # Sub-Optimal and not Optimal because check here: https://leetcode.com/problems/permutations-ii/solution

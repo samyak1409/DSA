@@ -52,7 +52,9 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
             length += 1
         return length
 
+    # Calc. Lengths:
     m, n = get_len(head=l1), get_len(head=l2)
+
     # Make the resultant LL in reverse order (with unhandled carry/ies if any):
     node = None
     # Values from the longest LL till it's not = shorter LL:
@@ -68,6 +70,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     for _ in range(min(m, n)):
         node = ListNode(val=l1.val+l2.val, next_=node)
         l1, l2 = l1.next, l2.next  # ++
+
     # Fix Carry/ies if any and re-reverse the LL:
     carry = 0
     prev = None
@@ -76,4 +79,5 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
         node.next, node, prev = prev, node.next, node  # reverse ptr direction, node++, prev++
     if carry:  # carry increase the len of num (carry from MSB) e.g. 99 + 01 = 100
         prev = ListNode(val=carry, next_=prev)
+
     return prev

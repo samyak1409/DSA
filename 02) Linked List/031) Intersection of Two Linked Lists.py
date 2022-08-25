@@ -76,7 +76,7 @@ def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode
         head1, head2 = head1.next, head2.next  # ++
     """
 
-    # 2.1) Optimal (Swap LL at End): TC = O(m+n); SC = O(1)
+    # 2.2) Optimal (Swap LL at End): TC = O(m+n); SC = O(1)
     # Traverse till the end of LLs and then continue traverse with swapped heads till intersection is not found!
     # Proof: `a, b += b, a` equates a & b
     # https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49785/Java-solution-without-knowing-the-difference-in-len!

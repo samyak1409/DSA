@@ -56,7 +56,7 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
     """
 
-    # 1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
+    # 1.1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
 
     """
     n = len(nums)
@@ -76,7 +76,7 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [repeating, missing]
     """
 
-    # 2) Optimal (Maths: Sum of n & n^2 terms): TC = O(n); SC = O(1)
+    # 1.2) Optimal (Maths: Sum of n & n^2 terms): TC = O(n); SC = O(1)
 
     # In short:
     """
