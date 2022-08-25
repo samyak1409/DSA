@@ -20,7 +20,7 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
 
     """
     # Saving:
-    curr = head  # copying head coz singly LL
+    curr = head  # not using head for traversing because we've to return head
     vals = []
     while curr:
         vals.append(curr.val)

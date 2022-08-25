@@ -22,7 +22,8 @@ def reverse_even_length_groups(head: Optional[ListNode]) -> Optional[ListNode]:
     # 1) Optimal (Changing the Direction of Pointers): TC = O(n); SC = O(1)
     # • It's one pass.
 
-    curr = counter = head  # copy coz singly LL; `counter` will go ahead and help checking the length of a group
+    curr = counter = head  # not using head for traversing because we've to return head;
+    # `counter` will go ahead and help checking the length of a group
     expected_len = 1  # "groups whose lengths form the sequence of the natural numbers (1, 2, 3, 4, ...)"
     before = None
 

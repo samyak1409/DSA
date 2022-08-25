@@ -32,7 +32,7 @@ def swap_nodes(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     for _ in range(k-1):
         node1 = node1.next
     # Calc Len (n) of LL:
-    node = head  # copy coz singly LL
+    node = head  # not using head for traversing because we've to return head
     n = 1
     while node := node.next:
         n += 1

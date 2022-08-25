@@ -25,7 +25,7 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
 
     """
     # Saving:
-    curr = head  # copying head coz singly LL
+    curr = head  # not using head for traversing because we've to return head
     for _ in range(left-1):  # skipping nodes in the left
         curr = curr.next  # ++
     start = curr  # saving the start point (from where the nodes need to be reversed)
@@ -50,7 +50,7 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     # Dry run on paper to understand!
     # https://leetcode.com/problems/reverse-linked-list-ii/solution
 
-    curr = head  # copying head coz singly LL
+    curr = head  # not using head for traversing because we've to return head
     # Skipping to the correct position:
     for _ in range(left-2):  # moving `curr` to the node just before `left`
         curr = curr.next  # ++

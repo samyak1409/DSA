@@ -22,7 +22,7 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
 
     """
     # Calc Len (l) of LL:
-    node = head  # copy coz singly LL
+    node = head  # not using head for traversing because we've to return head
     l = 1
     while node := node.next:
         l += 1
@@ -30,7 +30,7 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     if n == l:
         return head.next
     # Go to the node before the node to delete:
-    node = head  # copy coz singly LL
+    node = head
     for _ in range(l-n-1):
         node = node.next
     # Change Pointer:
@@ -43,14 +43,14 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     # Maintain two pointers and update one with a delay of n steps.
 
     # Send one pointer to nth node:
-    n_ahead = head  # copy coz singly LL
+    n_ahead = head  # not using head for traversing because we've to return head
     for _ in range(n):
         n_ahead = n_ahead.next
     # Handle Edge Case: Node to delete is head:
     if n_ahead is None:
         return head.next
     # Go to the node before the node to delete:
-    node = head  # copy coz singly LL
+    node = head
     while n_ahead := n_ahead.next:  # while `n_ahead.next` is not None
         node = node.next
     # Change Pointer:
