@@ -87,3 +87,6 @@ def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode
         node1 = node1.next if node1 else head2
         node2 = node2.next if node2 else head1
     return node1  # or return node2
+
+
+# Similar Question: https://leetcode.com/problems/minimum-index-sum-of-two-lists
