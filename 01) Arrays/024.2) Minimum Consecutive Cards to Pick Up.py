@@ -9,7 +9,7 @@ def minimum_card_pickup(cards: list[int]) -> int:
 
     # 1) Optimal (HashMap): TC = O(n); SC = O(n)
     # Iterate through the cards and store the location of the last occurrence of each number.
-    # What data structure could you use to get the last occurrence of a number in O(1) or O(log n)?
+    # What data structure could you use to get the last occurrence of a number in O(1) or O(log(n))?
 
     last_index = {}  # for O(1) lookup
     min_cards = float('inf')  # init

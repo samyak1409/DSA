@@ -19,25 +19,25 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     # 1) Time-Optimal (HashSet): TC = O(n); SC = O(n)
 
     """
-    nodes = set()  # for O(1) lookup
+    seen = {head}  # for O(1) lookup
     while head:  # while not reached at the end of LL
-        if head in nodes:
-            return True
-        nodes.add(head)  # store this node
         head = head.next  # ++
+        if head in seen:
+            return True
+        seen.add(head)  # store this node
     return False  # reached at the end of LL => no cycle
     """
     # In Python, it's EAFP:
     """
-    nodes = set()  # for O(1) lookup
+    seen = {head}  # for O(1) lookup
     while True:
-        if head in nodes:
-            return True
-        nodes.add(head)  # store this node
         try:
             head = head.next  # ++
         except AttributeError:
             return False  # reached at the end of LL => no cycle
+        if head in seen:
+            return True
+        seen.add(head)  # store this node
     """
 
     # Follow up: Can you solve it using O(1) (i.e. constant) memory?
@@ -48,8 +48,7 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     """
     slow = fast = head  # init
     while fast and fast.next:  # while not reached at the end of LL
-        slow = slow.next  # +1
-        fast = fast.next.next  # +2
+        slow, fast = slow.next, fast.next.next  # +1, +2
         if fast == slow:  # if they end up on a same node anytime
             return True  # loop is there
     return False  # reached at the end of LL => no cycle
@@ -58,8 +57,7 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     slow = fast = head  # init
     while True:
         try:
-            slow = slow.next  # +1
-            fast = fast.next.next  # +2
+            slow, fast = slow.next, fast.next.next  # +1, +2
         except AttributeError:
             return False  # reached at the end of LL => no cycle
         if fast == slow:  # if they end up on a same node anytime
