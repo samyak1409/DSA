@@ -6,7 +6,7 @@ https://leetcode.com/problems/minimum-index-sum-of-two-lists
 def find_restaurant(list1: list[str], list2: list[str]) -> list[str]:
     """"""
 
-    # 1) Optimal (HashMap): TC = O(); SC = O()
+    # 1) Optimal (HashMap): TC = O(n1+n2); SC = O(n1*x) {x: average string length}
     # https://leetcode.com/problems/minimum-index-sum-of-two-lists/solution
 
     index = {x: i for i, x in enumerate(list1)}  # hashmap for O(1) lookup; `restaurant: index` pair

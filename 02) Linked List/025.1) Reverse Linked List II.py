@@ -29,14 +29,14 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     for _ in range(left-1):  # skipping nodes in the left
         curr = curr.next  # ++
     start = curr  # saving the start point (from where the nodes need to be reversed)
-    vals = []
+    stack = []
     for _ in range(right-left+1):  # saving the values in the range [left, right]
-        vals.append(curr.val)
+        stack.append(curr.val)
         curr = curr.next  # ++
 
     # Changing:
-    for i in range(-1, -len(vals)-1, -1):  # reverse traversing the saved vals
-        start.val = vals[i]
+    for i in range(len(stack)):  # traversing the stack
+        start.val = stack.pop()
         start = start.next  # ++
 
     return head

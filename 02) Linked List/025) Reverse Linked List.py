@@ -21,15 +21,15 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     """
     # Saving:
     curr = head  # not using head for traversing because we've to return head
-    vals = []
+    stack = []
     while curr:
-        vals.append(curr.val)
+        stack.append(curr.val)
         curr = curr.next  # ++
 
     # Changing:
     curr = head
-    for i in range(-1, -len(vals)-1, -1):  # reverse traverse the saved vals
-        curr.val = vals[i]
+    for i in range(len(stack)):  # traversing the stack
+        curr.val = stack.pop()
         curr = curr.next  # ++
 
     return head

@@ -107,5 +107,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
 
 
 # Similar Questions:
+# https://leetcode.com/problems/two-sum
+# https://leetcode.com/problems/3sum
 # https://leetcode.com/problems/4sum-ii
 # https://leetcode.com/problems/count-special-quadruplets

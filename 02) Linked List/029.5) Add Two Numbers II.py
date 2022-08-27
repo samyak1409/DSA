@@ -16,10 +16,10 @@ class ListNode:
 def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
     """"""
 
-    # 0.1) Brute-force (Copy Values to List (Stack to be precise)): TC = O(n); SC = O(n)
+    # 0.1) Brute-force (Copy Values to Stack): TC = O(n); SC = O(n)
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/92623/Easy-O(n)-Java-Solution-using-Stack
 
-    # 0.2) Brute-force (Only limited to Python) (Convert the Long Number to Int): TC = O(n); SC = O(1)
+    # 0.2) Brute-force (Only limited to Python) (Convert the Long LL to Int): TC = O(n); SC = O(1)
     # Do you realised that why are we not converting the number represented in the LL format to int and directly doing
     # `+`? (and why the number is being represented in the LL format at the first place?)
     # Because the integer is very long here, `The number of nodes in each linked list is in the range [1, 100].`,
