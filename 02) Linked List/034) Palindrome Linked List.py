@@ -52,6 +52,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     # locked while this function is running, because the Linked List is temporarily broken. This is a limitation of many
     # in-place algorithms though. Current approach doesn't have this downside.
 
+    """
     def check(back: Optional[ListNode]) -> bool:
         if back:
             palindrome_till_here = check(back=back.next)  # ++; go all the way back (recurse in)
@@ -66,3 +67,35 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     front = [head]  # global var
     # using list so that it's mutable, and so new local var is not created while updating inside the function
     return check(back=head)
+    """
+
+    # Follow up: Could you do it in O(n) time and O(1) space?
+    # 2) Optimal (Reverse Half LL): TC = O(n); SC = O(1)
+    # https://leetcode.com/problems/palindrome-linked-list/discuss/64500/11-lines-12-with-restore-O(n)-time-O(1)-space
+
+    # Step 1: Traverse 1st half and reverse the pointer direction: O(n//2)
+    node = node2x = head
+    prev = None
+    while node2x and node2x.next:
+        node2x = node2x.next.next  # +2
+        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        node.next, node, prev = prev, node.next, node  # change pointer direction, ++, ++
+    # After this, `1 -> 2 -> 2 -> 1 -> None` will convert into `None <- 1 <- 2 & 2 -> 1 -> None`,
+    # and `prev` will be pointing to start of left LL and `node` to start of right LL.
+
+    # Step 2: Compare the values while traversing the 1st and the 2nd half, and reverse the pointer direction back of
+    #         the 1st half: O(n//2)
+    node_l, prev = prev, node  # init, ++
+    node_r = node if not node2x else node.next  # init; skipping the mid node if len(LL) == odd, illustrated below:
+    # None <- 1 <- 2  &  3 -> 2 -> 1 -> None          None <- 1 <- 2  &  3 -> 2 -> 1 -> None
+    #              ↑     ↑                      =>                 ↑     ↑    ↑
+    #         node_l     prev & node_r                        node_l   prev   node_r
+    is_palin = True
+    while node_r:  # or `while node_l:` (len is same so doesn't matter)
+        if node_l.val != node_r.val:
+            is_palin = False
+        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        node_l.next, node_l, prev = prev, node_l.next, node_l  # change pointer direction, ++, ++
+        node_r = node_r.next  # ++
+
+    return is_palin
