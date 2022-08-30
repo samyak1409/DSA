@@ -42,8 +42,8 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     return head
     """
 
+    # Follow up: Could you do it in one pass?
     # 1) Optimal (Changing the Direction of Pointers): TC = O(n); SC = O(1)
-    # • It's one pass.
     # It's Easy, just have to take care of the two different cases in which the algo will be a little different:
     # i) left is not at the start, e.g. (head=[1,2,3,4,5], left=2, right=4)
     # ii) left is at the start, e.g. (head=[1,2,3,4,5], left=1, right=3)

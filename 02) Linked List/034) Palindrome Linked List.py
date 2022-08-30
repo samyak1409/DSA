@@ -99,3 +99,10 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
         node_r = node_r.next  # ++
 
     return is_palin
+
+
+# Similar Questions:
+# https://leetcode.com/problems/palindrome-number
+# https://leetcode.com/problems/valid-palindrome
+# https://leetcode.com/problems/reverse-linked-list
+# https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list

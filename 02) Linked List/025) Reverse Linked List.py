@@ -39,6 +39,8 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif
     # https://leetcode.com/problems/reverse-linked-list/discuss/58127/Python-Iterative-and-Recursive-Solution
 
+    # Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+
     # 1.2) It can also be done Recursively: TC = O(n); SC = O(n) {recursion stack}
     # O(n) space, still writing, why? For Recursion practice!
     """

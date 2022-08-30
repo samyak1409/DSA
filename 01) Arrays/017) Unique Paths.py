@@ -128,3 +128,5 @@ def unique_paths(m: int, n: int) -> int:
 # Similar Questions:
 # https://leetcode.com/problems/unique-paths-ii
 # https://leetcode.com/problems/minimum-path-sum
+# https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid
+# https://leetcode.com/problems/minimum-path-cost-in-a-grid

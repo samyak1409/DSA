@@ -47,6 +47,8 @@ def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode
         head2 = head2.next  # ++
     """
 
+    # Follow up: Could you write a solution that runs in O(m+n) time and use only O(1) memory?
+
     # 2.1) Optimal (Calc. Lengths): TC = O(m+n); SC = O(1)
     # https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/49792/Concise-JAVA-solution-O(1)-memory-O(n)-time
 

@@ -13,6 +13,8 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
     """
 
+    # Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+
     # 1) Better (Copy, Traverse & Compare): TC = O(m+n); SC = O(m)
 
     """
@@ -106,3 +108,4 @@ nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 # Similar Questions:
 # https://leetcode.com/problems/merge-two-sorted-lists
 # https://leetcode.com/problems/squares-of-a-sorted-array
+# https://leetcode.com/problems/interval-list-intersections

@@ -27,6 +27,8 @@ def find_duplicate(nums: list[int]) -> int:
         hash_set.add(num)  # SC = O(n)
     """
 
+    # Follow up: Can you solve the problem in linear runtime complexity?
+
     # 1.1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
     # Note: This algorithm modifies the array temporarily.
 
@@ -91,7 +93,7 @@ def find_duplicate(nums: list[int]) -> int:
 
 
 # Similar Questions:
-# https://leetcode.com/problems/linked-list-cycle-ii
 # https://leetcode.com/problems/single-number
+# https://leetcode.com/problems/linked-list-cycle-ii
 # https://leetcode.com/problems/missing-number
 # https://leetcode.com/problems/set-mismatch

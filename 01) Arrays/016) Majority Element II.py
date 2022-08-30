@@ -65,6 +65,7 @@ def majority_element(nums: list[int]) -> list[int]:
     return ans
     """
 
+    # Follow up: Could you solve the problem in linear time and in O(1) space?
     # 2) Optimal (Extended "Boyer-Moore Majority Voting Algorithm"): TC = O(n); SC = O(1)
     # Check "Boyer-Moore Majority Voting Algorithm" at:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py

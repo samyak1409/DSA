@@ -44,6 +44,8 @@ def sort_colors(nums: list[int]) -> None:
     #                and it handles that (by default returns 0 value if a key is not there)
     """
 
+    # Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+
     # 1.2) Optimal (The "Running But Don't Know How" Algo) (One-pass): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/sort-colors/discuss/26500/Four-different-solutions/160956
 
@@ -90,4 +92,6 @@ def sort_colors(nums: list[int]) -> None:
                 # needs to be checked
 
 
-# Similar Question: https://leetcode.com/problems/wiggle-sort-ii
+# Similar Question:
+# https://leetcode.com/problems/sort-list
+# https://leetcode.com/problems/wiggle-sort-ii

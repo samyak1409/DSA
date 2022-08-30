@@ -6,6 +6,8 @@ https://leetcode.com/problems/missing-number
 def missing_number(nums: list[int]) -> int:
     """"""
 
+    # Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
+
     # 1) Optimal (Maths): TC = O(n); SC = O(1)
 
     """

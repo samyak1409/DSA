@@ -57,6 +57,9 @@ def set_zeroes(matrix: list[list[int]]) -> None:
                 matrix[i][j] = 0
     """
 
+    # Follow up:
+    # A straightforward solution using O(mn) space is probably a bad idea.
+    # A simple improvement uses O(m + n) space, but still not the best solution.
     # 1) Better (Using row & column arrays for/and marking 0s): TC = O(m*n); SC = O(m+n)
 
     """
@@ -76,6 +79,7 @@ def set_zeroes(matrix: list[list[int]]) -> None:
                 matrix[i][j] = 0
     """
 
+    # Follow up: Could you devise a constant space solution?
     # 2) Optimal (Same logic as above, just using the first row & column of the matrix itself): TC = O(m*n); SC = O(1)
     # the main trick in this algo (which allows solution in O(1) space):
     # saving whether the rows/columns need to be set to 0s in the first row & column of the matrix,

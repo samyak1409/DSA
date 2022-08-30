@@ -16,6 +16,8 @@ def two_sum(nums: list[int], target: int) -> list[int]:
                 return [i, j]
     """
 
+    # Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+
     # 1.1) Better (Sorting & Binary Search): TC = O(n*log(n) + n*log(n)); SC = O(n)
     # TLE sometimes (when the LeetCode server is slow)
     # Mainly due to the biggest (and worst) case (nums=list(range(1, 10000+1)), target=19999)

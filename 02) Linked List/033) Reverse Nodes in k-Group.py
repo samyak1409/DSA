@@ -15,3 +15,5 @@ class ListNode:
 
 def reverse_k_group(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     """"""
+
+    # Follow-up: Can you solve the problem in O(1) extra memory space?

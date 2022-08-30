@@ -12,6 +12,9 @@ def sorted_squares(nums: list[int]) -> list[int]:
     yield from map(lambda x: x**2, sorted(nums, key=lambda x: abs(x)))
     """
 
+    # Follow up: Squaring each element and sorting the new array is very trivial,
+    # could you find an O(n) solution using a different approach?
+
     # 1) Time-Optimal (Two Pointers & Traversal from Ends to Mid): TC = O(n); SC = O(n)
     # Like:
     # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py#L32

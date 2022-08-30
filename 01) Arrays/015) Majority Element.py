@@ -67,6 +67,7 @@ def majority_element(nums: list[int]) -> int:
             return rand_num
     """
 
+    # Follow-up: Could you solve the problem in linear time and in O(1) space?
     # 2) Optimal (Boyer-Moore Majority Voting Algorithm 💘): TC = O(n); SC = O(1)
     # https://www.cs.utexas.edu/~moore/best-ideas/mjrty
     # https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
