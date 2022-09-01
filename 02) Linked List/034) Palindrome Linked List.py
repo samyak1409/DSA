@@ -84,7 +84,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     # and `prev` will be pointing to start of left LL and `node` to start of right LL.
 
     # Step 2: Compare the values while traversing the 1st and the 2nd half, and reverse the pointer direction back of
-    #         the 1st half: O(n//2)
+    #         the 1st half (in order to reset the input LL back to original): O(n//2)
     node_l, prev = prev, node  # init, ++
     node_r = node if not node2x else node.next  # init; skipping the mid node if len(LL) == odd, illustrated below:
     # None <- 1 <- 2  &  3 -> 2 -> 1 -> None          None <- 1 <- 2  &  3 -> 2 -> 1 -> None
