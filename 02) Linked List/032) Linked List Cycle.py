@@ -42,15 +42,15 @@ def has_cycle(head: Optional[ListNode]) -> bool:
 
     # Follow up: Can you solve it using O(1) (i.e. constant) memory?
     # 2) Optimal (Floyd's Cycle-Finding Algorithm <3): TC = O(n); SC = O(1)
+    # https://youtu.be/354J83hX7RI?t=253
     # https://en.wikipedia.org/wiki/Cycle_detection#Floyd%27s_tortoise_and_hare
-    # https://leetcode.com/problems/linked-list-cycle/discuss
 
     """
     slow = fast = head  # init
     while fast and fast.next:  # while not reached at the end of LL
         slow, fast = slow.next, fast.next.next  # +1, +2
         if fast == slow:  # if they end up on a same node anytime
-            return True  # loop is there
+            return True  # cycle is there
     return False  # reached at the end of LL => no cycle
     """
     # In Python, it's EAFP (https://leetcode.com/problems/linked-list-cycle/discuss/44494/Except-ionally-fast-Python):
@@ -61,7 +61,7 @@ def has_cycle(head: Optional[ListNode]) -> bool:
         except AttributeError:
             return False  # reached at the end of LL => no cycle
         if fast == slow:  # if they end up on a same node anytime
-            return True  # loop is there
+            return True  # cycle is there
 
 
 # Similar Questions:
