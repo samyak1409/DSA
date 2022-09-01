@@ -92,7 +92,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     #         node_l     prev & node_r                        node_l   prev   node_r
     is_palin = True
     while node_r:  # or `while node_l:` (len is same so doesn't matter)
-        if node_l.val != node_r.val:
+        if is_palin and node_l.val != node_r.val:
             is_palin = False
         # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node_l.next, node_l, prev = prev, node_l.next, node_l  # change pointer direction, ++, ++
