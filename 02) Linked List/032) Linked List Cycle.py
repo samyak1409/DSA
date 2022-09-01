@@ -8,8 +8,8 @@ from typing import Optional
 
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, x):
-        self.val = x
+    def __init__(self, val):
+        self.val = val
         self.next = None
 
 
