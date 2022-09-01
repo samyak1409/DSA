@@ -20,7 +20,7 @@ def generate(num_rows: int) -> list[list[int]]:
         row.append(1)  # suffix 1
         yield row
     """
-    # Concise:
+    # Conciser:
     """
     row = [1]  # init
     yield row

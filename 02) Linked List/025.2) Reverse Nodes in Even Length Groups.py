@@ -20,7 +20,7 @@ def reverse_even_length_groups(head: Optional[ListNode]) -> Optional[ListNode]:
     # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py.
 
     # 1) Optimal (Changing the Direction of Pointers): TC = O(n); SC = O(1)
-    # • It's one pass.
+    # -> One Pass
 
     curr = counter = head  # not using head for traversing because we've to return head;
     # `counter` will go ahead and help checking the length of a group
