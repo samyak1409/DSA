@@ -32,7 +32,7 @@ def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
     return head
     """
 
-    # 1) Time-Optimal (Copy Vals to Array): TC = O(n*log(n)); SC = O(n)
+    # 1) Brute-force = Time-Optimal (Copy Vals to Array and Sort): TC = O(n*log(n)); SC = O(n)
 
     from bisect import insort
 
@@ -60,7 +60,7 @@ def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # https://leetcode.com/problems/sort-list/solution/#approach-2-bottom-up-merge-sort
     # https://leetcode.com/problems/sort-list/discuss
 
-    # "Note: In an actual interview, I am not sure if you'd get extra points for coding the bottoms-up solution.
+    # Note: "In an actual interview, I am not sure if you'd get extra points for coding the bottoms-up solution.
     # Both bottoms-up and top-down are O(n*log(n)) and the latter's use of O(log(n)) space should not be an issue in
     # practice. Even 1 trillion nodes is only 40 stack frames(1024 is pow(2,10) so 1 trillion is pow(2,40).
     # Paraphrasing Cracking The Coding Interview, every recursive problem can be made into an iterative one,
