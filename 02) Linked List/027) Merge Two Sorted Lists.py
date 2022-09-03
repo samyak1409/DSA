@@ -74,7 +74,7 @@ def merge_two_lists(node1: Optional[ListNode], node2: Optional[ListNode]) -> Opt
     """
     # 1.2) Using a dummy node made it easier:
     to_head = node = ListNode()  # `to_head` -> dummy node whose next will be the head of our merged LL
-    # `node` -> not using head for traversing because we've to return head
+    # `node` -> not using head for traversing because we've to return it
 
     while node1 and node2:  # while both LLs have nodes left
         if node1.val < node2.val:
