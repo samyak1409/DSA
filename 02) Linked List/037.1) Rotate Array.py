@@ -22,11 +22,30 @@ def rotate(nums: list[int], k: int) -> None:
     # https://leetcode.com/problems/rotate-array/discuss/54294/My-solution-by-using-Python
 
     """
-    k %= len(nums)  # remove duplicate rotations
+    k %= len(nums)  # remove duplicate rotations (as well as handle even if k is -ve)
     nums[:] = nums[-k:] + nums[:-k]
     """
 
     # Follow up: Could you do it in-place with O(1) extra space?
-    # 1) Optimal (): TC = O(n); SC = O(1)
+    # 1) Optimal (Reversal Algorithm): TC = O(n); SC = O(1)
+    # https://leetcode.com/problems/rotate-array/discuss/54250/Easy-to-read-Java-solution
+    # https://leetcode.com/problems/rotate-array/discuss/1730142/JavaC%2B%2BPython-A-very-very-well-detailed-explanation
+    # https://leetcode.com/problems/reverse-words-in-a-string can be solved using the same algorithm.
+    # "Leet Code" --Reverse Whole-> "edoC teeL" --Reverse Individual-> "Code Leet"
 
-    pass
+    # Helper Function:
+    def reverse(array: list[int], start: int, end: int) -> None:
+        while start < end:
+            array[start], array[end] = array[end], array[start]  # swap 1st and nth val
+            start, end = start+1, end-1  # move pointers
+
+    n = len(nums)
+    k %= n  # remove duplicate rotations (as well as handle even if k is -ve)
+    nums.reverse()
+    reverse(array=nums, start=0, end=k-1)
+    reverse(array=nums, start=k, end=n-1)
+
+    # Articles with multiple solutions:
+    # https://leetcode.com/problems/rotate-array/discuss/54277/Summary-of-C%2B%2B-solutions
+    # https://leetcode.com/problems/rotate-array/discuss/269948/4-solutions-in-python-(From-easy-to-hard)
+    # https://leetcode.com/problems/rotate-array/discuss/54426/Summary-of-solutions-in-Python
