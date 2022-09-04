@@ -31,12 +31,12 @@ def rotate(nums: list[int], k: int) -> None:
     # https://leetcode.com/problems/rotate-array/discuss/54250/Easy-to-read-Java-solution
     # https://leetcode.com/problems/rotate-array/discuss/1730142/JavaC%2B%2BPython-A-very-very-well-detailed-explanation
     # https://leetcode.com/problems/reverse-words-in-a-string can be solved using the same algorithm.
-    # "Leet Code" --Reverse Whole-> "edoC teeL" --Reverse Individual-> "Code Leet"
+    # "Leet Code" --Reverse Whole String-> "edoC teeL" --Reverse Individual Words-> "Code Leet"
 
     # Helper Function:
     def reverse(array: list[int], start: int, end: int) -> None:
         while start < end:
-            array[start], array[end] = array[end], array[start]  # swap 1st and nth val
+            array[start], array[end] = array[end], array[start]  # swap first and last val
             start, end = start+1, end-1  # move pointers
 
     n = len(nums)
