@@ -18,7 +18,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
 
     # 1) Optimal (Traverse and Add): TC = O(max(m, n)); SC = O(max(m, n))
     # https://leetcode.com/problems/add-two-numbers/solution
-    # https://leetcode.com/problems/add-two-numbers/discuss/1835535/JavaC%2B%2B-A-very-beautiful-explanation-EVER-exists
+    # https://leetcode.com/problems/add-two-numbers/discuss/1835535/JavaC++-A-very-beautiful-explanation-EVER-exists
 
     head = node = ListNode()  # init head node; `head` -> save ref to head to return
     carry = 0

@@ -11,7 +11,7 @@ def find_shortest_sub_array(nums: list[int]) -> int:
 
     # 1) Optimal (Left and Right Index): TC = O(n); SC = O(n)
     # https://leetcode.com/problems/degree-of-an-array/solution
-    # https://leetcode.com/problems/degree-of-an-array/discuss/124317/JavaC%2B%2BPython-One-Pass-Solution
+    # https://leetcode.com/problems/degree-of-an-array/discuss/124317/JavaC++Python-One-Pass-Solution
 
     # Two Pass:
     """

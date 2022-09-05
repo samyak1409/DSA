@@ -15,7 +15,7 @@ def add_binary(a: str, b: str) -> str:
 
     # 1) Optimal (Reverse Traverse and Add): TC = O(max(m, n)); SC = O(max(m, n))
     # https://www.geeksforgeeks.org/program-to-add-two-binary-strings
-    # https://leetcode.com/problems/add-binary/discuss/1679423/Well-Detailed-Explaination-Java-C%2B%2B-Python-oror-Easy-for-mind-to-Accept-it
+    # https://leetcode.com/problems/add-binary/discuss/1679423/Well-Detailed-Explaination-Java-C++-Python-oror-Easy-for-mind-to-Accept-it
 
     bigger_len = max(len(a), len(b))
 

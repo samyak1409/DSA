@@ -10,7 +10,7 @@ def xor_queries(arr: list[int], queries: list[list[int]]) -> list[int]:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py
 
     # 1) Optimal (Prefix-XOR): TC = (n); SC = O(n)
-    # https://leetcode.com/problems/xor-queries-of-a-subarray/discuss/470787/JavaC%2B%2BPython-Straight-Forward-Solution
+    # https://leetcode.com/problems/xor-queries-of-a-subarray/discuss/470787/JavaC++Python-Straight-Forward-Solution
 
     # Forming Prefix-XOR Array:
     prefix_xor_arr = [0]  # init

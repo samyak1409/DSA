@@ -43,7 +43,7 @@ def max_product(nums: list[int]) -> int:
 
     # 1.2) Optimal (Prefix & Suffix Product): TC = O(n); SC = O(1)
     # Calculate prefix product in A. Calculate suffix product in A. Return the max.
-    # https://leetcode.com/problems/maximum-product-subarray/discuss/183483/JavaC%2B%2BPython-it-can-be-more-simple
+    # https://leetcode.com/problems/maximum-product-subarray/discuss/183483/JavaC++Python-it-can-be-more-simple
     # A way to understand the reason why the maximum subarray must be a prefix or suffix of the array:
     # suppose there's no 0 in the array:
     #     -> if number of negative number is odd, and left most is i and right most is j, then we can only either keep

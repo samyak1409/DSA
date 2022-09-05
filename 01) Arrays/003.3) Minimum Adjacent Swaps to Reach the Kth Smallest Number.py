@@ -7,7 +7,7 @@ def get_min_swaps(num: str, k: int) -> int:
     """"""
 
     # 1) Optimal ("Next Permutation" k Times + Calc. Swaps): TC = O(k*n + n^2); SC = O(n)
-    # https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number/discuss/1186818/C%2B%2B-simple-solution-using-next_permutation
+    # https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number/discuss/1186818/C++-simple-solution-using-next_permutation
 
     # Helper Function: TC = O(n); SC = O(1)
     def next_permutation(nums: list[int]) -> None:

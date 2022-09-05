@@ -45,7 +45,7 @@ def four_sum_count(nums1: list[int], nums2: list[int], nums3: list[int], nums4: 
     """
 
     # 2) Optimal (Using HashMap Consciously 😐): TC = O(n^2); SC = O(n^2)
-    # https://leetcode.com/problems/4sum-ii/discuss/1740606/Going-from-O(N4)-greater-O(N3)-greater-O(N2)-JavaC%2B%2B
+    # https://leetcode.com/problems/4sum-ii/discuss/1740606/Going-from-O(N4)-greater-O(N3)-greater-O(N2)-JavaC++
     # https://leetcode.com/problems/4sum-ii/discuss/93917/Easy-2-lines-O(N2)-Python
     # https://leetcode.com/problems/4sum-ii/discuss/175783/Hash-Java-with-Explanations
     # We aim to find all possible A[i] + B[j] + C[k] + D[l] = 0, that is,

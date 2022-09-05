@@ -8,7 +8,7 @@ def interval_intersection(list1: list[list[int]], list2: list[list[int]]) -> lis
 
     # 1) Optimal (Linearly Checking Intersections): TC = O(m+n); SC = O(1)
     # https://leetcode.com/problems/interval-list-intersections/solution
-    # https://leetcode.com/problems/interval-list-intersections/discuss/647482/Python-Two-Pointer-Approach-%2B-Thinking-Process-Diagrams
+    # https://leetcode.com/problems/interval-list-intersections/discuss/647482/Python-Two-Pointer-Approach-+-Thinking-Process-Diagrams
 
     # Traversing like: https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py
     i = j = 0

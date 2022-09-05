@@ -15,8 +15,8 @@ def min_cost(start_pos: list[int], home_pos: list[int], row_costs: list[int], co
     # all the columns between startCol and homeCol.
     # Hence, making any other move other than traversing the required rows and columns will potentially incur more cost
     # which can be avoided.
-    # https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/discuss/1598941/JavaC%2B%2BPython-All-shortest-paths-have-the-same-cost
-    # https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/discuss/1598900/C%2B%2BPython-Simple-Solution-w-Explanation-or-Count-costs-for-each-row-and-column-from-end-to-start
+    # https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/discuss/1598941/JavaC++Python-All-shortest-paths-have-the-same-cost
+    # https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/discuss/1598900/C++Python-Simple-Solution-w-Explanation-or-Count-costs-for-each-row-and-column-from-end-to-start
 
     """
     total_cost = 0

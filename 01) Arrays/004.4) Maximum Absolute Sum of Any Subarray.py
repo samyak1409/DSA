@@ -40,7 +40,7 @@ def max_absolute_sum(nums: list[int]) -> int:
     return max(max_sum, -min_sum)
     """
     # Or just:
-    # https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/discuss/1052471/C%2B%2BJava%3A-Find-Max-and-Min-Sum
+    # https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/discuss/1052471/C++Java:-Find-Max-and-Min-Sum
     max_sum = min_sum = max_abs_sum = 0
     for num in nums:
         max_sum = max(max_sum+num, 0)  # new_max_sum = max(old_max_sum+curr_num, 0); 0 means reset

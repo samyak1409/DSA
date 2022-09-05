@@ -30,7 +30,7 @@ def max_operations(nums: list[int], k: int) -> int:
     """
 
     # 2) Optimal (HashMap): TC = O(n); SC = O(n)
-    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2005922/Going-from-O(N2)-greater-O(NlogN)-greater-O(N)-%2B-MEME
+    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2005922/Going-from-O(N2)-greater-O(NlogN)-greater-O(N)-+-MEME
 
     # Counter HashMap for easy working with the counts of nums:
     from collections import Counter

@@ -14,7 +14,7 @@ def add_to_array_form(num: list[int], k: int) -> list[int]:
 
     # 1) Optimal (Take k itself as a Carry): TC = O(n); SC = O(n) {n = len(num)}
     # https://leetcode.com/problems/add-to-array-form-of-integer/solution
-    # https://leetcode.com/problems/add-to-array-form-of-integer/discuss/234488/JavaC%2B%2BPython-Take-K-itself-as-a-Carry
+    # https://leetcode.com/problems/add-to-array-form-of-integer/discuss/234488/JavaC++Python-Take-K-itself-as-a-Carry
 
     from itertools import chain
 

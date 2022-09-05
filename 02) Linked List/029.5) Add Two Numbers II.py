@@ -43,7 +43,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     # 2) Optimal (Handle Carry/ies In Different/Dedicated Traversal): TC = O(n); SC = O(1)
     # Good Question 👌; I myself came up with this approach 😁
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/687339/Java-O(N)-solution-with-follow-up-question-no-recursion-no-stacks
-    # https://leetcode.com/problems/add-two-numbers-ii/discuss/92624/C%2B%2B-O(1)-extra-space-except-for-output.-Reverse-output-instead.-Is-this-cheating
+    # https://leetcode.com/problems/add-two-numbers-ii/discuss/92624/C++-O(1)-extra-space-except-for-output.-Reverse-output-instead.-Is-this-cheating
 
     # Helper Function:
     def get_len(head: ListNode) -> int:

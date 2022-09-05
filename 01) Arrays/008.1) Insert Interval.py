@@ -7,7 +7,7 @@ def insert(intervals: list[list[int]], new_interval: list[int]) -> list[list[int
     """"""
 
     # 1) Optimal (Liner - Insert & Merge): TC = O(n); SC = O(1)
-    # https://leetcode.com/problems/insert-interval/discuss/21669/Easy-and-clean-O(n)-C%2B%2B-solution
+    # https://leetcode.com/problems/insert-interval/discuss/21669/Easy-and-clean-O(n)-C++-solution
 
     n = len(intervals)
     # Inserting the New Interval:

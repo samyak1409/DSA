@@ -18,7 +18,7 @@ def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode
 
     # All the 4 Solutions:
     # https://youtu.be/u4FWXfgS8jw
-    # https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/1093014/C%2B%2B-Four-different-solutions
+    # https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/1093014/C++-Four-different-solutions
 
     # 0) [TLE] Brute-force (Nested Loop): TC = O(m*n); SC = O(1)
     # For every node of LL1: Traverse LL2.

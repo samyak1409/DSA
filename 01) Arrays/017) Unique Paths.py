@@ -84,8 +84,9 @@ def unique_paths(m: int, n: int) -> int:
     """
 
     # 1.2) Better (DP): TC = O(m*n); SC = O(m*n)
-    # https://leetcode.com/problems/unique-paths/discuss/22954/C%2B%2B-DP
-    # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20III%20(Dynamic%20Programming%20%2D%20Tabulation)
+    # https://leetcode.com/problems/unique-paths/discuss/22954/C++-DP
+    # "Solution - III (Dynamic Programming - Tabulation)" in
+    # https://leetcode.com/problems/unique-paths/discuss/1581998/C++Python-5-Simple-Solutions-w-Explanation-or-Optimization-from-Brute-Force-to-DP-to-Math
 
     # 2) Optimal (Maths: PnC): TC = O(min(m, n)); SC = O(1)
     # https://youtu.be/t_f0nwwdg5o?t=817
@@ -108,7 +109,8 @@ def unique_paths(m: int, n: int) -> int:
     #
     # => Total Unique Ways = C(m+n-2, m-1) or C(m+n-2, n-1)
     # https://leetcode.com/problems/unique-paths/discuss/22958/Math-solution-O(1)-space
-    # https://leetcode.com/problems/unique-paths/discuss/1581998#:~:text=Solution%20%2D%20V%20(Math)
+    # "Solution - V (Math)" in
+    # https://leetcode.com/problems/unique-paths/discuss/1581998/C++Python-5-Simple-Solutions-w-Explanation-or-Optimization-from-Brute-Force-to-DP-to-Math
 
     """
     N = m + n - 2  # m-1 + n-1

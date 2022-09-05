@@ -45,7 +45,7 @@ def max_consecutive(bottom: int, top: int, special: list[int]) -> int:
     """
 
     # 1) Optimal (Sorting Specials then Calc. Ranges): TC = O(n*log(n)); SC = O(n); n = len(special) <= 10e5
-    # https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors/discuss/2040152/JavaC%2B%2BPython-Sort
+    # https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors/discuss/2040152/JavaC++Python-Sort
     # Say we have a pair of special floors (x, y) with no other special floors in between.
     # There are x - y - 1 consecutive floors in between them without a special floor.
     # Say there are n special floors.

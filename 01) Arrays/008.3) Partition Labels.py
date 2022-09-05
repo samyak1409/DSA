@@ -32,4 +32,4 @@ def partition_labels(s: str) -> list[int]:
 
     # Also see: https://leetcode.com/problems/partition-labels/solution
     # https://leetcode.com/problems/partition-labels/discuss/298474/Python-two-pointer-solution-with-explanation
-    # https://leetcode.com/problems/partition-labels/discuss/1868842/JavaC%2B%2B-VISUALLY-EXPLAINEDDDDD%21%21
+    # https://leetcode.com/problems/partition-labels/discuss/1868842/JavaC++-VISUALLY-EXPLAINEDDDDD!!
