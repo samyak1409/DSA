@@ -13,16 +13,19 @@ def num_of_pairs(nums: list[str], target: str) -> int:
 
     # Counter HashMap for easy working with the counts of nums:
     from collections import Counter
-    frequency = Counter()
+    freq = Counter()
     pairs = 0
     # Taking every num one by one and checking for required nums in HashMap:
     for num in nums:
-        pairs += frequency[target.removeprefix(num)] + frequency[target.removesuffix(num)]
+        pairs += freq[target.removeprefix(num)] + freq[target.removesuffix(num)]
         # `target.removeprefix(num)` & `target.removesuffix(num)` = required num for pair concat to be = target, why? ->
         # Input: nums = ["777", "7"], target = "7777"
         # Output: 2
         # Explanation: Valid pairs are:
         # - (0, 1): "777" + "7"
         # - (1, 0): "7" + "777"
-        frequency[num] += 1
+        freq[num] += 1
     return pairs
+
+    # Also read:
+    # https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/discuss/1503157/C%2B%2B-Simple-and-Easy-Solution-With-Detailed-Explanation

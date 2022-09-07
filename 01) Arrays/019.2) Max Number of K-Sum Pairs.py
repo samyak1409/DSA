@@ -16,22 +16,23 @@ def max_operations(nums: list[int], k: int) -> int:
 
     ops = 0
     # Finding all the 2 nums using Two-Pointers:
-    low, high = 0, len(nums)-1  # init
-    while low < high:
-        pair_sum = sorted_nums[low] + sorted_nums[high]
+    lo, hi = 0, len(nums)-1  # init
+    while lo < hi:
+        pair_sum = sorted_nums[lo] + sorted_nums[hi]
         if pair_sum == k:
             ops += 1
-            low, high = low+1, high-1  # continue for next nums
+            lo, hi = lo+1, hi-1  # continue for next nums
         elif pair_sum < k:  # => we want greater sum
-            low += 1  # considering next num (larger) in right
+            lo += 1  # considering next num (larger) in right
         else:  # (if pair_sum > k) => we want lesser sum
-            high -= 1  # considering next num (smaller) in left
+            hi -= 1  # considering next num (smaller) in left
     return ops
     """
 
-    # 2) Optimal (HashMap): TC = O(n); SC = O(n)
+    # 2.1) Optimal (HashMap): TC = O(n); SC = O(n)
     # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2005922/Going-from-O(N2)-greater-O(NlogN)-greater-O(N)-+-MEME
 
+    """
     # Counter HashMap for easy working with the counts of nums:
     from collections import Counter
     frequency = Counter()
@@ -45,3 +46,19 @@ def max_operations(nums: list[int], k: int) -> int:
         else:
             frequency[num] += 1  # only increment the count of `num` if pair is not formed above
     return ops
+    """
+
+    # 2.2) Optimal (HashMap): TC = O(n); SC = O(n)
+    # The abstract problem asks to count the number of disjoint pairs with a given sum k.
+    # For each possible value x, it can be paired up with k - x.
+    # The number of such pairs equals to min(count(x), count(k-x)), unless that x = k / 2, where the number of such
+    # pairs will be floor(count(x) / 2).
+    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/1022699/Python-Short-Counter-solution-%2B-Oneliner-explained
+
+    from collections import Counter
+    frequency = Counter(nums)
+
+    pairs = 0
+    for num in frequency.keys():
+        pairs += min(frequency[num], frequency[k-num])
+    return pairs // 2

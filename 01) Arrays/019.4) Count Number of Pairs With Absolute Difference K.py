@@ -14,14 +14,14 @@ def count_k_difference(nums: list[int], k: int) -> int:
 
     # Counter HashMap for easy working with the counts of nums:
     from collections import Counter
-    frequency = Counter()
+    freq = Counter()
     pairs = 0
     # Taking every num one by one and checking for required nums in HashMap:
     for num in nums:
-        pairs += frequency[num-k] + frequency[num+k]  # `num-k` & `num+k` = required num for pair diff to be = k
+        pairs += freq[num-k] + freq[num+k]  # `num-k` & `num+k` = required num for pair diff to be = k
         # IMP: Why `-k` & `+k`? Take the input (nums=[1, 3, 2], k=1), so num=2 is k=1 away from num=1 as well as num=3.
-        frequency[num] += 1
+        freq[num] += 1
     return pairs
 
-    # Also read:
+    # Another Solution:
     # https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/discuss/1471605/Counting-Sort
