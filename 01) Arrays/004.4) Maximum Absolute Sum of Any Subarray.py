@@ -51,7 +51,7 @@ def max_absolute_sum(nums: list[int]) -> int:
 
     # 1.2) Optimal (Prefix Sum): TC = O(n); SC = O(1)
     # Just find the maximum prefix sum and the minimum prefix sum. Return max - min.
-    # https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/discuss/1052527/JavaC%2B%2BPython-O(1)-Space
+    # https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/discuss/1052527/JavaC++Python-O(1)-Space
     # The proof idea behind the lee's intuition is using properties of modulus |a-b| = max(a,b) - min(a,b).
     # The sum of subarray arr[i:j]: S(i,j) = S(0,j) - S(0,i) and we want to maximize : |S(i,j)| = |S(0,j) - S(0,i)| =
     # max(S(0, i), S(0, j)) - min(S(0, i), S(0, j)) => max prefix sum - min prefix sum.

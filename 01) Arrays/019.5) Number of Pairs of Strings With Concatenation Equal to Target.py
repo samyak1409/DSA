@@ -28,4 +28,4 @@ def num_of_pairs(nums: list[str], target: str) -> int:
     return pairs
 
     # Also read:
-    # https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/discuss/1503157/C%2B%2B-Simple-and-Easy-Solution-With-Detailed-Explanation
+    # https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/discuss/1503157/C++-Simple-and-Easy-Solution-With-Detailed-Explanation

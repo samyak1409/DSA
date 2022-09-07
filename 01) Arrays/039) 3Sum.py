@@ -38,8 +38,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     for i in range(n):
         for j in range(i+1, n):
             for k in range(j+1, n):
-                if nums[i]+nums[j]+nums[k] == 0:
-                    triplet = [nums[i], nums[j], nums[k]]
+                if sum(triplet := [nums[i], nums[j], nums[k]]) == 0:
                     # For checking triplet's presence in O(1) time IRRESPECTIVE OF THE ORDER OF THE NUMS IN TRIPLETS:
                     '''
                     triplet_counter = Counter(triplet)  # tracking triplet's nums and their counts
@@ -53,8 +52,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     # It's the problem, instead, we can sort the triplet (time will be O(3*log(3)) = O(1) only because 
                     # len(triplet) is 3), and since the triplets will be ordered now, we can use tuples (i.e. ordered 
                     # and immutable):
-                    sorted_triplet_tuple = tuple(sorted(triplet))
-                    if sorted_triplet_tuple not in triplet_set:
+                    if (sorted_triplet_tuple := tuple(sorted(triplet))) not in triplet_set:
                         yield triplet
                         triplet_set.add(sorted_triplet_tuple)
     """
@@ -73,10 +71,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             return
         for j in range(i+1, n):
             for k in range(j+1, n):
-                if nums[i]+nums[j]+nums[k] == 0:
-                    triplet = [nums[i], nums[j], nums[k]]
-                    triplet_tuple = tuple(triplet)
-                    if triplet_tuple not in triplet_set:
+                if sum(triplet := [nums[i], nums[j], nums[k]]) == 0:
+                    if (triplet_tuple := tuple(triplet)) not in triplet_set:
                         yield triplet
                         triplet_set.add(triplet_tuple)
     """
@@ -132,8 +128,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
                     lo, hi = j+1, n-1
                     while lo <= hi:
-                        mid = (lo+hi) // 2
-                        num3 = nums[mid]
+                        num3 = nums[(mid := (lo+hi)//2)]
                         if num3 == target:  # => triplet found
                             yield [num1, num2, num3]
                             break  # imp to break out once we get our num3 otherwise it will be an inf loop
@@ -188,15 +183,14 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             num3 = nums[j]
             num2 = target - num3  # num2 -> number added in hashset in previous iterations
             if num2 in hashset:
-                triplet = [num1, num2, num3]
-                triplet_tuple = tuple(triplet)
-                if triplet_tuple not in triplet_set:
+                if (triplet_tuple := tuple(triplet := [num1, num2, num3])) not in triplet_set:
                     yield triplet
                     triplet_set.add(triplet_tuple)
             hashset.add(num3)
     """
 
     # 2.2) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n) {sorting}
+    # https://en.wikipedia.org/wiki/3SUM#Quadratic_algorithm
 
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)

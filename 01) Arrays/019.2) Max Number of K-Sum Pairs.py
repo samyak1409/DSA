@@ -53,7 +53,7 @@ def max_operations(nums: list[int], k: int) -> int:
     # For each possible value x, it can be paired up with k - x.
     # The number of such pairs equals to min(count(x), count(k-x)), unless that x = k / 2, where the number of such
     # pairs will be floor(count(x) / 2).
-    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/1022699/Python-Short-Counter-solution-%2B-Oneliner-explained
+    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/1022699/Python-Short-Counter-solution-+-Oneliner-explained
 
     from collections import Counter
     frequency = Counter(nums)
