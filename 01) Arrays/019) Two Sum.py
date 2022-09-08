@@ -45,6 +45,13 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     # 1.2) Better (Sorting & Two-Pointers): TC = O(n*log(n) + n); SC = O(n) {sorting}
     # "Solution 2: Sort then Two Pointers" in
     # https://leetcode.com/problems/two-sum/discuss/1378064/C++JavaPython-HashMap-Two-pointers-Solutions-Clean-and-Concise
+    # IMP Note: Sort & Two-Pointers Approach can only be used where either only one pair is needed (like in this
+    # question) or unique pairs are needed (like in 3Sum, 4Sum, etc.), it can't be used to find all the pairs, no. of
+    # all pairs, etc. Why? See yourself:
+    # Question: Find the count of all the two sum pairs which satisfy.
+    # Input: nums = [1, 1, 1], target = 2
+    # Output: 1
+    # Expected: 3
 
     """
     # Getting sorted array of tuples (index, num), saving index because we have to return indices as answer and after

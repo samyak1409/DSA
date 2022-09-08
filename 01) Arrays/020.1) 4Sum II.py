@@ -6,68 +6,57 @@ https://leetcode.com/problems/4sum-ii
 def four_sum_count(nums1: list[int], nums2: list[int], nums3: list[int], nums4: list[int]) -> int:
     """"""
 
-    # 0) [TLE] Brute-force (4 Loops): TC = O(n^4); SC = O(1)
+    # https://leetcode.com/problems/4sum-ii/discuss/1740606/Going-from-O(N4)-greater-O(N3)-greater-O(N2)-JavaC++
 
-    # 1.1) [WA, TLE] Better (Sort & Two Pointers): TC = O(n^3); SC = O(1)
-    # WA: Same reason as `019.4) Count Good Meals.py`'s `1)`.
-
-    """
-    n = len(nums1)
-    num3, nums4 = sorted(nums3), sorted(nums4)  # new local vars
-    count = 0
-    for num1 in nums1:
-        for num2 in nums2:
-            req_sum = -num1-num2
-            i, j = 0, n-1
-            while i < n and j >= 0:
-                sum_ = nums3[i] + nums4[j]
-                if sum_ < req_sum:
-                    i += 1
-                elif sum_ > req_sum:
-                    j -= 1
-                else:  # (if sum_ == req_sum)
-                    count += 1
-                    i, j = i+1, j-1
-    return count
-    """
-
-    # 1.2) [TLE] Better (Using HashMap): TC = O(n^3); SC = O(1)
+    # 0) [TLE] Brute-force (4 Loops: Check every possible pair.): TC = O(n^4); SC = O(1)
 
     """
-    from collections import Counter
-    hashmap = Counter(nums4)
+    # Hash (0); Search (4):
     count = 0
     for num1 in nums1:
         for num2 in nums2:
             for num3 in nums3:
-                count += hashmap[-num1-num2-num3]
+                for num4 in nums4:
+                    if num1+num2+num3+num4 == 0:
+                        count += 1
+    return count
+    """
+
+    # 1) [TLE] Better (Using HashMap): TC = O(n^3); SC = O(n)
+    # num1+num2+num3+num4 = 0 => num1+num2+num3 = -num4
+
+    """
+    # Hash (1):
+    from collections import Counter
+    freq = Counter(nums4)
+    # Search (3):
+    count = 0
+    for num1 in nums1:
+        for num2 in nums2:
+            for num3 in nums3:
+                count += freq[-num1-num2-num3]
     return count
     """
 
     # 2) Optimal (Using HashMap Consciously 😐): TC = O(n^2); SC = O(n^2)
-    # https://leetcode.com/problems/4sum-ii/discuss/1740606/Going-from-O(N4)-greater-O(N3)-greater-O(N2)-JavaC++
-    # https://leetcode.com/problems/4sum-ii/discuss/93917/Easy-2-lines-O(N2)-Python
-    # https://leetcode.com/problems/4sum-ii/discuss/175783/Hash-Java-with-Explanations
-    # We aim to find all possible A[i] + B[j] + C[k] + D[l] = 0, that is,
-    # A[i] + B[j] = -(C[k] + D[l])
-    # In other words, we need to count the number of all possible two-sums between A and B that equals to opposite of
-    # any two-sum between C and D.
-    # Thus, we enumerate all two-sums between C and D, and store sum-to-frequency mappings for reference.
+    # num1+num2+num3+num4 = 4 => num1+num2 = -num3-num4
 
-    # Stefan Pochmann Supremacy:
+    # Stefan Pochmann Supremacy https://leetcode.com/problems/4sum-ii/discuss/93917/Easy-2-lines-O(N2)-Python:
     """
     from collections import Counter
-    frequency = Counter(num1+num2 for num1 in nums1 for num2 in nums2)
-    return sum(frequency[-num3-num4] for num3 in nums3 for num4 in nums4)
+    freq = Counter(num3+num4 for num4 in nums4 for num3 in nums3)
+    return sum(freq[-num1-num2] for num2 in nums2 for num1 in nums1)
     """
 
+    # Hash (2):
     from collections import Counter
-    frequency = Counter()
-    for num1 in nums1:
-        for num2 in nums2:
-            frequency[num1+num2] += 1
-    count = 0
+    freq = Counter()
     for num3 in nums3:
         for num4 in nums4:
-            count += frequency[-num3-num4]
+            freq[num3+num4] += 1
+    # Search (2):
+    count = 0
+    for num1 in nums1:
+        for num2 in nums2:
+            count += freq[-num1-num2]
     return count

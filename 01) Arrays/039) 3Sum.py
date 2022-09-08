@@ -141,7 +141,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # 2.1) Optimal (HashSet): TC = O(n*log(n) + n^2); SC = O(n+n+n) {sorting, hashset, hashset}
     # Using hashset for tracking unique triplets is easier than using skip duplicates technique for this approach.
     # Why? Try out yourself:
-    # WA using skip duplicates technique:
+    # WA using usual skip duplicates technique:
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
@@ -189,8 +189,16 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             hashset.add(num3)
     """
 
+    # As we're sorting anyway, it's obviously better to use two-pointers over hashmap.
     # 2.2) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n) {sorting}
     # https://en.wikipedia.org/wiki/3SUM#Quadratic_algorithm
+    # IMP Note: Sort & Two-Pointers Approach can only be used where either only one pair is needed (like in Two Sum)
+    # or unique pairs are needed (like in this question, 4Sum, etc.), it can't be used to find all the pairs, no. of
+    # all pairs, etc. Why? See yourself:
+    # Question: Find the count of all the two sum pairs which satisfy.
+    # Input: nums = [1, 1, 1], target = 2
+    # Output: 1
+    # Expected: 3
 
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)
