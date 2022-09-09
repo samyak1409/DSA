@@ -101,7 +101,7 @@ def copy_random_list(head: Optional[Node]) -> Optional[Node]:
 
     return new_head
     '''
-    # Why above one is not working?
+    # Why above one is not working? [Create PR]
     # "AttributeError: 'NoneType' object has no attribute 'next'
     #     node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None"
     to_new_head = new_node = Node(val=0)  # `to_new_head`: for easy pointing to head; `new_node`: copy for traversing

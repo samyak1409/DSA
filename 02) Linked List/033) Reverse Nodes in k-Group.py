@@ -17,3 +17,9 @@ def reverse_k_group(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     """"""
 
     # Follow-up: Can you solve the problem in O(1) extra memory space?
+
+
+# Similar Questions:
+# https://leetcode.com/problems/swap-nodes-in-pairs
+# https://leetcode.com/problems/swapping-nodes-in-a-linked-list
+# https://leetcode.com/problems/reverse-nodes-in-even-length-groups
