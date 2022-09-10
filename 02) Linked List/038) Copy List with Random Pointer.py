@@ -91,19 +91,8 @@ def copy_random_list(head: Optional[Node]) -> Optional[Node]:
         node = node.next.next  # +2
 
     # Step 3) Detach and Link Next Pointers:
+    # Using dummy node:
     '''
-    new_head = head.next  # save ref to return before detachment
-    node = head  # copy for traversing
-    while node:
-        node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None  # detach and point
-        # next; `node.next.next.next if node.next.next else None` -> handling last node
-        node = node.next  # +2
-
-    return new_head
-    '''
-    # Why above one is not working? [Create PR]
-    # "AttributeError: 'NoneType' object has no attribute 'next'
-    #     node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None"
     to_new_head = new_node = Node(val=0)  # `to_new_head`: for easy pointing to head; `new_node`: copy for traversing
     node = head  # copy for traversing
     while node:
@@ -111,6 +100,20 @@ def copy_random_list(head: Optional[Node]) -> Optional[Node]:
         node, new_node = node.next, new_node.next  # +2
 
     return to_new_head.next
+    '''
+    # Using dummy node is not required though:
+    new_head = head.next if head else None  # save ref to return before detachment
+    node = head  # copy for traversing
+    while node:
+        # node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None  # detach and
+        # point next; `node.next.next.next if node.next.next else None` -> handling last node
+        # Note: "we need to assign farther pointers before", see
+        # https://github.com/samyak1409/DSA/blob/33e669a82122910e0d7393e762b33c4faf4f4657/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L63
+        node.next.next, node.next = node.next.next.next if node.next.next else None, node.next.next  # point next and
+        # detach; `node.next.next.next if node.next.next else None` -> handling last node
+        node = node.next  # +2
+
+    return new_head
 
 
 # Similar Question: https://leetcode.com/problems/clone-graph
