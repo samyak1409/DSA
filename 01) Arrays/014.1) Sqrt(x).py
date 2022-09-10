@@ -6,8 +6,8 @@ https://leetcode.com/problems/sqrtx
 def my_sqrt(x: int) -> int:
     """"""
 
+    # Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
     # -1) Not Allowed (Using Built-in Exponent Function or Operator): TC = O(log(x)); SC = O(1)
-    # "Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5."
 
     """
     return int(x ** .5)
