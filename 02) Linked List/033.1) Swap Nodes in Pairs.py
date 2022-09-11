@@ -28,17 +28,7 @@ def swap_pairs(head: Optional[ListNode]) -> Optional[ListNode]:
 
     node, head = head, head.next  # `node`: for traversal, `head`: new head
     while node and node.next:  # while 2 nodes are there
-        # node.next, node.next.next = node.next.next, node  # swap nodes by changing pointers
-        # Why is pythonic swapping (parallel assignment) not working? Following (normal swapping) works:
-        '''
-        temp = node.next
-        node.next = node.next.next
-        temp.next = node
-        '''
-        # Wait, tried to change the order, and it works! Why exactly if assignment is being done parallely anyway?
-        # [Create PR]
         node.next.next, node.next = node, node.next.next  # swap nodes by changing pointers
-        # (Looks like we need to assign farther pointers before.)
         node = node.next  # ++
     return head
     """
@@ -51,32 +41,33 @@ def swap_pairs(head: Optional[ListNode]) -> Optional[ListNode]:
     node, head = head, head.next  # `node`: for traversal, `head`: new head
     while node and node.next:  # while 2 nodes are there
         # node.next, node.next.next = node.next.next, node  # swap nodes by changing pointers
-        # Why is pythonic swapping (parallel assignment) not working? Following (normal swapping) works:
         '''
         temp = node.next
         node.next = node.next.next
         temp.next = node
         '''
-        # Wait, tried to change the order, and it works! Why exactly if assignment is being done parallely anyway?
-        # [Create PR]
         node.next.next, node.next = node, node.next.next  # swap nodes by changing pointers
-        # (Looks like we need to assign farther pointers before.)
+        # SO, HERE WE LEARNT A VERY IMPORTANT LESSON, THAT HOW `A, B = C, D` WORKS.
+        # I USED TO THINK ASSIGNMENT TAKES PLACE PARALLELY BECAUSE OF THE FACT THAT USING THIS STRUCTURE, WE CAN SWAP
+        # DATA OF TWO OBJECTS IN PYTHON (`A, B = B, A`). BUT NO, ASSIGNMENT DOESN'T TAKE PLACE PARALLELY. 😶
+        # {MY WHOLE LIFE (2 YEARS OF PYTHON) WAS A LIE} THEN HOW DOES IT FREAKING WORK? LET'S SEE!
+        # FIRST OF ALL THE RHS GETS EXECUTED (AS WE ALREADY KNOW), COPY OF EVERY OBJECT (IN OUR CASE `C` & `D`) TAKES 
+        # PLACE (COPY MEANS NEW ADDRESS AND SO NEW MEMORY IS ASSIGNED), AND THEN THEIR TUPLE IS FORMED.
+        # THEN, TUPLE UNPACKING ASSIGNMENT TAKES PLACE, I.E., ONE BY ONE (FROM LEFT TO RIGHT TO BE EXTRA-DEFINITIVE) ALL
+        # THE OBJECTS ON THE LHS ARE ASSIGNED TO THE CORRESPONDING RHS TUPLE DATA.
+        # AND THAT'S HOW IT WORKS!
         # node, node.next = node.next, node.next.next if node.next and node.next.next else node.next  # ++, beforehand
         # change next of last node if 2 nodes are still there (dry run on LL with len 4 at least to understand what's 
         # going on)
-        # Why is pythonic swapping (parallel assignment) not working? Following (normal swapping) works:
         '''
         temp = node.next
         if node.next and node.next.next:  # if 2 nodes are still there
             node.next = node.next.next  # beforehand change next of last node
         node = temp  # ++
         '''
-        # Wait, tried to change the order, and it works! Why exactly if assignment is being done parallely anyway?
-        # [Create PR]
         node.next, node = node.next.next if node.next and node.next.next else node.next, node.next  # ++, beforehand
         # change next of last node if 2 nodes are still there (dry run on LL with len 4 at least to understand what's 
         # going on)
-        # (Looks like we need to assign farther pointers before.)
     return head
     """
     # (Without Extra Comments):

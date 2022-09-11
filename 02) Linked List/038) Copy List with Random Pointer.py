@@ -107,8 +107,7 @@ def copy_random_list(head: Optional[Node]) -> Optional[Node]:
     while node:
         # node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None  # detach and
         # point next; `node.next.next.next if node.next.next else None` -> handling last node
-        # Note: "we need to assign farther pointers before", see
-        # https://github.com/samyak1409/DSA/blob/33e669a82122910e0d7393e762b33c4faf4f4657/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L63
+        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L50-L58
         node.next.next, node.next = node.next.next.next if node.next.next else None, node.next.next  # point next and
         # detach; `node.next.next.next if node.next.next else None` -> handling last node
         node = node.next  # +2
