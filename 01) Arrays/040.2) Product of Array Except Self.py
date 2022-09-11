@@ -6,6 +6,9 @@ https://leetcode.com/problems/product-of-array-except-self
 def product_except_self(nums: list[int]) -> list[int]:
     """"""
 
+    # https://leetcode.com/problems/product-of-array-except-self/discuss/65622/Simple-Java-solution-in-O(n)-without-extra-space/67603
+    # https://leetcode.com/problems/product-of-array-except-self/discuss/1597994/C++Python-4-Simple-Solutions-w-Explanation-or-Prefix-and-Suffix-product-O(1)-space-approach
+
     # You must write an algorithm that runs in O(n) time and without using the division operation.
     # -1) Not Allowed (Calc. Total Product, Divide by Self One by One): TC = (n); SC = O(1)
 
@@ -57,8 +60,17 @@ def product_except_self(nums: list[int]) -> list[int]:
     # Runtime: 210 ms, faster than 99.92% of Python3 online submissions for Product of Array Except Self.
     # Memory Usage: 20.7 MB, less than 99.39% of Python3 online submissions for Product of Array Except Self.
 
-    # https://leetcode.com/problems/product-of-array-except-self/discuss/65622/Simple-Java-solution-in-O(n)-without-extra-space/67603
-    # https://leetcode.com/problems/product-of-array-except-self/discuss/1597994/C++Python-4-Simple-Solutions-w-Explanation-or-Prefix-and-Suffix-product-O(1)-space-approach
+    # 0) [TLE] Brute-force (Calc. for every Num): TC = O(n^2); SC = O(1)
+
+    """
+    n = len(nums)
+    for i in range(n):
+        product = 1  # init with neutral val
+        for j in range(n):
+            if j != i:
+                product *= nums[j]
+        yield product
+    """
 
     # 1) Optimal (Prefix & Suffix Product): TC = O(n); SC = O(n)
     #            nums:     1   2   3
