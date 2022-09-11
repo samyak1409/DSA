@@ -6,7 +6,7 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array
 def remove_duplicates(nums: list[int]) -> int:
     """"""
 
-    # Some Imp. Instructions:
+    # Points to be noted:
     # -> Since it is impossible to change the length of the array in some languages, you must instead have the result be
     # placed in the first part of the array nums.
     # -> Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1)
@@ -59,3 +59,8 @@ def remove_duplicates(nums: list[int]) -> int:
         if num != nums[i]:
             nums[i := i+1] = num
     return i+1
+
+
+# Similar Questions:
+# https://leetcode.com/problems/remove-element
+# https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii

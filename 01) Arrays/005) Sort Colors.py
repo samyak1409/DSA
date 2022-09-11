@@ -71,10 +71,12 @@ def sort_colors(nums: list[int]) -> None:
     """
 
     # 1.3) Optimal (Three Pointers & Swapping) (One-pass): TC = O(n); SC = O(1)
+    # The idea is to sweep all 0s to the left and all 2s to the right, then all 1s are left in the middle.
+    # IMP: Based on the same concept we used in `1.2)` of
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/041.1%29%20Remove%20Element.py.
     # https://en.wikipedia.org/wiki/Dutch_national_flag_problem
     # https://leetcode.com/problems/sort-colors/discuss/26472/Share-my-at-most-two-pass-constant-space-10-line-solution/25489
     # https://leetcode.com/problems/sort-colors/discuss/26481/Python-O(n)-1-pass-in-place-solution-with-explanation
-    # The idea is to sweep all 0s to the left and all 2s to the right, then all 1s are left in the middle.
 
     i, j, k = 0, 0, len(nums)-1
     while j <= k:
