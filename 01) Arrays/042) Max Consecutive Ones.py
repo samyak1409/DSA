@@ -35,3 +35,9 @@ def find_max_consecutive_ones(nums: list[int]) -> int:
         else:
             streak = 0  # reset
     return max_streak
+
+
+# Similar Questions:
+# https://leetcode.com/problems/max-consecutive-ones-iii
+# https://leetcode.com/problems/consecutive-characters
+# https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros

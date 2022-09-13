@@ -29,7 +29,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     # But wait, Python doesn't have limit on ints! So we can do this!
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/92627/There-is-no-maximum-of-INT-in-python-so.....
 
-    # 1) Better (`025 Reverse Linked List.py` + `029 Add Two Numbers.py`): TC = O(n); SC = O(1)
+    # 1) Better (`025) Reverse Linked List.py` + `029 Add Two Numbers.py`): TC = O(n); SC = O(1)
     # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py
     # + https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py
     # Algo:

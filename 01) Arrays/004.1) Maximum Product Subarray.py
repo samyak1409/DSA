@@ -28,7 +28,7 @@ def max_product(nums: list[int]) -> int:
     # -> smallest_product * a_negative_num = largest_product
     # -> largest_product * a_negative_num = smallest_product
     # So, we are handling this behaviour by keeping track of two extremes, viz. `maxi` and `mini` instead of just one
-    # (like in `Maximum Subarray.py`).
+    # (like in `004) Maximum Subarray.py`).
 
     ans = maxi = mini = nums[0]  # init with the 1st value in the array
     for i in range(1, len(nums)):  # traverse

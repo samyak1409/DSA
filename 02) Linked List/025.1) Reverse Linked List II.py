@@ -63,7 +63,7 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     first = curr  # saving ref to the first node from `left`
     # after reversal, this would be the last node among reversed ones
 
-    # Basic `Reverse Linked List.py` Algo:
+    # Basic `025) Reverse Linked List.py` Algo:
     prev = None
     for _ in range(right-left+1):
         curr.next, curr, prev = prev, curr.next, curr  # reverse ptr direction + update `curr` + update `prev`

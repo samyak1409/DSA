@@ -16,7 +16,7 @@ def find_max_length(nums: list[int]) -> int:
     for i in range(n):
         if nums[i] == 0:
             nums[i] = -1
-    # And now the question has been transformed to: `022) Longest Subarray with 0 Sum.py`
+    # And now the question has been transformed to: `022 Longest Subarray with 0 Sum.py`
 
     # Prefix Sum Algorithm:
     prefix_sum = 0
