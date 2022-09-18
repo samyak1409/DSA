@@ -59,7 +59,7 @@ def set_zeroes(matrix: list[list[int]]) -> None:
 
     # Follow up:
     # A straightforward solution using O(mn) space is probably a bad idea.
-    # A simple improvement uses O(m + n) space, but still not the best solution.
+    # A simple improvement uses O(m+n) space, but still not the best solution.
     # 1) Better (Using row & column arrays for/and marking 0s): TC = O(m*n); SC = O(m+n)
 
     """
