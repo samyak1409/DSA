@@ -14,7 +14,7 @@ def permute(nums: list[int]) -> list[list[int]]:
 
     nums = nums  # so that input array is not modified
     n = len(nums)
-    for _ in range(factorial(n)):
+    for _ in range(factorial(n)):  # we know that the no. of permutations = n!
 
         # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/003%29%20Next%20Permutation.py:
         done = False

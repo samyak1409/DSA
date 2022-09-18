@@ -12,7 +12,8 @@ def next_permutation(nums: list[int]) -> None:
     #                                                                                                   SC = O(n)
     # Not coding this approach because it's just way too inefficient to accept as an approach at the first place.
 
-    # 1) Better (I came up with this, Correct but Redundant): TC = O(n^2); SC = O(n)
+    # 1) Better (Recognize Pattern for Next Permutation, Implement the Same): TC = O(n^2); SC = O(n)
+    # (I came up with this, Correct but Redundant.)
 
     """
     from bisect import insort  # for a (throughout) sorted array
@@ -34,8 +35,9 @@ def next_permutation(nums: list[int]) -> None:
     # rearrangement.")
     """
 
-    # 2) Optimal (From official solution, mine approach is doing the same thing though, but not efficiently): TC = O(n);
-    #                                                                                                         SC = O(1)
+    # 2) Optimal (First Decreasing Element): TC = O(n); SC = O(1)
+    # (Mine approach is doing the same thing, but not efficiently.)
+    # https://leetcode.com/problems/next-permutation/solution
     # https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
 
     for i in range(len(nums)-1):  # finding first decreasing num (iterating from right to left)

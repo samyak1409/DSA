@@ -6,17 +6,18 @@ https://leetcode.com/problems/permutations-ii
 def permute_unique(nums: list[int]) -> list[list[int]]:
     """"""
 
-    # 1) Sub-Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n)
+    # 1) Sub-Optimal ("Next Permutation" n! Times): TC = (n! * n); SC = O(n!) {worst case: len(nums) == len(set(nums))}
     # NOTE: Following is the solution using the technique of finding "Next Permutation", though it shouldn't be solved
     # like this, but by Backtracking.
     # Sub-Optimal and not Optimal because check here: https://leetcode.com/problems/permutations-ii/solution
+    # https://en.wikipedia.org/wiki/Permutation#k-permutations_of_n
 
     from math import factorial
 
     nums = nums  # so that input array is not modified
     n = len(nums)
     hashset = set()  # to track unique perms
-    for _ in range(factorial(n)):
+    for _ in range(factorial(n)):  # we know that the no. of permutations = n!
 
         # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/003%29%20Next%20Permutation.py:
         done = False
@@ -35,6 +36,6 @@ def permute_unique(nums: list[int]) -> list[list[int]]:
         if not done:
             nums.reverse()  # if nums is the last permutation itself
 
-        if (hashable_nums := tuple(nums)) not in hashset:
+        if (hashable_nums := tuple(nums)) not in hashset:  # tuple because `unhashable type: 'list'`
             yield nums
-            hashset.add(hashable_nums)  # unhashable type: 'list'
+            hashset.add(hashable_nums)
