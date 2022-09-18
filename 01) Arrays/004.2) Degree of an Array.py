@@ -9,7 +9,7 @@ def find_shortest_sub_array(nums: list[int]) -> int:
     # 0) Brute-force (Calc. degree of whole array, Calc. degree of all the subarrays, Return length of the smallest
     # subarray with same degree): TC = O(n^2); SC = O(n)
 
-    # 1) Optimal (Left and Right Index): TC = O(n); SC = O(n)
+    # 1) Optimal (Store [Frequencies, LeftMost & RightMost Indices] in HashMap): TC = O(n); SC = O(n)
     # https://leetcode.com/problems/degree-of-an-array/solution
     # https://leetcode.com/problems/degree-of-an-array/discuss/124317/JavaC++Python-One-Pass-Solution
 
