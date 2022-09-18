@@ -19,6 +19,9 @@ def triangular_sum(nums: list[int]) -> int:
     # For test case [1, 2, 3, 4, 5], we will get 1*1 + 2*4 + 3*6 + 4*4 + 5*1 = 1+8+18+16+5 = 48, or 8 after modulo 10.
     # Calculating the multipliers using:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/002.1%29%20Pascal%27s%20Triangle%20II.py
+    # Multipliers will be nothing but n-th (len(nums)-th) row in Pascal's Triangle, why?
+    # Because both, the triangle here and the Pascal's triangle, are based on the same base logic that new sum is
+    # formed using the sum of two values above in the triangle.
 
     n = len(nums)
     multiplier = 1  # init
