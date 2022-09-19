@@ -49,13 +49,12 @@ def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
         node = node.next  # ++
     return head
 
-    # Follow up: Can you sort the linked list in O(n*log(n)) time and O(1) memory (i.e. constant space)?
-
     # 2.1) (Almost) Optimal (Top Down (Recursive) Merge Sort): TC = O(n*log(n)); SC = O(log(n))
     # https://github.com/samyak1409/python-lab-assignments/blob/main/10/a.py
     # https://leetcode.com/problems/sort-list/solution/#approach-1-top-down-merge-sort
     # https://leetcode.com/problems/sort-list/discuss
 
+    # Follow up: Can you sort the linked list in O(n*log(n)) time and O(1) memory (i.e. constant space)?
     # 2.2) Optimal (Bottom Up (Iterative) Merge Sort): TC = O(n*log(n)); SC = O(1)
     # https://leetcode.com/problems/sort-list/solution/#approach-2-bottom-up-merge-sort
     # https://leetcode.com/problems/sort-list/discuss

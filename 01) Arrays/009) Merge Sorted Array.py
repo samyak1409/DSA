@@ -13,7 +13,7 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
     """
 
-    # Follow up: Can you come up with an algorithm that runs in O(m + n) time?
+    # Follow up: Can you come up with an algorithm that runs in O(m+n) time?
 
     # 1) Better (Copy, Traverse & Compare): TC = O(m+n); SC = O(m)
 
