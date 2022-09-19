@@ -6,6 +6,8 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock
 def max_profit(prices: list[int]) -> int:
     """"""
 
+    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solution
+
     # 0) [TLE] Brute-force (Calculating profits for all the combinations): TC = O(n^2); SC = O(1)
 
     """
@@ -22,21 +24,24 @@ def max_profit(prices: list[int]) -> int:
     # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
 
     """
-    cost_price, max_profit_ = float('inf'), 0  # init
+    min_price, max_profit_ = float('inf'), 0  # init
     for price in prices:
-        if price < cost_price:
-            cost_price = price  # bought stock at a lesser price
+        if price < min_price:
+            min_price = price  # bought stock at a lesser price
             continue  # bought stock on this day, so doesn't make sense selling because profit will obviously be 0
-        profit = price - cost_price
+        profit = price - min_price  # selling_price - cost_price
         if profit > max_profit_:
             max_profit_ = profit
     return max_profit_
     """
-    cost_price, max_profit_ = float('inf'), 0
+    min_price, max_profit_ = float('inf'), 0
     for price in prices:
-        cost_price = min(cost_price, price)
-        max_profit_ = max(max_profit_, price-cost_price)  # `price-cost_price` = current profit
+        min_price = min(min_price, price)
+        max_profit_ = max(max_profit_, price-min_price)  # `price-min_price` = selling_price-cost_price = current profit
     return max_profit_
+
+    # Another Angle to look at this problem:
+    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/39038/Kadane's-Algorithm-Since-no-one-has-mentioned-about-this-so-far-:)-(In-case-if-interviewer-twists-the-input)
 
 
 # Similar Questions:
