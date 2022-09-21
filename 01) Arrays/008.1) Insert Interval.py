@@ -7,7 +7,7 @@ def insert(intervals: list[list[int]], new_interval: list[int]) -> list[list[int
     """"""
 
     # 1) Optimal (Liner - Insert & Merge): TC = O(n); SC = O(1)
-    # https://leetcode.com/problems/insert-interval/discuss/21669/Easy-and-clean-O(n)-C++-solution
+    # https://leetcode.com/problems/insert-interval/discuss
 
     n = len(intervals)
     # Inserting the New Interval:
@@ -15,11 +15,11 @@ def insert(intervals: list[list[int]], new_interval: list[int]) -> list[list[int
         if intervals[i][0] > new_interval[0]:
             intervals.insert(i, new_interval)
             break
-    else:  # for handling edge case (when intervals = [])
+    else:  # handling edge cases: if intervals = [] or interval[-1][0] <= new_interval[0]
         intervals.append(new_interval)
 
     # Merging Any Overlapping Intervals (if formed after insertion):
-    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/008%29%20Merge%20Intervals.py#L41
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/008%29%20Merge%20Intervals.py
     prev = intervals[0]
     for i in range(1, n+1):
         curr = intervals[i]
