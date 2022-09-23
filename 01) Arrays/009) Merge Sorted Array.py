@@ -15,7 +15,13 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 
     # Follow up: Can you come up with an algorithm that runs in O(m+n) time?
 
-    # 1) Better (Copy, Traverse & Compare): TC = O(m+n); SC = O(m)
+    # You can easily solve this problem if you simply think about two elements at a time rather than two arrays. We know
+    # that each of the individual arrays is sorted. What we don't know is how they will intertwine. Can we take a local
+    # decision and arrive at an optimal solution?
+    # If you simply consider one element each at a time from the two arrays and make a decision and proceed accordingly,
+    # you will arrive at the optimal solution.
+
+    # 1) Time-Optimal (Copy, Traverse & Compare): TC = O(m+n); SC = O(m)
 
     """
     nums1_copy = nums1[:m]  # SC = O(m)
