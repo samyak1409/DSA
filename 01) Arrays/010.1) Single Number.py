@@ -6,7 +6,13 @@ https://leetcode.com/problems/single-number
 def single_number(nums: list[int]) -> int:
     """"""
 
-    # 1) Time-Optimal (Maths): TC = O(n); SC = O(n)
+    # https://leetcode.com/problems/single-number/discuss/1771720/C++-EASY-SOLUTIONS-(SORTING-XOR-MAPS-(OR-FREQUENCY-ARRAY))
+
+    # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
+
+    # 0.2) Time-Optimal Brute-force (`collections.Counter`): TC = O(n); SC = O(n)
+
+    # 1) Time-Optimal (Maths & HashSet): TC = O(n); SC = O(n)
 
     """
     return 2*sum(set(nums)) - sum(nums)
@@ -26,7 +32,7 @@ def single_number(nums: list[int]) -> int:
     #               2) A ^ A = 0
     #               3) A ^ 0 = A
 
-    # Pythonic way of doing the same thing (using functools.reduce()):
+    # Pythonic way of doing the same thing (using `functools.reduce`):
 
     from functools import reduce
     return reduce(lambda x, y: x ^ y, nums)  # reduce(lambda x, y: x+y, [1, 2, 3, 4]) = ((1 + 2) + 3) + 4
