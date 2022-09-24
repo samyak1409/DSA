@@ -43,7 +43,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     '''
                     triplet_counter = Counter(triplet)  # tracking triplet's nums and their counts
                     # can't use set because it will destroy the triplet itself, consider triplet = [-1, 2, -1]
-                    # set(triplet) = {-1, 2} ❌ whereas Counter(triplet) = {-1: 2, 2: 1} ✔
+                    # set(triplet) = {-1, 2} ❌ whereas Counter(triplet) = {-1: 2, 2: 1} ✅
                     if triplet_counter not in triplet_set:  # raise TypeError: unhashable type: Counter
                         # because MUTABLE DATATYPES ARE UNHASHABLE
                         yield triplet

@@ -22,7 +22,7 @@ def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
     count = 0
     for num in nums:
         prefix_sum += num
-        count += frequency[prefix_sum-goal]  # ✔✔ if a pair is made with a prefix_sum, then it will also satisfy with
+        count += frequency[prefix_sum-goal]  # ✅✅ if a pair is made with a prefix_sum, then it will also satisfy with
         # any & every previous occurrences of that particular prefix_sum
         frequency[prefix_sum] += 1  # add/update frequency of prefix_sum
     return count

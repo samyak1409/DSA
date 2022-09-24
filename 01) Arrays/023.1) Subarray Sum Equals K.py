@@ -20,7 +20,7 @@ def sub_array_sum(nums: list[int], k: int) -> int:
     count = 0
     for num in nums:
         prefix_sum += num
-        count += frequency[prefix_sum-k]  # ✔✔ if a pair is made with a prefix_sum, then it will also satisfy with any &
+        count += frequency[prefix_sum-k]  # ✅✅ if a pair is made with a prefix_sum, then it will also satisfy with any &
         # every previous occurrences of that particular prefix_sum
         frequency[prefix_sum] += 1  # add/update frequency of prefix_sum
     return count

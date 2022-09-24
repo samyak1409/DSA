@@ -31,7 +31,7 @@ def longest_consecutive(nums: list[int]) -> int:
     current = longest = 1
     for i in range(len(nums)-1):  # O(n)
         cur, nxt = nums[i], nums[i+1]
-        if nxt == cur+1:  # => next element consecutive ✔
+        if nxt == cur+1:  # => next element consecutive ✅
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive
@@ -59,7 +59,7 @@ def longest_consecutive(nums: list[int]) -> int:
     current = longest = 1
     for i in range(len(nums)-1):  # O(n)
         cur, nxt = nums[i], nums[i+1]
-        if nxt == cur+1:  # => next element consecutive ✔
+        if nxt == cur+1:  # => next element consecutive ✅
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive

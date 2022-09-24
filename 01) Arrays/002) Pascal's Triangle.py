@@ -12,10 +12,10 @@ def generate(num_rows: int) -> list[list[int]]:
     row = [1]  # init
     yield row
     # Summation using a nested for loop:
-    for i in range(num_rows-1):  # n-1 iterations ✔
+    for i in range(num_rows-1):  # n-1 iterations ✅
         prev = row
         row = [1]  # prefix 1
-        for j in range(i):  # iteration range: [0, n-2] ✔
+        for j in range(i):  # iteration range: [0, n-2] ✅
             row.append(prev[j]+prev[j+1])  # middle numbers
         row.append(1)  # suffix 1
         yield row

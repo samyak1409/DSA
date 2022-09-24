@@ -51,5 +51,5 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
         # Find num2 & num1 using Binary Search:
         if (num2 := num3-diff) in hashset and num2-diff in hashset:  # `num2-diff` = num1
             count += 1
-        hashset.add(num3)  # adding after checking ✓
+        hashset.add(num3)  # adding after checking ✅
     return count

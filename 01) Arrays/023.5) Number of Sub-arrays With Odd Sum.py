@@ -21,7 +21,7 @@ def num_of_subarrays(arr: list[int]) -> int:
     for num in arr:
         prefix_sum += num
         mod = prefix_sum % 2  # even_sum => mod = 0; odd_sum => mod = 1
-        count += frequency[not mod]  # ✔✔ if a pair is made with a prefix_sum, then it will also satisfy with any &
+        count += frequency[not mod]  # ✅✅ if a pair is made with a prefix_sum, then it will also satisfy with any &
         # every previous occurrences of that particular prefix_sum
         frequency[mod] += 1  # add/update frequency of even/odd sum
         count %= 1_000_000_007  # "Since the answer can be very large, return it modulo 109 + 7."
