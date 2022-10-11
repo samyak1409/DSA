@@ -12,7 +12,7 @@ def get_inversions(arr: list[int], n: int) -> int:
     count = 0
     for i in range(n):  # go through all the elements in the array one by one
         for j in range(i+1, n):  # for every element, check for all the elements on the right
-            if arr[j] < arr[i]:  # "Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j."
+            if arr[j] < arr[i]:  # "Formally, two elements a[i] and a[j] form an inversion if i < j and a[i] > a[j]."
                 count += 1
     return count
     """
@@ -22,7 +22,6 @@ def get_inversions(arr: list[int], n: int) -> int:
 
     # Recursive Function:
     def get_count(array: list[int], length: int) -> int:
-        count = 0
         if length > 1:
             # Step-1) Dividing:
             mid_index = length // 2
@@ -41,6 +40,7 @@ def get_inversions(arr: list[int], n: int) -> int:
                     # => total len(left)-i inversions will be there (only for this particular right[j])
                     # EXPLANATION: https://youtu.be/kQ1mJlwW-c0?t=325
             array[i+j:] = left[i:] or right[j:]
-        return count
+            return count
+        return 0  # for deepest (last) recursive calls (-> leaves of the recursion tree)
 
     return get_count(array=arr.copy(), length=n)  # copy() so that input array remains unmodified
