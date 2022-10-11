@@ -6,7 +6,9 @@ https://leetcode.com/problems/set-mismatch
 def find_error_nums(nums: list[int]) -> list[int]:
     """"""
 
-    # 0.1) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
+    # Tons of solutions to this one: https://leetcode.com/problems/set-mismatch/solution
+
+    # 0) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
 
     """
     n = len(nums)
@@ -27,7 +29,7 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [repeating, missing]
     """
 
-    # 0.2) Brute-force (HashSet): TC = O(n); SC = O(n)
+    # 1.1) Time-Optimal Brute-force (HashSet): TC = O(n); SC = O(n)
 
     """
     hashset = set()  # for O(1) lookup
@@ -44,10 +46,10 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [repeating, missing]
     """
 
-    # 0.3) Brute-force (Frequency Array): TC = O(n); SC = O(n)
+    # 1.2) Time-Optimal Brute-force (Frequency Array): TC = O(n); SC = O(n)
     # When it's given like "contains all the numbers from 1 to n", use Array instead of HashSet for tracking
     # occurrences.
-    # Benefit of using Array over HashSet? > Less Space!
+    # Benefit of using Array over HashSet? -> Less Space!
 
     """
     counts = [0] * len(nums)
@@ -56,7 +58,18 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [counts.index(2)+1, counts.index(0)+1]  # repeating, missing
     """
 
-    # 1.1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
+    # 1.3) Time-Optimal Brute-force (Compare Sums): TC = O(n); SC = O(n)
+    # https://leetcode.com/problems/set-mismatch/discuss/105558/Oneliner-Python
+
+    """
+    sum_wo_repeating = sum(set(nums))  # sum without repeating (& without missing) num
+    n = len(nums)
+    return [sum(nums) - sum_wo_repeating, n*(n+1)//2 - sum_wo_repeating]  # repeating, missing
+    # `sum(nums)`: sum with repeating (& without missing) num
+    # `n*(n+1)//2`: sum without repeating & with missing num
+    """
+
+    # 2.1) Optimal (Negating Numbers): TC = O(n); SC = O(1)
 
     """
     n = len(nums)
@@ -76,7 +89,8 @@ def find_error_nums(nums: list[int]) -> list[int]:
     return [repeating, missing]
     """
 
-    # 1.2) Optimal (Maths: Sum of n & n^2 terms): TC = O(n); SC = O(1)
+    # 2.2) Optimal (Maths: Sum of n & n^2 terms): TC = O(n); SC = O(1)
+    # https://leetcode.com/problems/set-mismatch/discuss/1089475/Python-O(n)-timeO(1)-space-math-solution-explained
 
     # In short:
     """
@@ -114,6 +128,12 @@ def find_error_nums(nums: list[int]) -> list[int]:
     # And from equation (1), repeating = missing - x, so:
     repeating = missing - x
     return [repeating, missing]
+
+    # 2.3) Optimal (Bit Manipulation: XOR): TC = O(n); SC = O(1)
+    # If we do XOR of all the num in `nums`, with all the num in `range(1, n+1)`,
+    # we would straight-away get XOR(repeating, missing).
+    # But then how would we find repeating & missing? ->
+    # https://leetcode.com/problems/set-mismatch/solution/#approach-7-using-xor
 
 
 # Similar Question: https://leetcode.com/problems/find-the-duplicate-number
