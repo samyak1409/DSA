@@ -34,7 +34,7 @@ def my_sqrt(x: int) -> int:
     # 0) Brute Force (Linear Search): TC = O(√x); SC = O(1)
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_linear_search
 
-    # 0.1) More Intuitive:
+    # 0.1) Intuitive:
     """
     for sqrt in range(0, x+1):  # ∵ for a non-negative integer x, range(sqrt(x)) = [0, x]
         sq = sqrt * sqrt
@@ -62,15 +62,17 @@ def my_sqrt(x: int) -> int:
         if mid_sq == x:  # => mid = sqrt(x)
             return mid
         elif mid_sq < x:  # => mid < sqrt(x)
-            lo = mid + 1
+            lo = mid + 1  # update range
         else:  # (if mid_sq > x) => mid > sqrt(x)
-            hi = mid - 1
-    # If x is not a perfect square, mid won't be returned above, and `lo` will become > than `hi`, and the loop will
+            hi = mid - 1  # update range
+    # If x is not a perfect square, ans won't be returned above, and `lo` will become > than `hi`, and the loop will
     # terminate.
-    # In these cases answer will be `lo-1` or `hi`, because the loop terminated because of two possible cases:
-    # either: `mid_sq < x` executed (mid < sqrt(x)) and so `lo = mid + 1`, and `lo` became > `hi` => int(sqrt(x)) = lo-1
-    # or:     `mid_sq > x` executed (mid > sqrt(x)) and so `hi = mid - 1`, and `hi` became < `lo` => int(sqrt(x)) = hi
-    return lo-1
+    # In these cases answer will be = `lo-1` = `hi`, because the loop terminated because of two possible cases:
+    # Either:
+    # `mid_sq < x` (=> mid < sqrt(x)), `lo = mid + 1` executed, and `lo` became > than `hi` => int(sqrt(x)) = lo-1 = hi
+    # Or:
+    # `mid_sq > x` (=> mid > sqrt(x)), `hi = mid - 1` executed, and `hi` became < than `lo` => int(sqrt(x)) = hi = lo-1
+    return lo-1  # or hi
 
     # 1.2) Optimal (Heron's method, which is a special case of Newton's method): TC = O(log(x)); SC = O(1)
     # -> Harder and Slower than Binary Search
@@ -78,6 +80,6 @@ def my_sqrt(x: int) -> int:
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton%27s_method
 
 
-# Question Remark: sqrt(x) = √x = -√x i.e. sqrt(25) = 5 = -5
+# Remarks: sqrt(x) = √x = -√x i.e. sqrt(25) = 5 = -5
 # But the OJ is not accepting -ve roots, that it should, because it's not mentioned anywhere to return +ve root only,
-# it doesn't make any sense though but still it's correct.
+# it doesn't make any sense to return -ve root though, but still it's correct and so should be accepted.

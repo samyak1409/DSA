@@ -74,7 +74,7 @@ def my_pow(x: float, n: int) -> float:
     # Also known as Square-and-Multiply Algorithm or Binary Exponentiation
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring
 
-    # 1.2.1) Iterative:  TC = O(log(n)); SC = O(1)
+    # 1.2.1) Iterative: TC = O(log(n)); SC = O(1)
     # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
 
     """
@@ -89,6 +89,7 @@ def my_pow(x: float, n: int) -> float:
         else:  # power odd
             ans *= x  # multiply
             n -= 1
+            # now power is even so:
             x *= x  # square
             n //= 2
     return ans
@@ -108,7 +109,7 @@ def my_pow(x: float, n: int) -> float:
     return ans
     """
 
-    # 1.2.2) Recursive (Easiest):  TC = O(log(n)); SC = O(log(n))
+    # 1.2.2) Recursive (Easiest): TC = O(log(n)); SC = O(log(n))
     # https://leetcode.com/problems/powx-n/discuss/19546/Short-and-easy-to-understand-solution
     # https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Recursive_version
     # The method is based on the observation that, for a positive integer n, one has
