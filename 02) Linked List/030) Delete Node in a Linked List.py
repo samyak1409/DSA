@@ -41,4 +41,5 @@ def delete_node(node: ListNode) -> None:
     # https://leetcode.com/problems/delete-node-in-a-linked-list/discuss/65461/This-question-is-wrong.You-cannot-delete-the-node/67291
 
 
-# Similar Question: https://leetcode.com/problems/remove-linked-list-elements
+# Similar Questions:
+# https://leetcode.com/problems/remove-linked-list-elements

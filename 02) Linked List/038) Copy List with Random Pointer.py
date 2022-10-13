@@ -115,4 +115,5 @@ def copy_random_list(head: Optional[Node]) -> Optional[Node]:
     return new_head
 
 
-# Similar Question: https://leetcode.com/problems/clone-graph
+# Similar Questions:
+# https://leetcode.com/problems/clone-graph
