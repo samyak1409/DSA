@@ -41,3 +41,4 @@ def find_max_consecutive_ones(nums: list[int]) -> int:
 # https://leetcode.com/problems/max-consecutive-ones-iii
 # https://leetcode.com/problems/consecutive-characters
 # https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros
+# https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring
