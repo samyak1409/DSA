@@ -98,4 +98,6 @@ def majority_element(nums: list[int]) -> list[int]:
     # https://leetcode.com/problems/majority-element-ii/discuss/63502/6-lines-general-case-O(N)-time-and-O(k)-space
 
 
-# Similar Question: https://leetcode.com/problems/majority-element
+# Similar Questions:
+# https://leetcode.com/problems/majority-element
+# https://leetcode.com/problems/most-frequent-even-element

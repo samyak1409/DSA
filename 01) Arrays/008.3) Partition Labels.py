@@ -46,7 +46,3 @@ def partition_labels(s: str) -> list[int]:
             yield prev[1]-prev[0]+1  # adding the non-overlapping intervals to the output
             prev = curr  # updating previous in order to check if it can be merged with the following interval
     yield prev[1]-prev[0]+1  # adding the last (overlapping/non-overlapping) interval to the output
-
-
-# Similar Question:
-# https://leetcode.com/problems/optimal-partition-of-string

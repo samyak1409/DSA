@@ -71,3 +71,5 @@ def length_of_longest_substring(s: str) -> int:
 # Similar Questions:
 # https://leetcode.com/problems/maximum-erasure-value
 # https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up
+# https://leetcode.com/problems/longest-nice-subarray
+# https://leetcode.com/problems/optimal-partition-of-string

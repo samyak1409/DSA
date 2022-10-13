@@ -54,4 +54,5 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     # -https://leetcode.com/problems/search-a-2d-matrix/discuss/26220/Don%27t-treat-it-as-a-2D-matrix-just-treat-it-as-a-sorted-list/25272
 
 
-# Similar Question: https://leetcode.com/problems/search-a-2d-matrix-ii
+# Similar Questions:
+# https://leetcode.com/problems/search-a-2d-matrix-ii

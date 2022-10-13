@@ -44,3 +44,7 @@ def get_inversions(arr: list[int], n: int) -> int:
         return 0  # for deepest (last) recursive calls (-> leaves of the recursion tree)
 
     return get_count(array=arr.copy(), length=n)  # copy() so that input array remains unmodified
+
+
+# Similar Questions:
+# https://leetcode.com/problems/global-and-local-inversions

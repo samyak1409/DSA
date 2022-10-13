@@ -113,3 +113,5 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 # https://leetcode.com/problems/first-letter-to-appear-twice
 # https://leetcode.com/problems/number-of-arithmetic-triplets
 # https://leetcode.com/problems/node-with-highest-edge-score
+# https://leetcode.com/problems/find-subarrays-with-equal-sum
+# https://leetcode.com/problems/check-distances-between-same-letters

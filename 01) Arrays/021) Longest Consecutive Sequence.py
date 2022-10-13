@@ -93,3 +93,4 @@ def longest_consecutive(nums: list[int]) -> int:
 # Similar Questions:
 # https://leetcode.com/problems/find-three-consecutive-integers-that-sum-to-a-given-number
 # https://leetcode.com/problems/maximum-consecutive-floors-without-special-floors
+# https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring

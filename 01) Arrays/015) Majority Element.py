@@ -6,6 +6,9 @@ https://leetcode.com/problems/majority-element
 def majority_element(nums: list[int]) -> int:
     """"""
 
+    # https://leetcode.com/problems/majority-element/solution
+    # https://leetcode.com/problems/majority-element/discuss
+
     # 0.1) [TLE] Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
     # "element appears more than ⌊n / 2⌋ times" => count(x) > n//2, so we can simply traverse the array to find the
     # element.
@@ -53,7 +56,7 @@ def majority_element(nums: list[int]) -> int:
             return num
     """
 
-    # 1) Better (Randomization): TC = Worst: O(inf); Average/Best: O(n); SC = O(1)
+    # 1) Better (Randomization): TC = Worst: O(inf); Average: O(2n) = O(n); SC = O(1)
     # Probability(choosing the majority element) >= ~1/2
     # https://leetcode.com/problems/majority-element/solution/#approach-4-randomization
 
@@ -105,4 +108,6 @@ def majority_element(nums: list[int]) -> int:
     return major  # ans.
 
 
-# Similar Question: https://leetcode.com/problems/majority-element-ii
+# Similar Questions:
+# https://leetcode.com/problems/majority-element-ii
+# https://leetcode.com/problems/most-frequent-even-element

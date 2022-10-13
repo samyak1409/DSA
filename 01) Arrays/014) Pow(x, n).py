@@ -128,6 +128,6 @@ def my_pow(x: float, n: int) -> float:
     # note: change `my_pow` above to `self.my_pow` for running inside class
 
 
-# Similar Question:
+# Similar Questions:
 # https://leetcode.com/problems/sqrtx
 # https://leetcode.com/problems/super-pow

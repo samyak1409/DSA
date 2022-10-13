@@ -136,4 +136,5 @@ def find_error_nums(nums: list[int]) -> list[int]:
     # https://leetcode.com/problems/set-mismatch/solution/#approach-7-using-xor
 
 
-# Similar Question: https://leetcode.com/problems/find-the-duplicate-number
+# Similar Questions:
+# https://leetcode.com/problems/find-the-duplicate-number

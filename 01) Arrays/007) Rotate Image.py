@@ -63,4 +63,5 @@ def rotate(matrix: list[list[int]]) -> None:
     # Mirror (X-axis) & Transpose: 90° Clockwise
 
 
-# Similar Question: https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation
+# Similar Questions:
+# https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation

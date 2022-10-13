@@ -77,3 +77,4 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
 # https://leetcode.com/problems/teemo-attacking
 # https://leetcode.com/problems/partition-labels
 # https://leetcode.com/problems/interval-list-intersections
+# https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups
