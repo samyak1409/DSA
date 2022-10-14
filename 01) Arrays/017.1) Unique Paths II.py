@@ -50,4 +50,8 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
     return get_unique_paths2()
 
     # 2.2) Optimal (DP): TC = O(m*n); SC = O(1)
+    # Use dynamic programming since, from each cell, you can move to the right or down.
+    # Assume dp[i][j] is the number of unique paths to reach (i, j).
+    # dp[i][j] = dp[i][j -1] + dp[i - 1][j].
+    # Be careful when you encounter an obstacle. set its value in dp to 0.
     # https://leetcode.com/problems/unique-paths-ii/solution

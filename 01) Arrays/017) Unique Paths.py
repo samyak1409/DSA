@@ -7,7 +7,7 @@ def unique_paths(m: int, n: int) -> int:
     """"""
 
     # 0) [TLE] Brute-force (Recursion): TC = O(2^(m+n)); SC = O(m+n)
-    # The formula to determine the time complexity for recursion = branches ^ depth = the number of nodes in the
+    # The formula to determine the time complexity for recursion tree = branches ^ depth = the number of nodes in the
     # recursion tree.
     # In our case, we have 2 possible branches (going down or going right), while for the depth, is the maximum possible
     # distance taken to get (m, n) which is m + n.
@@ -44,7 +44,7 @@ def unique_paths(m: int, n: int) -> int:
     def get_unique_paths(i: int = 0, j: int = 0, memoized: dict = None) -> int:  # default cell (0, 0) -> start point
         # Initialization (@ first call):
         if memoized is None:
-            memoized = {}  # local to this function
+            memoized = {}  # local to this recursive function
         # Base Case 1 (IndexOutOfBound (Jumped out of the Matrix)):
         if i == m or j == n:
             return 0
@@ -58,7 +58,7 @@ def unique_paths(m: int, n: int) -> int:
         # Return Result:
         return memoized[(i, j)]
 
-    # memo = {}  # use global variables as less as possible
+    # memoized = {}  # use global variables as less as possible
     # https://youtu.be/t_f0nwwdg5o?t=700
     # https://stackoverflow.com/questions/484635/are-global-variables-bad
 

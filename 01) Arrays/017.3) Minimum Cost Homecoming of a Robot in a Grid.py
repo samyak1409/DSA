@@ -28,7 +28,14 @@ def min_cost(start_pos: list[int], home_pos: list[int], row_costs: list[int], co
     return total_cost
     """
     # In short:
+    """
     (start_row, start_col), (end_row, end_col) = start_pos, home_pos
     return \
         sum(row_costs[start_row+1:end_row+1] if (start_row < end_row) else row_costs[end_row:start_row]) + \
         sum(col_costs[start_col+1:end_col+1] if (start_col < end_col) else col_costs[end_col:start_col])
+    """
+    # Further Shortened:
+    (start_row, start_col), (end_row, end_col) = start_pos, home_pos
+    return \
+        sum(row_costs[start_row+1:end_row+1] or row_costs[end_row:start_row]) + \
+        sum(col_costs[start_col+1:end_col+1] or col_costs[end_col:start_col])
