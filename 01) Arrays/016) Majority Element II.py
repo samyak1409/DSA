@@ -6,6 +6,9 @@ https://leetcode.com/problems/majority-element-ii
 def majority_element(nums: list[int]) -> list[int]:
     """"""
 
+    # All the solutions are similar to the solutions of
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py.
+
     # 0.1) Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
     # "elements that appears more than ⌊ n/3 ⌋ times" => count(x) > n//3, so we can simply traverse the array to find
     # the elements.
@@ -15,6 +18,24 @@ def majority_element(nums: list[int]) -> list[int]:
     n = len(nums)
     for num in nums:
         if num not in ans and nums.count(num) > n//3:  # `num not in ans` so that if num is a majority element, it does
+            # not get added to ans everytime it appears
+            ans.append(num)
+            if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
+                # 2, we can stop, because we know no. of majority elements can't be > 2
+                break
+    return ans
+    """
+
+    # 0.3) Brute-force (Sorting): TC = O(n*log(n)); SC = O(n)
+
+    """
+    ans = []
+    nums = sorted(nums)
+    n = len(nums)
+    n_by_3 = n // 3
+    for i in range(n-n_by_3):
+        num = nums[i]
+        if num not in ans and nums[i+n_by_3] == num:  # `num not in ans` so that if num is a majority element, it does
             # not get added to ans everytime it appears
             ans.append(num)
             if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
@@ -47,6 +68,7 @@ def majority_element(nums: list[int]) -> list[int]:
     # Same logic as described in https://leetcode.com/problems/majority-element/solution/#approach-4-randomization
     # Won't work because we don't know how many majority elements will be there in the array (0/1/2)?
     # So the loop will run infinitely, we don't know when to stop.
+    # Would have worked perfectly if the exact no. of majority elements there was given in the Q. or as a parameter.
 
     """
     from random import choice
@@ -92,7 +114,8 @@ def majority_element(nums: list[int]) -> list[int]:
             count1, count2 = count1-1, count2-1  # relative_votes--
     # 2nd Pass (When the array will contain no majority elements, then `major1` & `major2` will contain false
     # positives which will be filtered out next):
-    return list(filter(lambda major: nums.count(major) > len(nums)//3, [major1, major2]))  # O(n)
+    # yield from filter(lambda major: nums.count(major) > len(nums)//3, (major1, major2))  # O(n)
+    yield from (major for major in (major1, major2) if nums.count(major) > len(nums)//3)  # O(n)
 
     # Give this a read too:
     # https://leetcode.com/problems/majority-element-ii/discuss/63502/6-lines-general-case-O(N)-time-and-O(k)-space
