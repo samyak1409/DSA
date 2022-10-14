@@ -9,6 +9,8 @@ def max_operations(nums: list[int], k: int) -> int:
     # All the solutions are (modifications of the solutions) from
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py.
 
+    # The abstract problem asks to count the number of disjoint pairs with a given sum k.
+
     # 1) Sub-Optimal (Sorting & Two-Pointers): TC = O(n*log(n)); SC = O(n)
 
     """
@@ -29,9 +31,11 @@ def max_operations(nums: list[int], k: int) -> int:
     return ops
     """
 
-    # 2.1) Optimal (HashMap): TC = O(n); SC = O(n)
-    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2005922/Going-from-O(N2)-greater-O(NlogN)-greater-O(N)-+-MEME
+    # 2) Optimal (HashMap): TC = O(n); SC = O(n)
+    # For each possible value x, it can be paired up with k-x.
 
+    # 2.1) Conventional:
+    # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/2005922/Going-from-O(N2)-greater-O(NlogN)-greater-O(N)-+-MEME
     """
     # Counter HashMap for easy working with the counts of nums:
     from collections import Counter
@@ -48,11 +52,8 @@ def max_operations(nums: list[int], k: int) -> int:
     return ops
     """
 
-    # 2.2) Optimal (HashMap): TC = O(n); SC = O(n)
-    # The abstract problem asks to count the number of disjoint pairs with a given sum k.
-    # For each possible value x, it can be paired up with k - x.
-    # The number of such pairs equals to min(count(x), count(k-x)), unless that x = k / 2, where the number of such
-    # pairs will be floor(count(x) / 2).
+    # 2.2) Smart:
+    # The number of such pairs equals to min(count(x), count(k-x)).
     # https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/1022699/Python-Short-Counter-solution-+-Oneliner-explained
 
     from collections import Counter
@@ -60,5 +61,5 @@ def max_operations(nums: list[int], k: int) -> int:
 
     pairs = 0
     for num in frequency.keys():
-        pairs += min(frequency[num], frequency[k-num])
-    return pairs // 2
+        pairs += min(frequency[num], frequency[k-num])  # `min` => intersection
+    return pairs // 2  # = ops

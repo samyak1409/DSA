@@ -7,6 +7,9 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     """"""
 
     # 0) Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
+    # A really brute force way would be to search for all possible pairs of numbers but that would be too slow.
+    # Again, it's best to try out brute force solutions for just for completeness.
+    # It is from these brute force solutions that you can come up with optimizations.
 
     """
     n = len(nums)
@@ -17,6 +20,9 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     """
 
     # Follow-up: Can you come up with an algorithm that is less than O(n^2) time complexity?
+
+    # So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is
+    # value-x where value is the input parameter. Can we change our array somehow so that this search becomes faster?
 
     # 1.1) Better (Sorting & Binary Search): TC = O(n*log(n) + n*log(n)); SC = O(n) {sorting}
 
@@ -70,6 +76,9 @@ def two_sum(nums: list[int], target: int) -> list[int]:
             hi -= 1  # considering next num (smaller) in left
     """
 
+    # The second train of thought is, without changing the array, can we use additional space somehow?
+    # Like maybe a hash map to speed up the search?
+
     # 2) Optimal (HashMap): TC = O(n); SC = O(n) {hashmap}
     # https://leetcode.com/problems/two-sum/solution
     # https://youtu.be/dRUpbt8vHpo?t=150
@@ -95,7 +104,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
         hashmap[num1] = index1  # storing after checking so that we do not need to care about index2 == index1
 
     # Did you notice?
-    # In this question, we used all the searching techniques, viz. Linear Search, Binary Search, and Hashing in
+    # In this question, we used all the basic searching techniques, viz. Linear Search, Binary Search, and Hashing in
     # `0)`, `1.1)` and `2)` respectively.
 
 

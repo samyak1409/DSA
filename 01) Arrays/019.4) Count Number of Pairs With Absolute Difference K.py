@@ -20,7 +20,8 @@ def count_k_difference(nums: list[int], k: int) -> int:
     for num in nums:
         pairs += freq[num-k] + freq[num+k]  # `num-k` & `num+k` = required num for pair diff to be = k
         # IMP: Why `-k` & `+k`? Take the input (nums=[1, 3, 2], k=1), so num=2 is k=1 away from num=1 as well as num=3.
-        freq[num] += 1
+        freq[num] += 1  # this part is interesting, if we did this beforehand, then we would have needed to track pairs
+        # we have already considered
     return pairs
 
     # Another Solution:

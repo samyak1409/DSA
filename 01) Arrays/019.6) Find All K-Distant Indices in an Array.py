@@ -6,7 +6,7 @@ https://leetcode.com/problems/find-all-k-distant-indices-in-an-array
 def find_k_distant_indices(nums: list[int], key: int, k: int) -> list[int]:
     """"""
 
-    # 1) Time-Optimal (Traverse + HashSet): TC = O(nk); SC = O(n)
+    # 1) Sub-Optimal (Traverse + HashSet): TC = O(nk); SC = O(n)
     # For every occurrence of key in nums, find all indices within distance k from it.
     # Use a hash table to remove duplicate indices.
 
@@ -23,7 +23,7 @@ def find_k_distant_indices(nums: list[int], key: int, k: int) -> list[int]:
     """
 
     # 2) Optimal (Smartly Traverse): TC = O(n); SC = O(1)
-    # Better of: https://leetcode.com/problems/find-all-k-distant-indices-in-an-array/discuss/1844332/One-Pass
+    # Better version of: https://leetcode.com/problems/find-all-k-distant-indices-in-an-array/discuss/1844332/One-Pass
 
     n = len(nums)
     last_j = -1  # will track the last considered index

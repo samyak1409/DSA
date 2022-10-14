@@ -20,7 +20,7 @@ def edge_score(edges: list[int]) -> int:
         scores[node] += score
 
     # Find highest:
-    max_score, ans = float('-inf'), None
+    max_score, ans = -1, None
     for node, score in enumerate(scores):
         if score > max_score:
             max_score = score
