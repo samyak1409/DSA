@@ -16,33 +16,31 @@ def three_sum_closest(nums: list[int], target: int) -> int:
     """
     nums = sorted(nums)
     n = len(nums)
-    dist, closest = float('inf'), 0  # `closest = 0` has no significance, it's going to change on the basis of dist
+    diff, closest = float('inf'), 0  # `closest = 0` has no significance, it's going to change on the basis of diff
     for i in range(n):
         num1 = nums[i]
         lo, hi = i+1, n-1
         while lo < hi:
-            num2, num3 = nums[lo], nums[hi]
-            three_sum = num1 + num2 + num3
+            three_sum = num1 + nums[lo] + nums[hi]  # num1 + num2 + num3
             if three_sum == target:
                 return target
             elif three_sum < target:
                 lo += 1
             else:  # (if three_sum > target)
                 hi -= 1
-            if (dist_ := abs(target-three_sum)) < dist:
-                dist, closest = dist_, three_sum
+            if (diff_ := abs(target-three_sum)) < diff:
+                diff, closest = diff_, three_sum
     return closest
     """
-    # Better (without using `dist`):
+    # Better (without using `diff`):
     nums = sorted(nums)
     n = len(nums)
-    closest = sum(nums[:3])  # init with any three nums
+    closest = float('inf')  # init
     for i in range(n):
         num1 = nums[i]
         lo, hi = i+1, n-1
         while lo < hi:
-            num2, num3 = nums[lo], nums[hi]
-            three_sum = num1 + num2 + num3
+            three_sum = num1 + nums[lo] + nums[hi]  # num1 + num2 + num3
             if three_sum == target:
                 return target
             elif three_sum < target:
@@ -52,3 +50,5 @@ def three_sum_closest(nums: list[int], target: int) -> int:
             if abs(target-three_sum) < abs(target-closest):
                 closest = three_sum
     return closest
+
+    # Check: IDK how, but following code just beaten 100%: https://leetcode.com/submissions/detail/823209750

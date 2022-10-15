@@ -9,10 +9,30 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
     # All the solutions are (modifications of the solutions) from
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/039%29%203Sum.py
 
-    # 0) Brute-force (3 Loops): TC = O(n^3); SC = O(1)
+    # 0.1) Brute-force (3 Loops): TC = O(n^3); SC = O(1)
     # The constraints are small enough for brute force.
     # We can use three loops, each iterating through the array to go through every possible triplet.
     # Be sure to not count duplicates.
+
+    # 0.2) Brute-force (2 Loops): TC = O(n^2); SC = O(1)
+
+    """
+    count = 0
+    for i in range(n := len(nums)):  # loop on every num one by one
+        # for every num, check the two required nums linearly which are fixed (by diff) to form arithmetic tuple:
+        req_num = nums[i] + diff  # `nums[i]`: num1; `req_num`: num2
+        last_left = False  # to stop once triplet is formed
+        for j in range(i+1, n):
+            if (num := nums[j]) == req_num:
+                if last_left:  # => triplet formed
+                    count += 1  # add count
+                    break  # start with new num1
+                req_num = num + diff  # now `req_num`: num3
+                last_left = True
+            elif num > req_num:
+                break
+    return count
+    """
 
     # 1) Better (Traverse & Binary Search): TC = O(n*log(n)); SC = O(1)
 
@@ -48,7 +68,7 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
     count = 0
     # Traverse every num as num1:
     for num3 in nums:
-        # Find num2 & num1 using Binary Search:
+        # Find num2 & num1 using Hashing:
         if (num2 := num3-diff) in hashset and num2-diff in hashset:  # `num2-diff` = num1
             count += 1
         hashset.add(num3)  # adding after checking ✅

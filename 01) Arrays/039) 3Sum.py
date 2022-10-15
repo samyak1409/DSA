@@ -6,9 +6,11 @@ https://leetcode.com/problems/3sum
 def three_sum(nums: list[int]) -> list[list[int]]:
     """"""
 
+    # So, we essentially need to find three numbers x, y, and z such that they add up to the given value.
+
     # First of all, watch this GOLD explanation: https://youtu.be/onLoX6Nhvmg
 
-    # 0) [TLE] Brute-force (Sort & Nested Loops): TC = O(n*log(n) + n^3); SC = O(n) {sorting}
+    # 0) [TLE] Brute-force (Nested Loops): TC = O(n*log(n) + n^3); SC = O(n) {sorting}
 
     # 0.0) Core Logic: TC = O(n^3); SC = O(1)
     """
@@ -79,8 +81,6 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # Why does this work?
     # Because if the input array is sorted, triplets will not form like [-1, 0, 1] & [0, 1, -1],
     # but like [-1, 0, 1] & [-1, 0, 1], i.e. by default sorted (i.e. in order)
-    # Since this sorting beforehand technique is more time efficient than the previous one, will use this only in next
-    # approaches.
     # 0.3) WAIT, turns out, again, that we can just use the fact that we're sorting the input array, and so we no longer
     # need HashSet to track unique triplets and save that O(n) space too!: TC = O(n*log(n) + n^3); SC = O(n) {sorting}
     """
@@ -99,14 +99,18 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                             if nums[i]+nums[j]+nums[k] == 0:
                                 yield [nums[i], nums[j], nums[k]]
     """
-    # Since this (sorting beforehand + skipping duplicates) technique is more space efficient than the previous one,
+    # Since this (sorting beforehand + skipping duplicates) technique is more space efficient than the previous ones,
     # will use this only in next approaches.
 
     # MOVING ON,
-    # 3Sum -> num1 + num2 + num3 = 0
+    # If we fix one of the numbers say x, we are left with the two-sum problem at hand!
+    # `3Sum` -> num1 + num2 + num3 = 0
     # which can be written as num2 + num3 = -num1
     # Let -num1 = target
-    # => num2 + num3 = target -> Two Sum
+    # => num2 + num3 = target -> `Two Sum`
+    # For the two-sum problem, if we fix one of the numbers, say x, we have to scan the entire array to find the next
+    # number y, which is value-x where value is the input parameter.
+    # Can we change our array somehow so that this search becomes faster?
 
     # 1) Better (Sorting + Binary Search): TC = O(n*log(n) + (n^2)*log(n)); SC = O(n) {sorting}
 
@@ -137,6 +141,9 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                         else:  # (if num3 > target)
                             hi = mid - 1
     """
+
+    # The second train of thought for two-sum is, without changing the array, can we use additional space somehow?
+    # Like maybe a hash map to speed up the search?
 
     # 2.1) Optimal (HashSet): TC = O(n*log(n) + n^2); SC = O(n+n+n) {sorting, hashset, hashset}
     # Using hashset for tracking unique triplets is easier than using skip duplicates technique for this approach.
