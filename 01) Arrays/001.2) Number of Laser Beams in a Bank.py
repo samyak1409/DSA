@@ -12,6 +12,7 @@ def number_of_beams(bank: list[str]) -> int:
     devices_prev = 0  # init; device count last time
     beams = 0
     for floor in bank:  # traverse every floor one by one
+        # `:=`: https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions
         if devices := floor.count('1'):  # if a floor have at least one device then laser beam(s) should be formed
             beams += devices_prev * devices  # add beams
             devices_prev = devices  # save current device count for future

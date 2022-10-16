@@ -14,7 +14,7 @@ def longest_consecutive(nums: list[int]) -> int:
     longest = 0
     for num in nums:  # O(n^2)
         current = 1
-        while (num := num+1) in nums:  # https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions
+        while (num := num+1) in nums:  # O(1)
             current += 1
         longest = max(longest, current)
     return longest
@@ -28,14 +28,15 @@ def longest_consecutive(nums: list[int]) -> int:
 
     nums = sorted(nums)  # (new local var)
 
-    current = longest = 1
+    longest = current = 1
     for i in range(len(nums)-1):  # O(n)
         cur, nxt = nums[i], nums[i+1]
         if nxt == cur+1:  # => next element consecutive ✅
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive
-        elif nxt != cur:  # if `nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
+        elif nxt != cur:  # `nxt != cur`: because we need to do nothing & continue (basically skip) and not reset if 
+            # nxt == cur (e.g.: Input: [1, 2, 0, 1]; Output: 3)
             current = 1  # reset
     return longest
     """
@@ -56,14 +57,15 @@ def longest_consecutive(nums: list[int]) -> int:
         nums.extend([num]*count)  # https://stackoverflow.com/q/3459098/create-list-of-single-item-repeated-n-times
     # print(nums)  #debug
 
-    current = longest = 1
+    longest = current = 1
     for i in range(len(nums)-1):  # O(n)
         cur, nxt = nums[i], nums[i+1]
         if nxt == cur+1:  # => next element consecutive ✅
             current += 1
             longest = max(longest, current)
         # else: => next element not consecutive
-        elif nxt != cur:  # if `nxt != cur` because for input [1, 2, 0, 1]; expected output is 3
+        elif nxt != cur:  # `nxt != cur`: because we need to do nothing & continue (basically skip) and not reset if 
+            # nxt == cur (e.g.: Input: [1, 2, 0, 1]; Output: 3)
             current = 1  # reset
     return longest
     """
@@ -81,12 +83,12 @@ def longest_consecutive(nums: list[int]) -> int:
     for num in nums:  # O(n)
         if num-1 not in nums:  # finding the smallest num of a consecutive sequence
             current = 1
-            while (num := num+1) in nums:  # https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions
+            while (num := num+1) in nums:
                 current += 1
             longest = max(longest, current)
     return longest
 
-    # Notice the only difference in this algo from `0.1)` is the line `if num-1 not in nums:` 👌,
+    # Notice the only difference in this algo from `0.1)` is addition of the line `if num-1 not in nums:` 👌,
     # which intelligently leads us from Quadratic to Linear time!
 
 
