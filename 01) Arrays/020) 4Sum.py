@@ -18,7 +18,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
 
     # 0) [TLE] Brute-force (Sort & Nested Loops): TC = O(n*log(n) + n^4); SC = O(n) {sorting}
 
-    # Read how we reached to the following algorithm from `039 3Sum.py`'s `0) Brute-force`
+    # Read how we reached to the following algorithm in detail from `039 3Sum.py`'s `0) Brute-force`
     # (https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/039%29%203Sum.py).
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     n = len(nums)

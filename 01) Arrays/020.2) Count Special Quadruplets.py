@@ -25,7 +25,7 @@ def count_quadruplets(nums: list[int]) -> int:
 
     # The order is important here, therefore we cannot use the two pointers approach (which requires sorting).
 
-    # 1) Better (HashMap): TC = O(n^3); SC = O(n)
+    # 1) Better (3 Loops & HashMap): TC = O(n^3); SC = O(n)
     # This o(3) version does essentially the same thing as the first solution, keeping track of a, b, and c.
     # However, by going backwards, we do not need and additional for loop to keep track of d.
     # Instead, each time we see a new number, we increment that number's count in our hashmap.
@@ -47,7 +47,7 @@ def count_quadruplets(nums: list[int]) -> int:
     return count
 
     # (DIDN'T UNDERSTAND):
-    # 2) Optimal (HashMap): TC = O(n^2); SC = O(n^2)
+    # 2) Optimal (2 Loops & HashMap): TC = O(n^2); SC = O(n^2)
     # Divide in two groups, i.e. nums[a]+nums[b]+nums[c] == nums[d] -> nums[a]+nums[b] == -nums[c]+nums[d]
     # https://leetcode.com/problems/count-special-quadruplets/discuss/1456709/Python-99-Clean-Code-Walkthrough-From-O(4)-greater-O(3)-greater-O(2)
     # https://leetcode.com/problems/count-special-quadruplets/discuss/1446988/JavaC++Python3-Real-O(n2)-solution

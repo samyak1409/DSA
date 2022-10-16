@@ -8,7 +8,8 @@ def four_sum_count(nums1: list[int], nums2: list[int], nums3: list[int], nums4: 
 
     # https://leetcode.com/problems/4sum-ii/discuss/1740606/Going-from-O(N4)-greater-O(N3)-greater-O(N2)-JavaC++
 
-    # 0) [TLE] Brute-force (4 Loops: Check every possible pair.): TC = O(n^4); SC = O(1)
+    # 0) [TLE] Brute-force (4 Loops: Check every possible pair): TC = O(n^4); SC = O(1)
+    # num1+num2+num3+num4 = 0
 
     """
     # Hash (0); Search (4):
@@ -39,7 +40,7 @@ def four_sum_count(nums1: list[int], nums2: list[int], nums3: list[int], nums4: 
     """
 
     # 2) Optimal (Using HashMap Consciously 😐): TC = O(n^2); SC = O(n^2)
-    # num1+num2+num3+num4 = 4 => num1+num2 = -num3-num4
+    # num1+num2+num3+num4 = 0 => num1+num2 = -num3-num4
 
     # Stefan Pochmann Supremacy https://leetcode.com/problems/4sum-ii/discuss/93917/Easy-2-lines-O(N2)-Python:
     """
