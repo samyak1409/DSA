@@ -55,7 +55,7 @@ def longest_consecutive(nums: list[int]) -> int:
     nums = []  # (new local var)
     for num, count in counts.items():
         nums.extend([num]*count)  # https://stackoverflow.com/q/3459098/create-list-of-single-item-repeated-n-times
-    # print(nums)  #debug
+    # print(nums)  #debugging
 
     longest = current = 1
     for i in range(len(nums)-1):  # O(n)

@@ -6,13 +6,10 @@ https://leetcode.com/problems/binary-subarrays-with-sum
 def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
     """"""
 
-    # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py.
-
-    # This problem can be categorized as sub-problem of https://leetcode.com/problems/subarray-sum-equals-k.
+    # This problem is just a sub-problem of https://leetcode.com/problems/subarray-sum-equals-k.
 
     # 1) Time-Optimal (Prefix Sum & HashMap): TC = O(n); SC = O(n)
-    # https://leetcode.com/problems/subarray-sum-equals-k/solution/604490
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023.1%29%20Subarray%20Sum%20Equals%20K.py
 
     from collections import Counter
     frequency = Counter()  # Counter for easy working with counts
@@ -27,5 +24,6 @@ def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
         frequency[prefix_sum] += 1  # add/update frequency of prefix_sum
     return count
 
-    # 2) Optimal (Three Pointers): TC = O(n); SC = O(1)
+    # 2) Optimal (Sliding Window using Three Pointers): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/binary-subarrays-with-sum/solution/#approach-3-three-pointer
+    # https://leetcode.com/problems/binary-subarrays-with-sum/discuss/186683/C++JavaPython-Sliding-Window-O(1)-Space
