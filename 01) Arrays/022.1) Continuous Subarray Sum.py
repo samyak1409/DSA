@@ -23,13 +23,11 @@ def check_subarray_sum(nums: list[int], k: int) -> bool:
     """
 
     # 1) Optimal (Prefix Sum & HashMap): TC = O(n); SC = O(n)
-    # https://leetcode.com/problems/continuous-subarray-sum/discuss/99499/Java-O(n)-time-O(k)-space
-    # This is one of those magics of remainder theorem :)
-    # (a+(n*x)) % x is same as a % x
+    # "This is one of those magics of remainder theorem :) -> `(a+(n*x)) % x` is same as `a % x`
     # e.g. in case of the array [23,2,6,4,7] the running sum is [23,25,31,35,42] and the remainders are [5,1,1,5,0].
     # We got remainder 5 at index 0 and at index 3. That means, in between these two indexes we must have added a number
-    # which is multiple of the k. Hope this clarifies your doubt :)
-    # https://leetcode.com/problems/continuous-subarray-sum/discuss/236976/Python-solution
+    # which is multiple of the k. Hope this clarifies your doubt :)"
+    # -https://leetcode.com/problems/continuous-subarray-sum/discuss/99499/Java-O(n)-time-O(k)-space/103585
 
     prefix_sum = 0
     leftmost_index = {prefix_sum: -1}  # hashmap for O(1) lookup; initializing with `prefix_sum: -1` because:
@@ -39,8 +37,8 @@ def check_subarray_sum(nums: list[int], k: int) -> bool:
         remainder = prefix_sum % k
         if (leftmost := leftmost_index.get(remainder)) is not None:  # we have got same remainder before too
             # that means in b/w the two indices must lie a subarray with sum divisible by k!
-            if index-leftmost >= 2:  # `index-leftmost` = length of subarray whose sum = multiple(k)
-                return True  # subarray of len >= 2 found
+            if index-leftmost > 1:  # `index-leftmost` = length of subarray whose sum = multiple(k)
+                return True  # subarray of len > 1 found
         else:  # only adding not updating as we're interested in keeping the subarray as long as possible because
             # "return true if nums has a continuous subarray of size at least two"
             leftmost_index[remainder] = index

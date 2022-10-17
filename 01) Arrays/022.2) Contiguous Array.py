@@ -18,7 +18,8 @@ def find_max_length(nums: list[int]) -> int:
             nums[i] = -1
     # And now the question has been transformed to: `022 Longest Subarray with 0 Sum.py`
 
-    # Prefix Sum Algorithm:
+    # Longest Subarray with 0 Sum:
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py
     prefix_sum = 0
     leftmost_index = {prefix_sum: -1}  # for O(1) lookup; initializing with `prefix_sum: -1` because:
     # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.
@@ -36,3 +37,7 @@ def find_max_length(nums: list[int]) -> int:
             nums[i] = 0
 
     return max_len
+
+    # Check other solutions:
+    # https://leetcode.com/problems/contiguous-array/solution
+    # https://leetcode.com/problems/contiguous-array/discuss

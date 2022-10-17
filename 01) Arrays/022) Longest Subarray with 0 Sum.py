@@ -25,8 +25,8 @@ def longest_subarray_with_0_sum(arr: list[int]) -> int:
     # ii) Go to the integer which is closet to 0
     # iii) Use Two-Pointers to move left and right to find the largest sub-array with 0 sum
     # WRONG (Obviously): Sub-array means sub-array of original array, sorting will change the order!
-    # It's possible in case like Two Sum (see:
-    # https://github.com/samyak1409/DSA/blob/7cbe5e00f474eb6a0aee5e0b58d66296a59604c3/01%29%20Arrays/019%29%20Two%20Sum.py#L51),
+    # It's possible in case like Two Sum (see `1.2)` of
+    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py),
     # but not in the case of subarrays / subsequences (basically contiguous).
 
     # 1) Optimal (Prefix-Sum & HashMap): TC = O(n); SC = O(n)
