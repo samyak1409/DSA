@@ -5,7 +5,7 @@ https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up
 
 def minimum_card_pickup(cards: list[int]) -> int:
 
-    # 0) Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
+    # 0) Brute-force (Check all the Subarrays using Nested Loop): TC = O(n^2); SC = O(1)
 
     # 1) Optimal (HashMap): TC = O(n); SC = O(n)
     # Iterate through the cards and store the location of the last occurrence of each number.
