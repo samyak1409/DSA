@@ -33,7 +33,7 @@ def remove_element(nums: list[int], val: int) -> int:
 
     # 1.1) Copy Required Elements to the Left: TC = O(2n); SC = O(1)
     # https://leetcode.com/problems/remove-element/solution/#approach-1-two-pointers
-    # Similar to `1) Optimal` of
+    # Almost same as `1)` of
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/041%29%20Remove%20Duplicates%20from%20Sorted%20Array.py.
 
     """
@@ -45,15 +45,15 @@ def remove_element(nums: list[int], val: int) -> int:
     """
 
     # 1.2) Move Elements to Remove to the End by Swapping: TC = O(n); SC = O(1)
-    # As "The relative order of the elements may be changed.", we can benefit it.
+    # -> "The relative order of the elements may be changed."
     # https://leetcode.com/problems/remove-element/solution/#approach-2-two-pointers-when-elements-to-remove-are-rare
 
     i, j = 0, len(nums)-1
     while i <= j:  # why `=`? dry run the algo w/o `=` on input (nums=[1], val=1) to get it
         if nums[i] == val:
-            nums[i], nums[j] = nums[j], nums[i]  # swap
+            nums[i], nums[j] = nums[j], nums[i]  # swap (putting element to remove in the end)
             j -= 1
         else:
-            i += 1  # imp: to not ↑ i when swapping is done, because we don't know what came from the end to i, so we
-            # need to check that too
+            i += 1  # imp: to not ↑ `i` when swapping is done, because we don't know what came from the end to `i`, so
+            # we need to check that too
     return i

@@ -14,7 +14,7 @@ def remove_duplicates(nums: list[int]) -> int:
 
     # 0) Brute-force (Using HashSet): TC = O(n); SC = O(n)
 
-    """    
+    """
     unique = set(nums)
     k = len(unique)
     nums[:k] = unique
@@ -30,7 +30,15 @@ def remove_duplicates(nums: list[int]) -> int:
         if num not in unique:
             nums[i := i+1] = num
             unique.add(num)
-    return len(unique)
+    return i+1
+    """
+    # Or we can use `dict`, which preserves the order of insertion, and since the array is sorted, we'll be good to go!
+    """
+    from collections import Counter
+    dict_ = Counter(nums)
+    k = len(dict_)
+    nums[:k] = dict_.keys()
+    return k
     """
 
     # 1) Optimal (Two-Pointers): TC = O(n); SC = O(1)
