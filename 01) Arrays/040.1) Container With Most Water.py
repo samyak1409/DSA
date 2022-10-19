@@ -17,16 +17,16 @@ def max_area(height: list[int]) -> int:
     """
     n = len(height)
     ans = 0  # area can't be negative
-    for left in range(n):
-        for right in range(left+1, n):
-            ans = max(ans, (right-left) * min(height[left], height[right]))  # area = width * height
-            # `right-left`: width of the container & `min(height[left], height[right])`: height of the container
+    for lt in range(n):
+        for rt in range(lt+1, n):
+            ans = max(ans, (rt-lt) * min(height[lt], height[rt]))  # area = width * height
+            # `rt-lt`: width of the container & `min(height[lt], height[rt])`: height of the container
     return ans
     """
 
     # 1) Optimal (Two-Pointers): TC = O(n); SC = O(1)
     # Try to use two-pointers. Set one pointer to the left and one to the right of the array. Always move the pointer
-    # that points to the lower line.
+    # that's pointing to the lower line.
     #
     # How does this approach work?
     # Initially we consider the area constituting the exterior most lines.
@@ -38,6 +38,27 @@ def max_area(height: list[int]) -> int:
     # This is done since a relatively longer line obtained by moving the shorter line's pointer might overcome the
     # reduction in area caused by the width reduction.
     #
+    # "what will happen for the h[i] == h[j]?"
+    # -https://leetcode.com/problems/container-with-most-water/discuss/6090/Simple-and-fast-C++C-with-explanation/136098
+    # "Both must move inside and find a higher height. Because if we only move either of them inside, the minimum height
+    # don't change (to be accurate, don't increase, but can decrease), while the width decreases, then less water can be
+    # held."
+    # -https://leetcode.com/problems/container-with-most-water/discuss/6090/Simple-and-fast-C++C-with-explanation/230471
+
+    lt, rt = 0, len(height)-1
+    ans = 0  # area can't be negative
+    while lt < rt:
+        lt_wall, rt_wall = height[lt], height[rt]
+        ans = max(ans, (rt-lt) * min(lt_wall, rt_wall))  # area = width * height
+        # `rt-lt`: width of the container & `min(lt_wall, rt_wall)`: height of the container
+        if lt_wall < rt_wall:
+            lt += 1
+        elif rt_wall < lt_wall:
+            rt -= 1
+        else:  # (if lt_wall == rt_wall)
+            lt, rt = lt+1, rt-1
+    return ans
+
     # Understanding the proof of this algorithm is way harder than the algorithm itself, so linking some more good
     # proof-explanations following:
     #
@@ -87,24 +108,3 @@ def max_area(height: list[int]) -> int:
     # it until the end. And if not, it's still in the game. So it will be found at some point. Really the only thing you
     # need to show is that you don't make a mistake when you reduce the problem, which is what I did in my post."
     # -https://leetcode.com/problems/container-with-most-water/discuss/6100/Simple-and-clear-proofexplanation/427495
-    #
-    # "what will happen for the h[i] == h[j]?"
-    # -https://leetcode.com/problems/container-with-most-water/discuss/6090/Simple-and-fast-C++C-with-explanation/136098
-    # "Both must move inside and find a higher height. Because if we only move either of them inside, the minimum height
-    # don't change (to be accurate, don't increase, but can decrease), while the width decreases, then less water can be
-    # held."
-    # -https://leetcode.com/problems/container-with-most-water/discuss/6090/Simple-and-fast-C++C-with-explanation/230471
-
-    left, right = 0, len(height)-1
-    ans = 0  # area can't be negative
-    while left < right:
-        left_wall, right_wall = height[left], height[right]
-        ans = max(ans, (right-left) * min(left_wall, right_wall))  # area = width * height
-        # `right-left`: width of the container & `min(left_wall, right_wall)`: height of the container
-        if left_wall < right_wall:
-            left += 1
-        elif right_wall < left_wall:
-            right -= 1
-        else:  # (if left_wall == right_wall)
-            left, right = left+1, right-1
-    return ans

@@ -36,7 +36,7 @@ def product_except_self(nums: list[int]) -> list[int]:
     # i) nums.count(0) == 0
     # ii) nums.count(0) == 1
     # iii) nums.count(0) >= 2
-    # `-1.1)` was handling cases `i)`
+    # `-1.1)` was handling case `i)`
     # `-1.2)` was handling cases `i)` & `ii)`
     # -1.3) Handles all the cases (`i)`, `ii)` & `iii)`):
     """
