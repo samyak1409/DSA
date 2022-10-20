@@ -64,6 +64,13 @@ def longest_ones(nums: list[int], k: int) -> int:
     return max_streak
     """
 
+    # One thing's for sure, we will only flip a zero if it extends an existing window of 1s. Otherwise, there's no point
+    # in doing it, right? Think Sliding Window!
+    # Since we know this problem can be solved using the sliding window construct, we might as well focus in that
+    # direction for hints. Basically, in a given window, we can never have > K zeros, right?
+    # We don't have a fixed size window in this case. The window size can grow and shrink depending upon the number of
+    # zeros we have (we don't actually have to flip the zeros here!).
+    # The way to shrink or expand a window would be based on the number of zeros that can still be flipped and so on.
     # 1) Optimal (Sliding Window): TC = O(n); SC = O(1)
     # Stating the obvious: In sliding window, once we go ahead we never go back!
 
@@ -95,11 +102,11 @@ def longest_ones(nums: list[int], k: int) -> int:
 
     i, j = 0, -1
     for j in range(len(nums)):
-        k -= not nums[j]  # `k -= 1 if nums[j] == 0 else 0`
+        k -= 1 - nums[j]  # `k -= 1 if nums[j] == 0 else 0`
         if k < 0:
             # num we just considered (we're automatically considering current num as j is moving continuously) was 0 and
             # k underflow-ed, so in order to keep the window size MAX only, increasing i
-            k += not nums[i]  # `k += 1 if not nums[i] == 1 else 0`; the element we're discarding from our window is 0
+            k += 1 - nums[i]  # `k += 1 if not nums[i] == 1 else 0`; the element we're discarding from our window is 0
             i += 1
     return j-i+1
 
@@ -132,7 +139,7 @@ def longest_ones(nums: list[int], k: int) -> int:
     # Through the iteration of j, this subarray would be found while j = 11 and i = 2.
     # What happens then?
     # Well as we keep iterate j we will find out that j and i keep adding 1 in every iteration, which makes the distance
-    # between j and i the same(and is the currently best).
+    # between j and i the same (and is the currently best).
     # The distance between `j` and `i` would change again if there is a longer subarray exist.
     # Try appending more 1s in nums you'll see.
     # In short:

@@ -18,16 +18,14 @@ def max_power(s: str) -> int:
         if char == last_char:
             streak += 1
         else:
-            streak = 0  # reset
-            last_char = char
-            streak += 1
+            last_char, streak = char, 1  # reset
         max_streak = max(max_streak, streak)
     return max_streak
     """
-    # Conciser:
+    # Concise:
     max_streak, streak, last_char = 0, 0, None
     for char in s:
         if char != last_char:
-            streak, last_char = 0, char  # reset
+            last_char, streak = char, 0  # reset
         max_streak = max(max_streak, (streak := streak+1))
     return max_streak
