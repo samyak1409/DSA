@@ -16,7 +16,7 @@ class ListNode:
 def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     """"""
 
-    # 0) Brute-force (Changing the Values): TC = O(n); SC = O(n)
+    # 0) Brute-force (Changing the Values using Stack): TC = O(n); SC = O(n)
 
     """
     # Saving:

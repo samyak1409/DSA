@@ -21,7 +21,7 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
 
     # NOTE: `left` & `right` are 1-indexed!
 
-    # 0) Brute-force (Changing the Values): TC = O(n); SC = O(n)
+    # 0) Brute-force (Changing the Values using Stack): TC = O(n); SC = O(n)
 
     """
     # Saving:

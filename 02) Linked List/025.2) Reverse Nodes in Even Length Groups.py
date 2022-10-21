@@ -27,11 +27,10 @@ def reverse_even_length_groups(head: Optional[ListNode]) -> Optional[ListNode]:
     expected_len = 1  # "groups whose lengths form the sequence of the natural numbers (1, 2, 3, 4, ...)"
     before = None
 
-    # Loop for/on n groups:
+    # Loop for/on groups:
     while curr:
 
-        # Checking the length of group because "Note that the length of the last group may be less than or equal to
-        # 1 + the length of the second to last group":
+        # Checking the length of group:
         real_len = 0
         for _ in range(expected_len):
             try:  # EAFP (Easier to Ask for Forgiveness than Permission)
