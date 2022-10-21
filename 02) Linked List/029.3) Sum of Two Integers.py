@@ -6,7 +6,7 @@ https://leetcode.com/problems/sum-of-two-integers
 def get_sum(a: int, b: int) -> int:
     """"""
 
-    # -1) Prohibited (+ / __add__): TC = O(1); SC = O(1)
+    # -1) Not Allowed (+ / __add__): TC = O(1); SC = O(1)
 
     """
     return a + b
@@ -15,7 +15,7 @@ def get_sum(a: int, b: int) -> int:
     return a.__add__(b)
     """
 
-    # 1) Optimal (Bit Manipulation): TC = O(1) {"-1000 <= a, b <= 1000" => 1 <= len(a), len(b) <= 10}; SC = O(1)
+    # 1) Optimal (Bit Manipulation): TC = O(1) {`-1000 <= a, b <= 1000` => 1 <= len(a), len(b) <= 10}; SC = O(1)
     # Easiest Explanation:
     # https://leetcode.com/problems/sum-of-two-integers/discuss/132479/Simple-explanation-on-how-to-arrive-at-the-solution
     # Intuition: We can't use `+` or `__add__`, so let's try it with Bit Manipulation.
@@ -54,11 +54,12 @@ def get_sum(a: int, b: int) -> int:
     # are just two different numbers. For example, "-1" is "11111111111111111111111111111111"; "-2" is
     # "11111111111111111111111111111110"; "-3" is "11111111111111111111111111111101".
     # FOR OTHER LANGS, NOT FOR PYTHON!!!!
-    # https://leetcode.com/problems/sum-of-two-integers/discuss/776952/Python-BEST-LeetCode-371-Explanation-for-Python
     # The correctness of this version relies on the fact that integers have fixed length (32 bits) in java.
     # So carry (or b) will eventually be moved out of boundary and go to 0, and you can get out of the while loop.
     # This is NOT the case for the Python! Python allows unlimited length of integers.
-    # If you try to mimic the code above, you will get to infinite loop!
+    # If you try to mimic the code, you will get to infinite loop!
+    # SOLUTION:
+    # https://leetcode.com/problems/sum-of-two-integers/discuss/776952/Python-BEST-LeetCode-371-Explanation-for-Python
 
     # 0) LOL: TC = O(1); SC = O(1)
 

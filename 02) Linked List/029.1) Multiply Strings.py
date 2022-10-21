@@ -6,7 +6,7 @@ https://leetcode.com/problems/multiply-strings
 def multiply(num1: str, num2: str) -> str:
     """"""
 
-    # -1) Prohibited (Type Casting & Direct Multiplication): TC = O(m+n); SC = O(1)
+    # -1) Not Allowed (Type Casting & Direct Multiplication): TC = O(m+n); SC = O(1)
 
     """
     return str(int(num1) * int(num2))
@@ -38,7 +38,7 @@ def multiply(num1: str, num2: str) -> str:
     # 2) No Type Casting & No Direct Multiplication: TC = O(m*n); SC = O(m+n)
     # 123 * 456 = 6*123 + 50*123 + 400*123
 
-    # Calc. the Product:
+    # Convert into Integer and Calc. the Product:
     product = 0
     for i in range(len(num2)):
         digit1 = ord(num2[~i]) - 48  # ~i = -i-1 (bit magic); ord('0') = 48 so ord('0')-48 = 0 ... ord('9')-48 = 9

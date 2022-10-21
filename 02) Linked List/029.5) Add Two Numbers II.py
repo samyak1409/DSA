@@ -40,8 +40,9 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     # -> Return the last node got from traversal (of step 2).
 
     # Follow up: Could you solve it without reversing the input lists?
-    # 2) Optimal (Handle Carry/ies In Different/Dedicated Traversal): TC = O(n); SC = O(1)
-    # Good Question 👌; I myself came up with this approach 😁
+    # 2) Optimal (Handle Carry/ies In Dedicated Traversal): TC = O(n); SC = O(1)
+    # Hint: You can store any int value in the node.
+    # Comments: Good Question 👌; I myself came up with this approach 😁
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/687339/Java-O(N)-solution-with-follow-up-question-no-recursion-no-stacks
     # https://leetcode.com/problems/add-two-numbers-ii/discuss/92624/C++-O(1)-extra-space-except-for-output.-Reverse-output-instead.-Is-this-cheating
 

@@ -6,7 +6,7 @@ https://leetcode.com/problems/add-binary
 def add_binary(a: str, b: str) -> str:
     """"""
 
-    # -1) Prohibited (Type Casting): TC = O(m+n) {len(a)+len(b)}; SC = O(1)
+    # -1) Not Allowed (Type Casting): TC = O(m+n) {len(a)+len(b)}; SC = O(1)
     # https://www.geeksforgeeks.org/python-program-to-add-two-binary-numbers
 
     """
@@ -21,11 +21,12 @@ def add_binary(a: str, b: str) -> str:
 
     # Making the binary strings of same length by adding 0s on the left of the smaller binary string (if any):
     a, b = a.zfill(bigger_len), b.zfill(bigger_len)
-    # Can also be done without this, by using the same paradigm we used in:
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py
+    # Can also be done without this, by using the same paradigm we used in
+    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py,
+    # but this is easier.
 
     # Reverse Traverse and Add:
-    char = {0: '0', 1: '1'}  # dict for type casting without using builtins
+    char = {0: '0', 1: '1'}  # dict to type cast without using builtins
     output = []  # using a list because str is immutable, so appending to str will be O(n) again & again instead of O(1)
     carry = 0
     for i in range(-1, -bigger_len-1, -1):  # from LSB to MSB
