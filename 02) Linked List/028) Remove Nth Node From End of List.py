@@ -21,7 +21,7 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     # 0) Brute-force (Calc Len): TC = O(n+n); SC = O(1)
 
     """
-    # Calc Len (l) of LL:
+    # Calc Len of LL:
     node = head  # not using head for traversing because we've to return head
     l = 1
     while node := node.next:

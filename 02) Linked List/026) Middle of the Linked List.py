@@ -33,7 +33,7 @@ def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
     return nodes[(len(nodes)//2)]
     """
 
-    # 1) Better (Two Pass: Traverse): TC = O(n); SC = O(1)
+    # 1) Better (Two Pass: Calc Len): TC = O(n); SC = O(1)
 
     """
     node = head  # copy
@@ -61,15 +61,15 @@ def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
     """
     slow = fast = head
     while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
+        slow = slow.next  # +1
+        fast = fast.next.next  # +2
     return slow
     """
     # Using `head` only as slow:
     fast = head
     while fast and fast.next:
-        head = head.next
-        fast = fast.next.next
+        head = head.next  # +1
+        fast = fast.next.next  # +2
     return head
 
 

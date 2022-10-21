@@ -29,7 +29,7 @@ def delete_middle(head: Optional[ListNode]) -> Optional[ListNode]:
     # because as we have to delete the mid. node, we need to stop 1 node before the mid. node
     # Traversing till the node before mid. node:
     while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
+        slow = slow.next  # +1
+        fast = fast.next.next  # +2
     slow.next = slow.next.next  # changing ptrs so that mid. node is deleted
     return head
