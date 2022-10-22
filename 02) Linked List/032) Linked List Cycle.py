@@ -19,25 +19,23 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     # 1) Time-Optimal (HashSet): TC = O(n); SC = O(n)
 
     """
-    seen = {head}  # for O(1) lookup
+    seen = set()  # for O(1) lookup
     while head:  # while not reached at the end of LL
-        head = head.next  # ++
-        if head in seen:
-            return True
         seen.add(head)  # store this node
+        if (head := head.next) in seen:
+            return True
     return False  # reached at the end of LL => no cycle
     """
     # In Python, it's EAFP:
     """
-    seen = {head}  # for O(1) lookup
+    seen = set()  # for O(1) lookup
     while True:
+        seen.add(head)  # store this node
         try:
-            head = head.next  # ++
+            if (head := head.next) in seen:
+                return True
         except AttributeError:
             return False  # reached at the end of LL => no cycle
-        if head in seen:
-            return True
-        seen.add(head)  # store this node
     """
 
     # Follow up: Can you solve it using O(1) (i.e. constant) memory?
