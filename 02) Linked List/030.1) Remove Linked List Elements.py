@@ -20,6 +20,7 @@ def remove_elements(head: Optional[ListNode], val: int) -> Optional[ListNode]:
     # https://leetcode.com/problems/remove-linked-list-elements/discuss/57306/3-line-recursive-solution
 
     # 2) Optimal (Dummy Node & Iterate): TC = O(n); SC = O(1)
+    # -> Using dummy node helps ease the Task.
     # Must read:
     # https://leetcode.com/problems/remove-linked-list-elements/discuss/158651/Simple-Python-solution-with-explanation-(single-pointer-dummy-head).
 
