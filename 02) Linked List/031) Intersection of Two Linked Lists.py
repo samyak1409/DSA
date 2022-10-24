@@ -88,7 +88,7 @@ def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode
     while node1 != node2:
         node1 = node1.next if node1 else head2  # ++ or cross-join
         node2 = node2.next if node2 else head1  # ++ or cross-join
-    return node1  # or return node2
+    return node1  # or `return node2`
 
 
 # Similar Questions:

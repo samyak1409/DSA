@@ -27,7 +27,7 @@ def is_palindrome(x: int) -> bool:
     """
 
     # Follow up: Could you solve it without converting the integer to a string?
-    # 1) Optimal (Reverse Integer): TC = O(log10(x)); SC = O(1)
+    # 1) Optimal (Reverse Whole Integer): TC = O(log10(x)); SC = O(1)
     # Second idea would be reverting the number itself, and then compare the number with original number, if
     # they are the same, then the number is a palindrome.
     # Author: "Beware of overflow when you reverse the integer."
@@ -38,12 +38,12 @@ def is_palindrome(x: int) -> bool:
         return False
 
     # Get Reversed x:
-    x_copy, rev_x = x, 0
+    x_copy, x_rev = x, 0
     while x_copy:
-        rev_x = rev_x * 10 + x_copy % 10
+        x_rev = (x_rev * 10) + (x_copy % 10)
         x_copy //= 10
     # Return Comparison:
-    return x == rev_x
+    return x == x_rev
 
     # For Other Languages:
     # Following the thoughts based on the second idea, to avoid the overflow issue of the reverted number, what if we
@@ -52,6 +52,6 @@ def is_palindrome(x: int) -> bool:
     # https://leetcode.com/problems/palindrome-number/solution
     # https://leetcode.com/problems/palindrome-number/discuss/785314/Python-3-greater-1-solution-is-89.20-faster.-2nd-is-99.14-faster.-Explanation-added
     # BUT WAIT:
-    # We don't need to concern the overflow. When the reversed number overflows, it will become negative number which
+    # WE DON'T NEED TO CONCERN THE OVERFLOW. When the reversed number overflows, it will become negative number which
     # will return false when compared with x. Source:
     # https://leetcode.com/problems/palindrome-number/discuss/5127/9-line-accepted-Java-code-without-the-need-of-handling-overflow/5915

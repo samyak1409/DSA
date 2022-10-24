@@ -38,13 +38,13 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     # will print out the values of the nodes in reverse. Given a node, the algorithm checks if it is null. If it is
     # null, nothing happens. Otherwise, all nodes after it are processed, and then the value for the current node is
     # printed.
-    """
+    '''
     def print_values_in_reverse(head: Optional[ListNode]) -> None:
         if head:
             print_values_in_reverse(head.next)  # recurse in
             print(head.val)  # prints values while recurs-ing out
-    """
-    # Remarks: It's basically just using stack implicitly, if we were to do the same thing, we would have two options:
+    '''
+    # Remarks: It's basically just using stack implicitly, we can do the same thing in 2 more ways:
     # -> either use stack explicitly
     # -> or reverse the LL, print the values, and reverse the LL back.
     # ii) The downside of `2) Optimal (Reverse Half LL)` approach is that in a concurrent environment (multiple threads
@@ -53,6 +53,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     # in-place algorithms though. Current approach doesn't have this downside.
 
     """
+    # Recursive Function:
     def check(back: Optional[ListNode]) -> bool:
         if back:
             palindrome_till_here = check(back=back.next)  # ++; go all the way back (recurse in)
@@ -65,12 +66,12 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
         return True  # since LL with no nodes is palindrome
 
     front = [head]  # global var
-    # using list so that it's mutable, and so new local var is not created while updating inside the function
+    # using list so that mutable, and so new local var is not created while updating inside the function ✅✅
     return check(back=head)
     """
 
     # Follow up: Could you do it in O(n) time and O(1) space?
-    # 2) Optimal (Reverse Half LL): TC = O(n); SC = O(1)
+    # 2) Optimal (Reverse Half LL Iteratively): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/palindrome-linked-list/discuss/64500/11-lines-12-with-restore-O(n)-time-O(1)-space
 
     # Step 1: Traverse 1st half and reverse the pointer direction: O(n//2)
@@ -92,7 +93,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     #         node_l     prev & node_r                        node_l   prev   node_r
     is_palin = True
     while node_r:  # or `while node_l:` (len is same so doesn't matter)
-        if is_palin and node_l.val != node_r.val:
+        if is_palin and node_l.val != node_r.val:  # check for palin only if palin till here
             is_palin = False
         # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node_l.next, node_l, prev = prev, node_l.next, node_l  # change pointer direction, ++, ++

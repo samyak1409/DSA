@@ -84,10 +84,13 @@ def swap_pairs(head: Optional[ListNode]) -> Optional[ListNode]:
     return head
     """
 
-    # Little easier with a dummy node:
-    to_head = node = ListNode(next_=head)  # `to_head`: ptr to new_head; `node`: traverse and change pointers
+    # Easier with a dummy node:
+    to_head = node = ListNode(next_=head)  # `to_head`: ptr to new_head; `node`: to traverse and change pointers
     while node.next and node.next.next:  # while 2 nodes are there
-        node.next.next.next, node.next.next, node.next = node.next, node.next.next.next, node.next.next  # swap nodes by
-        # changing pointers (3)
+        # node.next.next.next, node.next.next, node.next = node.next, node.next.next.next, node.next.next  # swap nodes
+        #                                                                                       by changing pointers (3)
+        # We can also do:
+        node.next, node.next.next, node.next.next.next = node.next.next, node.next, node.next.next.next  # swap nodes
+        #                                                                                       by changing pointers (3)
         node = node.next.next  # +2
     return to_head.next

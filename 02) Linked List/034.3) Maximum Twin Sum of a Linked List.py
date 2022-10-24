@@ -34,11 +34,11 @@ def pair_sum(head: Optional[ListNode]) -> int:
     # After this, `5 -> 4 -> 2 -> 1 -> None` will convert into `None <- 5 <- 4 & 2 -> 1 -> None`,
     # and `prev` will be pointing to start of left LL and `node` to start of right LL.
 
-    # Step 2: Compare the values while traversing the 1st and the 2nd half, and reverse the pointer direction back of
+    # Step 2: Calculate the max_sum while traversing the 1st and the 2nd half, and reverse the pointer direction back of
     #         the 1st half (in order to reset the input LL back to original): O(n/2)
     node_l, prev, node_r = prev, node, node  # init, ++, init; result: None <- 5 <- 4  &  2 -> 1 -> None
     #                                                                               ↑     ↑
-    max_sum = 2  # `1 <= Node.val <= 10^5`                                     node_l     prev & node_r
+    max_sum = 0  # `1 <= Node.val <= 10^5`                                     node_l     prev & node_r
     while node_r:  # or `while node_l:` (len is same so doesn't matter)
         max_sum = max(max_sum, node_l.val+node_r.val)
         # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:

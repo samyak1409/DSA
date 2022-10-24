@@ -18,7 +18,7 @@ def is_palindrome(s: str) -> bool:
     return True
     """
 
-    # 2) Optimal (OTG Skip or Match using Two Pointers): TC = O(n); SC = O(1)
+    # 2) Optimal (OTG Match (or Skip) using Two Pointers): TC = O(n); SC = O(1)
     # -> One Pass
 
     """
@@ -55,3 +55,5 @@ def is_palindrome(s: str) -> bool:
 
     # How to define `isalnum`?
     # def isalnum(c: chr) -> bool: return ('a' <= c <= 'z') or ('0' <= c <= '9')
+
+    # https://leetcode.com/problems/valid-palindrome/discuss
