@@ -18,15 +18,15 @@ class Node:
 def flatten_linked_list(head: Node) -> Node:
     """"""
 
-    # 0) [TLE] Brute-force (Copy Vals to Array and Sort): TC = O(nc*log(nc)); SC = O(nc)
+    # 0) Brute-force (Copy Vals to Array and Sort): TC = O(nc*log(nc)); SC = O(nc)
     # {n: total next nodes; c: average child nodes; nc: total nodes in the structure}
-    # https://github.com/samyak1409/DSA/blob/c2ed7891e7156a319cb7c13f801769034e981b9d/02%29%20Linked%20List/027.1%29%20Sort%20List.py#L35
+    # Same as `1)` of https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027.1%29%20Sort%20List.py.
 
-    # Creates a new LL:
+    # 0.0) [TLE] Creates a new LL:
     """
     from bisect import insort
 
-    # Insert Values in Array keeping it Sorted:
+    # Save Values in an Array keeping it Sorted:
     data_list = []  # SC = O(nc)
     while head:  # TC = O(nc*log(nc))
         node = head  # copy for traversing child nodes
@@ -45,26 +45,24 @@ def flatten_linked_list(head: Node) -> Node:
 
     return to_head.child
     """
-    # Without creating new LL:
+    # 0.1) [AC] Without creating new LL:
     """
     from bisect import insort
 
-    # Flatten the LL (Unsorted): (Just attaching every next node to the current node's last child)
-    node = head  # copy for traversing next nodes
-    while node:  # one by one consider next nodes; TC = O(nc)
-        node2 = node  # copy for traversing child nodes
-        node = node.next  # ++
-        node2.__del__()  # will delete it's `next` pointer
-        while node2.child:  # go all the way down; TC = O(c)
-            node2 = node2.child  # ++
-        node2.child = node  # attach in the bottom
-
-    # Insert Values in Array keeping it Sorted:
-    node = head  # copy for traversing child nodes
+    # Flatten the LL (Unsorted) (Just attaching every next node to the current node's last child)
+    # and Save Values in an Array keeping it Sorted:
     data_list = []  # SC = O(nc)
-    while node:  # TC = O(nc*log(nc))
-        insort(a=data_list, x=node.data)  # TC = O(log(nc))
-        node = node.child  # ++
+    node = head  # copy for traversing next nodes
+    while node:  # one by one consider next nodes; TC = O(nc*log(nc))
+        node2 = node  # copy for traversing child nodes
+        while True:  # go all the way down and stop on last child (leaf node); TC = O(c*log(nc))
+            insort(a=data_list, x=node2.data)  # save value; TC = O(log(nc))
+            if node2.child:
+                node2 = node2.child  # ++
+            else:
+                break
+        node2.child = node.next  # attach in the bottom
+        node = node.next  # ++
 
     # Update Values to the LL:
     node = head  # copy for traversing child nodes
@@ -80,12 +78,12 @@ def flatten_linked_list(head: Node) -> Node:
 
     while head.next:  # TC = O(nc)
         node1, node2, next_node = head, head.next, head.next.next  # init, init, save ref
-        node1.__del__(), node2.__del__()  # will delete their `next` pointers
 
         # Merging 2 LLs: TC = O(c)
-        # https://github.com/samyak1409/DSA/blob/c2ed7891e7156a319cb7c13f801769034e981b9d/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py#L75:
+        # `1.2)` of
+        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_head = node = Node(data=None)  # `to_head` -> dummy node whose next will be the head of our flattened LL
-        # `node` -> not using head for traversing because we've to return it
+        # `node` -> for traversing
         while node1 and node2:  # while both LLs have nodes left
             if node1.data < node2.data:
                 node.child = node1  # changing ptr
@@ -100,8 +98,7 @@ def flatten_linked_list(head: Node) -> Node:
     return head
 
 
-# DUE TO SOME STUPID REASON, 1 TEST CASE IS FAILING ON CODING NINJAS AND OJ IS SAYING TLE BUT THIS IS OPTIMAL APPROACH
-# MAN!!! 🤦
+# DUE TO SOME STUPID REASON, 1 TEST CASE ON CODING NINJAS IS THROWING TLE BUT THIS IS OPTIMAL APPROACH MAN!!! 🤦
 # ACCEPTED ON GFG:
 
 
@@ -125,12 +122,12 @@ def flatten(root: Node) -> Node:
 
     while root.next:  # TC = O(nc)
         node1, node2, next_node = root, root.next, root.next.next  # init, init, save ref
-        # node1.__del__(), node2.__del__()  # will delete their `next` pointers
 
         # Merging 2 LLs: TC = O(c)
-        # https://github.com/samyak1409/DSA/blob/c2ed7891e7156a319cb7c13f801769034e981b9d/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py#L75:
+        # `1.2)` of
+        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_root = node = Node(d=None)  # `to_root` -> dummy node whose next will be the root of our flattened LL
-        # `node` -> not using root for traversing because we've to return it
+        # `node` -> for traversing
         while node1 and node2:  # while both LLs have nodes left
             if node1.data < node2.data:
                 node.bottom = node1  # changing ptr
