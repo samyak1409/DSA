@@ -41,9 +41,8 @@ def rotate(nums: list[int], k: int) -> None:
 
     n = len(nums)
     k %= n  # remove duplicate rotations (as well as handle even if k is -ve)
-    nums.reverse()
-    reverse(array=nums, start=0, end=k-1)
-    reverse(array=nums, start=k, end=n-1)
+    nums.reverse()  # reverse whole array
+    reverse(array=nums, start=0, end=k-1), reverse(array=nums, start=k, end=n-1)  # reverse two subarrays
 
     # Articles with multiple solutions:
     # https://leetcode.com/problems/rotate-array/discuss/54277/Summary-of-C++-solutions
