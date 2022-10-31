@@ -124,3 +124,4 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 # https://leetcode.com/problems/node-with-highest-edge-score
 # https://leetcode.com/problems/find-subarrays-with-equal-sum
 # https://leetcode.com/problems/check-distances-between-same-letters
+# https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative
