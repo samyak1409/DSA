@@ -29,7 +29,7 @@ def get_min_swaps(num: str, k: int) -> int:
 
     # Try to move each element to its correct position and calculate the number of swaps: TC = O(n^2); SC = O(n)
     # IMP: We're not focusing on moving current element to it's correct index, but bringing correct element to the
-    #       current index.
+    #      current index.
     num = list(num)  # str to list because str is immutable; new local var so that input array doesn't get modified
     swaps = 0
     for x in range(len(num)):  # easy, dry run to understand
