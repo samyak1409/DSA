@@ -83,3 +83,8 @@ def rotate_right(head: Optional[ListNode], k: int) -> Optional[ListNode]:
         # Call again with fixed k:
         return rotate_right(head, k % n)
         # return self.rotateRight(head, k % n)
+
+
+# Similar Questions:
+# https://leetcode.com/problems/rotate-array
+# https://leetcode.com/problems/split-linked-list-in-parts
