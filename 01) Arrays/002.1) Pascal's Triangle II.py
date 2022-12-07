@@ -39,4 +39,5 @@ def get_row(row_index: int) -> list[int]:
         yield value
 
 
-# Similar Questions: https://leetcode.com/problems/find-triangular-sum-of-an-array
+# Similar Questions:
+# https://leetcode.com/problems/find-triangular-sum-of-an-array

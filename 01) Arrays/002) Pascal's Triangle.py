@@ -106,4 +106,5 @@ def generate(num_rows: int) -> list[list[int]]:
 #                to O(1)!
 
 
-# Similar Questions: https://leetcode.com/problems/pascals-triangle-ii
+# Similar Questions:
+# https://leetcode.com/problems/pascals-triangle-ii

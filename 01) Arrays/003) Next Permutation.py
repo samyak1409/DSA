@@ -59,5 +59,4 @@ def next_permutation(nums: list[int]) -> None:
 # Similar Questions:
 # https://leetcode.com/problems/permutations
 # https://leetcode.com/problems/permutations-ii
-# https://leetcode.com/problems/permutation-sequence
 # https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number

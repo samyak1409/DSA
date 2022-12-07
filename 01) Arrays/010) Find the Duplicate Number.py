@@ -110,6 +110,7 @@ def find_duplicate(nums: list[int]) -> int:
 
 
 # Similar Questions:
+# https://leetcode.com/problems/first-missing-positive
 # https://leetcode.com/problems/single-number
 # https://leetcode.com/problems/linked-list-cycle-ii
 # https://leetcode.com/problems/missing-number
