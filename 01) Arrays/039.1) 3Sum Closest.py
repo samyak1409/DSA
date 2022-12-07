@@ -50,5 +50,3 @@ def three_sum_closest(nums: list[int], target: int) -> int:
             if abs(target-three_sum) < abs(target-closest):
                 closest = three_sum
     return closest
-
-    # Check: IDK how, but following code just beaten 100%: https://leetcode.com/submissions/detail/823209750

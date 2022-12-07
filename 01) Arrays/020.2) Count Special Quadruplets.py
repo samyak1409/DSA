@@ -55,14 +55,14 @@ def count_quadruplets(nums: list[int]) -> int:
 
     # Step-by-step algorithm building:
     # i) Can we write an algo which can find all the possible pairs of len 2?
-    """
+    '''
     n = len(nums)
     for a in range(n):
         for b in range(a+1, n):
             print(nums[a], nums[b])
-    """
+    '''
     # ii) Can we write algos which can find all the possible pairs of group 1 and group 2?
-    """
+    '''
     n = len(nums)
     print('G1')
     for a in range(0, n-3):  # last a can be at (n-4)-th index
@@ -72,21 +72,21 @@ def count_quadruplets(nums: list[int]) -> int:
     for c in range(2, n-1):  # first c can be at 2nd index
         for d in range(c+1, n):  # first d can be at 3rd index
             print(nums[c], nums[d])
-    """
+    '''
     # iii) Can we write a merged algo (in order to make sure `a < b < c < d`) which can find all the possible pairs of
     # both groups?
-    """
+    '''
     pass
-    """
+    '''
     # iv) Can we do the same thing in reverse?
     # Why reverse? Now we have two groups so why can't we do it without reversing? 😶
-    """
+    '''
     pass
-    """
+    '''
     # v) That's it! Now just integrate hashmap in the algo to search required pair from other group in O(1) time!
-    """
+    '''
     pass
-    """
+    '''
 
 
 # For debugging `2) Optimal`:
