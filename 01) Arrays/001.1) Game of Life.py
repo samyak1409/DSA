@@ -46,7 +46,7 @@ def game_of_life(board: list[list[int]]) -> None:
     # state only.
     # So, now the question is, which bit should we use for storing old and which bit should we use for storing new
     # state?
-    # Let's tryout both the options and see if any of them is beneficial over the other.
+    # Let's try-out both the options and see if any of them is beneficial over the other.
     # 1) OldNew (Left Bit for Old State and Right Bit for New State)
     #    -> Preprocess: LEFT-SHIFT all the values by 1 (value <<= 1).
     #    -> Main: Get Old State using 1 RIGHT-SHIFT of value (old_state_val = value >> 1), calculate New State,

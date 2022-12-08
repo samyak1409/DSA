@@ -42,7 +42,7 @@ def reverse_even_length_groups(head: Optional[ListNode]) -> Optional[ListNode]:
         # Main:
         if real_len % 2 == 0:  # => reverse group
             new_before = curr  # save ref for `before`
-            # Basic `025) Reverse Linked List.py` Algo:
+            # Basic `025 Reverse Linked List.py` Algo:
             prev = counter  # so that the first node in the group to be reversed will directly point to the first node
             # of next group (first node -> REVERSAL HAPPEN -> last node)
             for _ in range(real_len):

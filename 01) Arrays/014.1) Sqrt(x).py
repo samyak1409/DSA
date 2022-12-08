@@ -65,7 +65,7 @@ def my_sqrt(x: int) -> int:
             lo = mid + 1  # update range
         else:  # (if mid_sq > x) => mid > sqrt(x)
             hi = mid - 1  # update range
-    # If x is not a perfect square, ans won't be returned above, and `lo` will become > than `hi`, and the loop will
+    # If x is not a perfect square, ans. won't be returned above, and `lo` will become > than `hi`, and the loop will
     # terminate.
     # In these cases answer will be = `lo-1` = `hi`, because the loop terminated because of two possible cases:
     # Either:

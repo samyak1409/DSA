@@ -77,7 +77,7 @@ def majority_element(nums: list[int]) -> int:
     # Intuition: If we had some way of counting instances of the majority element as +1 and instances of any other
     # element as −1, summing them would make it obvious that the majority element is indeed the majority element.
 
-    # `016) Majority Element II.py` Style:
+    # `016 Majority Element II.py` Style:
     """
     major, relative_votes = None, 0  # init
     for num in nums:  # traverse
