@@ -74,7 +74,7 @@ def my_sqrt(x: int) -> int:
     # `mid_sq > x` (=> mid > sqrt(x)), `hi = mid - 1` executed, and `hi` became < than `lo` => int(sqrt(x)) = hi = lo-1
     return lo-1  # or hi
 
-    # 1.2) Optimal (Heron's method, which is a special case of Newton's method): TC = O(log(x)); SC = O(1)
+    # 1.2) Optimal (Heron's method, a special case of Newton's method): TC = O(log(x)); SC = O(1)
     # -> Harder and Slower than Binary Search
     # https://leetcode.com/problems/sqrtx/discuss/25057/3-4-short-lines-Integer-Newton-Every-Language
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton%27s_method
