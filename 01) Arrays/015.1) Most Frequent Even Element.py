@@ -30,7 +30,7 @@ def most_frequent_even(nums: list[int]) -> int:
         freq[num] = f = freq.get(num, 0) + 1
         if f > max_freq:
             ans, max_freq = num, f
-        elif f == max_freq and num < ans:  # `If there is a tie, return the smallest one`
+        elif f == max_freq and num < ans:  # "If there is a tie, return the smallest one"
             ans = num
     # print(freq)  #debugging
     return ans

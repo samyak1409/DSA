@@ -18,7 +18,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """"""
 
     # 0) Brute-force (For each node, search other node in BST): TC = O(n*log(n)); SC = O(log(n))
-    # `Method 3.` in:
+    # "Method 3." in:
     # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/106059/java-c-three-simple-methods-choose-one-you-like
 
     # 0.1) TC = O(n*log(n)); SC = O(n) {by queue}
@@ -71,7 +71,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     # Can we save the data in a format which will allow faster lookup? Yes! O(1) using HashSet
 
     # 1.1) Better (Save vals to HashSet): TC = O(n); SC = O(n)
-    # `Method 1.` in:
+    # "Method 1." in:
     # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/106059/java-c-three-simple-methods-choose-one-you-like
 
     """
@@ -91,7 +91,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     # But we didn't benefit from the fact that it's BST and not just BT.
 
     # 1.2) Better (BST to Sorted Array using In-order; then Two Pointers): TC = O(n); SC = O(n)
-    # `Method 2.` in:
+    # "Method 2." in:
     # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/106059/java-c-three-simple-methods-choose-one-you-like
 
     """
@@ -106,7 +106,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     arr = []
     inorder(root)
     # Step 2) Finding the 2 nums using Two-Pointers:
-    # `2) Optimal (Two-Pointers)` in:
+    # "2) Optimal (Two-Pointers)" in:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     lt, rt = 0, len(arr)-1  # init
     while lt < rt:
@@ -123,7 +123,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     # Is there a way we can traverse the BST like we traverse the sorted array from the two ends using Two Pointers?
 
     # 2) Optimal (Two Pointers on BST): TC = O(n); SC = O(log(n))
-    # Came up with this myself! Very similar to the correct & expected solution: `Solution 2` in:
+    # Came up with this myself! Very similar to the correct & expected solution: "Solution 2" in:
     # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/1420711/c-java-python-3-solutions-hashset-stack-python-yield-solutions-o-h-space
 
     """
@@ -139,7 +139,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
             stack_rt.append(node)
             traverse_rt(node.right)
 
-    # Main: Same paradigm as `2) Optimal (Two-Pointers)` of:
+    # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     stack_lt, stack_rt = [], []  # to track parent nodes
     traverse_lt(root), traverse_rt(root)  # start
@@ -173,7 +173,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
             stack_rt.append(node)
             traverse_rt(node.right)
 
-    # Main: Same paradigm as `2) Optimal (Two-Pointers)` of:
+    # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     stack_lt, stack_rt = [], []  # to track parent nodes
     traverse_lt(root), traverse_rt(root)  # start
@@ -192,7 +192,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
 
     # 2.1) Using `yield` which produces this behavior by default!:
-    # `Solution 3` in:
+    # "Solution 3" in:
     # https://leetcode.com/problems/two-sum-iv-input-is-a-bst/solutions/1420711/c-java-python-3-solutions-hashset-stack-python-yield-solutions-o-h-space
 
     # Helper Functions:
@@ -211,7 +211,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
             yield node.val
             yield from reverse_inorder(node.left)
 
-    # Main: Same paradigm as `2) Optimal (Two-Pointers)` of:
+    # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     generator_lt, generator_rt = inorder(root),  reverse_inorder(root)
     lt, rt = next(generator_lt), next(generator_rt)
