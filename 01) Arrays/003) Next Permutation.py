@@ -19,10 +19,12 @@ def next_permutation(nums: list[int]) -> None:
     from bisect import insort  # for a (throughout) sorted array
 
     bucket = []
-    for i in range(len(nums)-1):
-        insort(bucket, nums[-i-1])  # insert the last number (next to curr) keeping the array sorted
+    for i in range(len(nums)-1):  # O(n^2)
+        insort(bucket, nums[-i-1])  # insert the last number (next to curr) keeping the array sorted; O(n)
+        # "The insort() functions are O(n) because the logarithmic search step is dominated by the linear time insertion
+        # step." -https://docs.python.org/3.11/library/bisect.html#performance-notes
         curr = nums[-i-2]  # number which is in consideration currently (for this particular iteration)
-        for j, x in enumerate(bucket):
+        for j, x in enumerate(bucket):  # O(n)
             if curr < x:  # finding the next greater num than curr
                 # converting the current permutation to it's next one:
                 nums[-i-2], bucket[j] = x, curr  # 1) swapping curr and next greater num

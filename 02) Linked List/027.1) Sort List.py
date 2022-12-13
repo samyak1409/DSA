@@ -34,7 +34,6 @@ def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
 
     # 1) Brute-force = Time-Optimal (Copy Vals to Array and Sort): TC = O(n*log(n)); SC = O(n)
 
-    """
     # Insert Values in Array:
     node = head  # copy for traversal
     vals = []  # SC = O(n)
@@ -42,23 +41,7 @@ def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
         vals.append(node.val)
         node = node.next  # ++
     # Sort the Array:
-    vals.sort()  # TC = O(log(n))
-    # Update Values to the LL:
-    node = head  # copy for traversal
-    for val in vals:  # TC = O(n)
-        node.val = val
-        node = node.next  # ++
-    return head
-    """
-    # Or: (Is following a bit efficient than above one? 🤔)
-    from bisect import insort
-
-    # Insert Values in Array keeping it Sorted:
-    node = head  # copy for traversal
-    vals = []  # SC = O(n)
-    while node:  # TC = O(n*log(n))
-        insort(a=vals, x=node.val)  # TC = O(log(n))
-        node = node.next  # ++
+    vals.sort()  # TC = O(n*log(n)); SC = O(n)
     # Update Values to the LL:
     node = head  # copy for traversal
     for val in vals:  # TC = O(n)
