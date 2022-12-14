@@ -65,19 +65,19 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
         elif k > 2:
             for i in range(start, n):
                 num = nums[i]
-                if i == start or num != nums[i-1]:  # proceed if not checked already for num
+                if i == start or num != nums[i-1]:  # proceed if not already checked for num
                     len_before = len(ans)  # save start index of new answers
                     k_sum(k=k-1, target_=target_-num, start=i+1)  # recurse in; fill new answers
-                    for x in range(len_before, len(ans)):  # only insert the num with the answers it's considered with
-                        # ans[x].insert(0, num)  # linear time
+                    for x in range(len_before, len(ans)):  # insert the num with the answers it's considered with
+                        # ans[x].insert(0, num)  # O(4)
                         # but as `You may return the answer in any order.`
-                        ans[x].append(num)  # constant time
+                        ans[x].append(num)  # O(1)
 
     n = len(nums)
     nums = sorted(nums)
     ans = []  # global var that will be modified by the func.
     k_sum(k=4, target_=target)  # fill ans
-    yield from ans
+    return ans
 
 
 # Similar Questions:

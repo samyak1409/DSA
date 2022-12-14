@@ -39,10 +39,9 @@ def sub_arrays_xor(arr: list[int], x: int) -> int:
     for element in arr:
         prefix_xor ^= element
         # using the inverse logic:
-        count += frequency[prefix_xor ^ x]  # ✅✅ if a pair is made with a prefix_xor, then it will also satisfy with any
-        # & every previous occurrences of that particular prefix_xor
-        # add/update frequency of prefix_xor:
-        frequency[prefix_xor] += 1
+        count += frequency[prefix_xor ^ x]  # ✅✅ if a pair is made with a prefix_xor, then it will also satisfy with
+        # any & every previous occurrences of that particular prefix_xor
+        frequency[prefix_xor] += 1  # add/update frequency of prefix_xor
     return count
 
     # Explanation of "inverse logic":
