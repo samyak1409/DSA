@@ -16,17 +16,6 @@ def find_max_consecutive_ones(nums: list[int]) -> int:
     # All that remains afterward is to find the longest such window and return the size.
     # https://leetcode.com/problems/max-consecutive-ones/discuss/96693/Java-4-lines-concise-solution-with-explanation/101261
 
-    """
-    max_streak = streak = nums[0]  # init
-    for i in range(1, len(nums)):
-        if nums[i] and nums[i] == nums[i-1]:
-            streak += 1  # ++
-        else:
-            streak = nums[i]  # reset
-        max_streak = max(max_streak, streak)  # update max
-    return max_streak
-    """
-    # Actually, we can just:
     max_streak = streak = 0  # init
     for num in nums:
         if num:

@@ -66,7 +66,7 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
 
     hashset = set()
     count = 0
-    # Traverse every num as num1:
+    # Traverse every num as num3:
     for num3 in nums:
         # Find num2 & num1 using Hashing:
         if (num2 := num3-diff) in hashset and num2-diff in hashset:  # `num2-diff` = num1

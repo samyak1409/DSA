@@ -72,7 +72,7 @@ def longest_ones(nums: list[int], k: int) -> int:
     # zeros we have (we don't actually have to flip the zeros here!).
     # The way to shrink or expand a window would be based on the number of zeros that can still be flipped and so on.
     # 1) Optimal (Sliding Window): TC = O(n); SC = O(1)
-    # Stating the obvious: In sliding window, once we go ahead we never go back!
+    # Stating the obvious: In sliding window, once we go ahead, we never go back!
 
     # 1.1) Intuitive & Easy but a bit Slower:
     """
@@ -82,13 +82,13 @@ def longest_ones(nums: list[int], k: int) -> int:
     while j < n:  # while not reached at the end
         if (num := nums[j]) or k > 0:  # => either num is 1 or flips are available
             j += 1  # increase subarray
+            max_streak = max(max_streak, j-i)  # update max
             if not num:  # => came here by flipping
                 k -= 1
         else:  # => next num is 0 and flips are N/A
             if not nums[i]:  # the element we're discarding from our window is 0
                 k += 1
             i += 1  # decrease subarray
-        max_streak = max(max_streak, j-i)  # update max
     return max_streak
     """
 
@@ -102,11 +102,11 @@ def longest_ones(nums: list[int], k: int) -> int:
 
     i, j = 0, -1
     for j in range(len(nums)):
-        k -= 1 - nums[j]  # `k -= 1 if nums[j] == 0 else 0`
+        k -= 1-nums[j]  # `k -= 1 if nums[j] == 0 else 0`
         if k < 0:
             # num we just considered (we're automatically considering current num as j is moving continuously) was 0 and
             # k underflow-ed, so in order to keep the window size MAX only, increasing i
-            k += 1 - nums[i]  # `k += 1 if not nums[i] == 1 else 0`; the element we're discarding from our window is 0
+            k += 1-nums[i]  # `k += 1 if not nums[i] == 1 else 0`; the element we're discarding from our window is 0
             i += 1
     return j-i+1
 
