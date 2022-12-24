@@ -16,4 +16,16 @@ def number_of_cuts(n: int) -> int:
     return n if n % 2 else n // 2
 
     # Explanation:
-    # https://leetcode.com/problems/minimum-cuts-to-divide-a-circle/discuss/2850445/JavaC++Python-Easy-and-Concise
+    # "If n == 1, no need to cut,
+    # return 0.
+    #
+    # If n is odd like n == 3,
+    # cannot cut on diameter.
+    # need to cut one by one,
+    # return n
+    #
+    # If n is even like n == 6,
+    # we can cut on diameter.
+    # It's same as cut into n = 3 but cut on diameter,
+    # so return n / 2."
+    # -https://leetcode.com/problems/minimum-cuts-to-divide-a-circle/discuss/2850445/JavaC++Python-Easy-and-Concise

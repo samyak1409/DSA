@@ -31,11 +31,24 @@ def pivot_integer(n: int) -> int:
 
     # 1.2) Better (Use sum of n terms formula to calc sum for every possible x): TC = O(n); SC = O(1)
 
+    """
     sum_1st_n = n*(n+1)//2
     for x in range(1, n+1):  # x -> pivot
         if (sum_1st_x := x*(x+1)//2) == (sum_1st_n - sum_1st_x + x):  # `sum_1st_n - sum_1st_x + x` = sum_x_to_n
             return x
     return -1
+    """
 
-    # 2) Optimal (?): TC = O(log(n)); SC = O(1)
-    # https://leetcode.com/problems/find-the-pivot-integer/discuss
+    # 2) Optimal: TC = O(log(n)); SC = O(1)
+
+    # 2.1) Binary Search:
+    # 2nd in https://leetcode.com/problems/find-the-pivot-integer/solutions/2851991/sqrt-binary-search-dp
+
+    # 2.2) Maths:
+    # sum_of_1_to_x + sum_of_x_to_n = sum_of_1_to_n
+    # Solving this will get us: x = sqrt(sum_of_1_to_n)
+    # 1st in https://leetcode.com/problems/find-the-pivot-integer/solutions/2851991/sqrt-binary-search-dp
+    # https://leetcode.com/problems/find-the-pivot-integer/solutions/2851954/simple-maths-proof-with-picture
+
+    x = (n*(n+1)//2) ** .5
+    return int(x) if int(x) == x else -1  # "If no such integer exists, return -1." e.g. for n == 4
