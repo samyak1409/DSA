@@ -13,15 +13,15 @@ def count_good_strings(low: int, high: int, zero: int, one: int) -> int:
     def recurse(length: int = 0):
         if length > high:  # base case: length exceeded
             return  # stop recursion from this node
-        if length >= low:  # check if 1 good string constructed and continue
-            count[0] += 1
+        if length >= low:  # if a good string is constructed, increase the count and go ahead
+            count[0] = (count[0]+1) % 1_000_000_007
         recurse(length+zero), recurse(length+one)  # recurse in (two edges of every node)
 
     count = [0]  # using `list` because `int` is immutable
     recurse()  # calc using recursion
-    return count[0] % 1_000_000_007
+    return count[0]
 
-    # 1) Optimal (DP): TC = O(?); SC = O(?)
+    # 1) Optimal (DP): TC = O(high); SC = O(high)
     # Calculate the number of good strings with length less or equal to some constant x.
     # Apply dynamic programming using the group size of consecutive zeros and ones.
-    # https://leetcode.com/problems/count-ways-to-build-good-strings/discuss
+    # https://leetcode.com/problems/count-ways-to-build-good-strings/solutions
