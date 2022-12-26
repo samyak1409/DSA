@@ -19,6 +19,11 @@ def minimum_operations(root: Optional[TreeNode]) -> int:
 
     # 1) Optimal (Level Order Traversal + Min Swaps to Sort an Array): TC = O(log(n) * (k + k*log(k))); SC = O(k)
     #                                                                  where k = log(2^n, base=n)
+    # We can group the values level by level and solve each group independently.
+    # Do BFS to group the value level by level.
+    # Find the minimum number of swaps to sort the array of each level.
+    # While iterating over the array, check the current element, and if not in the correct index, replace that element
+    # with the index of the element which should have come.
 
     # Helper Function:
     def get_min_swaps(arr: list[int], n: int) -> int:
@@ -44,7 +49,7 @@ def minimum_operations(root: Optional[TreeNode]) -> int:
                 ans += 1  # update ans
         return ans
 
-    # Level Order Traversal (TC = O(n) {= O(log(n, base=2) * log(2^n, base=n))}; SC = O(log(2^n, base=n))):
+    # Level Order Traversal (BFS) (TC = O(n) {= O(log(n, base=2) * log(2^n, base=n))}; SC = O(log(2^n, base=n))):
     # Derivation of TC and SC:
     # Total nodes in the Tree = n => TC = n
     # `while` loop will run levels time, and no. of levels in a binary tree = log(n, base=2)
