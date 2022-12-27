@@ -3,7 +3,7 @@ https://leetcode.com/problems/two-sum-iv-input-is-a-bst
 """
 
 
-from typing import Optional
+from typing import Optional, Generator
 
 
 # Definition for a binary tree node.
@@ -129,12 +129,12 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
     # Helper Functions:
 
-    def traverse_lt(node):
+    def traverse_lt(node: Optional[TreeNode]) -> None:
         if node:
             stack_lt.append(node)
             traverse_lt(node.left)
 
-    def traverse_rt(node):
+    def traverse_rt(node: Optional[TreeNode]) -> None:
         if node:
             stack_rt.append(node)
             traverse_rt(node.right)
@@ -163,12 +163,12 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
     # Helper Functions:
 
-    def traverse_lt(node):
+    def traverse_lt(node: Optional[TreeNode]) -> None:
         if node:
             stack_lt.append(node)
             traverse_lt(node.left)
 
-    def traverse_rt(node):
+    def traverse_rt(node: Optional[TreeNode]) -> None:
         if node:
             stack_rt.append(node)
             traverse_rt(node.right)
@@ -197,13 +197,14 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
 
     # Helper Functions:
 
-    def inorder(node):
+    def inorder(node: Optional[TreeNode]) -> Generator:
         if node:
             yield from inorder(node.left)
             yield node.val
             yield from inorder(node.right)
 
-    def reverse_inorder(node):  # https://en.wikipedia.org/wiki/Tree_traversal#Reverse_in-order,_RNL
+    # https://en.wikipedia.org/wiki/Tree_traversal#Reverse_in-order,_RNL
+    def reverse_inorder(node: Optional[TreeNode]) -> Generator:
         # For BST, this will yield the values in descending order, like the `inorder` yields the values in ascending
         # order.
         if node:

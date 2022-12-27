@@ -45,7 +45,7 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # O(n) space, still writing, why? For Recursion practice!
     """
     # Recursive Function:
-    def reverse(curr, prev=None):
+    def reverse(curr, prev=None) -> Optional[ListNode]:
         # '''Recursively reverses a singly LL and returns the head node.'''
         if not curr:  # base case: traversed whole LL
             return prev  # as the direction of pointers are reversed, `prev` (last node) basically is head now!

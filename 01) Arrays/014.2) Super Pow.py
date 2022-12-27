@@ -11,7 +11,7 @@ def super_pow(a: int, b: list[int]) -> int:
 
     """
     # Recursive Function:
-    def my_pow(x, n):
+    def my_pow(x: int, n: int) -> int:
         if n == 0:  # base case
             return 1  # recurse out
         return my_pow(x*x, n//2) if (n % 2 == 0) else x*my_pow(x*x, (n-1)//2)  # recurse in
@@ -26,7 +26,7 @@ def super_pow(a: int, b: list[int]) -> int:
     # step. God! Use this everytime in Qs where mod thing is given.
 
     # Recursive Function:
-    def my_pow(x, n):
+    def my_pow(x: int, n: int) -> int:
         if n == 0:  # base case
             return 1  # recurse out
         return my_pow(x*x % 1337, n//2) % 1337 if (n % 2 == 0) else x*my_pow(x*x % 1337, (n-1)//2) % 1337  # recurse in

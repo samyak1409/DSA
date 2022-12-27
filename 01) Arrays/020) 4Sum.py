@@ -39,7 +39,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # https://leetcode.com/problems/4sum/discuss/8545/Python-140ms-beats-100-and-works-for-N-sum-(Ngreater2)
 
     # Recursive Function:
-    def k_sum(k: int, target_: int, start: int = 0):
+    def k_sum(k: int, target_: int, start: int = 0) -> None:
         if k == 2:  # base case
             # Now, finding the 2 nums using Two-Pointers: TC = O(n); SC = O(1)
             # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
