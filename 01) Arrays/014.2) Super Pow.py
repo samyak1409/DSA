@@ -33,4 +33,5 @@ def super_pow(a: int, b: list[int]) -> int:
 
     return my_pow(x=a, n=int(''.join(map(str, b))))
 
-    # Better Solutions: https://leetcode.com/problems/super-pow/discuss
+    # 2) Optimal (Maths Based): TC = O(?); SC = O(?)
+    # https://leetcode.com/problems/super-pow/solutions
