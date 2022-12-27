@@ -67,8 +67,7 @@ def closest_nodes(root: Optional[TreeNode], queries: list[int]) -> list[list[int
 
     # So, to solve this problem, what can we do? We can simply make a sorted array from the BST, and then apply BS
     # on that array!
-    # 1) Optimal (BST to Sorted Array; For Every Query, BS the Array): TC = O(n*log(n));
-    #                                                                  SC = O(log(n)) (Average Case), O(n) (Worst Case)
+    # 1) Optimal (BST to Sorted Array; For Every Query, BS the Array): TC = O(n*log(n)); SC = O(n)
     # https://leetcode.com/problems/closest-nodes-queries-in-a-binary-search-tree/discuss/2831692/Is-the-tree-balanced
 
     # Preprocessing: BST to Sorted Array (https://www.geeksforgeeks.org/flatten-bst-to-sorted-list-increasing-order):
