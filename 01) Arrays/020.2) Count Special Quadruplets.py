@@ -31,65 +31,41 @@ def count_quadruplets(nums: list[int]) -> int:
     # Instead, each time we see a new number, we increment that number's count in our hashmap.
     # By going backwards, we guarantee that d comes after a, b, and c, and for each combination of a, b, and c,
     # we simply check the dictionary to see if we have already seen their sum before.
-    # https://leetcode.com/problems/count-special-quadruplets/discuss/1456709/Python-99-Clean-Code-Walkthrough-From-O(4)-greater-O(3)-greater-O(2)
-    # https://leetcode.com/problems/count-special-quadruplets/discuss/1452628/O(n4)-200-ms-vs.-O(n3)-16-ms
+    # https://leetcode.com/problems/count-special-quadruplets/solutions/1446756/c-two-simple-short-explained-solutions-brute-force-improved-version
+    # https://leetcode.com/problems/count-special-quadruplets/solutions/1456709/python-99-clean-code-walkthrough-from-o-4-o-3-o-2
+    # https://leetcode.com/problems/count-special-quadruplets/solutions/1452628/o-n4-200-ms-vs-o-n3-16-ms
 
+    """
     from collections import Counter
 
     n = len(nums)
     hashmap = Counter()  # collections.Counter for easy working
     count = 0
     for c in range((n-1)-1, -1, -1):  # reverse traverse
-        hashmap[nums[c+1]] += 1  # c+1 = d
+        d = c + 1
+        hashmap[nums[d]] += 1  # hash nums[d]
         for b in range(c-1, -1, -1):
             for a in range(b-1, -1, -1):
-                count += hashmap[nums[c]+nums[b]+nums[a]]
+                count += hashmap[nums[c]+nums[b]+nums[a]]  # search nums[a]+nums[b]+nums[c]
     return count
+    """
 
-    # (DIDN'T UNDERSTAND):
     # 2) Optimal (2 Loops & HashMap): TC = O(n^2); SC = O(n^2)
     # Divide in two groups, i.e. nums[a]+nums[b]+nums[c] == nums[d] -> nums[a]+nums[b] == -nums[c]+nums[d]
-    # https://leetcode.com/problems/count-special-quadruplets/discuss/1456709/Python-99-Clean-Code-Walkthrough-From-O(4)-greater-O(3)-greater-O(2)
-    # https://leetcode.com/problems/count-special-quadruplets/discuss/1446988/JavaC++Python3-Real-O(n2)-solution
-    # https://leetcode.com/problems/count-special-quadruplets/discuss/1451080/JavaPython-O(n2)-solution-with-explanation
+    # See this visualization for easy understanding:
+    # https://raw.githubusercontent.com/wf9a5m75/leetcode/f45e9b9c9fffd7956641b62b5777bcb2e76fe20c/count-special-quadruplets/whiteboard.jpg
+    # https://leetcode.com/problems/count-special-quadruplets/solutions/1446988/java-c-python3-real-o-n-2-solution
+    # https://leetcode.com/problems/count-special-quadruplets/solutions/1456709/python-99-clean-code-walkthrough-from-o-4-o-3-o-2
 
-    # Step-by-step algorithm building:
-    # i) Can we write an algo which can find all the possible pairs of len 2?
-    '''
+    from collections import Counter
+
     n = len(nums)
-    for a in range(n):
-        for b in range(a+1, n):
-            print(nums[a], nums[b])
-    '''
-    # ii) Can we write algos which can find all the possible pairs of group 1 and group 2?
-    '''
-    n = len(nums)
-    print('G1')
-    for a in range(0, n-3):  # last a can be at (n-4)-th index
-        for b in range(a+1, n-2):  # last b can be at (n-3)-th index
-            print(nums[a], nums[b])
-    print('G2')
-    for c in range(2, n-1):  # first c can be at 2nd index
-        for d in range(c+1, n):  # first d can be at 3rd index
-            print(nums[c], nums[d])
-    '''
-    # iii) Can we write a merged algo (in order to make sure `a < b < c < d`) which can find all the possible pairs of
-    # both groups?
-    '''
-    pass
-    '''
-    # iv) Can we do the same thing in reverse?
-    # Why reverse? Now we have two groups so why can't we do it without reversing? 😶
-    '''
-    pass
-    '''
-    # v) That's it! Now just integrate hashmap in the algo to search required pair from other group in O(1) time!
-    '''
-    pass
-    '''
-
-
-# For debugging `2) Optimal`:
-# print(), count_quadruplets([1, 2, 3, 4])
-# print(), count_quadruplets([1, 2, 3, 4, 5])
-# print(), count_quadruplets([1, 1, 1, 3, 5])
+    hashmap = Counter()  # collections.Counter for easy working
+    count = 0
+    for c in range(n-2, 1, -1):  # reverse traverse
+        for d in range(n-1, c, -1):
+            hashmap[nums[d]-nums[c]] += 1  # hash -nums[c]+nums[d]
+        b = c - 1
+        for a in range(b-1, -1, -1):
+            count += hashmap[nums[b]+nums[a]]  # search nums[a]+nums[b]
+    return count
