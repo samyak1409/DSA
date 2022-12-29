@@ -32,5 +32,5 @@ def divide_players(skill: list[int]) -> int:
     for s1, count in skill_count.items():
         if skill_count[s2 := team_skill-s1] != count:  # if there are diff. no. of players with required skill
             return -1                                  # in order to make skill of each team equal
-        chemistry += s1 * s2 * count
+        chemistry += (s1 * s2) * count
     return chemistry // 2  # because we ran the loop all over the `skill`, so pairs are considered twice
