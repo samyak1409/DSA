@@ -3,6 +3,25 @@ Rough.py
 # Will add problems I did from https://leetcode.com/problemset/all/?listId=wpwgkgt in the end:
 14) Additional (From LeetCode List - Top Interview Questions)
 
+# Will complete problems with topics that I haven't learnt after learning:
+01) Arrays/003.1) Permutations.py/ (Backtracking)
+01) Arrays/003.2) Permutations II.py/ (Backtracking)
+01) Arrays/005.1) Wiggle Sort II.py/ (Maths)
+01) Arrays/006.2) Best Time to Buy and Sell Stock with Cooldown.py/ (DP)
+01) Arrays/014.2) Super Pow.py/ (Maths)
+01) Arrays/017.1) Unique Paths II.py/ (DP)
+01) Arrays/017.2) Minimum Path Sum.py/ (DP)
+01) Arrays/017.4) Minimum Path Cost in a Grid.py/ (DP)
+02) Linked List/027.1) Sort List.py/ (Merge Sort on LL)
+02) Linked List/029.3) Sum of Two Integers.py/ (Bit Manipulation)
+02) Linked List/038.1) Clone Graph.py/ (Graph)
+Contests/Biweekly Contest 91/2) Count Ways To Build Good Strings.py/ (DP)
+Contests/Biweekly Contest 91/3) Most Profitable Path in a Tree.py/ (Graph)
+Contests/Weekly Contest 319/2) Number of Subarrays With LCM Equal to K.py/ (Maths)
+Contests/Weekly Contest 320/1) Number of Unequal Triplets in Array.py/ (Maths)
+Contests/Weekly Contest 320/3) Minimum Fuel Cost to Report to the Capital.py/ (Graph)
+Contests/Weekly Contest 322/3) Minimum Score of a Path Between Two Cities.py/ (Graph)
+
 # Will do problems with "Hard" difficulty in the end:
 01) Arrays/018) Reverse Pairs.py
 01) Arrays/040) Trapping Rain Water.py
