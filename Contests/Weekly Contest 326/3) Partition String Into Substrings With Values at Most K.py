@@ -6,14 +6,17 @@ https://leetcode.com/problems/partition-string-into-substrings-with-values-at-mo
 def minimum_partition(s: str, k: int) -> int:
     """"""
 
-    ans = 0
-    ss = 0
-    for d in s:
-        d = int(d)
-        if d > k:
+    # 1) Optimal (Sliding Window): TC = O(n); SC = O(1)
+    # https://leetcode.com/problems/partition-string-into-substrings-with-values-at-most-k/solutions/2977270/greedy
+
+    sub_str = 0
+    parts = 1
+    for digit in s:
+        digit = int(digit)
+        if digit > k:  # if single digit itself > k, then "The value of each substring <= k." is not possible
             return -1
-        ss = ss*10 + d
-        if ss > k:
-            ans += 1
-            ss = d
-    return ans + 1
+        sub_str = sub_str*10 + digit  # increase the window size
+        if sub_str > k:  # if sub_str goes > k, do partition
+            parts += 1
+            sub_str = digit
+    return parts
