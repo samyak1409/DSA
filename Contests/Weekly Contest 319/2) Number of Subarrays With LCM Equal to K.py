@@ -13,6 +13,7 @@ def subarray_lcm(nums: list[int], k: int) -> int:
     # you know that any larger subarrays containing all the current elements will not work.
 
     from math import lcm
+    # Definition: https://github.com/samyak1409/python-lab-assignments/blob/main/9/b.py
 
     n = len(nums)
     count = 0
