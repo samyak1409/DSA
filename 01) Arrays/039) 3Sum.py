@@ -130,6 +130,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     target = -(num1+num2)  # required num3
                     # Now, finding num3 using Binary Search:
                     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+                    # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
                     lo, hi = j+1, n-1
                     while lo <= hi:
                         num3 = nums[(mid := (lo+hi)//2)]

@@ -39,6 +39,7 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
     """
     # Helper Function:
     def index(x: int, start: int = None, end: int = None) -> (int, None):
+        # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
         lo, hi = start or 0, end or len(nums)-1
         while lo <= hi:
             y = nums[(mid := (lo+hi)//2)]

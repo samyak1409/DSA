@@ -30,6 +30,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     for index1 in range(n):
         req_num2 = target - nums[index1]  # nums[index1] = num1
         # Finding the required_num2 using Binary Search:
+        # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
         lo, hi = index1+1, n-1
         while lo <= hi:
             index2 = (lo+hi) // 2  # mid index
