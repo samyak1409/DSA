@@ -32,17 +32,17 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
 
     m, n = len(matrix), len(matrix[0])
-    low, high = 0, m*n - 1
-    while low <= high:
-        mid = (low+high) // 2
+    lo, hi = 0, m*n - 1
+    while lo <= hi:
+        mid = (lo+hi) // 2
         row, col = divmod(mid, n)  # mid // n, mid % n
         integer = matrix[row][col]  # easy
         if integer == target:
             return True
         elif integer < target:
-            low = mid + 1
+            lo = mid + 1
         else:
-            high = mid - 1
+            hi = mid - 1
     return False
 
     # 2.1) Alternatively we can also do Binary Search to find the Target Row, then Binary Search to find the Target,

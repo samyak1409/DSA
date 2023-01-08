@@ -7,7 +7,7 @@ def top_students(positive_feedback: list[str], negative_feedback: list[str], rep
                  k: int) -> list[int]:
     """"""
 
-    # 1) Optimal (Smartly use tuple to achieve required sort order): TC = O(); SC = O()
+    # 1) Optimal (Smartly use tuple to achieve required sort order): TC = O(n*log(n)); SC = O(n)
     # Hash the positive and negative feedback words separately.
     # Calculate the points for each student’s feedback.
     # Sort the students accordingly to find the top k among them.

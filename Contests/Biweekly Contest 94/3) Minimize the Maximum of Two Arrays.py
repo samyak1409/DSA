@@ -17,20 +17,20 @@ def minimize_set(d1: int, d2: int, c1: int, c2: int) -> int:
     from math import lcm
     # Definition: https://github.com/samyak1409/python-lab-assignments/blob/main/9/b.py
 
-    lt, rt = 2, 2147483647  # `lt = 2` since "2 <= uniqueCnt1 + uniqueCnt2"
-    # `rt = 2147483647` i.e. 2^31 - 1 i.e. max int (32-bit) (https://en.wikipedia.org/wiki/2,147,483,647#In_computing)
+    lo, hi = 2, 2147483647  # `lo = 2` since "2 <= uniqueCnt1 + uniqueCnt2"
+    # `hi = 2147483647` i.e. 2^31 - 1 i.e. max int (32-bit) (https://en.wikipedia.org/wiki/2,147,483,647#In_computing)
     # Python doesn't have int limit, but other langs have, so.
     d1d2 = lcm(d1, d2)  # TC = O(log(min(d1, d2)))
     # https://www.geeksforgeeks.org/time-complexity-of-euclidean-algorithm
     # https://www.baeldung.com/cs/euclid-time-complexity
 
-    while lt < rt:
-        val = (lt+rt) // 2
+    while lo < hi:
+        val = (lo+hi) // 2
         if val-(val//d1) >= c1 and val-(val//d2) >= c2 and val-(val//d1d2) >= c1+c2:  # => `val` could be the ans
-            rt = val  # compressing the search range: let's see if a smaller `val` satisfies the conditions
+            hi = val  # compressing the search range: let's see if a smaller `val` satisfies the conditions
         else:  # => we need a bigger `val` in order to fill the arrays with the required conditions
-            lt = val + 1  # compressing the search range: `val` can't be the ans, so `lt = val + 1`
-    return rt  # or lt
+            lo = val + 1  # compressing the search range: `val` can't be the ans, so `lo = val + 1`
+    return hi  # or lo
 
     # Explanation of `if val-(val//d1) >= c1 and val-(val//d2) >= c2 and val-(val//d1d2) >= c1+c2`:
     # `val-(val//d1)   >= c1`   : ([1, val] - multiples of d1 in               [1, val]) >= c1
