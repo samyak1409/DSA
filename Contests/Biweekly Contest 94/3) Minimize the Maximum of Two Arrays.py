@@ -37,5 +37,8 @@ def minimize_set(d1: int, d2: int, c1: int, c2: int) -> int:
     # `val-(val//d2)   >= c2`   : ([1, val] - multiples of d2 in               [1, val]) >= c2
     # `val-(val//d1d2) >= c1+c2`: ([1, val] - multiples of d1 as well as d2 in [1, val]) >= c1+c2
 
+    # Note that we could have done the Linear Search in place of Binary Search, but that would be very slow, and since
+    # the `integers` are sorted, Binary Search is the correct choice.
+
     # 2) Optimal (Maths): TC = O(log(min(d1, d2))); SC = O(1)
     # https://leetcode.com/problems/minimize-the-maximum-of-two-arrays/solutions/2947014/formula
