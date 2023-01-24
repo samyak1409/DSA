@@ -24,7 +24,7 @@ What is SDE Sheet?
 
 ```py
 """
-Question URL (LC if LC else CN)
+Question URL (`LC or GFG or CN`)
 """
 
 
