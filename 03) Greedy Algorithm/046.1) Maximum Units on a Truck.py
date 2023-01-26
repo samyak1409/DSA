@@ -29,7 +29,3 @@ def maximum_units(box_types: list[list[int]], truck_size: int) -> int:
             break
 
     return max_total_units
-
-
-# Similar Questions:
-# https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks

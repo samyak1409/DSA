@@ -36,3 +36,8 @@ def fractional_knapsack(w: int, arr: list[Item], n: int) -> int:
             break
 
     return max_total_val
+
+
+# Similar Questions:
+# https://leetcode.com/problems/maximum-units-on-a-truck
+# https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks
