@@ -6,7 +6,7 @@ https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
 def maximum_meetings(n: int, start: list[int], end: list[int]) -> int:
     """"""
 
-    # 0) Optimal (Greedy: Sort by end time): TC = O(n*log(n)); SC = O(n)
+    # 1) Optimal (Greedy: Sort by end time): TC = O(n*log(n)); SC = O(n)
     # Why are we sorting on the basis of end time?
     # Because:
     # 1) As we have to maximize the meeting count, we want to schedule the meeting which is ending earlier before.

@@ -6,7 +6,8 @@ https://practice.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
 def minimum_platform(n: int, arr: list[int], dep: list[int]):
     """"""
 
-    # 1) Sub-Optimal (Sort Both Arrays Individually, then Traverse using Two Pointers): TC = O(n*log(n)); SC = O(n)
+    # 1) Sub-Optimal (Greedy: Sort Both Arrays Individually, then Traverse using Two Pointers):
+    # TC = O(n*log(n)); SC = O(n)
     # Why will sorting the arrays individually work?
     # Because we don't care about which train arrive or depart, we just need the maximum number of platforms occupied
     # by the trains at any particular point of time!
@@ -33,7 +34,7 @@ def minimum_platform(n: int, arr: list[int], dep: list[int]):
     return ans
     """
 
-    # 1.1) Same Idea, but More-Intuitive and Easier-To-Sink-In Implementation:
+    # 1.1) Same Idea, but Better (More-Intuitive and Easier-To-Sink-In) Implementation:
     # Using only single array not two, and putting both the times in that array with attr 'a' or 'd', then sorting them,
     # and then traversing one by one.
 
@@ -53,13 +54,12 @@ def minimum_platform(n: int, arr: list[int], dep: list[int]):
     """
 
     # 2) Optimal (Range Caching!!!! (Prefix Sum)): TC = O(n); SC = O(1)
-    # This solution is improved implementation of above idea!
     # Video Explanation: https://practice.geeksforgeeks.org/problems/minimum-platforms-1587115620/1 > Editorial > Video
 
-    # Init arr on which we'll perform range caching:
+    # Init array on which we'll perform range caching:
     times = [0] * (2360+1)  # all possible times (0000 ≤ A[i] ≤ D[i] ≤ 2359)
 
-    # Traverse train times and cache them into the arr:
+    # Traverse train times and cache them into the `times` array:
     for at, dt in zip(arr, dep):  # O(n)
         times[at] += 1
         times[dt+1] -= 1
