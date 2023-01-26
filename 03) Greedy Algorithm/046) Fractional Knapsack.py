@@ -14,23 +14,25 @@ def fractional_knapsack(w: int, arr: list[Item], n: int) -> int:
 
     # First of all you should know:
     # https://www.geeksforgeeks.org/difference-between-0-1-knapsack-problem-and-fractional-knapsack-problem
+    # https://en.wikipedia.org/wiki/Knapsack_problem
+    # https://en.wikipedia.org/wiki/Continuous_knapsack_problem
 
     # 1) Optimal (Greedy: Sort by Decreasing Profit per Unit): TC = O(n*log(n)); SC = O(n) {sorting}
     # GFG Article: https://www.geeksforgeeks.org/fractional-knapsack-problem
     # Abdul Bari Sir: https://youtu.be/oTTzNMHM05I (Gold :))
 
-    max_profit = 0
+    max_total_val = 0
 
     for item in sorted(arr, key=lambda itm: itm.value/itm.weight, reverse=True):
-        if w >= item.weight:  # take whole item
+        if w >= item.weight:  # we can take the whole item
             w -= item.weight
-            max_profit += item.value
-        else:  # fraction of item has to be taken
+            max_total_val += item.value
+        else:  # we need to take a fraction of item
             '''
             if w:
-                max_profit += item.value / (item.weight / w)
+                max_total_val += item.value / (item.weight / w)
             '''
-            max_profit += (item.value * w) / item.weight
+            max_total_val += (item.value * w) / item.weight
             break
 
-    return max_profit
+    return max_total_val
