@@ -20,6 +20,8 @@ def fractional_knapsack(w: int, arr: list[Item], n: int) -> int:
     # 1) Optimal (Greedy: Sort by Decreasing Profit per Unit): TC = O(n*log(n)); SC = O(n) {sorting}
     # GFG Article: https://www.geeksforgeeks.org/fractional-knapsack-problem
     # Abdul Bari Sir: https://youtu.be/oTTzNMHM05I (Gold :))
+    # "HOW DO WE KNOW THAT WE HAVE CHOSEN THE BEST ANSWER, WITHOUT TRYING OTHER OPTIONS?
+    # BECAUSE THE METHOD WE CHOSE, IS THE BEST!"
 
     max_total_val = 0
 
