@@ -20,8 +20,7 @@ def job_scheduling(jobs: list[Job], n: int) -> list[int, int]:
     # By doing this what happens is we consider the biggest profits and do them on the deadline (if deadline is not
     # available, doing it as near as possible before deadline), so, we get max profit!
     # https://leetcode.com/discuss/interview-question/1065228/job-sequencing-problem
-    # https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1 > Editorial > "Greedy approach for
-    # job sequencing problem"
+    # "Greedy approach for job sequencing problem" in https://www.geeksforgeeks.org/job-sequencing-problem
     # [Striver's Video Explanation](https://youtu.be/LjPx4wQaRIs)
     # https://youtu.be/zPtI8q9gvX8
 
@@ -48,8 +47,7 @@ def job_scheduling(jobs: list[Job], n: int) -> list[int, int]:
     # e.g. current deadline is 5 and next deadline is 3, this means the only job which can be done at 5 (or 4) is
     # current job, because as we're sorted in descending deadline, all the next jobs have earlier deadline!
     # And finally, using Max Heap to do the Job(s) w/ Max Profits out of the only Jobs which can be done at that time!
-    # https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1 > Editorial > "Job sequencing
-    # problem using Priority-Queue (Max-Heap)"
+    # "Job sequencing problem using Priority-Queue (Max-Heap)" in https://www.geeksforgeeks.org/job-sequencing-problem
 
     from heapq import heappush, heappop
 
