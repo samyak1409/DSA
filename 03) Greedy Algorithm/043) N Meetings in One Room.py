@@ -21,3 +21,7 @@ def maximum_meetings(n: int, start: list[int], end: list[int]) -> int:
             count += 1  # this meeting scheduled
             prev_et = et  # update
     return count
+
+
+# Similar Questions:
+# https://practice.geeksforgeeks.org/problems/activity-selection-1587115620/1

@@ -23,6 +23,7 @@ def job_scheduling(jobs: list[Job], n: int) -> list[int, int]:
     # https://practice.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1 > Editorial > "Greedy approach for
     # job sequencing problem"
     # [Striver's Video Explanation](https://youtu.be/LjPx4wQaRIs)
+    # https://youtu.be/zPtI8q9gvX8
 
     """
     jobs_done = max_profit = 0
@@ -72,4 +73,4 @@ def job_scheduling(jobs: list[Job], n: int) -> list[int, int]:
     return [jobs_done, max_profit]
 
     # It can also be optimized using Disjoint Set Data Structure. Please refer to the below post for details.
-    # https://www.cdn.geeksforgeeks.org/job-sequencing-using-disjoint-set-union
+    # https://www.geeksforgeeks.org/job-sequencing-problem-using-disjoint-set
