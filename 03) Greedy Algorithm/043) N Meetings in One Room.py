@@ -16,7 +16,7 @@ def maximum_meetings(n: int, start: list[int], end: list[int]) -> int:
 
     count = 0
     prev_et = None
-    for i, (st, et) in sorted(enumerate(zip(start, end), start=1), key=lambda tup: tup[1][1]):  # `tup[1][1]`: end time
+    for st, et in sorted(zip(start, end), key=lambda tup: tup[1]):
         if prev_et is None or st > prev_et:
             count += 1  # this meeting scheduled
             prev_et = et  # update
