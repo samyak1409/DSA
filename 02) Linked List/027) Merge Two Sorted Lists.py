@@ -3,9 +3,6 @@ https://leetcode.com/problems/merge-two-sorted-lists
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def merge_two_lists(node1: Optional[ListNode], node2: Optional[ListNode]) -> Optional[ListNode]:
+def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode | None:
     """"""
 
     # Similar to what we did here:

@@ -3,9 +3,6 @@ https://leetcode.com/problems/reverse-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
+def reverse_list(head: ListNode | None) -> ListNode | None:
     """"""
 
     # 0) Brute-force (Changing the Values using Stack): TC = O(n); SC = O(n)
@@ -45,7 +42,7 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     # O(n) space, still writing, why? For Recursion practice!
     """
     # Recursive Function:
-    def reverse(curr, prev=None) -> Optional[ListNode]:
+    def reverse(curr, prev=None) -> ListNode | None:
         # '''Recursively reverses a singly LL and returns the head node.'''
         if not curr:  # base case: traversed whole LL
             return prev  # as the direction of pointers are reversed, `prev` (last node) basically is head now!

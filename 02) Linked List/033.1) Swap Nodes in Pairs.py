@@ -3,9 +3,6 @@ https://leetcode.com/problems/swap-nodes-in-pairs
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def swap_pairs(head: Optional[ListNode]) -> Optional[ListNode]:
+def swap_pairs(head: ListNode | None) -> ListNode | None:
     """"""
 
     # You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be

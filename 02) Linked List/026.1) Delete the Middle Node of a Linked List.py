@@ -3,9 +3,6 @@ https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def delete_middle(head: Optional[ListNode]) -> Optional[ListNode]:
+def delete_middle(head: ListNode | None) -> ListNode | None:
     """"""
 
     # All the solutions are (modifications of the solutions) from

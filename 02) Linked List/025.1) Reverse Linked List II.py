@@ -3,9 +3,6 @@ https://leetcode.com/problems/reverse-linked-list-ii
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+def reverse_between(head: ListNode | None, left: int, right: int) -> ListNode | None:
     """"""
 
     # All the solutions are (modifications of the solutions) from

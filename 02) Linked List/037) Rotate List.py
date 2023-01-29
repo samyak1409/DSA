@@ -3,9 +3,6 @@ https://leetcode.com/problems/rotate-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def rotate_right(head: Optional[ListNode], k: int) -> Optional[ListNode]:
+def rotate_right(head: ListNode | None, k: int) -> ListNode | None:
     """"""
 
     # 0) [TLE] Brute-force (Rotate One by One k Times): TC = O(k*n); SC = O(1)

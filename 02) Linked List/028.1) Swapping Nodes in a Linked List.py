@@ -3,9 +3,6 @@ https://leetcode.com/problems/swapping-nodes-in-a-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def swap_nodes(head: Optional[ListNode], k: int) -> Optional[ListNode]:
+def swap_nodes(head: ListNode | None, k: int) -> ListNode | None:
     """"""
 
     # All the solutions are (modifications of the solutions) from

@@ -3,9 +3,6 @@ https://leetcode.com/problems/linked-list-cycle
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = None
 
 
-def has_cycle(head: Optional[ListNode]) -> bool:
+def has_cycle(head: ListNode | None) -> bool:
     """"""
 
     # 1) Time-Optimal (HashSet): TC = O(n); SC = O(n)

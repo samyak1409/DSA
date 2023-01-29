@@ -3,9 +3,6 @@ https://leetcode.com/problems/split-linked-list-in-parts
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def split_list_to_parts(head: Optional[ListNode], k: int) -> list[Optional[ListNode]]:
+def split_list_to_parts(head: ListNode | None, k: int) -> list[ListNode | None]:
     """"""
 
     # 1) Optimal (Get Len of LL; Calc. Len of Parts; Do Partitions): TC = O(n); SC = O(1)

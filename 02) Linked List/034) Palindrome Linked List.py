@@ -3,9 +3,6 @@ https://leetcode.com/problems/palindrome-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def is_palindrome(head: Optional[ListNode]) -> bool:
+def is_palindrome(head: ListNode | None) -> bool:
     """"""
 
     # 0) Brute-force (Save Vals to Array): TC = O(n); SC = O(n)
@@ -39,7 +36,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
     # null, nothing happens. Otherwise, all nodes after it are processed, and then the value for the current node is
     # printed.
     '''
-    def print_values_in_reverse(head: Optional[ListNode]) -> None:
+    def print_values_in_reverse(head: ListNode | None) -> None:
         if head:
             print_values_in_reverse(head.next)  # recurse in
             print(head.val)  # prints values while recurs-ing out
@@ -54,7 +51,7 @@ def is_palindrome(head: Optional[ListNode]) -> bool:
 
     """
     # Recursive Function:
-    def check(back: Optional[ListNode]) -> bool:
+    def check(back: ListNode | None) -> bool:
         if back:
             palindrome_till_here = check(back=back.next)  # ++; go all the way back (recurse in)
             # following will execute while recurs-ing out:

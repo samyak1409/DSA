@@ -3,9 +3,6 @@ https://leetcode.com/problems/closest-nodes-queries-in-a-binary-search-tree
 """
 
 
-from typing import Optional
-
-
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -14,7 +11,7 @@ class TreeNode:
         self.right = right
 
 
-def closest_nodes(root: Optional[TreeNode], queries: list[int]) -> list[list[int]]:
+def closest_nodes(root: TreeNode | None, queries: list[int]) -> list[list[int]]:
     """"""
 
     # 0) [TLE] Brute-force (Do what's told, for every query, search the BST):
@@ -73,7 +70,7 @@ def closest_nodes(root: Optional[TreeNode], queries: list[int]) -> list[list[int
     # Preprocessing: BST to Sorted Array (https://www.geeksforgeeks.org/flatten-bst-to-sorted-list-increasing-order):
 
     # Helper Function:
-    def inorder(node: Optional[TreeNode]) -> None:
+    def inorder(node: TreeNode | None) -> None:
         if node:
             inorder(node=node.left)
             arr.append(node.val)

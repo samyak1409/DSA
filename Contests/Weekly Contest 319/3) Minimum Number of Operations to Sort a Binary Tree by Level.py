@@ -3,9 +3,6 @@ https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree
 """
 
 
-from typing import Optional
-
-
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -14,7 +11,7 @@ class TreeNode:
         self.right = right
 
 
-def minimum_operations(root: Optional[TreeNode]) -> int:
+def minimum_operations(root: TreeNode | None) -> int:
     """"""
 
     # 1) Optimal (Level Order Traversal + Min Swaps to Sort an Array): TC = O(log(n) * (k + k*log(k))); SC = O(k)

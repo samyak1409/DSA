@@ -3,9 +3,6 @@ https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def pair_sum(head: Optional[ListNode]) -> int:
+def pair_sum(head: ListNode | None) -> int:
     """"""
 
     # This problem is just a little variation of `034 Palindrome Linked List.py` and thus all the approaches from it

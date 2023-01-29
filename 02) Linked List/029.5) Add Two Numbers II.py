@@ -3,9 +3,6 @@ https://leetcode.com/problems/add-two-numbers-ii
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+def add_two_numbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
     """"""
 
     # 0.1) Brute-force (Copy Values to Stack): TC = O(n); SC = O(n)

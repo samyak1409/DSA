@@ -3,9 +3,6 @@ https://leetcode.com/problems/sort-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
+def sort_list(head: ListNode | None) -> ListNode | None:
     """"""
 
     # 0) [TLE] Brute-force (Insertion Sort): TC = O(n^2); SC = O(1)

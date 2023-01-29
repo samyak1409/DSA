@@ -3,9 +3,6 @@ https://leetcode.com/problems/intersection-of-two-linked-lists
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = None
 
 
-def get_intersection_node(head1: ListNode, head2: ListNode) -> Optional[ListNode]:
+def get_intersection_node(head1: ListNode, head2: ListNode) -> ListNode | None:
     """"""
 
     # All the 4 Solutions:

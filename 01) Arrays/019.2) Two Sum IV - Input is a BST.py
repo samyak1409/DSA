@@ -3,7 +3,8 @@ https://leetcode.com/problems/two-sum-iv-input-is-a-bst
 """
 
 
-from typing import Optional, Generator
+from collections.abc import Iterator
+# https://stackoverflow.com/questions/43658999/what-is-the-return-type-hint-of-a-generator-function
 
 
 # Definition for a binary tree node.
@@ -14,7 +15,7 @@ class TreeNode:
         self.right = right
 
 
-def find_target(root: Optional[TreeNode], k: int) -> bool:
+def find_target(root: TreeNode | None, k: int) -> bool:
     """"""
 
     # 0) Brute-force (For each node, search other node in BST): TC = O(n*log(n)); SC = O(log(n))
@@ -48,7 +49,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     # 0.2) TC = O(n*log(n)); SC = O(log(n)) {by stack}
     """
     # Recursive Function: DFS (uses Stack):
-    def dfs(node1: Optional[TreeNode]) -> bool:
+    def dfs(node1: TreeNode | None) -> bool:
         if node1:
             # print(node1.val)  #debugging
             # Now BS the Tree to check if `k-node1.val` exists: O(log(n)) (aka O(h))
@@ -76,7 +77,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
 
     """
     # Recursive Function: DFS: O(n)
-    def dfs(node: Optional[TreeNode]) -> bool:
+    def dfs(node: TreeNode | None) -> bool:
         if node:
             val = node.val
             # print(val)  #debugging
@@ -97,7 +98,7 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
     # Step 1) BST to Sorted Array using In-order:
     # Helper Function:
-    def inorder(node: Optional[TreeNode]) -> None:
+    def inorder(node: TreeNode | None) -> None:
         if node:
             inorder(node.left)
             # print(node.val)  #debugging
@@ -129,12 +130,12 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
     # Helper Functions:
 
-    def traverse_lt(node: Optional[TreeNode]) -> None:
+    def traverse_lt(node: TreeNode | None) -> None:
         if node:
             stack_lt.append(node)
             traverse_lt(node.left)
 
-    def traverse_rt(node: Optional[TreeNode]) -> None:
+    def traverse_rt(node: TreeNode | None) -> None:
         if node:
             stack_rt.append(node)
             traverse_rt(node.right)
@@ -163,12 +164,12 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
     """
     # Helper Functions:
 
-    def traverse_lt(node: Optional[TreeNode]) -> None:
+    def traverse_lt(node: TreeNode | None) -> None:
         if node:
             stack_lt.append(node)
             traverse_lt(node.left)
 
-    def traverse_rt(node: Optional[TreeNode]) -> None:
+    def traverse_rt(node: TreeNode | None) -> None:
         if node:
             stack_rt.append(node)
             traverse_rt(node.right)
@@ -197,14 +198,14 @@ def find_target(root: Optional[TreeNode], k: int) -> bool:
 
     # Helper Functions:
 
-    def inorder(node: Optional[TreeNode]) -> Generator:
+    def inorder(node: TreeNode | None) -> Iterator[int]:
         if node:
             yield from inorder(node.left)
             yield node.val
             yield from inorder(node.right)
 
     # https://en.wikipedia.org/wiki/Tree_traversal#Reverse_in-order,_RNL
-    def reverse_inorder(node: Optional[TreeNode]) -> Generator:
+    def reverse_inorder(node: TreeNode | None) -> Iterator[int]:
         # For BST, this will yield the values in descending order, like the `inorder` yields the values in ascending
         # order.
         if node:

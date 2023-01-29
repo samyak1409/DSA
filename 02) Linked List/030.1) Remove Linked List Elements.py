@@ -3,9 +3,6 @@ https://leetcode.com/problems/remove-linked-list-elements
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def remove_elements(head: Optional[ListNode], val: int) -> Optional[ListNode]:
+def remove_elements(head: ListNode | None, val: int) -> ListNode | None:
     """"""
 
     # 1) Time-Optimal (Recursion): TC = O(n); SC = O(n) {recursion stack}

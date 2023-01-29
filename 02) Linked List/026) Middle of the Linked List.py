@@ -3,9 +3,6 @@ https://leetcode.com/problems/middle-of-the-linked-list
 """
 
 
-from typing import Optional
-
-
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next_=None):
@@ -13,7 +10,7 @@ class ListNode:
         self.next = next_
 
 
-def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
+def middle_node(head: ListNode | None) -> ListNode | None:
     """"""
 
     # 0) Brute-force (One Pass: Copying the nodes to an array): TC = O(n); SC = O(n)
