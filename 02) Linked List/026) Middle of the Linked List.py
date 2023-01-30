@@ -54,6 +54,8 @@ def middle_node(head: ListNode | None) -> ListNode | None:
     """
 
     # 2) Optimal (One Pass: Slow and Fast Pointer): TC = O(n); SC = O(1)
+    # Video Explanation:
+    # https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/692/challenge-problems/4426
 
     """
     slow = fast = head
