@@ -37,10 +37,9 @@ def my_sqrt(x: int) -> int:
     # 0.1) Intuitive:
     """
     for sqrt in range(0, x+1):  # ∵ for a non-negative integer x, range(sqrt(x)) = [0, x]
-        sq = sqrt * sqrt
-        if sq == x:
+        if (sq := sqrt*sqrt) == x:
             return sqrt
-        elif sq > x:  # for non-perfect square x
+        if sq > x:  # for non-perfect square x
             return sqrt-1
     """
     # 0.2) Bit Faster (due to fewer comparisons):
@@ -51,20 +50,21 @@ def my_sqrt(x: int) -> int:
     return sqrt if (sqrt*sqrt == x) else sqrt-1
     """
 
-    # 1.1) Optimal (Binary Search): TC = O(log(x)); SC = O(1)
+    # 1.1) Optimal (Binary Search): TC = O(log2(x)); SC = O(1)
     # https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution/24042
+    # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_binary_search
 
     lo, hi = 0, x  # ∵ for a non-negative integer x, range(sqrt(x)) = [0, x]
     while lo <= hi:
-        mid = (lo+hi) // 2
+        mid = (lo + hi) // 2
         mid_sq = mid * mid
         if mid_sq == x:  # => mid = sqrt(x)
             return mid
         elif mid_sq < x:  # => mid < sqrt(x)
-            lo = mid + 1  # update range
+            lo = mid + 1  # compress range
         else:  # (if mid_sq > x) => mid > sqrt(x)
-            hi = mid - 1  # update range
+            hi = mid - 1  # compress range
     # If x is not a perfect square, ans. won't be returned above, and `lo` will become > than `hi`, and the loop will
     # terminate.
     # In these cases answer will be = `lo-1` = `hi`, because the loop terminated because of two possible cases:
@@ -72,7 +72,7 @@ def my_sqrt(x: int) -> int:
     # `mid_sq < x` (=> mid < sqrt(x)), `lo = mid + 1` executed, and `lo` became > than `hi` => int(sqrt(x)) = lo-1 = hi
     # Or:
     # `mid_sq > x` (=> mid > sqrt(x)), `hi = mid - 1` executed, and `hi` became < than `lo` => int(sqrt(x)) = hi = lo-1
-    return lo-1  # or hi
+    return lo - 1  # or hi
 
     # 1.2) Optimal (Heron's method, a special case of Newton's method): TC = O(log(x)); SC = O(1)
     # -> Harder and Slower than Binary Search

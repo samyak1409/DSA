@@ -38,9 +38,8 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
 
     """
     # Helper Function:
-    def index(x: int, start: int = None, end: int = None) -> (int, None):
+    def index(x: int, lo: int = 0, hi: int = len(nums)-1) -> (int, None):
         # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
-        lo, hi = start or 0, end or len(nums)-1
         while lo <= hi:
             y = nums[(mid := (lo+hi)//2)]
             if y == x:
@@ -54,8 +53,8 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
     # Traverse every num as num1:
     for i, num1 in enumerate(nums):
         # Find num2 & num3 using Binary Search:
-        if j := index(x=(num2 := num1+diff), start=i+1):
-            if index(x=num2+diff, start=j+1):  # `num2+diff` = num3
+        if j := index(x=(num2 := num1+diff), lo=i+1):
+            if index(x=num2+diff, lo=j+1):  # `num2+diff`: num3
                 count += 1
     return count
     """
