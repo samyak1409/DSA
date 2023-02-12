@@ -6,7 +6,7 @@ https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-
 def max_count(banned: list[int], n: int, max_sum: int) -> int:
     """"""
 
-    # 1) Optimal (HashSet + Greedy): TC = O(); SC = O()
+    # 1) Optimal (HashSet + Greedy): TC = O(n); SC = O(n)
     # Keep the banned numbers (that are less than n) in a set.
     # Loop over the numbers from 1 to n and if the number is not banned, use it.
     # Keep adding numbers while they are not banned, and their sum is less than k.
