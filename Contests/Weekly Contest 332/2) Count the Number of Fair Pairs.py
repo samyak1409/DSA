@@ -7,7 +7,7 @@ def count_fair_pairs(nums: list[int], lower: int, upper: int) -> int:
     """"""
 
     # 0) [TLE] Brute-force (HashMap: Check, then Update): TC = O(n * k) {max(n) == 1e5, max(k) == 2e9}; SC = O(n)
-    # Used in the standard question where lower == upper. But here not feasible.
+    # Used in the standard question (Two Sum) where lower == upper. But not feasible here.
 
     """
     from collections import Counter
