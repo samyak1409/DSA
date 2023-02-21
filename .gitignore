@@ -4,27 +4,27 @@ Rough.py
 Additional (From LeetCode List - Top Interview Questions)
 
 # Will complete problems with topics that I haven't learnt after learning:
-01) Arrays/003.1) Permutations.py/ (Backtracking)
-01) Arrays/003.2) Permutations II.py/ (Backtracking)
-01) Arrays/005.1) Wiggle Sort II.py/ (Maths)
-01) Arrays/006.2) Best Time to Buy and Sell Stock with Cooldown.py/ (DP)
-01) Arrays/014.2) Super Pow.py/ (Maths)
-01) Arrays/017.1) Unique Paths II.py/ (DP)
-01) Arrays/017.2) Minimum Path Sum.py/ (DP)
-01) Arrays/017.4) Minimum Path Cost in a Grid.py/ (DP)
-02) Linked List/027.1) Sort List.py/ (Merge Sort on LL)
-02) Linked List/029.3) Sum of Two Integers.py/ (Bit Manipulation)
-02) Linked List/038.1) Clone Graph.py/ (Graph)
-Contests/Biweekly Contest 91/2) Count Ways To Build Good Strings.py/ (DP)
-Contests/Biweekly Contest 91/3) Most Profitable Path in a Tree.py/ (Graph)
-Contests/Weekly Contest 319/2) Number of Subarrays With LCM Equal to K.py/ (Maths)
-Contests/Weekly Contest 320/1) Number of Unequal Triplets in Array.py/ (Maths)
-Contests/Weekly Contest 320/3) Minimum Fuel Cost to Report to the Capital.py/ (Graph)
-Contests/Weekly Contest 322/3) Minimum Score of a Path Between Two Cities.py/ (Graph)
-Contests/Biweekly Contest 94/3) Minimize the Maximum of Two Arrays.py/ (Maths)
-Contests/Biweekly Contest 97/3) Maximize Win From Two Segments.py/ (DP)
+SDE Sheet/01) Arrays/003.1) Permutations.py/ (Backtracking)
+SDE Sheet/01) Arrays/003.2) Permutations II.py/ (Backtracking)
+SDE Sheet/01) Arrays/005.1) Wiggle Sort II.py/ (Maths)
+SDE Sheet/01) Arrays/006.2) Best Time to Buy and Sell Stock with Cooldown.py/ (DP)
+SDE Sheet/01) Arrays/014.2) Super Pow.py/ (Maths)
+SDE Sheet/01) Arrays/017.1) Unique Paths II.py/ (DP)
+SDE Sheet/01) Arrays/017.2) Minimum Path Sum.py/ (DP)
+SDE Sheet/01) Arrays/017.4) Minimum Path Cost in a Grid.py/ (DP)
+SDE Sheet/02) Linked List/027.1) Sort List.py/ (Merge Sort on LL)
+SDE Sheet/02) Linked List/029.3) Sum of Two Integers.py/ (Bit Manipulation)
+SDE Sheet/02) Linked List/038.1) Clone Graph.py/ (Graph)
+Contests/02) Biweekly Contest 91/2) Count Ways To Build Good Strings.py/ (DP)
+Contests/02) Biweekly Contest 91/3) Most Profitable Path in a Tree.py/ (Graph)
+Contests/03) Weekly Contest 319/2) Number of Subarrays With LCM Equal to K.py/ (Maths)
+Contests/04) Weekly Contest 320/1) Number of Unequal Triplets in Array.py/ (Maths)
+Contests/04) Weekly Contest 320/3) Minimum Fuel Cost to Report to the Capital.py/ (Graph)
+Contests/07) Weekly Contest 322/3) Minimum Score of a Path Between Two Cities.py/ (Graph)
+Contests/11) Biweekly Contest 94/3) Minimize the Maximum of Two Arrays.py/ (Maths)
+Contests/20) Biweekly Contest 97/3) Maximize Win From Two Segments.py/ (DP)
 
 # Will do problems with "Hard" difficulty in the end:
-01) Arrays/018) Reverse Pairs.py
-01) Arrays/040) Trapping Rain Water.py
-02) Linked List/033) Reverse Nodes in k-Group.py
+SDE Sheet/01) Arrays/018) Reverse Pairs.py
+SDE Sheet/01) Arrays/040) Trapping Rain Water.py
+SDE Sheet/02) Linked List/033) Reverse Nodes in k-Group.py
