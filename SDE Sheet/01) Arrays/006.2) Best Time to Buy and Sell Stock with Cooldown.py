@@ -28,3 +28,5 @@ def max_profit(prices: list[int]) -> int:
 
     # 1) Optimal (DP): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/discuss
+
+    pass

@@ -14,6 +14,10 @@ def substring_xor_queries(s: str, queries: list[list[int]]) -> list[list[int]]:
     # Here, if we do the same for each query one by one:
     # 0.1) [TLE] Brute-force (Prefix XOR + HashMap: Calc for each query one by one): TC = O(q * n); SC = O(n)
 
+    """
+    pass
+    """
+
     # Then, what can we do?
     # Alternatively, we can also calc XORs of all the (n^2) substrings using Kadane's Algo, save them in a HashMap, and
     # then return the ans for each query:

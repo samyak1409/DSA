@@ -60,7 +60,7 @@ def min_capability(nums: list[int], k: int) -> int:
     # -https://leetcode.com/discuss/general-discussion/3143635/Weekly-Contest-331/1788635
     # "one important tip for you. Whenever a problem involves finding maximum or minimum just think about using binary
     # search to solve it. This tip will definitely help you. I failed to solve one straight forward binary search
-    # problem in ICPC regionals and since then i started using the above tip and never failed to solve a binary search
+    # problem in ICPC regionals and since then I started using the above tip and never failed to solve a binary search
     # problem."
     # -https://leetcode.com/discuss/general-discussion/3143635/Weekly-Contest-331/1788749
 

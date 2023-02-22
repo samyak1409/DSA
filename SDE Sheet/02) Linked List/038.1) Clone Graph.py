@@ -12,3 +12,5 @@ class Node:
 
 def clone_graph(node: 'Node') -> 'Node':
     """"""
+
+    pass

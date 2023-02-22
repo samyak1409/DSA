@@ -11,3 +11,5 @@ def most_profitable_path(edges: list[list[int]], bob: int, amount: list[int]) ->
     # Calculate Alice’s distance to each node via DFS.
     # We can calculate Alice’s score along a path ending at some node easily using Hints 1 and 2.
     # https://leetcode.com/problems/most-profitable-path-in-a-tree/solutions
+
+    pass

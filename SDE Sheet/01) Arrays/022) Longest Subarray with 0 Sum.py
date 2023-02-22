@@ -27,7 +27,7 @@ def longest_subarray_with_0_sum(arr: list[int]) -> int:
     # WRONG (Obviously): Sub-array means sub-array of original array, sorting will change the order!
     # It's possible in case like Two Sum (see `1.2)` of
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py) (basically where order
-    # doesn't matter, e.g. subset), but not in the case of subarrays/substring or subsequence (where order matters).
+    # doesn't matter, e.g. subset), but not in the case of subarray/substring or subsequence (where order matters).
 
     # 1) Optimal (Prefix-Sum & HashMap): TC = O(n); SC = O(n)
     # Easy https://youtu.be/xmguZ6GbatA

@@ -15,7 +15,7 @@ def find_shortest_sub_array(nums: list[int]) -> int:
 
     # Two Pass:
     """
-    # Pass 1: Calculate the Degree of Array, and every num's [frequency, leftmost_index, rightmost_index]:
+    # Pass 1: Calculate the Degree of Array, and every `num`'s [frequency, leftmost_index, rightmost_index]:
     hashmap = {}  # num: [frequency, leftmost_index, rightmost_index]
     degree = 0  # maximum frequency of any element
     for index, num in enumerate(nums):

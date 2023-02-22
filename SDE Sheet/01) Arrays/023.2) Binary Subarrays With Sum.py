@@ -55,7 +55,7 @@ def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
             # because we are counting the subarrays with at most `target` sum, so, total `j-i` subarrays will satisfy
             # this condition.
             # https://leetcode.com/problems/binary-subarrays-with-sum/solutions/186683/c-java-python-sliding-window-o-1-space/comments/1220229
-            # you might also ask if this is the case, then shouldn't it be `n*(n+1) // 2` where n = j-i, instead of just
+            # you might also ask if this is the case, then shouldn't it be `n*(n+1) // 2` where n = j-i? instead of just
             # `j-i`, because the total number of subarrays in an array is `n*(n+1) // 2`, to understand this, revise
             # how for input ([0, 0, 0, 0, 0], 0), the output is 15.
             # Basically, other subarrays will be covered in other iterations, so in a single iteration, we only count

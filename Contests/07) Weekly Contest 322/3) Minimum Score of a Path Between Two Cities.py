@@ -27,3 +27,5 @@ def min_score(n: int, roads: list[list[int]]) -> int:
     # algorithm must be called at least once for each connected component of the graph. This is easily accomplished by
     # iterating through all the vertices of the graph, performing the algorithm on each vertex that is still unvisited
     # when examined." -https://en.wikipedia.org/wiki/Graph_traversal#Graph_traversal_algorithms
+
+    pass

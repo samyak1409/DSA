@@ -13,6 +13,8 @@ class ListNode:
 def reverse_k_group(head: ListNode | None, k: int) -> ListNode | None:
     """"""
 
+    pass
+
     # Follow-up: Can you solve the problem in O(1) extra memory space?
 
 
