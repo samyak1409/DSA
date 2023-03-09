@@ -17,6 +17,11 @@ def monkey_move(n: int) -> int:
     return (2**n - 2) % 1000_000_007
     """
 
+    # Using builtin `pow` with parameter `mod`:
+    """
+    return (pow(2, n, 1000_000_007) - 2) % 1000_000_007
+    """
+
     # Exponentiation by Squaring: TC = O(log2(n))
     # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/014%29%20Pow(x,%20n).py
 
