@@ -9,7 +9,7 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     # 0) [WA] Brute-force (Spilling the nums of all the intervals): TC = O(n^2); SC = O(n)
     # Tried a different logic but failed only and only due to the following case:
     # When intervals do not overlap but are contiguous. e.g.: [[1, 4], [5, 6]]
-    # Following algorithm can't differentiate between the test cases [[1, 5], [4, 6]] and [[1, 4], [5, 6]]
+    # Following algorithm can't differentiate between the test cases [[1, 4], [4, 6]] and [[1, 4], [5, 6]]
     # And returns the same output for the both.
 
     """
@@ -37,8 +37,8 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     # using the Timsort algorithm, which has a worst-case space complexity of O(n)}
     # https://leetcode.com/problems/merge-intervals/solution/#approach-2-sorting
 
-    intervals = sorted(intervals, key=lambda interval: interval[0])  # sort by start value of the intervals;
-    # new local var created
+    intervals = sorted(intervals)  # python by default sorts by the 1st value of the iterables
+    # (btw if 1st value is same, then 2nd value is taken into consideration, and so on)
 
     prev = intervals[0]
     for i in range(1, len(intervals)):
