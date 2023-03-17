@@ -52,5 +52,5 @@ def function(arg: type) -> type:
 
 ## 
 
-> "Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as
-part of the effort to write new code. Therefore, making it easy to read makes it easier to write." - Robert C. Martin
+> *“Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. ...[Therefore,] making it easy to read makes it easier to write.” <br>
+― [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.goodreads.com/work/quotes/3779106)*
