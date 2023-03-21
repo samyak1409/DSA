@@ -61,3 +61,5 @@ def check_valid_grid(grid: list[list[int]]) -> bool:
             return False
 
     return True
+
+    # https://leetcode.com/problems/check-knight-tour-configuration/solutions/3314019/collect-coordinates/comments/1839901
