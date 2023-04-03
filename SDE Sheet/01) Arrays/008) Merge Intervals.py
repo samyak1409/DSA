@@ -50,26 +50,27 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
             prev = curr  # updating previous in order to check if it can be merged with the following interval
     yield prev  # adding the last (overlapping/non-overlapping) interval to the output
 
-    # [Extra]:
-    # Not exactly related to this problem, just a new discovery about "Python":
-    # From https://leetcode.com/problems/merge-intervals/discuss/21227/7-lines-easy-Python/21250, found this:
-    # For sequences like List, `a += b` is not same as `a = a + b`.
-    # `_ += _` will actually try to extend the current sequence with the sequence in RHS, whereas `_ = _ + _` will just
-    # behave as expected.
-    """
-    a, b = [1, 2], [3, 4]
-    print(id(a))  # 2002675308992
-    a += b
-    print(a)  # [1, 2, 3, 4]
-    print(id(a))  # 2002675308992
-    a = a + b
-    print(a)  # [1, 2, 3, 4]
-    print(id(a))  # 2002674932608
-    """
-    # Crazy Stuff 🤯
-    # https://stackoverflow.com/questions/2347265/why-does-behave-unexpectedly-on-lists
-    # https://stackoverflow.com/questions/6951792/a-b-not-the-same-as-a-a-b
-    # https://stackoverflow.com/questions/57025897/concatenation-using-the-and-operators-in-python
+
+# [Extra]:
+# Not exactly related to this problem, just a new discovery about "Python":
+# From https://leetcode.com/problems/merge-intervals/discuss/21227/7-lines-easy-Python/21250, found this:
+# For sequences like List, `a += b` is not same as `a = a + b`.
+# `_ += _` will actually try to extend the current sequence with the sequence in RHS, whereas `_ = _ + _` will just
+# behave as expected.
+"""
+a, b = [1, 2], [3, 4]
+print(id(a))  # 2002675308992
+a += b
+print(a)  # [1, 2, 3, 4]
+print(id(a))  # 2002675308992
+a = a + b
+print(a)  # [1, 2, 3, 4]
+print(id(a))  # 2002674932608
+"""
+# Crazy Stuff 🤯
+# https://stackoverflow.com/questions/2347265/why-does-behave-unexpectedly-on-lists
+# https://stackoverflow.com/questions/6951792/a-b-not-the-same-as-a-a-b
+# https://stackoverflow.com/questions/57025897/concatenation-using-the-and-operators-in-python
 
 
 # Similar Questions:

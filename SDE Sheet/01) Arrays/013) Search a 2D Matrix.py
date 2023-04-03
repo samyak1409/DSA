@@ -28,7 +28,7 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
     # https://leetcode.com/problems/search-a-2d-matrix/discuss/1895837/C++-BINARY-SEARCH-TREE-(**)-Explained-with-IMG
     # Looks cool but, TC = O(m+n); SC = O(1), so doesn't make sense to use over simple `1.1)`.
 
-    # 2) Optimal (Binary Search on whole Matrix): TC = O(log2(m*n)); SC = O(1)
+    # 2) Optimal (Binary Search on whole Matrix): TC = O(log(m*n)); SC = O(1)
     # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
 
     m, n = len(matrix), len(matrix[0])
@@ -47,8 +47,8 @@ def search_matrix(matrix: list[list[int]], target: int) -> bool:
 
     # 2.1) Alternatively we can also do Binary Search to find the Target Row, then Binary Search to find the Target,
     # which is basically the same thing as above and so the complexity of the algo is the same too.
-    # TC = O(log2(m)+log2(n)) = O(log2(m*n)); SC = O(1)
-    # Also:
+    # TC = O(log(m)+log(n)) = O(log(m*n)); SC = O(1)
+    # Benefit?:
     # "m * n may overflow for large m and n. I think it is better to binary search by row first, then binary search by
     # column. The time complexity is the same but this avoids multiplication overflow."
     # -https://leetcode.com/problems/search-a-2d-matrix/discuss/26220/Don't-treat-it-as-a-2D-matrix-just-treat-it-as-a-sorted-list/comments/25272

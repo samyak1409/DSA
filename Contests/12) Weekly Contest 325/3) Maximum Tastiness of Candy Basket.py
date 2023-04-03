@@ -40,7 +40,7 @@ def maximum_tastiness(price: list[int], k: int) -> int:
     lo, hi = 0, price[-1]-price[0]+1  # max diff possible
     n = len(price)
     while lo < hi:  # O(log(max(price)-min(price)) * n)
-        diff = (lo + hi) // 2  # mid
+        diff = (lo+hi) // 2  # mid
         if check(diff):  # for this particular `diff`, it's possible, so let's try with a bigger `diff`
             lo = diff + 1
         else:  # count < k, so we need a smaller `diff`

@@ -21,6 +21,7 @@ def find_duplicate(nums: list[int]) -> int:
     """
 
     # 0.2) Time-Optimal Brute-force (Using HashSet): TC = O(n); SC = O(n)
+    # Note: This approach uses extra space (hashset) so don't fulfill the problem requirement.
 
     """
     hash_set = set()
@@ -68,7 +69,7 @@ def find_duplicate(nums: list[int]) -> int:
     """
 
     # 1.4) Optimal (Negating Numbers): TC = O(n); SC = O(1)
-    # Note: This algorithm modifies the input array temporarily.
+    # Note: This algorithm modifies the input array TEMPORARILY.
     # https://leetcode.com/problems/find-the-duplicate-number/solution/#approach-3-negative-marking
 
     """
@@ -107,6 +108,8 @@ def find_duplicate(nums: list[int]) -> int:
     # to that particular number (4), thus making a cycle!
     #                                                        1 -> 4 -> 2 -> 3
     #                                                             ↑_________|
+
+    # [Remarks] https://leetcode.com/problems/find-the-duplicate-number/editorial/comments/593262
 
 
 # Similar Questions:

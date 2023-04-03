@@ -40,7 +40,7 @@ def rotate(matrix: list[list[int]]) -> None:
     n = len(matrix)
     # Transposing:
     for i in range(n):  # O(n^2)
-        for j in range(i+1, n):
+        for j in range(i+1, n):  # imp: `i+1`
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     # Mirroring on Y-axis:
     for i in range(n):  # O(n^2)
