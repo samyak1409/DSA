@@ -51,20 +51,41 @@ def is_palindrome(head: ListNode | None) -> bool:
 
     """
     # Recursive Function:
-    def check(back: ListNode | None) -> bool:
-        if back:
-            palindrome_till_here = check(back=back.next)  # ++; go all the way back (recurse in)
-            # following will execute while recurs-ing out:
-            if palindrome_till_here:  # only check further if palindrome till here
-                front_val = front[0].val
-                front[0] = front[0].next  # ++; update for next comparison
-                return front_val == back.val
-            return False  # already not palindrome so don't check further
-        return True  # since LL with no nodes is palindrome
+    def palindrome_till_here(back: ListNode | None) -> bool:
+        if back.next:
+            if not palindrome_till_here(back=back.next):  # ++; go all the way back (recurse in)
+                # all the following code will execute while recurs-ing out:
+                return False  # already not palindrome so don't check further
+        # Only check further if palindrome till here:
+        front_val = front[0].val
+        front[0] = front[0].next  # ++; update for next comparison
+        return front_val == back.val
 
     front = [head]  # global var
     # using list so that mutable, and so new local var is not created while updating inside the function ✅✅
-    return check(back=head)
+    return palindrome_till_here(back=head)
+    """
+
+    # 1.1) Similar using Generator Function: TC = O(n); SC = O(n) {recursion stack}
+
+    """
+    # Traverse the nodes one by one:
+    # Generator Function:
+    def iterate(node: ListNode | None):
+        while node:
+            yield node
+            node = node.next
+
+    # Reverse Traverse and match the nodes:
+    # Recursive Function:
+    def palindrome_till_here(node: ListNode | None) -> bool:
+        if node.next:
+            if not palindrome_till_here(node=node.next):
+                return False
+        return node.val == iterator.__next__().val
+
+    iterator = iterate(node=head)
+    return palindrome_till_here(node=head)
     """
 
     # Follow up: Could you do it in O(n) time and O(1) space?
