@@ -39,11 +39,29 @@ def kth_largest_level_sum(root: TreeNode | None, k: int) -> int:
     # in the contest, got penalty here for not considering else case
 
 
-# BFS Templates:
+# BT BFS (LOT) Templates:
 # https://en.wikipedia.org/wiki/Tree_traversal
 # https://en.wikipedia.org/wiki/Breadth-first_search
 
-# 1) Using `collections.deque` (useful where level distinction is not needed, and we just need to search/traverse the
+# 1) Using `list` (useful where level distinction is needed):
+"""    
+queue = [root]
+while queue:
+    nodes = queue.copy()  # or `queue[:]`; `nodes`: nodes on this level
+    queue.clear()  # for next level
+    for node in nodes:
+        print(node.val)
+        '''
+        if node_l := node.left:
+            queue.append(node_l)
+        if node_r := node.right:
+            queue.append(node_r)
+        '''
+        # One liner:
+        queue.extend(filter(None, (node.left, node.right)))
+"""
+
+# 2) Using `collections.deque` (useful where level distinction is not needed, and we just need to search/traverse the
 # tree in level order):
 """
 from collections import deque
@@ -60,22 +78,4 @@ while queue:
     '''
     # One liner:
     queue.extend(filter(None, (node.left, node.right)))
-"""
-
-# 2) Using `list` (useful where level distinction is needed):
-"""    
-queue = [root]
-while queue:
-    nodes = queue.copy()  # or `queue[:]`; `nodes`: nodes on this level
-    queue.clear()  # for next level
-    for node in nodes:
-        print(node.val)
-        '''
-        if node_l := node.left:
-            queue.append(node_l)
-        if node_r := node.right:
-            queue.append(node_r)
-        '''
-        # One liner:
-        queue.extend(filter(None, (node.left, node.right)))
 """
