@@ -6,7 +6,7 @@ https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros
 def check_zero_ones(s: str) -> bool:
     """"""
 
-    # Modification of https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py.
+    # Modification of https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py.
 
     # 1) Optimal (Iterate & Track): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros/discuss/1228176/Python3-or-Time:-O(n)-or-Space:-O(1)-or-Beats-100-solutions-in-time

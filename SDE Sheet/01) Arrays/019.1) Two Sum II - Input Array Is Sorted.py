@@ -7,7 +7,7 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     """"""
 
     # NOTE: All the following solutions are from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
     # because this problem is just a subset of https://leetcode.com/problems/two-sum.
 
     # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51249/Python-different-solutions-(two-pointer-dictionary-binary-search).

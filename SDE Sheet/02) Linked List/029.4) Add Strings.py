@@ -7,7 +7,7 @@ def add_strings(num1: str, num2: str) -> str:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029.2%29%20Add%20Binary.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/029.2%29%20Add%20Binary.py.
 
     # -1) Not Allowed (Type Casting): TC = O(m+n) {len(a)+len(b)}; SC = O(1)
 
@@ -23,7 +23,7 @@ def add_strings(num1: str, num2: str) -> str:
     # Making the strings of same length by adding 0s on the left of the smaller binary string (if any):
     num1, num2 = num1.zfill(bigger_len), num2.zfill(bigger_len)
     # Can also be done without this, by using the same paradigm we used in
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py,
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py,
     # but this is easier.
 
     # Reverse Traverse and Add:

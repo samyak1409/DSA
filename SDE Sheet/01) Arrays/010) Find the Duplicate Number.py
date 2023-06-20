@@ -63,7 +63,7 @@ def find_duplicate(nums: list[int]) -> int:
     """
     while nums[0] != nums[nums[0]]:
         # nums[0], nums[nums[0]] = nums[nums[0]], nums[0]  # ❌
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L50-L58
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L50-L58
         nums[nums[0]], nums[0] = nums[0], nums[nums[0]]  # ✅
     return nums[0]
     """

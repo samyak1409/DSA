@@ -7,7 +7,7 @@ def num_of_subarrays(arr: list[int]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py.
 
     # 1) Optimal (Prefix Sum & HashMap): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/discuss/754743/JavaC++Python-Prefix-Sum

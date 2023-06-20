@@ -7,7 +7,7 @@ def three_sum_closest(nums: list[int], target: int) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/039%29%203Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/039%29%203Sum.py
 
     # 1) Optimal (Sorting & Two-Pointers): TC = O(n*log(n) + n^2); SC = O(n) {sorting}
     # https://en.wikipedia.org/wiki/3SUM#Quadratic_algorithm

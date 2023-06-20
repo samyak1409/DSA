@@ -15,7 +15,7 @@ def pair_sum(head: ListNode | None) -> int:
 
     # This problem is just a little variation of `034 Palindrome Linked List.py` and thus all the approaches from it
     # applies here too.
-    # (https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/034%29%20Palindrome%20Linked%20List.py)
+    # (https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/034%29%20Palindrome%20Linked%20List.py)
     # Just writing the Optimal one here.
     # IMP: `The NUMBER OF NODES IN THE LIST IS AN EVEN INTEGER in the range [2, 105].`
 
@@ -26,7 +26,7 @@ def pair_sum(head: ListNode | None) -> int:
     prev = None
     while node2x:
         node2x = node2x.next.next  # +2
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node.next, node, prev = prev, node.next, node  # change pointer direction, ++, ++
     # After this, `5 -> 4 -> 2 -> 1 -> None` will convert into `None <- 5 <- 4 & 2 -> 1 -> None`,
     # and `prev` will be pointing to start of left LL and `node` to start of right LL.
@@ -38,7 +38,7 @@ def pair_sum(head: ListNode | None) -> int:
     max_sum = 0  # `1 <= Node.val <= 10^5`                                     node_l     prev & node_r
     while node_r:  # or `while node_l:` (len is same so doesn't matter)
         max_sum = max(max_sum, node_l.val+node_r.val)
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node_l.next, node_l, prev = prev, node_l.next, node_l  # change pointer direction, ++, ++
         node_r = node_r.next  # ++
 

@@ -97,7 +97,7 @@ def is_palindrome(head: ListNode | None) -> bool:
     prev = None
     while node2x and node2x.next:
         node2x = node2x.next.next  # +2
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node.next, node, prev = prev, node.next, node  # change pointer direction, ++, ++
     # After this, `1 -> 2 -> 2 -> 1 -> None` will convert into `None <- 1 <- 2 & 2 -> 1 -> None`,
     # and `prev` will be pointing to start of left LL and `node` to start of right LL.
@@ -113,7 +113,7 @@ def is_palindrome(head: ListNode | None) -> bool:
     while node_r:  # or `while node_l:` (len is same so doesn't matter)
         if is_palin and node_l.val != node_r.val:  # check for palin only if palin till here
             is_palin = False
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/025%29%20Reverse%20Linked%20List.py:
         node_l.next, node_l, prev = prev, node_l.next, node_l  # change pointer direction, ++, ++
         node_r = node_r.next  # ++
 

@@ -10,7 +10,7 @@ def interval_intersection(list1: list[list[int]], list2: list[list[int]]) -> lis
     # https://leetcode.com/problems/interval-list-intersections/solution
     # https://leetcode.com/problems/interval-list-intersections/discuss/647482/Python-Two-Pointer-Approach-+-Thinking-Process-Diagrams
 
-    # Traversing like: https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py
+    # Traversing like: https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/009%29%20Merge%20Sorted%20Array.py
     i, j, m, n = 0, 0, len(list1), len(list2)
     while i < m and j < n:
         (start1, end1), (start2, end2) = list1[i], list2[j]  # interval1, interval2

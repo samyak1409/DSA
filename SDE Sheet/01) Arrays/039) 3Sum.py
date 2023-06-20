@@ -129,7 +129,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     num2 = nums[j]
                     target = -(num1+num2)  # required num3
                     # Now, finding num3 using Binary Search:
-                    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+                    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
                     # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
                     lo, hi = j+1, n-1
                     while lo <= hi:
@@ -162,7 +162,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                 return
             target = -num1
             # Now, finding the 2 nums using HashSet:
-            # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+            # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
             hashset = set()  # for checking presence of required num in O(1) time
             for j in range(i+1, n):
                 if j == i+1 or nums[j] != nums[j-1]:  # proceed if not checked already for nums[j]
@@ -185,7 +185,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             return
         target = -num1
         # Now, finding the 2 nums using HashSet:
-        # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
         hashset = set()  # for checking presence of required num in O(1) time
         for j in range(i+1, n):
             num3 = nums[j]
@@ -215,7 +215,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             num1 = nums[i]
             target = -num1
             # Now, finding the 2 nums using Two-Pointers:
-            # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+            # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
             lo, hi = i+1, n-1
             while lo < hi:
                 num2, num3 = nums[lo], nums[hi]

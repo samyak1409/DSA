@@ -23,7 +23,7 @@ def monkey_move(n: int) -> int:
     """
 
     # Exponentiation by Squaring: TC = O(log2(n))
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/014%29%20Pow(x,%20n).py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/014%29%20Pow(x,%20n).py
 
     # Calculating total ways i.e. 2^n:
     base = 2

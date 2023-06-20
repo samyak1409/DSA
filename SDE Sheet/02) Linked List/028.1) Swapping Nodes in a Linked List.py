@@ -14,7 +14,7 @@ def swap_nodes(head: ListNode | None, k: int) -> ListNode | None:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/028%29%20Remove%20Nth%20Node%20From%20End%20of%20List.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/028%29%20Remove%20Nth%20Node%20From%20End%20of%20List.py.
 
     # 0.1) Brute-force (To Array): TC = O(n+n); SC = O(n)
     # We can transform the linked list to an array this should ease things up

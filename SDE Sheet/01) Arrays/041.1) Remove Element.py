@@ -34,7 +34,7 @@ def remove_element(nums: list[int], val: int) -> int:
     # 1.1) Copy Required Elements to the Left: TC = O(2n); SC = O(1)
     # https://leetcode.com/problems/remove-element/solution/#approach-1-two-pointers
     # Almost same as `1)` of
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/041%29%20Remove%20Duplicates%20from%20Sorted%20Array.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/041%29%20Remove%20Duplicates%20from%20Sorted%20Array.py.
 
     """
     i = -1

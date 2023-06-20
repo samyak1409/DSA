@@ -9,7 +9,7 @@ def max_profit(prices: list[int]) -> int:
     # Just for elaboration:
     # -1) [WA] Optimal (Greedy: Consider +ve difference of prices b/w every two consecutive days): TC = O(n); SC = O(1)
     # At first, you might think that Greedy approach that we used in `006.1) Best Time to Buy and Sell Stock II.py`
-    # (https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/006.1%29%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II.py)
+    # (https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/006.1%29%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II.py)
     # will work here too, but it'll not. See: Input: [1,2,4]; Output: 1; Expected: 3
 
     """

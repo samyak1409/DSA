@@ -7,7 +7,7 @@ def get_row(row_index: int) -> list[int]:
     """"""
 
     # Explanations of all the solutions:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/002%29%20Pascal%27s%20Triangle.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/002%29%20Pascal%27s%20Triangle.py
 
     # Follow up: Could you optimize your algorithm to use only O(n) extra space?
     # 0) Brute-force (Nested Loop): TC = O(n^2); SC = O(n)

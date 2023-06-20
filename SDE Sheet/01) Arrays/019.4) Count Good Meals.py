@@ -7,7 +7,7 @@ def count_pairs(nums: list[int]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py.
 
     # Note that the number of powers of 2 is at most 21 so this turns the problem to a classic find the number of pairs
     # that sum to a certain value but for 21 values.

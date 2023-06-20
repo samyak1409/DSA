@@ -108,7 +108,7 @@ def find_target(root: TreeNode | None, k: int) -> bool:
     inorder(root)
     # Step 2) Finding the 2 nums using Two-Pointers:
     # "2) Optimal (Two-Pointers)" in:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     lt, rt = 0, len(arr)-1  # init
     while lt < rt:
         if (two_sum := arr[lt]+arr[rt]) == k:
@@ -141,7 +141,7 @@ def find_target(root: TreeNode | None, k: int) -> bool:
             traverse_rt(node.right)
 
     # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     stack_lt, stack_rt = [], []  # to track parent nodes
     traverse_lt(root), traverse_rt(root)  # start
     lt, rt = stack_lt.pop(), stack_rt.pop()  # init with min and max val
@@ -175,7 +175,7 @@ def find_target(root: TreeNode | None, k: int) -> bool:
             traverse_rt(node.right)
 
     # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     stack_lt, stack_rt = [], []  # to track parent nodes
     traverse_lt(root), traverse_rt(root)  # start
     lt, rt = stack_lt.pop(), stack_rt.pop()  # init with min and max val
@@ -214,7 +214,7 @@ def find_target(root: TreeNode | None, k: int) -> bool:
             yield from reverse_inorder(node.left)
 
     # Main: Same paradigm as "2) Optimal (Two-Pointers)" of:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019.1%29%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.py
     generator_lt, generator_rt = inorder(root),  reverse_inorder(root)
     lt, rt = next(generator_lt), next(generator_rt)
     while lt < rt:

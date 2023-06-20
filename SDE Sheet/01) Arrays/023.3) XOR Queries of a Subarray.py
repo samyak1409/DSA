@@ -7,7 +7,7 @@ def xor_queries(arr: list[int], queries: list[list[int]]) -> list[int]:
     """"""
 
     # Solution is based on the same concept used in:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/023%29%20Count%20Subarrays%20with%20Given%20XOR.py
 
     # 1) Optimal (Prefix-XOR): TC = (n); SC = O(n)
     # What is the result of x ^ y ^ x ?

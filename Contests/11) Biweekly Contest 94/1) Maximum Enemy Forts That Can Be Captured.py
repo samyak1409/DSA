@@ -28,7 +28,7 @@ def capture_forts(forts: list[int]) -> int:
     # 1) Optimal: TC = O(n); SC = O(1)
 
     # 1.1) https://leetcode.com/problems/max-consecutive-ones Style:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py
 
     """
     curr = max_ = 0  # streak

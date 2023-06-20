@@ -7,7 +7,7 @@ def majority_element(nums: list[int]) -> list[int]:
     """"""
 
     # All the solutions are similar to the solutions of
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/015%29%20Majority%20Element.py.
 
     # 0.1) Brute-force (Traverse and Count): TC = O(n^2); SC = O(1)
     # "elements that appears more than ⌊ n/3 ⌋ times" => count(x) > n//3, so we can simply traverse the array to find
@@ -90,7 +90,7 @@ def majority_element(nums: list[int]) -> list[int]:
     # Follow up: Could you solve the problem in linear time and in O(1) space?
     # 2) Optimal (Extended "Boyer-Moore Majority Voting Algorithm"): TC = O(n); SC = O(1)
     # Check "Boyer-Moore Majority Voting Algorithm" at:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/015%29%20Majority%20Element.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/015%29%20Majority%20Element.py
     # Explanation of Extended "Boyer-Moore Majority Voting Algorithm": https://youtu.be/yDbkQd9t2ig?t=182
     # More Explanations:
     # https://leetcode.com/problems/majority-element-ii/discuss/63520/Boyer-Moore-Majority-Vote-algorithm-and-my-elaboration/112881

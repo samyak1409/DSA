@@ -7,7 +7,7 @@ def num_of_pairs(nums: list[str], target: str) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py.
 
     # 1) Optimal (HashMap): TC = O(n); SC = O(n)
 

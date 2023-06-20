@@ -14,7 +14,7 @@ def remove_duplicates(nums: list[int]) -> int:
 
     # 1) Optimal (Two-Pointers): TC = O(n); SC = O(1)
     # Similar to `1)` of
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/041%29%20Remove%20Duplicates%20from%20Sorted%20Array.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/041%29%20Remove%20Duplicates%20from%20Sorted%20Array.py.
     # https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/discuss/27976/3-6-easy-lines-C++-Java-Python-Ruby
     # (same algo, just the other way around)
 

@@ -14,7 +14,7 @@ def delete_middle(head: ListNode | None) -> ListNode | None:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/026%29%20Middle%20of%20the%20Linked%20List.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/026%29%20Middle%20of%20the%20Linked%20List.py.
 
     # 1) Optimal (Slow and Fast Pointer): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/discuss/1612140/One-Pass-Slow-and-Fast

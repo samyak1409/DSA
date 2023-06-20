@@ -12,13 +12,13 @@ def fizz_buzz(n: int) -> list[str]:
     """
     for dividend in range(1, n+1):
         if dividend % 15 == 0:
-            yield "FizzBuzz"
+            yield 'FizzBuzz'
         elif dividend % 3 == 0:
-            yield "Fizz"
+            yield 'Fizz'
         elif dividend % 5 == 0:
-            yield "Buzz"
+            yield 'Buzz'
         else:
-            yield str(dividend)
+            yield f'{dividend}'
     """
 
     # Using String Concatenation which reduces the no. of conditions:
@@ -27,10 +27,10 @@ def fizz_buzz(n: int) -> list[str]:
     for dividend in range(1, n+1):
         ans = ''
         if dividend % 3 == 0:
-            ans += "Fizz"
+            ans += 'Fizz'
         if dividend % 5 == 0:
-            ans += "Buzz"
-        yield ans or str(dividend)
+            ans += 'Buzz'
+        yield ans or f'{dividend}'
     """
 
     # Adding HashMap in order to make it scalable:
@@ -41,4 +41,4 @@ def fizz_buzz(n: int) -> list[str]:
         for divisor in hm.keys():
             if dividend % divisor == 0:
                 ans += hm[divisor]
-        yield ans or str(dividend)
+        yield ans or f'{dividend}'

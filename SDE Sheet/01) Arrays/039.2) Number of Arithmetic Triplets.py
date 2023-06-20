@@ -7,7 +7,7 @@ def arithmetic_triplets(nums: list[int], diff: int) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/039%29%203Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/039%29%203Sum.py
 
     # 0.1) Brute-force (3 Loops): TC = O(n^3); SC = O(1)
     # The constraints are small enough for brute force.

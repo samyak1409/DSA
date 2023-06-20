@@ -7,7 +7,7 @@ def min_path_sum(grid: list[list[int]]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/017%29%20Unique%20Paths.py.
 
     # 1) Time-Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n)
 

@@ -11,7 +11,7 @@ def get_min_swaps(num: str, k: int) -> int:
 
     # Helper Function: TC = O(n); SC = O(1) {in-place}
     def next_permutation(nums: list[int]) -> None:
-        """https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/003%29%20Next%20Permutation.py"""
+        """https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/003%29%20Next%20Permutation.py"""
         for i in range(len(nums)-1):  # finding first decreasing num (iterating from right to left)
             if nums[-i-2] < nums[-i-1]:
                 decreasing_num = nums[-i-2]  # decreasing num found

@@ -7,7 +7,7 @@ def max_operations(nums: list[int], k: int) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py.
 
     # The abstract problem asks to count the number of disjoint pairs with a given sum k.
 

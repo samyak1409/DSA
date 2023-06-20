@@ -50,7 +50,7 @@ def is_ideal_permutation(nums: list[int]) -> bool:
     local_inv = sum(nums[i] > nums[i+1] for i in range(n-1))
 
     # Find Global: O(n*log(n))
-    # From https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/012%29%20Count%20Inversions.py:
+    # From https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/012%29%20Count%20Inversions.py:
     # Recursive Function:
     def get_count(array: list[int], length: int) -> int:
         if length > 1:

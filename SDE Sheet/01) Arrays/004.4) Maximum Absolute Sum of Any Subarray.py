@@ -24,7 +24,7 @@ def max_absolute_sum(nums: list[int]) -> int:
     # It's a standard problem that can be solved by Kadane's algorithm.
     # The key idea is the max absolute sum will be either the max sum or the min sum.
     # So just run kadane twice, once calculating the max sum and once calculating the min sum.
-    # `1.0)` of https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/004%29%20Maximum%20Subarray.py will work!
+    # `1.0)` of https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/004%29%20Maximum%20Subarray.py will work!
     # Why? Because here we're allowed to choose an empty subarray as answer if max abs sum < 0.
     # "Return the maximum absolute sum of any (POSSIBLY EMPTY) subarray of nums."
 

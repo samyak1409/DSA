@@ -7,7 +7,7 @@ def check_subarray_sum(nums: list[int], k: int) -> bool:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py.
 
     # 0) [TLE] Brute-force (Nested Loop): TC = O(n^2); SC = O(1)
 

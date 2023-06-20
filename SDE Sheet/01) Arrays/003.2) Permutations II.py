@@ -19,7 +19,7 @@ def permute_unique(nums: list[int]) -> list[list[int]]:
     hashset = set()  # to track unique perms
     for _ in range(factorial(n)):  # we know that the no. of permutations = n!
 
-        # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/003%29%20Next%20Permutation.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/003%29%20Next%20Permutation.py:
         done = False
         for i in range(n-1):  # finding first decreasing num (iterating from right to left)
             if nums[-i-2] < nums[-i-1]:

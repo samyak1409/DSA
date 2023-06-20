@@ -13,7 +13,7 @@ def find_rotation(mat: list[list[int]], target: list[list[int]]) -> bool:
 
     # Helper Function:
     def rotate() -> None:
-        """https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/007%29%20Rotate%20Image.py"""
+        """https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/007%29%20Rotate%20Image.py"""
         # Transposing:
         for i in range(n):
             for j in range(i+1, n):

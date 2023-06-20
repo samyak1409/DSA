@@ -18,7 +18,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     # 0) [TLE] Brute-force (Sort & Nested Loops (4Sum)): TC = O(n*log(n) + n^4); SC = O(n) {sorting}
 
     # Read how we reached to the following algorithm in detail from `039 3Sum.py`'s `0) Brute-force`
-    # (https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/039%29%203Sum.py).
+    # (https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/039%29%203Sum.py).
     """
     nums = sorted(nums)  # new local variable
     n = len(nums)
@@ -42,7 +42,7 @@ def four_sum(nums: list[int], target: int) -> list[list[int]]:
     def k_sum(k: int, target_: int, start: int = 0) -> None:
         if k == 2:  # base case
             # Now, finding the 2 nums using Two-Pointers: TC = O(n); SC = O(1)
-            # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py
+            # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
             lo, hi = start, n-1
             while lo < hi:
                 num1, num2 = nums[lo], nums[hi]

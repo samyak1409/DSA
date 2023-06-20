@@ -25,7 +25,7 @@ def max_product(nums: list[int]) -> int:
     # 1.1) Tracking Two Extremes:
     # https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity/160464
     # Basically the same algo as
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/004%29%20Maximum%20Subarray.py,
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/004%29%20Maximum%20Subarray.py,
     # the only difference is the fact that in case of products:
     # -> smallest_product * a_negative_num = largest_product
     # -> largest_product * a_negative_num = smallest_product

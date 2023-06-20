@@ -7,7 +7,7 @@ def maximum_units(box_types: list[list[int]], truck_size: int) -> int:
     """"""
 
     # ~ Fractional Knapsack
-    # https://github.com/samyak1409/DSA/blob/main/03%29%20Greedy%20Algorithm/046%29%20Fractional%20Knapsack.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/03%29%20Greedy%20Algorithm/046%29%20Fractional%20Knapsack.py
 
     # 1) Optimal (Greedy: Sort by Decreasing units_per_box): TC = O(n*log(n)); SC = O(n)
     # If we have space for at least one box, it's always optimal to put the box with the most units.

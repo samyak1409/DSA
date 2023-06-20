@@ -6,7 +6,7 @@ https://leetcode.com/problems/count-special-quadruplets
 def count_quadruplets(nums: list[int]) -> int:
     """"""
 
-    # Similar to https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/020.1%29%204Sum%20II.py.
+    # Similar to https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/020.1%29%204Sum%20II.py.
 
     # 0) Brute-force (4 Loops): TC = O(n^4); SC = O(1)
     # N is very small, how can we use that? Can we check every possible quadruplet?

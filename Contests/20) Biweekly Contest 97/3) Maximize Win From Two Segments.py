@@ -13,7 +13,7 @@ def maximize_win(prize_positions: list[int], k: int) -> int:
 
     # 1.1) Sliding Window + Prefix & Suffix Array:
     # Same logic like: `023.4) Find Two Non-overlapping Sub-arrays Each With Target Sum.py`
-    # (https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023.4%29%20Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum.py)
+    # (https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/023.4%29%20Find%20Two%20Non-overlapping%20Sub-arrays%20Each%20With%20Target%20Sum.py)
     # https://leetcode.com/problems/maximize-win-from-two-segments/solutions/3141910/prefix-count-o-n-sliding-window-with-image
 
     n = len(prize_positions)

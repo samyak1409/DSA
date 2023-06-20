@@ -7,7 +7,7 @@ def maximum_unique_subarray(nums: list[int]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/024%29%20Longest%20Substring%20Without%20Repeating%20Characters.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/024%29%20Longest%20Substring%20Without%20Repeating%20Characters.py.
 
     # 0) Brute-force (Check all the Subarrays using Nested Loop & HashSet): TC = O(n^2); SC = O(n)
 

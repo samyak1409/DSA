@@ -9,7 +9,7 @@ def longest_ones(nums: list[int], k: int) -> int:
     # 0) [TLE] Brute-force (Trying Every Combination Linearly): TC = O(n^2); SC = O(1)
 
     """
-    # Helper Function (https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py):
+    # Helper Function (https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py):
     def get_max_consecutive_ones(nums_: list[int]) -> int:
         max_streak = streak = 0  # init
         for num in nums_:
@@ -49,7 +49,7 @@ def longest_ones(nums: list[int], k: int) -> int:
     n = len(nums)
     max_streak = 0
     for start in range(n):
-        # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py, just with
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/042%29%20Max%20Consecutive%20Ones.py, just with
         # `k` flips allowance:
         flips = 0
         streak = 0

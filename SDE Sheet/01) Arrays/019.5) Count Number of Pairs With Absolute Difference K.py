@@ -7,7 +7,7 @@ def count_k_difference(nums: list[int], k: int) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/019%29%20Two%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py.
 
     # 1) Optimal (HashMap): TC = O(n); SC = O(n)
     # https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/discuss/1501957/Java-Map-Solution-beats-98

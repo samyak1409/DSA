@@ -7,7 +7,7 @@ def activity_selection(n: int, start: list[int], end: list[int]) -> int:
     """"""
 
     # Same as:
-    # https://github.com/samyak1409/DSA/blob/main/03%29%20Greedy%20Algorithm/043%29%20N%20Meetings%20in%20One%20Room.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/03%29%20Greedy%20Algorithm/043%29%20N%20Meetings%20in%20One%20Room.py
 
     # https://en.wikipedia.org/wiki/Activity_selection_problem
 

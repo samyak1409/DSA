@@ -22,7 +22,7 @@ def add_binary(a: str, b: str) -> str:
     # Making the binary strings of same length by adding 0s on the left of the smaller binary string (if any):
     a, b = a.zfill(bigger_len), b.zfill(bigger_len)
     # Can also be done without this, by using the same paradigm we used in
-    # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py,
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/029%29%20Add%20Two%20Numbers.py,
     # but this is easier.
 
     # Reverse Traverse and Add:

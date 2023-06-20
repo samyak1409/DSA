@@ -7,7 +7,7 @@ def super_pow(a: int, b: list[int]) -> int:
     """"""
 
     # 1) Optimal (Exponentiation by Squaring): TC = O(log(n)); SC = O(log(n))
-    # Like `1.2)` of https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/014%29%20Pow(x%2C%20n).py.
+    # Like `1.2)` of https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/014%29%20Pow(x%2C%20n).py.
 
     """
     # Recursive Function:

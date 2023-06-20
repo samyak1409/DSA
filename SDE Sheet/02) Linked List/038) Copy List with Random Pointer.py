@@ -104,7 +104,7 @@ def copy_random_list(head: Node | None) -> Node | None:
     while node:
         # node.next, node.next.next = node.next.next, node.next.next.next if node.next.next else None  # detach and
         # point next; `node.next.next.next if node.next.next else None` -> handling last node
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L50-L58
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/033.1%29%20Swap%20Nodes%20in%20Pairs.py#L50-L58
         node.next.next, node.next = node.next.next.next if node.next.next else None, node.next.next  # point next and
         # detach; `node.next.next.next if node.next.next else None` -> handling last node
         node = node.next  # +2

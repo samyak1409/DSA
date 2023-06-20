@@ -9,7 +9,7 @@ def num_subarrays_with_sum(nums: list[int], goal: int) -> int:
     # This problem is just a sub-problem of https://leetcode.com/problems/subarray-sum-equals-k.
 
     # 1) Time-Optimal (Prefix Sum & HashMap): TC = O(n); SC = O(n)
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/023.1%29%20Subarray%20Sum%20Equals%20K.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/023.1%29%20Subarray%20Sum%20Equals%20K.py
 
     """
     from collections import Counter

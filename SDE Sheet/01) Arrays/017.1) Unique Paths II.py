@@ -7,7 +7,7 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/017%29%20Unique%20Paths.py.
 
     # 2.1) [WA] Optimal (Maths: PnC): TC = O(m*n); SC = O(1)
     # Because the matrix can have ANY NO. OF OBSTACLES, misunderstood the question that only 1 obstacle will be there.

@@ -20,7 +20,7 @@ def flatten_linked_list(head: Node) -> Node:
 
     # 0) Brute-force (Copy Vals to Array and Sort): TC = O(nc*log(nc)); SC = O(nc)
     # {n: total next nodes; c: average child nodes; nc: total nodes in the structure}
-    # Same as `1)` of https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027.1%29%20Sort%20List.py.
+    # Same as `1)` of https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027.1%29%20Sort%20List.py.
 
     # 0.0) Creating new LL:
     """
@@ -75,7 +75,7 @@ def flatten_linked_list(head: Node) -> Node:
 
         # Merging 2 LLs: TC = O(c)
         # `1.2)` of
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_head = node = Node(data=None)  # `to_head` -> dummy node whose `child` will be the head of our flattened LL
         # `node` -> for traversing
         while node1 and node2:  # while both LLs have nodes left
@@ -119,7 +119,7 @@ def flatten(root: Node) -> Node:
 
         # Merging 2 LLs: TC = O(c)
         # `1.2)` of
-        # https://github.com/samyak1409/DSA/blob/main/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
+        # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_root = node = Node(d=None)  # `to_root` -> dummy node whose `bottom` will be the root of our flattened LL
         # `node` -> for traversing
         while node1 and node2:  # while both LLs have nodes left

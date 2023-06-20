@@ -8,7 +8,7 @@ def min_cost(start_pos: list[int], home_pos: list[int], row_costs: list[int], co
 
     # 0) Brute-force (Find All Possible Paths): TC = O(m*n); SC = O(m*n)
     # Using Recursion + Memoization, same as what we did in:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017.2%29%20Minimum%20Path%20Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/017.2%29%20Minimum%20Path%20Sum.py
 
     # 1) Optimal (Count Costs for each Row & Column from Start to Home): TC = O(m+n); SC = O(1)
     # Irrespective of what path the robot takes, it will have to traverse all the rows between startRow and homeRow and

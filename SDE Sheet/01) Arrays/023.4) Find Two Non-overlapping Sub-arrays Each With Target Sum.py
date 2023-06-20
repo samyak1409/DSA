@@ -7,7 +7,7 @@ def min_sum_of_lengths(arr: list[int], target: int) -> int:
     """"""
 
     # Advanced version of:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py
 
     # -1) [WA] Optimal (Prefix Sum + HashMap): TC = O(n); SC = O(n)
     # Find first array, then find second array in the 2 arrays got by removing the first array from the main array.

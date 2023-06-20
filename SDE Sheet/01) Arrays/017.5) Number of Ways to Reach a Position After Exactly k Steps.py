@@ -7,7 +7,7 @@ def number_of_ways(start_pos: int, end_pos: int, k: int) -> int:
     """"""
 
     # Similar to:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/017%29%20Unique%20Paths.py
 
     # 0) [TLE] Brute-force (Recursion to check every possible ways):
     # TC = O(2^k) (branches = 2; max_depth = k); SC = O(k) {recursion stack}
@@ -55,7 +55,7 @@ def number_of_ways(start_pos: int, end_pos: int, k: int) -> int:
     # => 2 * right_moves = k + end_pos-start_pos
     # => right_moves = (k + end_pos-start_pos) // 2
     # And, if we find the ways in which we can select the right_moves out of the total moves which we have to make i.e.
-    # k, we'll get the ans! (like https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/017%29%20Unique%20Paths.py)
+    # k, we'll get the ans! (like https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/017%29%20Unique%20Paths.py)
     # Source:
     # https://leetcode.com/problems/number-of-ways-to-reach-a-position-after-exactly-k-steps/solutions/2527381/java-c-python-math-solution-o-klogk
 

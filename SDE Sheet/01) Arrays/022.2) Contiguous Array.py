@@ -7,7 +7,7 @@ def find_max_length(nums: list[int]) -> int:
     """"""
 
     # All the solutions are (modifications of the solutions) from
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py.
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py.
 
     # 1) Optimal (0s to -1s; Prefix Sum & HashMap): TC = O(n); SC = O(n)
 
@@ -19,7 +19,7 @@ def find_max_length(nums: list[int]) -> int:
     # And now the question has been transformed to: `022 Longest Subarray with 0 Sum.py`
 
     # Longest Subarray with 0 Sum:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/022%29%20Longest%20Subarray%20with%200%20Sum.py
     prefix_sum = 0
     leftmost_index = {prefix_sum: -1}  # for O(1) lookup; initializing with `prefix_sum: -1` because:
     # dry run the algo with input arr = [1, -1, 1, -1], you'll get the answer.

@@ -36,7 +36,7 @@ def partition_labels(s: str) -> list[int]:
     # print(intervals)  #debugging
 
     # Merging Overlapping Intervals in order to calculate final size of Partitions:
-    # https://github.com/samyak1409/DSA/blob/main/01%29%20Arrays/008%29%20Merge%20Intervals.py
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/008%29%20Merge%20Intervals.py
     prev = intervals[0]
     for i in range(1, len(intervals)):
         curr = intervals[i]
