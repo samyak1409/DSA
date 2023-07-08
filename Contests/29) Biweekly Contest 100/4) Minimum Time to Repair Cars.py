@@ -46,6 +46,5 @@ def repair_cars(ranks: list[int], cars: int) -> int:
             lo = guess + 1
     return lo  # or hi
 
-    # 2) ? (Heap): TC = O(?); SC = O(?)
-    # Solution 2 in
+    # Another solution: "Solution 2: Heap" in
     # https://leetcode.com/problems/minimum-time-to-repair-cars/solutions/3312003/java-c-python-binary-search-and-heap-solution
