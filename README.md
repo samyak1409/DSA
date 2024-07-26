@@ -6,11 +6,11 @@ This repository contains the code solutions (with complete well written notes) o
 
 ## Features
 
-- Complete Code-Explanations 🙌
-- Multiple Approaches (Brute-force to Optimal) 🔥
+- Complete Code-Explanations
+- Multiple Approaches (Brute-force to Optimal)
 - Clean Codes ([PEP 8](https://www.python.org/dev/peps/pep-0008) ✅)
-- Readability (Good [Naming Convention](https://en.wikipedia.org/wiki/Naming_convention_(programming))) 👌
-- [Complexity](https://en.wikipedia.org/wiki/Computational_complexity) Analysis 🕐
+- Readability (Good [Naming Convention](https://en.wikipedia.org/wiki/Naming_convention_(programming)))
+- [Complexity](https://en.wikipedia.org/wiki/Computational_complexity) Analysis
 
 
 ## Template
@@ -44,8 +44,8 @@ def function(arg: type) -> type:
     # (Optional) Approach
     # (Optional) Any Helpful Link
 
-    ans = arg  # explanation if required
-    return ans  # explanation if required
+    ans = arg  # any comment if required
+    return ans  # any comment if required
 
 ```
 
