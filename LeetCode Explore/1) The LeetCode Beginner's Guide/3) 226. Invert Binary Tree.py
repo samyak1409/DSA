@@ -23,6 +23,18 @@ def invert_tree(root: TreeNode | None) -> TreeNode | None:
     # 1.1) Using Recursion:
 
     """
+    # Recursive Function:
+    def swap_nodes(node: TreeNode | None) -> None:
+        if not node:  # base case
+            return
+        node.left, node.right = node.right, node.left  # swap
+        swap_nodes(node.left), swap_nodes(node.right)  # recurse
+    
+    swap_nodes(root)
+    return root
+    """
+    # But actually, we can just use the main function only for recursion:
+    """
     if not root:
         return  # recurse out
 
@@ -55,6 +67,7 @@ def invert_tree(root: TreeNode | None) -> TreeNode | None:
     # scalable - (you can find the problem size that will overflow the stack and crash your application), so more robust
     # solution would be to use stack data structure."
     # -https://leetcode.com/problems/invert-binary-tree/solutions/62707/straightforward-dfs-recursive-iterative-bfs-solutions
+    # Easy: Just try to replicate the traversal behaviour of tree recursion (DFS).
 
     """
     pass

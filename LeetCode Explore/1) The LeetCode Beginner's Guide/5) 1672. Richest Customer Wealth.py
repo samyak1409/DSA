@@ -23,6 +23,13 @@ def maximum_wealth(accounts: list[list[int]]) -> int:
     """
 
     """
+    max_wealth = 0
+    for amount_list in accounts:
+        max_wealth = max(max_wealth, sum(amount_list))
+    return max_wealth
+    """
+
+    """
     return max(sum(amount_list) for amount_list in accounts)
     """
 
