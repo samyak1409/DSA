@@ -37,19 +37,20 @@ def can_be_increasing(nums: list[int]) -> bool:
     # 1) Optimal (Figure out removing which index (out of two) will be correct): TC = O(n); SC = O(1)
     # "When we find a drop, we check if the current number nums[i] is greater than the number before the previous one
     # nums[i-2]:
-    #            - If so, the number nums[i - 1] needs to be removed.
+    #            - If so, the number nums[i-1] needs to be removed.
     #            - Otherwise, the current number needs to be removed (nums[i]).
     # And, of course, we return false if we find a second drop."
     # -https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/solutions/1299306/two-conditions
 
+    """
     removed = None  # index at which num is removed
 
     for i in range(1, len(nums)):  # start from index 1 and go till the end
 
         # If encountered not strictly increasing:
-        if nums[i] <= nums[i-1 if (i-1 != removed) else i-2]:
+        if nums[i] <= nums[i-1 if i-1 != removed else i-2]:
             # `i-1 if (i-1 != removed) else i-2`: handling the case when an index is removed, so for following elements,
-            # `i-1` changes to `i-1-1` = `i-2`
+            # `i-1` changes to `(i-1)-1` = `i-2`
 
             if removed is not None:  # we've already removed a num
                 return False  # so
@@ -61,6 +62,35 @@ def can_be_increasing(nums: list[int]) -> bool:
             else:
                 removed = i
             '''
-            removed = i-1 if (i == 1 or nums[i] > nums[i-2]) else i
+            removed = i-1 if i == 1 or nums[i] > nums[i-2] else i
 
     return True
+    """
+    # OR:
+    removed = None  # will save index of num which is removed
+
+    for i in range(len(nums)-1):  # loop from start to end-1
+
+        if nums[i+1] <= nums[i if i != removed else i-1]:  # check if not strictly inc
+            # `i if i != removed else i-1` instead of `i` because:
+            # when a num is removed, for next iteration, it should be ignored
+
+            if removed is not None:  # if we already have a drop
+                return False  # then not possible
+
+            # Ignore a num greedily:
+            '''
+            if i == 0 or nums[i+1] > nums[i-1]:  # (`i == 0` handles the edge case)
+                removed = i
+            else:
+                removed = i + 1
+            '''
+            removed = i if i == 0 or nums[i+1] > nums[i-1] else i+1
+
+    return True
+
+    # Why do we NOT need to check both, for the smaller num out of the two which is still bigger than nums[i-1]?
+    # [Also: Why do we want smaller, because greedy!]
+    # Because we are facing a drop, implying nums[i+1] <= nums[i]. So, we just need to check nums[i+1], if it is >
+    # num[i-1], if it is we do not need to check nums[i] and remove nums[i], as we already know nums[i+1] <= nums[i].
+    # Otherwise, we just remove nums[i+1] as it's <= nums[i-1].
