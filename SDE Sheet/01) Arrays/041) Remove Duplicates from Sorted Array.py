@@ -14,13 +14,6 @@ def remove_duplicates(nums: list[int]) -> int:
 
     # 0) Brute-force (Using HashSet): TC = O(n); SC = O(n)
 
-    """
-    unique = set(nums)
-    k = len(unique)
-    nums[:k] = unique
-    return k
-    """
-    # WA because `set` is unordered. Fixes:
     # https://stackoverflow.com/questions/480214/how-do-i-remove-duplicates-from-a-list-while-preserving-order
     # https://stackoverflow.com/questions/1653970/does-python-have-an-ordered-set
     """
@@ -41,6 +34,18 @@ def remove_duplicates(nums: list[int]) -> int:
     return k
     """
 
+    # Hints:
+    # 1. In this problem, the key point to focus on is the input array being sorted. As far as duplicate elements are
+    # concerned, what is their positioning in the array when the given array is sorted? Look at the image below for the
+    # answer. If we know the position of one of the elements, do we also know the positioning of all the duplicate
+    # elements?
+    # https://assets.leetcode.com/uploads/2019/10/20/hint_rem_dup.png
+    # 2. We need to modify the array in-place and the size of the final array would potentially be smaller than the size
+    # of the input array. So, we ought to use a two-pointer approach here. One, that would keep track of the current
+    # element in the original array and another one for just the unique elements.
+    # 3. Essentially, once an element is encountered, you simply need to BYPASS its duplicates and move on to the next
+    # unique element.
+
     # 1) Optimal (Two-Pointers): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/remove-duplicates-from-sorted-array/solution
 
@@ -56,12 +61,12 @@ def remove_duplicates(nums: list[int]) -> int:
     # We actually don't need while loop:
     """
     i = 0
-    for j in range(len(nums)):
+    for j in range(1, len(nums)):
         if nums[j] != nums[i]:
             nums[i := i+1] = nums[j]
     return i+1
     """
-    # Or:
+    # Or just:
     i = 0
     for num in nums:
         if num != nums[i]:

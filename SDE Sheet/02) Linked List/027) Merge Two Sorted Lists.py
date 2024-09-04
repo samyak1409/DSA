@@ -24,6 +24,8 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
 
     # 2) Time-Optimal (Recursive: Traverse & Compare): TC = O(n); SC = O(n) {recursion stack}
     # https://leetcode.com/problems/merge-two-sorted-lists/discuss/9735/Python-solutions-(iteratively-recursively-iteratively-in-place).
+    # Remark: Recursive solutions like this one are generally harder to come up with at first, but are conciser and
+    # perhaps easier (after understanding) than the iterative ones.
 
     """
     if not node1 or not node2:  # base case: reached at the end node of either (or both) LLs
@@ -69,7 +71,7 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
 
     return head
     """
-    # 1.2) Using a dummy node made it easier:
+    # 1.2) Using a dummy node to make it concise:
     to_head = node = ListNode()  # `to_head` -> dummy node whose next will be the head of our merged LL
     # `node` -> not using head for traversing because we've to return it
 

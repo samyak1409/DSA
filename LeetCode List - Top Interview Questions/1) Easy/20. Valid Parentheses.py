@@ -4,25 +4,23 @@ https://leetcode.com/problems/valid-parentheses
 
 
 def is_valid(s: str) -> bool:
+    """"""
 
-    # Using Stack: TC = O(n); SC = O(n)
+    # 1) Optimal (Stack): TC = O(n); SC = O(n)
 
-    if len(s) % 2:  # optimization if odd no. of brackets
+    if len(s) % 2:  # optimization: odd no. of brackets
         return False
 
-    closed = {'(': ')', '{': '}', '[': ']'}  # helper
-    stack = [None]  # added None so that stack doesn't underflow
+    hm = {'(': ')', '{': '}', '[': ']'}
+    st = []  # SC = O(n)
 
-    for bracket in s:
+    for bracket in s:  # TC = O(n)
 
-        # if type of current bracket == opened, push its closed type to the stack (for future equality-check)
-        if bracket in closed.keys():  # closed.keys() = set of opened brackets
-            stack.append(closed[bracket])
+        if closing_bracket := hm.get(bracket):  # if bracket is opening bracket
+            st.append(closing_bracket)  # push its closing to the stack (for future)
 
-        else:  # (if type of current bracket == closed)
-            # pop an element (top) from stack and compare it with current bracket (type of both = closed), if not equal,
-            # means invalid parentheses
-            if bracket != stack.pop():
+        else:
+            if not st or bracket != st.pop():  # compare the closing bracket with the top of the stack
                 return False
 
-    return stack == [None]  # check whether the stack is back to its initial value, and return
+    return st == []  # if stack is not empty means some bracket is not closed
