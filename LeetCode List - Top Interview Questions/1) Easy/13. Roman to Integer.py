@@ -4,8 +4,9 @@ https://leetcode.com/problems/roman-to-integer
 
 
 def roman_to_int(s: str) -> int:
+    """"""
 
-    # Method 1 (Standard): TC = O(n); SC = O(1)
+    # 1) Optimal (Check if next letter is greater): TC = O(n); SC = O(1)
 
     """
     value = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -26,7 +27,7 @@ def roman_to_int(s: str) -> int:
     return ans
     """
 
-    # Method 2 (Easier to Understand): TC = O(n); SC = O(1)
+    # 2) Optimal (Saving the (only 6) exceptions to the dict as well): TC = O(n); SC = O(1)
 
     value = {'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900, 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100,
              'D': 500, 'M': 1000}
@@ -46,6 +47,5 @@ def roman_to_int(s: str) -> int:
 
     return ans
 
-    # Method 3 (Hold Up): TC = O(n); SC = O(1)
-
+    # 3) Optimal (Roman Numeral System Done Right): TC = O(n); SC = O(1)
     # https://leetcode.com/problems/roman-to-integer/discuss/264743/Clean-Python-beats-99.78.

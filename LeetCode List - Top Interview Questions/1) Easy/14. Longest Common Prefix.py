@@ -4,23 +4,36 @@ https://leetcode.com/problems/longest-common-prefix
 
 
 def longest_common_prefix(strs: list[str]) -> str:
+    """"""
 
-    # Best from https://leetcode.com/problems/longest-common-prefix/solution &
-    # https://leetcode.com/problems/longest-common-prefix/discuss:
+    # 1) Optimal (2 Loops): TC = O(mn); SC = O(1) {m = len(LCP) to be (<= len(min(strs, key=len))), n = len(strs)}
 
-    # Vertical Scanning (Pythonic):
-    # TC = O(mn); SC = O(n); where m = len(LCP) to be (<= len(min(strs, key=len))) and n = len(strs)
-
-    lcp = ''
-
-    for tup in zip(*strs):  # '*' -> unpacking; this loop will run m times, so TC = O(m)
-
-        # tup will occupy n space on every iteration, so SC = O(n)
-
-        if len(set(tup)) == 1:  # => all chars same; set construction, so TC = O(n)
-            lcp += tup[0]
-
+    """
+    lcp = []  # list instead of str for mutability
+    i = 0  # index of char one by one
+    while True:
+        hs = set()  # to save only uniques
+        try:  # if index error occurs, means we've traversed the shortest str, so time to stop
+            for string in strs:
+                hs.add(string[i])
+        except IndexError:
+            break
+        if len(hs) == 1:  # if all the chars were same
+            lcp.append(hs.pop())
+            i += 1  # now next char
         else:
             break
+    return ''.join(lcp)
+    """
 
-    return lcp
+    # 1.1) Time-optimal (Using zip and unpacking):
+    # TC = O(mn); SC = O(1) {m = len(LCP) to be (<= len(min(strs, key=len))), n = len(strs)}
+    # This method is a trade-off between space complexity and code complexity.
+
+    lcp = []  # list instead of str for mutability
+    for char_tup in zip(*strs):  # loop on char tuples; TC = O(m); SC = O(n)
+        if len(set(char_tup)) == 1:  # if all chars same; TC = O(n)
+            lcp.append(char_tup[0])
+        else:
+            break
+    return ''.join(lcp)
