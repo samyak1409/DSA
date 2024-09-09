@@ -37,6 +37,7 @@ def str_str(haystack: str, needle: str) -> int:
     """
 
     # 1) Optimal (Knuth–Morris–Pratt (KMP) Algorithm): TC = O(m+n); SC = O(m) {m: len(needle), n: len(haystack)}
+    # NOTE: IT'S EASY!! CHECK IMPLEMENTATION `1.2)`.
 
     # Abdul Bari - https://youtu.be/V5-7GzOfADQ
     # Tushar Roy - https://youtu.be/GTJr8OvyEVQ (Pt.1), https://youtu.be/KG44VoDtsAA (Pt.2)
@@ -116,11 +117,12 @@ def str_str(haystack: str, needle: str) -> int:
             if i != 0:  # when `i` is not already at `0` (because lps[0] is 0)
                 i = lps[i]  # move `i` to `lps[i]` for trying to "resume" matching from a prev char in needle
             else:
-                j += 1  # if `i` is at `0`, then we need to ++j => "restart" matching from the very first char of needle
+                j += 1  # if `i` is at `0`, then we need to ++j
+                # (now we're basically "restart" matching from the very first char of needle
 
     return -1
 
-    # GOOD TEST CASES (1st line - Haystack, 2nd line - Needle):
+    # GOOD TEST CASES (1st line - haystack, 2nd line - needle):
     # "acacabacacabacacabacacac"
     # "acacabacacabacacac"
     # "aabaaabaaac"
