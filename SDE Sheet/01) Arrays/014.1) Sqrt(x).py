@@ -6,8 +6,9 @@ https://leetcode.com/problems/sqrtx
 def my_sqrt(x: int) -> int:
     """"""
 
-    # Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
-    # -1) Not Allowed (Using Built-in Exponent Function or Operator): TC = O(log(x)); SC = O(1)
+    # Note: You must not use any built-in exponent function or operator.
+
+    # -1) Not Allowed (Built-in Exponent Function or Operator): TC = O(log(x)); SC = O(1)
 
     """
     return int(x ** .5)
@@ -29,34 +30,33 @@ def my_sqrt(x: int) -> int:
     """
 
     # NOTE: Python doesn't bound integer limit, otherwise we would have to use i == x/i instead of i*i == x for
-    # comparisons, to avoid exceeding integer upper limit.
+    # comparisons, to avoid exceeding integer upper limit (in case of `sq(ceil(sqrt(2**31 - 1)))`).
 
     # 0) Brute Force (Linear Search): TC = O(√x); SC = O(1)
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_linear_search
 
-    # 0.1) Intuitive:
     """
-    for sqrt in range(0, x+1):  # ∵ for a non-negative integer x, range(sqrt(x)) = [0, x]
-        if (sq := sqrt*sqrt) == x:
-            return sqrt
-        if sq > x:  # for non-perfect square x
-            return sqrt-1
+    for i in range(x+2):  # +1 ∵ for a non-negative int x, range(sqrt(x)) = [0, x]; 
+    # another +1 ∵ we need to go one above the actual answer to know if it's the answer or not
+        if i*i > x:
+            return i-1
     """
-    # 0.2) Bit Faster (due to fewer comparisons):
+    # Or we can just use:
     """
-    sqrt = 0
-    while sqrt*sqrt < x:
-        sqrt += 1
-    return sqrt if (sqrt*sqrt == x) else sqrt-1
+    from itertools import count
+
+    for i in count():
+        if i*i > x:
+            return i-1
     """
 
     # 1.1) Optimal (Binary Search): TC = O(log2(x)); SC = O(1)
-    # https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution/24042
+    # https://leetcode.com/problems/sqrtx/solutions/25047/a-binary-search-solution/comments/24042
     # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_binary_search
 
-    lo, hi = 0, x  # ∵ for a non-negative integer x, range(sqrt(x)) = [0, x]
-    while lo <= hi:
+    lo, hi = 0, x  # ∵ for a non-negative int x, range(sqrt(x)) = [0, x]
+    while lo <= hi:  # stop when lo > hi, to be accurate when lo = hi+1
         mid = (lo + hi) // 2
         mid_sq = mid * mid
         if mid_sq == x:  # => mid = sqrt(x)
@@ -76,7 +76,7 @@ def my_sqrt(x: int) -> int:
 
     # 1.2) Optimal (Heron's method, a special case of Newton's method): TC = O(log(x)); SC = O(1)
     # -> Harder and Slower than Binary Search
-    # https://leetcode.com/problems/sqrtx/discuss/25057/3-4-short-lines-Integer-Newton-Every-Language
+    # https://leetcode.com/problems/sqrtx/solutions/25057/3-4-short-lines-Integer-Newton-Every-Language
     # https://en.wikipedia.org/wiki/Integer_square_root#Algorithm_using_Newton%27s_method
 
 
