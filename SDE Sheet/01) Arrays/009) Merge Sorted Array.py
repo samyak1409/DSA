@@ -15,6 +15,7 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 
     # Follow up: Can you come up with an algorithm that runs in O(m+n) time?
 
+    # Hints:
     # You can easily solve this problem if you simply think about two elements at a time rather than two arrays. We know
     # that each of the individual arrays is sorted. What we don't know is how they will intertwine. Can we take a local
     # decision and arrive at an optimal solution?
@@ -37,8 +38,8 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
     nums1[i+j:] = nums1_copy[i:] or nums2[j:]
     """
 
-    # 2) Optimal (Reverse Traverse 👌 and Compare): TC = O(m+n); SC = O(1)
-    # https://leetcode.com/problems/merge-sorted-array/discuss/29503/Beautiful-Python-Solution
+    # 2) Optimal (Reverse Traverse and Compare): TC = O(m+n); SC = O(1)
+    # https://leetcode.com/problems/merge-sorted-array/solutions/29503/beautiful-python-solution
 
     while m > 0 and n > 0:
         num1, num2 = nums1[m-1], nums2[n-1]  # -1 coz index
@@ -54,7 +55,7 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 
 # ALSO, the same question with a little variation (https://youtu.be/hVl2b3bLzBw)
 # If "To accommodate this, nums1 has a length of m + n" is not the case, and nums1 & nums2 has really the length m & n
-# respectively.
+# respectively, and we need to store the sorted values in those two arrays only.
 
 # 0) Brute-force (Same intuition as above `0)`): TC = O((m+n)*log(m+n)); SC = O(m+n)
 
@@ -64,12 +65,13 @@ temp_arr.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
 nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 # IMP: `[:]` (won't create a new object (i.e. new memory address) but modify it only)
 """
-# In short:
+# One liner:
 """
 nums1[:], nums2[:] = sorted(nums1+nums2)
 """
 
 # 1) Space-Optimal (Gap Algo): TC = O((m+n)*log(m+n)); SC = O(1)
+# https://youtu.be/hVl2b3bLzBw?t=282
 
 """
 from math import ceil
@@ -91,8 +93,6 @@ while gap > 0:  # (last iteration when gap = 1)
 """
 
 # 2) Time-Optimal (Same intuition as above `1)`: Copy, Traverse & Compare): TC = O(m+n); SC = O(m+n)
-# When the nums1 & nums2 are sorted why just not benefit from this and not sort the summed array and make the TC go
-# from O((m+n)*log(m+n)) to O(m+n).
 
 """
 # TC = SC = O(m+n) for following 11 lines:
@@ -109,6 +109,9 @@ while i < m and j < n:
 temp_arr.extend(nums1[i:] or nums2[j:])
 nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 """
+
+# Note that we can't use `Reverse Traverse` method here, because we don't have any free space to accommodate the result
+# we get through our way.
 
 
 # Similar Questions:
