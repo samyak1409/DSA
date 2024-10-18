@@ -12,20 +12,28 @@ class TreeNode:
 
 
 def sorted_array_to_bst(nums: list[int]) -> TreeNode | None:
+    """"""
 
-    # Recursive Binary Search Algorithm: 
-    # TC = O(n); SC = O(h) (height of BST) = O(n) in worst case and O(log2(n)) in best case
-    # https://en.wikipedia.org/wiki/Binary_search_algorithm#Procedure
+    # 1) Optimal (Recursive Binary Search): TC = O(n); SC = O(h) = O(log2(n))
 
-    def construct(lt: int = 0, rt: int = len(nums)-1) -> TreeNode | None:  # recursive function
+    # Can be shortened to as concise as:
+    """
+    def construct(lt: int, rt: int) -> TreeNode | None:
+        return None if lt > rt else TreeNode(nums[(mid := (lt+rt)//2)], construct(lt, mid-1), construct(mid+1, rt))
+    return construct(0, len(nums)-1)
+    """
 
-        if lt > rt:  # base condition: if no more elements are left
-            return
+    # Recursive Function:
+    def construct(lt: int, rt: int) -> TreeNode | None:
 
-        m = (lt + rt) // 2  # mid index
-        node = TreeNode(nums[m])  # node init
-        node.left = construct(lt, m-1)  # left subtree construction by recursion
-        node.right = construct(m+1, rt)  # right subtree construction by recursion
-        return node  # root node
+        if lt > rt:  # base condition: if no more elements are left in curr subarray
+            return None  # (child node doesn't exist)
 
-    return construct()
+        mid = (lt+rt) // 2  # mid index
+        node = TreeNode(nums[mid])  # init node
+        node.left = construct(lt, mid-1)  # recurse to construct left subtree
+        node.right = construct(mid+1, rt)  # recurse to construct right subtree
+        return node  # assign to func caller LHS
+
+    root = construct(0, len(nums)-1)
+    return root

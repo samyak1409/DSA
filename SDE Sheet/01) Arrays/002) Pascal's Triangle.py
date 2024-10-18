@@ -11,6 +11,7 @@ def generate(num_rows: int) -> list[list[int]]:
     """
     row = [1]  # init
     yield row
+
     # Summation using a nested for loop:
     for i in range(num_rows-1):  # n-1 iterations ✅
         prev = row
@@ -24,6 +25,7 @@ def generate(num_rows: int) -> list[list[int]]:
     """
     row = [1]  # init
     yield row
+
     for i in range(num_rows-1):
         row = [1] + [row[j]+row[j+1] for j in range(i)] + [1]  # prefix 1 + middle nums + suffix 1
         yield row
@@ -39,16 +41,18 @@ def generate(num_rows: int) -> list[list[int]]:
     """
     row = [1]  # init
     yield row
+
     for _ in range(num_rows-1):
         row = [x+y for x, y in zip(row+[0], [0]+row)]  # using list comprehension
         yield row
     """
-    # row+[0] & [0]+row construct new lists and also allocate extra space, instead use itertools.chain
+    # row+[0] & [0]+row construct new lists and also allocate extra space, instead use itertools.chain:
     # https://www.youtube.com/watch?v=Qu3dThVy6KQ&t=1300s&ab_channel=CoreySchafer
     from itertools import chain
 
     row = [1]  # init
     yield row
+
     for _ in range(num_rows-1):
         row = [x+y for x, y in zip(chain(row, [0]), chain([0], row))]  # using list comprehension
         yield row
