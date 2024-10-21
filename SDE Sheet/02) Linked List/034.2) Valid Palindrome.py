@@ -13,7 +13,8 @@ def is_palindrome(s: str) -> bool:
     s = [c.lower() for c in s if c.isalnum()]
 
     for i in range(len(s)//2):
-        if s[i] != s[~i]:
+        if s[i] != s[~i]:  # ~i = -i-1 (bit magic)
+        # https://en.wikipedia.org/wiki/Bitwise_operation#NOT; https://wiki.python.org/moin/BitwiseOperators
             return False
     return True
     """
@@ -54,6 +55,5 @@ def is_palindrome(s: str) -> bool:
     return True
 
     # How to define `isalnum`?
-    # def isalnum(c: chr) -> bool: return ('a' <= c <= 'z') or ('0' <= c <= '9')
-
-    # https://leetcode.com/problems/valid-palindrome/discuss
+    # def isalnum(c: chr) -> bool: return ('A' <= c <= 'Z') or ('a' <= c <= 'z') or ('0' <= c <= '9')
+    # https://en.wikipedia.org/wiki/ASCII#Printable_characters

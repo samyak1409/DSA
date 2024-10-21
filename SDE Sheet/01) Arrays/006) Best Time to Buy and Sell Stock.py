@@ -6,42 +6,59 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock
 def max_profit(prices: list[int]) -> int:
     """"""
 
-    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solution
-
     # 0) [TLE] Brute-force (Calculating profits for all the combinations): TC = O(n^2); SC = O(1)
 
     """
-    n = len(prices)
     max_profit_ = 0
-    for i in range(n):  # considering all the prices in the array one by one as cost price
+    for i in range(n := len(prices)):  # considering all the prices in the array one by one as cost price
         for j in range(i+1, n):  # for a particular cost price, all the prices in the next days will be selling prices
             profit = prices[j] - prices[i]  # selling_price - cost_price
-            if profit > max_profit_:
-                max_profit_ = profit
+            max_profit_ = max(max_profit_, profit)
     return max_profit_
     """
 
     # 1) Optimal (Kadane's Algo): TC = O(n); SC = O(1)
 
+    # Most intuitive implementation:
     """
-    min_price, max_profit_ = float('inf'), 0  # init
-    for price in prices:
-        if price < min_price:
-            min_price = price  # bought stock at a lesser price
-            continue  # bought stock on this day, so doesn't make sense selling because profit will obviously be 0
-        profit = price - min_price  # selling_price - cost_price
-        if profit > max_profit_:
-            max_profit_ = profit
+    min_price = prices[0]  # init first price as min price
+    max_profit_ = 0  # (also, "If you cannot achieve any profit, return 0")
+
+    for i in range(1, len(prices)):  # now start with next price
+        price = prices[i]
+        # Check if profit can be there:
+        if (profit := price-min_price) > 0:
+            # If yes, (we can sell the stock) update max_profit if needed:
+            max_profit_ = max(max_profit_, profit)
+        # If profit is not there, (we do not sell the stock, instead buy on this day if price today is even lesser than
+        # our stock bought price):
+        else:
+            min_price = min(min_price, price)
+
     return max_profit_
+    """
+
+    # We can skip initializing to the first val by initializing to `inf`, everything else remains the same:
     """
     min_price, max_profit_ = float('inf'), 0
     for price in prices:
+        if (profit := price-min_price) > 0:
+            max_profit_ = max(max_profit_, profit)
+        else:
+            min_price = min(min_price, price)
+    return max_profit_
+    """
+
+    # Also, we can just skip the if-else checks as well, as the result would not change if the check was to fail, but
+    # this could look a little confusing:
+    min_price, max_profit_ = float('inf'), 0
+    for price in prices:
+        max_profit_ = max(max_profit_, price-min_price)
         min_price = min(min_price, price)
-        max_profit_ = max(max_profit_, price-min_price)  # `price-min_price` = selling_price-cost_price = current profit
     return max_profit_
 
-    # Another Angle to look at this problem:
-    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/39038/Kadane's-Algorithm-Since-no-one-has-mentioned-about-this-so-far-:)-(In-case-if-interviewer-twists-the-input)
+    # Another angle to look at this problem:
+    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/39038/kadane-s-algorithm-since-no-one-has-mentioned-about-this-so-far-in-case-if-interviewer-twists-the-input
 
 
 # Similar Questions:
