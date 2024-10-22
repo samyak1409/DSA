@@ -36,8 +36,9 @@ def has_cycle(head: ListNode | None) -> bool:
     """
 
     # Follow up: Can you solve it using O(1) (i.e. constant) memory?
+
     # 2) Optimal (Floyd's Cycle-Finding Algorithm <3): TC = O(n); SC = O(1)
-    # https://youtu.be/354J83hX7RI?t=253
+    # https://youtu.be/354J83hX7RI?t=253 (Striver)
     # https://en.wikipedia.org/wiki/Cycle_detection#Floyd%27s_tortoise_and_hare
 
     """
@@ -48,7 +49,7 @@ def has_cycle(head: ListNode | None) -> bool:
             return True  # cycle is there
     return False  # reached at the end of LL => no cycle
     """
-    # In Python, it's EAFP (https://leetcode.com/problems/linked-list-cycle/discuss/44494/Except-ionally-fast-Python):
+    # In Python, it's EAFP (https://leetcode.com/problems/linked-list-cycle/solutions/44494/Except-ionally-fast-Python):
     slow = fast = head  # init
     while True:
         try:
