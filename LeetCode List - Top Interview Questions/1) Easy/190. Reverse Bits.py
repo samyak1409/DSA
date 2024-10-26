@@ -4,64 +4,67 @@ https://leetcode.com/problems/reverse-bits
 
 
 def reverse_bits(n: int) -> int:
+    """"""
 
-    # 0) Using functions (not something to do in an interview): TC = O(1); SC = O(1)
-
-    """
-    print(n)  # passed arg is of type int
-
-    b_ = bin(n)[2:]  # deci -> bin and trimming that '0b' (denote binary nums in python)
-    print(b_)
-
-    b = b_.zfill(32)  # "32 bits" unsigned integer
-    print(b)
-
-    rb = b[::-1]  # reversing
-    print(rb)
-
-    return int(rb, base=2)  # bin -> deci
-    """
+    # 1) Time-optimal (Reversing the Binary String: Not supposed to be solved like this.): TC = O(32); SC = O(32)
 
     """
-    return int(bin(n)[2:].zfill(32)[::-1], base=2)
+    print(n, type(n))  # 43261596 <class 'int'>
+    # arg passed is actually int
+
+    n = bin(n)  # deci -> bin
+    print(n, type(n))  # 0b10100101000001111010011100 <class 'str'>
+
+    n = n[2:]  # trim '0b' (denotes binary num in python)
+    print(n)  # 10100101000001111010011100
+
+    n = n.zfill(32)  # fill 0s to the left to make the str "32 bits"
+    print(n)  # 00000010100101000001111010011100
+
+    n = n[::-1]  # reverse
+    print(n)  # 00111001011110000010100101000000
+
+    n = int(n, base=2)  # bin -> deci
+    print(n)  # 964176192
+
+    return n
+    """
+    
+    # One liner:
+    """
+    return int(bin(n)[2:].zfill(32)[::-1], base=2)  # deci -> bin, trim '0b', fill 0s, reverse, bin -> deci
     """
 
-    # 1) Bit Manipulation: TC = O(1); SC = O(1)
+    # 2) Optimal (Bit Manipulation): TC = O(32); SC = O(1)
+    # [EASY]
+    # "We are asked to reverse bits in our number. What is the most logical way to do it?
+    # Create number `out`, process original number bit by bit from end and add this bit to the end of our `out` number,
+    # and that is all! Why it is works?
+    #
+    # out = (out << 1) | (n & 1) adds last bit of n to out
+    # n >>= 1 removes last bit from n.
+    #
+    # Imagine number n = 11011010, and out = 0
+    # out = 0, n = 1101101
+    # out = 01, n = 110110
+    # out = 010, n = 11011
+    # out = 0101, n = 1101
+    # out = 01011, n = 110
+    # out = 010110, n = 11
+    # out = 0101101, n = 1
+    # out = 01011011, n = 0
+    #
+    # Complexity: time complexity is O(32), space complexity is O(1)."
+    # -https://leetcode.com/problems/reverse-bits/solutions/732138/python-o-32-simple-solution-explained
 
-    """
-    https://leetcode.com/problems/reverse-bits/discuss/732138/Python-O(32)-simple-solution-explained
-
-    We are asked to reverse bits in our number. What is the most logical way to do it? Create number out, process 
-    original number bit by bit from end and add this bit to the end of our out number, and that is all! Why it is works?
-
-    out = (out << 1) | (n & 1) adds last bit of n to out
-    n >>= 1 removes last bit from n.
-
-    Imagine number n = 11011010, and out = 0
-    out = 0, n = 1101101
-    out = 01, n = 110110
-    out = 010, n = 11011
-    out = 0101, n = 1101
-    out = 01011, n = 110
-    out = 010110, n = 11
-    out = 0101101, n = 1
-    out = 01011011, n = 0
-
-    Complexity: time complexity is O(32), space complexity is O(1).
-    """
-
-    ans = 0  # note that type(n) = type(ans) = int; python will apply the bit ops on underlying binary only!
-
-    for _ in range(32):  # "32 bits" unsigned integer
-
-        ans <<= 1  # left shift ans. by 1 bit, so that next digit can be appended to ans
-
-        if n:  # once n is 0; "ans <<= 1" will keep shifting till correct ans is not formulated!
-
-            n_lsb = n & 1  # (bitwise AND) getting the LSB of n (0 & 1 = 0; 1 & 1 = 1) try yourself
-
-            ans |= n_lsb  # (bitwise OR) adding the LSB of n to the ans (0 | 0 = 0; 0 | 1 = 1) try yourself
-
-            n >>= 1  # right shift n by 1 bit as the current LSB is processed, and now we need the next LSB!
-
+    ans = 0
+    for _ in range(32):  # because we want exactly 32 bits only
+        ans = ans << 1 | n & 1  # bitwise (op is applied bit by bit)
+        n >>= 1
+        # `ans << 1`: getting the one left shifted `ans`, so that next digit can be added
+        # `n & 1`: bitwise AND, getting the LSB of `n` (0 & 1 = 0; 1 & 1 = 1)
+        # `ans = ans << 1 | n & 1`: bitwise OR, adding the LSB of `n` to `ans` (0 | 0 = 0; 0 | 1 = 1)
+        # `n >>= 1`: right shift `n` by one bit as the current LSB is processed, and we need the next LSB
     return ans
+
+    # Follow up: If this function is called many times, how would you optimize it?
