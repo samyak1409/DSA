@@ -34,12 +34,13 @@ def reverse_list(head: ListNode | None) -> ListNode | None:
 
     # 1) Optimal (Changing the Direction of Pointers): TC = O(n); SC = O(1)
     # https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif
-    # https://leetcode.com/problems/reverse-linked-list/discuss/58127/Python-Iterative-and-Recursive-Solution
+    # https://leetcode.com/problems/reverse-linked-list/solutions/58127/python-iterative-and-recursive-solution
 
     # Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
 
     # 1.2) It can also be done Recursively: TC = O(n); SC = O(n) {recursion stack}
     # O(n) space, still writing, why? For Recursion practice!
+
     """
     # Recursive Function:
     def reverse(curr, prev=None) -> ListNode | None:
@@ -52,6 +53,21 @@ def reverse_list(head: ListNode | None) -> ListNode | None:
 
     return reverse(curr=head)
     """
+    # We can also do it this way:
+    # MAIN DIFF: Above, we're reversing the ptr direction while recursing in, here we're doing that while recursing out.
+    """
+    # Recursive Function:
+    def reverse(curr, prev=None) -> ListNode | None:
+        if curr:  # only do following till we've not reached None
+            ans = reverse(curr=curr.next, prev=curr)  # recurse in with next values, it'd return the head of reversed LL
+            curr.next = prev  # IMP.: this is while recursing out: change the ptr direction
+            return ans  # at the end, return the head of reversed LL
+        # When curr becomes None (meaning we've gone through the whole LL):
+        return prev  # return the last node of the LL, it'd be the head of our reversed LL
+
+    return reverse(curr=head)
+    """
+    # Which one is better? 🤔
 
     # 1.1) Iteratively:
     """
