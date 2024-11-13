@@ -6,27 +6,25 @@ https://leetcode.com/problems/missing-number
 def missing_number(nums: list[int]) -> int:
     """"""
 
-    # 0.1) Brute-force (Sort): TC = O(n*log(n)); SC = O(n)
+    # 0.1) Brute-force (Loop on n and Lookup): TC = O(n^2); SC = O(1)
 
-    # 0.2) Time-Optimal Brute-force (Use HashMap / HashSet / Array (Indices will act like Keys)): TC = O(n); SC = O(n)
+    # 0.2) Brute-force (Sort and Traverse): TC = O(n*log(n)); SC = O(n)
+
+    # 1) Time-Optimal Brute-force (HashSet + Loop on n and Lookup): TC = O(n); SC = O(n)
 
     # Follow up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?
 
-    # 1) Optimal (Maths: Sum of n terms): TC = O(n); SC = O(1)
+    # 2) Optimal: TC = O(n); SC = O(1)
 
-    """
-    n = len(nums)
-    return n*(n+1)//2 - sum(nums)
-    """
-
-    # 2) Optimal (Bit Manipulation: Using XOR): TC = O(n); SC = O(1)
+    # 2.2) Bit Manipulation: XOR:
     # https://leetcode.com/problems/missing-number/discuss/69791/4-Line-Simple-Java-Bit-Manipulate-Solution-with-Explaination
 
-    n = len(nums)
-    ans = n
+    """
+    ans = (n := len(nums))
     for i in range(n):
         ans ^= nums[i] ^ i
     return ans
+    """
 
     # "For people who don't understand this solution: what he's doing is he's using the bitwise XOR operator to single
     # out the missing number.
@@ -42,3 +40,8 @@ def missing_number(nums: list[int]) -> int:
     # will simply equal the missing number.
     # If you're not convinced as to how these properties work, I'd recommend taking a quick look as to how they work."
     # -https://leetcode.com/problems/missing-number/discuss/69777/C++-solution-using-bit-manipulation/196136
+
+    # 2.1) Maths: Sum of n terms:
+
+    n = len(nums)
+    return n*(n+1)//2 - sum(nums)
