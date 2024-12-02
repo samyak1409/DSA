@@ -1,4 +1,4 @@
-# [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm) 🌏
+# [Data Structures](https://en.wikipedia.org/wiki/Data_structure) and [Algorithms](https://en.wikipedia.org/wiki/Algorithm)
 
 
 This repository contains the code solutions (with complete well written notes) of DSA problems from LeetCode.
