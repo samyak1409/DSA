@@ -68,9 +68,11 @@ def intersect(nums1: list[int], nums2: list[int]) -> list[int]:
     if len(nums2) < len(nums1):  # making sure `nums1` is smaller array
         return intersect(nums2, nums1)
 
-    # ht = {}
-    # for num in nums1:  # TC = SC = O(m)
-    #     ht[num] = ht.get(num, 0) + 1
+    '''
+    ht = {}
+    for num in nums1:  # TC = SC = O(m)
+        ht[num] = ht.get(num, 0) + 1
+    '''
     # Or just use `collections`:
     ht = Counter(nums1)  # TC = SC = O(m)
 

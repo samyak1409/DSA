@@ -36,10 +36,12 @@ def first_uniq_char(s: str) -> int:
     hm = Counter(s)  # O(n); O(26)
 
     # If `Counter` didn't preserve insertion order, then we would've done:
-    # for i, c in enumerate(s):  # O(n)
-    #     if hm[c] == 1:
-    #         return i
-    # return -1
+    '''
+    for i, c in enumerate(s):  # O(n)
+        if hm[c] == 1:
+            return i
+    return -1
+    '''
 
     # But as it does (just like `dict`), we can also do:
     for c, x in hm.items():  # O(n)
