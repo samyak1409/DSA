@@ -82,6 +82,15 @@ def unique_paths(m: int, n: int) -> int:
 
     return get_unique_paths()
     """
+    # Also, note that this can also be done like this: https://leetcode.com/problems/unique-paths/submissions/1498501307
+    """
+    from functools import cache
+    @cache
+    def unique_paths(self, m: int, n: int) -> int:
+        if m == 1 or n == 1:
+            return 1
+        return unique_paths(m-1, n) + unique_paths(m, n-1)
+    """
 
     # 1.2) Better (DP): TC = O(m*n); SC = O(m*n)
     # https://leetcode.com/problems/unique-paths/discuss/22954/C++-DP
