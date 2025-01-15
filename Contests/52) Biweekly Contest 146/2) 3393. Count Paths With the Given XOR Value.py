@@ -23,21 +23,19 @@ def count_paths_with_xor_value(grid: list[list[int]], k: int) -> int:
         # x: xor till here
         if i >= m or j >= n:  # -ve base case: went out of grid
             return 0
-        if i == m - 1 and j == n - 1:  # +ve base case: reached at bottom left cell
+        if i == m-1 and j == n-1:  # +ve base case: reached at bottom left cell
             return int(x^grid[i][j] == k)  # 0 or 1
         # Recurse in:
         return (r(i, j+1, x^grid[i][j]) + r(i+1, j, x^grid[i][j])) % (10**9 + 7)
 
     m, n = len(grid), len(grid[0])
-    return r(0, 0, 0)
+    return r(i=0, j=0, x=0)
     """
 
     # 1) Optimal (Recursion + Memoization): TC = O(m*n); SC = O(m*n) {memo}
     # Add memoization to `0)`.
-    # TC:
-    # Each unique pair of (m, n) is calculated only once and stored in the memoization dictionary.
-    # SC:
-    # The memoization dictionary can store up to m * n key-value pairs.
+    # TC: Each unique pair of (m, n) is calculated only once and stored in the memoization dictionary.
+    # SC: The memoization dictionary can store up to m * n key-value pairs.
 
     from functools import cache
 
@@ -47,10 +45,10 @@ def count_paths_with_xor_value(grid: list[list[int]], k: int) -> int:
         # x: xor till here
         if i >= m or j >= n:  # -ve base case: went out of grid
             return 0
-        if i == m - 1 and j == n - 1:  # +ve base case: reached at bottom left cell
+        if i == m-1 and j == n-1:  # +ve base case: reached at bottom left cell
             return int(x^grid[i][j] == k)  # 0 or 1
         # Recurse in:
         return (r(i, j+1, x^grid[i][j]) + r(i+1, j, x^grid[i][j])) % (10**9 + 7)
 
     m, n = len(grid), len(grid[0])
-    return r(0, 0, 0)
+    return r(i=0, j=0, x=0)
