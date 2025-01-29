@@ -34,4 +34,4 @@ def running_sum(nums: list[int]) -> list[int]:
 
     # https://leetcode.com/problems/running-sum-of-1d-array/solutions/686276/c-python-partial-sum:
     from itertools import accumulate
-    yield from accumulate(nums)
+    return list(accumulate(nums))

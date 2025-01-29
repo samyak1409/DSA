@@ -11,15 +11,13 @@ def can_construct(ransom_note: str, magazine: str) -> bool:
     # https://leetcode.com/explore/learn/card/the-leetcode-beginners-guide/692/challenge-problems/4427
 
     """
+    from collections import Counter
+
     if len(ransom_note) > len(magazine):  # optimization
         return False
 
-    from collections import Counter
-
     src = Counter(magazine)
-
     for char, freq in Counter(ransom_note).items():
-
         if freq > src[char]:
             return False
 
@@ -30,9 +28,9 @@ def can_construct(ransom_note: str, magazine: str) -> bool:
     # https://leetcode.com/problems/ransom-note/solutions/85837/o-m-n-one-liner-python
     # https://docs.python.org/3.11/library/collections.html#collections.Counter:~:text=Counters%20support%20rich%20comparison%20operators%20for%20equality%2C%20subset%2C%20and%20superset%20relationships%3A%20%3D%3D%2C%20!%3D%2C%20%3C%2C%20%3C%3D%2C%20%3E%2C%20%3E%3D.
 
+    from collections import Counter
+
     if len(ransom_note) > len(magazine):  # optimization
         return False
-
-    from collections import Counter
 
     return Counter(ransom_note) <= Counter(magazine)

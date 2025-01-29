@@ -39,10 +39,9 @@ def reverse_string(s: list[str]) -> None:
     """
     # Recursive Function:
     def reverse(i: int = 0) -> None:
-        if i != n-1:
+        if i < n//2:
             reverse(i=i+1)  # recurse in
-        # While recursing out:
-        if i >= n//2:
+            # While recursing out:
             s[i], s[~i] = s[~i], s[i]
 
     n = len(s)

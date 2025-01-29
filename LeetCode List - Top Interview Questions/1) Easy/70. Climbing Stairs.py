@@ -73,6 +73,10 @@ def climb_stairs(n: int) -> int:
     # 2 -> 2
     # 3 -> 3
     # 4 -> 5
+    # So, basically we can take an arr starting with 0, 1, and then we can append the sum of last two nums
+    # ans = [0, 1, 1, 2, 3, 5, 8]
+    # (ans[n] = ans[n-1] + ans[n-2])
+    # If we notice, we don't actually need a whole arr for that, we can just use two variables.
     # Want to read more? ->
     # https://leetcode.com/problems/climbing-stairs/solutions/3708750/4-method-s-beat-s-100-c-java-python-beginner-friendly
     # https://leetcode.com/problems/climbing-stairs/solutions/25299/basically-it-s-a-fibonacci

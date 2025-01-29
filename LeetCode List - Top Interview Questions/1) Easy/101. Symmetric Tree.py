@@ -35,7 +35,7 @@ def is_symmetric(root: TreeNode | None) -> bool:
             return False
 
         # Add the next level to the list:
-        level_copy = level[:]
+        level_copy = level.copy()
         level.clear()
         for node in level_copy:
             if node:
@@ -49,6 +49,7 @@ def is_symmetric(root: TreeNode | None) -> bool:
 
     # 2) Optimal (Recursive): TC = O(n); SC = O(log(n)) {not O(n) (skewed tree), think why}
 
+    """
     # Recursive Function:
     def are_symmetric(l_node: TreeNode | None, r_node: TreeNode | None) -> bool:
 
@@ -65,3 +66,14 @@ def is_symmetric(root: TreeNode | None) -> bool:
         return False  # recurse out
 
     return are_symmetric(root.left, root.right)
+    """
+
+    # Intuitive and Easy:
+
+    # Recursive Function:
+    def f(a: TreeNode | None, b: TreeNode | None) -> bool:
+        if not a or not b:  # if any node is None
+            return not a and not b  # return True if both are None else False
+        return a.val == b.val and f(a.left, b.right) and f(a.right, b.left)  # recurse in
+
+    return f(root.left, root.right)

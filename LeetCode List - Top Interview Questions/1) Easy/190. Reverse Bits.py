@@ -30,7 +30,7 @@ def reverse_bits(n: int) -> int:
     return n
     """
     
-    # One liner:
+    # One-liner:
     """
     return int(bin(n)[2:].zfill(32)[::-1], base=2)  # deci -> bin, trim '0b', fill 0s, reverse, bin -> deci
     """

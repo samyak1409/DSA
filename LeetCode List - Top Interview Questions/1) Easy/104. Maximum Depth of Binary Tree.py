@@ -38,7 +38,7 @@ def max_depth(root: TreeNode | None) -> int:
     # 2) Optimal (Recursive): TC = O(n); SC = O(h) {avg. case: O(log(n)); worst case: O(n)}
     # Recurse on each node left and right, and +1 each time.
 
-    # 2.1) Intuitive:
+    # 2.1) Using helper recursion function + global counter var:
     """
     # Recursive Function:
     def recurse(node: TreeNode | None , curr_depth: int) -> None:
@@ -54,12 +54,22 @@ def max_depth(root: TreeNode | None) -> int:
     return ans[0]
     """
 
-    # 2.2) "Pro recursion" / "Power of recursion":
-    # https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions
+    # 2.2) Using helper recursion function:
+    """
+    # Recursive Function:
+    def f(node: TreeNode | None) -> int:
+        if not node:
+            return 0
+        return 1 + max(f(node.left), f(node.right))
 
+    return f(root)
+    """
+
+    # 2.2) Using the method itself:
+    # https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions
     if not root:  # base case
         return 0
     # Just return the max of max_depths of left and right subtree, and recursion will solve the sub-subtrees:
-    return max(max_depth(root.left), max_depth(root.right)) + 1
+    return 1 + max(max_depth(root.left), max_depth(root.right))
 
     # (While submitting on LC: `max_depth` -> `self.maxDepth`)

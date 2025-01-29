@@ -35,9 +35,9 @@ def number_of_steps(num: int) -> int:
         if num & 1 == 0:  # `1`: Bitmask! (https://en.wikipedia.org/wiki/Mask_(computing))
             num >>= 1
         else:
-            num -= 1
+            num ^= 1
         '''
-        num = num-1 if num & 1 else num >> 1
+        num = num ^ 1 if num & 1 else num >> 1
         steps += 1
     return steps
     """
@@ -49,4 +49,6 @@ def number_of_steps(num: int) -> int:
     # And in the last when only `1` is left, then only -1 is required which will make the num zero, so one step.
 
     bin_str = bin(num)[2:]
-    return bin_str.count('0') + bin_str.count('1')*2 - 1
+    # return bin_str.count('0') + bin_str.count('1')*2 - 1
+    # or:
+    return len(bin_str) + bin_str.count('1') - 1

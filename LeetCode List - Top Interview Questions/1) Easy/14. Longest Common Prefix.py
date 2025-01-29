@@ -27,7 +27,7 @@ def longest_common_prefix(strs: list[str]) -> str:
     """
 
     # 1.1) Time-optimal (Using zip and unpacking):
-    # TC = O(mn); SC = O(1) {m = len(LCP) to be (<= len(min(strs, key=len))), n = len(strs)}
+    # TC = O(mn); SC = O(n) {m = len(LCP) to be (<= len(min(strs, key=len))), n = len(strs)}
     # This method is a trade-off between space complexity and code complexity.
 
     lcp = []  # list instead of str for mutability

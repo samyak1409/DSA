@@ -118,7 +118,7 @@ def str_str(haystack: str, needle: str) -> int:
                 i = lps[i]  # move `i` to `lps[i]` for trying to "resume" matching from a prev char in needle
             else:
                 j += 1  # if `i` is at `0`, then we need to ++j
-                # (now we're basically "restart" matching from the very first char of needle
+                # (now we're basically "restarting" matching from the very first char of needle)
 
     return -1
 

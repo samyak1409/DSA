@@ -102,5 +102,7 @@ def is_power_of_three(n: int) -> bool:
     # We can also just hardcode:
     return (n > 0) and (1162261467 % n == 0)
 
+    # Note - We can also solve this using Binary Search.
+
 
 # Also read: https://stackoverflow.com/questions/600293/how-to-check-if-a-number-is-a-power-of-2
