@@ -49,13 +49,33 @@ def max_profit(prices: list[int]) -> int:
     return max_profit_
     """
 
+    # Or:
+    """
+    buy, profit = float('inf'), 0
+    for price in prices:
+        if price < buy:
+            buy = price
+        else:
+            profit = max(profit, price-buy)
+    return profit
+    """
+
     # Also, we can just skip the if-else checks as well, as the result would not change if the check was to fail, but
     # this could look a little confusing:
+    """
     min_price, max_profit_ = float('inf'), 0
     for price in prices:
         max_profit_ = max(max_profit_, price-min_price)
         min_price = min(min_price, price)
     return max_profit_
+    """
+
+    # Or:
+    buy, profit = float('inf'), 0
+    for price in prices:
+        buy = min(buy, price)
+        profit = max(profit, price-buy)
+    return profit
 
     # Another angle to look at this problem:
     # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/39038/kadane-s-algorithm-since-no-one-has-mentioned-about-this-so-far-in-case-if-interviewer-twists-the-input

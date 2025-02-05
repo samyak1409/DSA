@@ -18,7 +18,8 @@ def sort_colors(nums: list[int]) -> None:
         if arr_len > 1:
             mid_index = arr_len // 2
             left, right = arr[:mid_index], arr[mid_index:]
-            merge_sort(arr=left), merge_sort(arr=right)
+            merge_sort(arr=left), merge_sort(arr=right)  # passed reference, so any changes to `arr` in the function
+            # would change `left` & `right`
             i = j = 0
             while i < len(left) and j < len(right):
                 if left[i] <= right[j]:
@@ -29,7 +30,7 @@ def sort_colors(nums: list[int]) -> None:
                     j += 1
             arr[i+j:] = left[i:] or right[j:]
 
-    merge_sort(arr=nums)  # passed reference
+    merge_sort(arr=nums)  # passed reference, so any changes to `arr` in the function would change `nums`
     """
 
     # 1.1) Optimal (Counting Sort) (Two-pass): TC = O(n); SC = O(1) {nums[i] is either 0, 1, or 2}
@@ -42,8 +43,10 @@ def sort_colors(nums: list[int]) -> None:
     # print(freq)  #debugging
 
     # nums[:] = [0]*freq[0] + [1]*freq[1] + [2]*freq[2]  # TC = O(n); SC = O(n)
-    # RHS will construct a new list and allocate it space
-    nums[:] = chain([0]*freq[0], [1]*freq[1], [2]*freq[2])  # TC = O(n); SC = O(1)
+    # RHS (list comprehension + list addition) will construct a new list and allocate it space
+    # So, using tuple comprehension (generator object) + chain:
+    nums[:] = chain((0 for _ in range(freq[0])), (1 for _ in range(freq[1])), (2 for _ in range(freq[2])))
+    # TC = O(n); SC = O(1)
     # Note: Let's assume 2 is not there in nums, still n[2] will not give an error because n is a Counter object, and it
     # handles that (by default returns 0 value if a key is not there).
     """

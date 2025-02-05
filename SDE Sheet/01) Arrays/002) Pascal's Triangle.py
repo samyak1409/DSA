@@ -13,10 +13,10 @@ def generate(num_rows: int) -> list[list[int]]:
     yield row
 
     # Summation using a nested for loop:
-    for i in range(num_rows-1):  # n-1 iterations ✅
+    for i in range(num_rows-1):  # n-1 iterations
         prev = row
         row = [1]  # prefix 1
-        for j in range(i):  # iteration range: [0, n-2] ✅
+        for j in range(i):  # iteration range: [0, n-2]
             row.append(prev[j]+prev[j+1])  # middle numbers
         row.append(1)  # suffix 1
         yield row
@@ -90,7 +90,7 @@ def generate(num_rows: int) -> list[list[int]]:
 #
 # Approach 0) Brute-force (Using the default method: Sum of the two numbers directly above it): TC = O(n^2); SC = O(n)
 #
-# Approach 1) Better (Using combinations formula C(m-1, n-1)): TC = O(n^2) {nCr for n items of a row}; SC = O(1)
+# Approach 1) Space-Optimal (Using combinations formula C(m-1, n-1)): TC = O(n^2) {nCr for n items of a row}; SC = O(1)
 #
 # Approach 2) Optimal (Using pattern observed from combinations formula C(m-1, n-1)): TC = O(n); SC = O(1)
 #

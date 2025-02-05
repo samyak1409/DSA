@@ -65,7 +65,7 @@ temp_arr.sort()  # TC = O((m+n)*log(m+n)); SC = O(m+n)
 nums1[:], nums2[:] = temp_arr  # TC = O(m+n)
 # IMP: `[:]` (won't create a new object (i.e. new memory address) but modify it only)
 """
-# One liner:
+# One-liner:
 """
 nums1[:], nums2[:] = sorted(nums1+nums2)
 """

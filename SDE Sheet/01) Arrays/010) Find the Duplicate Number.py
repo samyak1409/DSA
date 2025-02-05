@@ -10,8 +10,8 @@ def find_duplicate(nums: list[int]) -> int:
     # https://leetcode.com/problems/find-the-duplicate-number/discuss
 
     # 0.1) Brute-force (Sort and Traverse): TC = O(n*log(n)); SC = O(n)
-    # Note: This approach uses extra space (sorting) so don't fulfill the problem requirement.
-    # Since sorting will take O(n) space anyway, let's not modify the input array at least (let's not sort in place)
+    # Note: This approach uses extra space (sorting) so doesn't fulfill the problem requirement.
+    # Since sorting will take O(n) space anyway, let's not modify the input array at least (let's not sort in place).
 
     """
     sorted_nums = sorted(nums)
@@ -20,8 +20,8 @@ def find_duplicate(nums: list[int]) -> int:
             return sorted_nums[i]
     """
 
-    # 0.2) Time-Optimal Brute-force (Using HashSet): TC = O(n); SC = O(n)
-    # Note: This approach uses extra space (hashset) so don't fulfill the problem requirement.
+    # 0.2) Time-Optimal Brute-force (HashSet): TC = O(n); SC = O(n)
+    # Note: This approach uses extra space (hashset) so doesn't fulfill the problem requirement.
 
     """
     hash_set = set()
@@ -30,6 +30,8 @@ def find_duplicate(nums: list[int]) -> int:
             return num
         hash_set.add(num)  # SC = O(n)
     """
+
+    # (Can also use Array as HashMap (indices as keys).)
 
     # Follow up: Can you solve the problem in linear runtime complexity?
 

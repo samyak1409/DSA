@@ -10,16 +10,17 @@ def rotate(matrix: list[list[int]]) -> None:
 
     # "You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
     # DO NOT allocate another 2D matrix and do the rotation."
+
     # -1) Not Allowed (Using Matrix Copy): TC = O(n^2); SC = O(n^2)
 
     """
     from copy import deepcopy
 
     n = len(matrix)
-    matrix_copy = deepcopy(matrix)  # you should know what deepcopy is for 😁
+    matrix_copy = deepcopy(matrix)  # you should know what deepcopy is for
     for i in range(n):
         for j in range(n):
-            matrix[j][-i-1] = matrix_copy[i][j]
+            matrix[j][~i] = matrix_copy[i][j]  # (~i = -i-1)
     """
 
     # 1) Optimal: TC = O(n^2); SC = O(1)
@@ -37,6 +38,7 @@ def rotate(matrix: list[list[int]]) -> None:
     # https://leetcode.com/problems/rotate-image/solution/#approach-2-reverse-on-diagonal-and-then-reverse-left-to-right
     # https://leetcode.com/problems/rotate-image/discuss/18872/A-common-method-to-rotate-the-image
 
+    """
     n = len(matrix)
     # Transposing:
     for i in range(n):  # O(n^2)
@@ -45,6 +47,17 @@ def rotate(matrix: list[list[int]]) -> None:
     # Mirroring on Y-axis:
     for i in range(n):  # O(n^2)
         matrix[i].reverse()
+    """
+
+    # OR Mirror (X-axis) & Transpose:
+
+    n = len(matrix)
+    # Mirroring on X-axis: O(n^2)
+    matrix.reverse()
+    # Transposing:
+    for i in range(n):  # O(n^2)
+        for j in range(i+1, n):  # imp: `i+1`
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
     # Even though this approach does twice as many reads and writes as approach 1, most people would consider it a
     # better approach because the code is simpler, and it is built with standard matrix operations that can be found in
@@ -56,11 +69,10 @@ def rotate(matrix: list[list[int]]) -> None:
     # Bonus Question: What would happen if you reflect and then transpose? Would you still get the correct answer?
     # Nope, it'll rotate -90° Clockwise = 90° Anti-Clockwise.
 
-    # Rotations for all the combinations:
-    # Transpose & Mirror (Y-axis): 90° Clockwise
-    # Mirror (Y-axis) & Transpose: 90° Anti-Clockwise
-    # Transpose & Mirror (X-axis): 90° Anti-Clockwise
-    # Mirror (X-axis) & Transpose: 90° Clockwise
+    # Rotations:
+    # Transpose & Mirror (Y-axis) OR Mirror (X-axis) & Transpose: 90° Clockwise
+    # Transpose & Mirror (X-axis) OR Mirror (Y-axis) & Transpose: 90° Anti-Clockwise
+    # Mirror (X-axis) & Mirror (Y-axis) OR Mirror (Y-axis) & Mirror (X-axis): 180° Clockwise == 180° Anti-Clockwise
 
 
 # Similar Questions:

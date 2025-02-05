@@ -33,30 +33,45 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
         i += 1
     """
 
-    # 1) Brute-force = Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n) {In Python, sorting is implemented
-    # using the Timsort algorithm, which has a worst-case space complexity of O(n)}
+    # 1) Optimal (Sorting + Linear Merge): TC = O(n*log(n)); SC = O(n)
     # https://leetcode.com/problems/merge-intervals/solution/#approach-2-sorting
 
+    """
     intervals = sorted(intervals)  # python by default sorts by the 1st value of the iterables
-    # (btw if 1st value is same, then 2nd value is taken into consideration, and so on)
+    # (if 1st value is same, then 2nd value is taken into consideration, and so on)
 
     prev = intervals[0]
     for i in range(1, len(intervals)):
         curr = intervals[i]
-        if curr[0] <= prev[1]:  # => intervals are overlapping!
+        if curr[0] <= prev[1]:  # => intervals are overlapping
             prev[1] = max(prev[1], curr[1])  # merging
         else:
             yield prev  # adding the non-overlapping intervals to the output
             prev = curr  # updating previous in order to check if it can be merged with the following interval
     yield prev  # adding the last (overlapping/non-overlapping) interval to the output
+    """
+
+    # Better Implementation:
+
+    ans = []
+    # We just need to sort by the first val, we do not care about the second val, since we'll be taking the max of
+    # second vals anyway:
+    for interval in sorted(intervals, key=lambda i: i[0]):
+        # If it's the first interval, or, if the curr interval is starting after the end of last interval (i.e. not
+        # overlapping):
+        if not ans or interval[0] > ans[-1][1]:
+            ans.append(interval)
+        else:  # overlapping, so merge the intervals:
+            ans[-1][1] = max(ans[-1][1], interval[1])
+    return ans
 
 
 # [Extra]:
 # Not exactly related to this problem, just a new discovery about "Python":
 # From https://leetcode.com/problems/merge-intervals/discuss/21227/7-lines-easy-Python/21250, found this:
-# For sequences like List, `a += b` is not same as `a = a + b`.
-# `_ += _` will actually try to extend the current sequence with the sequence in RHS, whereas `_ = _ + _` will just
-# behave as expected.
+# For sequences like `List`, `a += b` is not same as `a = a + b`.
+# `_ += _` will actually try to extend the current sequence with the sequence in RHS (since `List` is a mutable object),
+# whereas `_ = _ + _` will just behave as expected.
 """
 a, b = [1, 2], [3, 4]
 print(id(a))  # 2002675308992
@@ -67,7 +82,7 @@ a = a + b
 print(a)  # [1, 2, 3, 4]
 print(id(a))  # 2002674932608
 """
-# Crazy Stuff 🤯
+# Crazy Stuff:
 # https://stackoverflow.com/questions/2347265/why-does-behave-unexpectedly-on-lists
 # https://stackoverflow.com/questions/6951792/a-b-not-the-same-as-a-a-b
 # https://stackoverflow.com/questions/57025897/concatenation-using-the-and-operators-in-python

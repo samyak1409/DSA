@@ -42,14 +42,16 @@ def next_permutation(nums: list[int]) -> None:
     # https://leetcode.com/problems/next-permutation/solution
     # https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
 
-    for i in range(len(nums)-1):  # finding first decreasing num (iterating from right to left)
-        if nums[-i-2] < nums[-i-1]:
-            decreasing_num = nums[-i-2]  # decreasing num found
-            for j in range(i+1):  # finding number just larger than decreasing num (iterating from right to left)
-                if nums[-j-1] > decreasing_num:
-                    just_larger = nums[-j-1]  # just larger number found
-                    nums[-i-2], nums[-j-1] = just_larger, decreasing_num  # swapping the two
-                    nums[-i-1:] = nums[-i-1:][::-1]  # reversing nums in the right
+    for i in range(len(nums)-2, -1, -1):  # finding first decreasing num (iterating from right to left)
+        if nums[i] < nums[i+1]:
+            decreasing_num = nums[i]  # decreasing num found
+            for j in range(len(nums)-1, i, -1):  # finding number just larger than decreasing num (iterating from right to left)
+                if nums[j] > decreasing_num:  # since `nums[i]` was the first decreasing num, all the elements in the
+                    # right are in increasing order when iterated from right to left, so first num greater would only be
+                    # the "just greater" num, so no need to check through all the nums
+                    just_larger = nums[j]  # just larger number found
+                    nums[i], nums[j] = just_larger, decreasing_num  # swapping the two
+                    nums[i+1:] = nums[i+1:][::-1]  # reversing nums in the right
                     return
 
     # if nums did not have a lexicographically larger rearrangement (is the last permutation itself)

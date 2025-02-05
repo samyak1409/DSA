@@ -23,11 +23,11 @@ def get_inversions(arr: list[int], n: int) -> int:
     # Recursive Function:
     def get_count(array: list[int], length: int) -> int:
         if length > 1:
-            # Step-1) Dividing:
+            # Step-1: Dividing:
             mid_index = length // 2
             left, right = array[:mid_index], array[mid_index:]
             count = get_count(array=left, length=mid_index) + get_count(array=right, length=length-mid_index)  # RECURSE
-            # Step-2) Merging:
+            # Step-2: Merging:
             i = j = 0
             while i < len(left) and j < len(right):
                 if left[i] <= right[j]:
