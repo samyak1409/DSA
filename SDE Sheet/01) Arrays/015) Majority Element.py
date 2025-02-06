@@ -32,7 +32,8 @@ def majority_element(nums: list[int]) -> int:
 
     count = Counter(nums)  # O(n)
     # return max(count.keys(), key=lambda num: count[num])  # O(n)
-    return max(count.keys(), key=count.get)  # O(n)
+    # return max(count.keys(), key=count.get)  # O(n)
+    return count.most_common(n=1)[0][0]
     """
     # Better: Don't build the complete histogram, stop as soon as the ans is found:
     """

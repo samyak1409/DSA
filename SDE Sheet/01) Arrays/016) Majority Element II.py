@@ -43,6 +43,26 @@ def majority_element(nums: list[int]) -> list[int]:
                 break
     return ans
     """
+    # Little optimization: use while loop:
+    # If a majority element is found, then directly jump `i` to `i + n_by_3 + 1` instead of just `i+1`.
+    """
+    ans = []
+    nums = sorted(nums)
+    n = len(nums)
+    n_by_3 = n // 3
+    i = 0
+    while i+n_by_3 < n:
+        num = nums[i]
+        if num not in ans and nums[i+n_by_3] == num:  # `num not in ans` so that if num is a majority element, it does
+            # not get added to ans everytime it appears
+            ans.append(num)
+            if len(ans) == 2:  # optimization: if at any point after adding a majority element to the ans, len becomes
+                # 2, we can stop, because we know no. of majority elements can't be > 2
+                break
+            i += n_by_3  # main reason to use `while` loop over `for` loop
+        i += 1
+    return ans
+    """
 
     # 0.2) Brute-force (HashMap): TC = O(n); SC = O(n)
     # Optimization of `0.1)` with the help of HashMap.
@@ -88,6 +108,7 @@ def majority_element(nums: list[int]) -> list[int]:
     """
 
     # Follow up: Could you solve the problem in linear time and in O(1) space?
+
     # 2) Optimal (Extended "Boyer-Moore Majority Voting Algorithm"): TC = O(n); SC = O(1)
     # Check "Boyer-Moore Majority Voting Algorithm" at:
     # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/015%29%20Majority%20Element.py
@@ -97,25 +118,74 @@ def majority_element(nums: list[int]) -> list[int]:
     # https://assets.leetcode.com/users/andriy111/image_1584562040.png (From
     # https://leetcode.com/problems/majority-element-ii/discuss/543672/BoyerMoore-majority-vote-algorithm-EXPLAINED)
 
-    major1, major2, count1, count2 = None, None, 0, 0  # init
+    # [WA] Following implementation has a problem, dry run on the small test case [2,2] to know.
+    """
+    # Init:
+    m1, m2, v1, v2 = None, None, 0, 0
+    # Loop:
+    for num in nums:
+        # If votes are 0, assign major:
+        if v1 == 0:
+            m1 = num
+        elif v2 == 0:
+            m2 = num
+        # If num is major, ++votes:
+        if num == m1:
+            v1 += 1
+        elif num == m2:
+            v2 += 1
+        # If num is none of the two, -- the relative votes of each:
+        else:
+            v1 -= 1
+            v2 -= 1
+    # Verify the majors, and return:
+    return [m for m in (m1, m2) if nums.count(m) > len(nums)//3]
+    """
+
+    # However, since the problem is very specific, we can actually try to add a check for exactly that, and it works!:
+    """
+    # Init:
+    m1, m2, v1, v2 = None, None, 0, 0
+    # Loop:
+    for num in nums:
+        # If votes are 0 and `num` is not a current major, assign major:
+        if v1 == 0 and num != m2:
+            m1 = num
+        elif v2 == 0 and num != m1:
+            m2 = num
+        # If num is major, ++votes:
+        if num == m1:
+            v1 += 1
+        elif num == m2:
+            v2 += 1
+        # If num is none of the two, -- the relative votes of each:
+        else:
+            v1 -= 1
+            v2 -= 1
+    # Verify the majors, and return:
+    return [m for m in (m1, m2) if nums.count(m) > len(nums)//3]
+    """
+
+    # Or we can also solve it like following:
+    m1, m2, v1, v2 = None, None, 0, 0  # init
     # taking two vars only because at most only 2 majority elements can be there
     # {Why? Because 1 <= n // [(n//3)+1] <= 2}
     # 1st Pass (Extended "Boyer-Moore Majority Voting Algorithm"):
     for num in nums:  # O(n)
-        if num == major1:
-            count1 += 1
-        elif num == major2:
-            count2 += 1
-        elif count1 == 0:  # change major1
-            major1, count1 = num, 1
-        elif count2 == 0:  # change major2
-            major2, count2 = num, 1
-        else:  # if (num not in (major1, major2)) and (count1 >= 1 and count2 >= 1)
-            count1, count2 = count1-1, count2-1  # relative_votes--
-    # 2nd Pass (When the array will contain no majority elements, then `major1` & `major2` will contain false
+        if num == m1:
+            v1 += 1
+        elif num == m2:
+            v2 += 1
+        elif v1 == 0:  # change m1
+            m1, v1 = num, 1
+        elif v2 == 0:  # change m2
+            m2, v2 = num, 1
+        else:  # if (num not in (m1, m2)) and (v1 >= 1 and v2 >= 1)
+            v1, v2 = v1-1, v2-1  # relative_votes--
+    # 2nd Pass (When the array will contain no majority elements, then `m1` & `m2` will contain false
     # positives which will be filtered out next):
-    # yield from filter(lambda major: nums.count(major) > len(nums)//3, (major1, major2))  # O(n)
-    yield from (major for major in (major1, major2) if nums.count(major) > len(nums)//3)  # O(n)
+    # return list(filter(lambda major: nums.count(major) > len(nums)//3, (m1, m2)))  # O(n)
+    return [m for m in (m1, m2) if nums.count(m) > len(nums)//3]  # O(n)
 
     # Give this a read too:
     # https://leetcode.com/problems/majority-element-ii/discuss/63502/6-lines-general-case-O(N)-time-and-O(k)-space
