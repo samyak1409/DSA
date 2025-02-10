@@ -14,8 +14,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
 
     # 0.0) Core Logic: TC = O(n^3); SC = O(1)
     """
-    n = len(nums)
-    for i in range(n):
+    for i in range(n:=len(nums)):
         for j in range(i+1, n):
             for k in range(j+1, n):
                 if nums[i]+nums[j]+nums[k] == 0:
@@ -35,9 +34,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     """
     # from collections import Counter
 
-    n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
-    for i in range(n):
+    for i in range(n:=len(nums)):
         for j in range(i+1, n):
             for k in range(j+1, n):
                 if sum(triplet := [nums[i], nums[j], nums[k]]) == 0:
@@ -66,9 +64,8 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
         return
-    n = len(nums)
     triplet_set = set()  # for checking triplet's presence in O(1) time
-    for i in range(n):
+    for i in range(n:=len(nums)):
         if nums[i] > 0:  # optimization
             return
         for j in range(i+1, n):
@@ -87,8 +84,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
         return
-    n = len(nums)
-    for i in range(n):
+    for i in range(n:=len(nums)):
         if nums[i] > 0:  # optimization
             return
         if i == 0 or nums[i] != nums[i-1]:  # proceed if not checked already for nums[i]
@@ -112,14 +108,13 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # number y, which is value-x where value is the input parameter.
     # Can we change our array somehow so that this search becomes faster?
 
-    # 1) Better (Sorting + Binary Search): TC = O(n*log(n) + (n^2)*log(n)); SC = O(n) {sorting}
+    # 1) [TLE] Sub-optimal (Sorting + Binary Search): TC = O(n*log(n) + (n^2)*log(n)); SC = O(n) {sorting}
 
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
         return
-    n = len(nums)
-    for i in range(n):
+    for i in range(n:=len(nums)):
         if i == 0 or nums[i] != nums[i-1]:  # proceed if not checked already for nums[i]
             num1 = nums[i]
             if num1 > 0:  # optimization
@@ -147,19 +142,20 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # Like maybe a hash map to speed up the search?
 
     # 2.1) Optimal (HashSet): TC = O(n*log(n) + n^2); SC = O(n+n+n) {sorting, hashset, hashset}
+
     # Using hashset for tracking unique triplets is easier than using skip duplicates technique for this approach.
     # Why? Try out yourself:
     # WA using usual skip duplicates technique:
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
-        return
-    n = len(nums)
-    for i in range(n):  # (for target in targets:)
+        return []
+    ans = []
+    for i in range(n:=len(nums)):  # (for target in targets:)
         if i == 0 or nums[i] != nums[i-1]:  # proceed if not checked already for nums[i]
             num1 = nums[i]
             if num1 > 0:  # optimization
-                return
+                break
             target = -num1
             # Now, finding the 2 nums using HashSet:
             # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
@@ -169,20 +165,21 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     num3 = nums[j]
                     num2 = target - num3  # num2 -> number added in hashset in previous iterations
                     if num2 in hashset:
-                        yield [num1, num2, num3]
+                        ans.append([num1, num2, num3])
                     hashset.add(num3)
+    return ans
     """
+
     # AC using hashset to track unique triplets:
     """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
     if nums[-1] < 0:  # optimization
-        return
-    n = len(nums)
+        return []
     triplet_set = set()  # for checking triplet's presence in O(1) time
-    for i in range(n):  # (for target in targets:)
+    for i in range(n:=len(nums)):  # (for target in targets:)
         num1 = nums[i]
         if num1 > 0:  # optimization
-            return
+            break
         target = -num1
         # Now, finding the 2 nums using HashSet:
         # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/01%29%20Arrays/019%29%20Two%20Sum.py
@@ -192,9 +189,31 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             num2 = target - num3  # num2 -> number added in hashset in previous iterations
             if num2 in hashset:
                 if (triplet_tuple := tuple(triplet := [num1, num2, num3])) not in triplet_set:
-                    yield triplet
                     triplet_set.add(triplet_tuple)
             hashset.add(num3)
+    return [list(t) for t in triplet_set]
+    """
+
+    # Note: TLE if we use the hashmap in naive way even when the TC in O-notation is same:
+    """
+    nums = sorted(nums)
+    if nums[-1] < 0:  # optimization
+        return []
+    hm = Counter(nums)
+    ans = set()
+    for i in range((n:=len(nums))-2):
+        hm[num1:=nums[i]] -= 1
+        if num1 > 0:  # optimization
+            break
+        arr = []
+        for j in range(i+1, n-1):
+            hm[num2:=nums[j]] -= 1
+            arr.append(num2)
+            if hm[num3:=-num1-num2]:
+                ans.add((num1, num2, num3))
+        for num2 in arr:
+            hm[num2] += 1
+    return [list(t) for t in ans]
     """
 
     # As we're sorting anyway, it's obviously better to use two-pointers over hashmap.
@@ -208,9 +227,14 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     # Output: 1
     # Expected: 3
 
+    """
     nums = sorted(nums)  # (not modifying the input array but making a new variable (local))
-    n = len(nums)
-    for i in range(n):  # (for target in targets:)
+    if nums[-1] < 0:  # optimization
+        return []
+    ans = []
+    for i in range(n:=len(nums)):  # (for target in targets:)
+        if nums[i] > 0:  # optimization
+            break
         if i == 0 or nums[i] != nums[i-1]:  # proceed if not checked already for nums[i]
             num1 = nums[i]
             target = -num1
@@ -220,7 +244,7 @@ def three_sum(nums: list[int]) -> list[list[int]]:
             while lo < hi:
                 num2, num3 = nums[lo], nums[hi]
                 if num2+num3 == target:
-                    yield [num1, num2, num3]
+                    ans.append([num1, num2, num3])
                     # not stopping but continuing with:
                     lo, hi = lo+1, hi-1
                     # because consider input: nums = [-2, 0, 1, 1, 2]
@@ -235,6 +259,28 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                     lo += 1
                 else:  # (if num2+num3 > target)
                     hi -= 1
+    return ans
+    """
+
+    # Without "skipping duplicates" technique, it becomes way easy though (but it's little slow):
+    nums = sorted(nums)
+    if nums[-1] < 0:  # optimization
+        return []
+    ans = set()
+    for i in range((n:=len(nums))-2):
+        if (n1 := nums[i]) > 0:  # optimization
+            break
+        req_sum = -n1
+        j, k = i+1, n-1
+        while j < k:
+            if (sum_ := (n2:=nums[j]) + (n3:=nums[k])) < req_sum:
+                j += 1
+            elif sum_ > req_sum:
+                k -= 1
+            else:
+                ans.add((n1, n2, n3))
+                j, k = j+1, k-1
+    return [list(t) for t in ans]
 
     # Also, checkout this DIFFERENT solution:
     # https://leetcode.com/problems/3sum/discuss/725950/Python-5-Easy-Steps-Beats-97.4-Annotated

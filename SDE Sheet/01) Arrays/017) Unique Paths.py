@@ -64,6 +64,7 @@ def unique_paths(m: int, n: int) -> int:
 
     return get_unique_paths()
     """
+
     # Pythonic way of doing this 🤩:
     """
     from functools import cache
@@ -82,7 +83,28 @@ def unique_paths(m: int, n: int) -> int:
 
     return get_unique_paths()
     """
+
+    # We can also implement a single base case version, and avoid checking out-of-bound by returning from the last row/
+    # col only:
+    # Why does this work? Because once we reach the last row/col, only one path to reach the dst, since we can only go
+    # like: (down, down, down) OR (right, right, right).
+    """
+    from functools import cache
+
+    # Recursive Function:
+    @cache
+    def get_unique_paths(i: int = 0, j: int = 0) -> int:  # default cell (0, 0) -> start point
+        # Base Case (Reached Finish Row/Col):
+        if i == m-1 or j == n-1:
+            return 1
+        # Recurse In (Move Down | Move Right):
+        return get_unique_paths(i+1, j) + get_unique_paths(i, j+1)
+
+    return get_unique_paths()
+    """
+
     # Also, note that this can also be done like this: https://leetcode.com/problems/unique-paths/submissions/1498501307
+    # - i.e. top-down instead of bottom-up (above solutions)
     """
     from functools import cache
     @cache
@@ -90,6 +112,8 @@ def unique_paths(m: int, n: int) -> int:
         if m == 1 or n == 1:
             return 1
         return unique_paths(m-1, n) + unique_paths(m, n-1)
+    # Note that in the base case, we're using 1 instead of 0, because in this implementation, we're going 1-indexed,
+    # since we're considering the dst as (m, n) from where we're starting the recursion not (m-1, n-1).
     """
 
     # 1.2) Better (DP): TC = O(m*n); SC = O(m*n)

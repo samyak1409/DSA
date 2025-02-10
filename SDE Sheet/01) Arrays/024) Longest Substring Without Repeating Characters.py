@@ -10,20 +10,19 @@ def length_of_longest_substring(s: str) -> int:
     # TC = O(n^2); SC = O(k) {"s consists of English letters, digits, symbols and spaces."}
 
     """
-    n = len(s)
-    longest_len = 0
-    for i in range(n):
-        occurred = set()  # for O(1) lookup and storing unique elements
-        current_len = 0
+    ans = 0
+    for i in range(n:=len(s)):
+        seen = set()  # for O(1) lookup and storing unique elements
+        curr_len = 0
         for j in range(i, n):
-            char = s[j]
-            if char not in occurred:
-                current_len += 1
-                occurred.add(char)
+            c = s[j]
+            if c not in seen:
+                curr_len += 1
+                seen.add(c)
             else:  # when a char is repeated
                 break  # start the loop with next starting
-        longest_len = max(longest_len, current_len)
-    return longest_len
+        ans = max(ans, curr_len)
+    return ans
     """
 
     # 1) Sub-Optimal (Sliding Window & HashMap): TC = O(n*k); SC = O(k)
@@ -35,23 +34,23 @@ def length_of_longest_substring(s: str) -> int:
     # 1.1) A little better version (in which we never go back):
     """
     last_index = {}  # for O(1) lookup and storing unique elements (dict keys must be unique)
-    longest_len = current_len = 0
-    for index, char in enumerate(s):  # O(n)
-        if char not in last_index:  # O(1)
+    ans = curr_len = 0
+    for i, c in enumerate(s):  # O(n)
+        if c not in last_index:  # O(1)
             # increase the length of the substring by adding current char to the substring:
-            current_len += 1
+            curr_len += 1
         else:
             # from the substring, remove the left-most occurrence of the char which is repeated:
-            current_len = index - last_index[char]
+            curr_len = i - last_index[c]
             # Remove all the previously saved_chars before new start index of current substring
             # (including the repeated char itself, so that from back (left-most) it comes to front (right-most)):
             for saved_char in last_index.copy():  # O(k) {"s consists of English letters, digits, symbols and spaces."}
                 last_index.pop(saved_char)
-                if saved_char == char:
+                if saved_char == c:
                     break
-        last_index[char] = index  # add to the hashmap
-        longest_len = max(longest_len, current_len)  # calc the longest length
-    return longest_len
+        last_index[c] = i  # add to the hashmap
+        ans = max(ans, curr_len)  # calc the longest length
+    return ans
     """
 
     # We don't really need to "Remove all the previously saved_chars before new start index of current substring".
@@ -63,19 +62,33 @@ def length_of_longest_substring(s: str) -> int:
     # Easy https://youtu.be/qtVh-XEpsJo?t=847
     # https://leetcode.com/problems/longest-substring-without-repeating-characters/solution/#approach-3-sliding-window-optimized
 
+    """
     last_index = {}  # for O(1) lookup and storing unique elements (dict keys must be unique)
     start_index = 0
-    longest_len = 0
-    for curr_index, char in enumerate(s):  # O(n)
-        if (last := last_index.get(char)) is not None:  # O(1)
+    ans = 0
+    for curr_index, c in enumerate(s):  # O(n)
+        if (last := last_index.get(c)) is not None:  # O(1)
             start_index = max(start_index, last+1)
-            # IMP: Only setting the start_index to last_index[char]+1 if it is in the right of start_index
+            # IMP: Only setting the start_index to last_index[c]+1 if it is in the right of start_index
             #      else just ignoring because it means that we have already came ahead.
             # Dry run the algo on input s = "abba" to understand what's going on.
-        longest_len = max(longest_len, curr_index-start_index+1)  # calc the longest length
-        last_index[char] = curr_index  # add/update to the hashmap
-    return longest_len
-
+        ans = max(ans, curr_index-start_index+1)  # calc the longest length
+        last_index[c] = curr_index  # add/update to the hashmap
+    return ans
+    """
+    # Or:
+    hm = {}  # (char: latest index)
+    ans = 0
+    i = -1
+    for j, c in enumerate(s):
+        # If we've seen `c` before, and it's after the curr start index `i` (of curr longest substr without repeating
+        # chars), then move the curr start index to it:
+        if (last := hm.get(c)) is not None and last >= i+1:  # (`i+1` instead of `i` because we're keeping the start
+            # index 1 less, so that we can just `j-i` instead of `j-i+1`)
+            i = last
+        ans = max(ans, j-i)
+        hm[c] = j  # insert/update latest index of a char
+    return ans
 
 # Similar Questions:
 # https://leetcode.com/problems/maximum-erasure-value
