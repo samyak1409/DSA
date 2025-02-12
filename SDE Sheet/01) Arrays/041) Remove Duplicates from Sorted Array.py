@@ -12,26 +12,57 @@ def remove_duplicates(nums: list[int]) -> int:
     # -> Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1)
     # extra memory.
 
-    # 0) Brute-force (Using HashSet): TC = O(n); SC = O(n)
+    # 0) Brute-force (Using HashSet/HashMap): TC = O(n); SC = O(n)
 
     # https://stackoverflow.com/questions/480214/how-do-i-remove-duplicates-from-a-list-while-preserving-order
     # https://stackoverflow.com/questions/1653970/does-python-have-an-ordered-set
     """
-    unique = set()
+    hs = set()
     i = -1
     for num in nums:
-        if num not in unique:
-            nums[i := i+1] = num
-            unique.add(num)
+        if num not in hs:
+            nums[i:=i+1] = num
+            hs.add(num)
     return i+1
     """
     # Or we can use `dict`, which preserves the order of insertion, and since the array is sorted, we'll be good to go!
     """
     from collections import Counter
-    dict_ = Counter(nums)
-    k = len(dict_)
-    nums[:k] = dict_.keys()
+    hm = Counter(nums)
+    k = len(hm)
+    nums[:k] = hm.keys()
     return k
+    """
+
+    # 1) Optimal: TC = O(n); SC = O(1)
+
+    # 1.1) Intuitive: While loop + Two-pointers:
+    # [Came up with myself.]
+    # Basic idea: If curr num == prev num, we need a num from the right to place at curr, else we can go ahead.
+
+    """
+    i = 1
+    j = 2
+    n = len(nums)
+    # While we've not traversed the whole arr:
+    while j < n:
+        # If curr num is <= prev (we need `<` as well, dry run on [0,0,1,1,1,2,2,3,3,4] to know why):
+        if nums[i] <= nums[i-1]:
+            # Copy from the right:
+            nums[i] = nums[j]
+            # Increment `j` (as nums[j] is already copied, and we need unique nums):
+            j += 1
+        # If curr num > prev, then we can just go ahead:
+        else:
+            i += 1
+            # But, only ++j if `i` has become = to `j` (dry run on [0,0,0,1,1,2,3,4,4] to know why):
+            if i == j:
+                j += 1
+
+    # Loop once more to find k:
+    for i in range(1, n):
+        if nums[i] <= nums[i-1]:
+            return i
     """
 
     # Hints:
@@ -46,31 +77,23 @@ def remove_duplicates(nums: list[int]) -> int:
     # 3. Essentially, once an element is encountered, you simply need to BYPASS its duplicates and move on to the next
     # unique element.
 
-    # 1) Optimal (Two-Pointers): TC = O(n); SC = O(1)
-    # https://leetcode.com/problems/remove-duplicates-from-sorted-array/solution
+    # 1.1) For loop + Two-pointers:
+    # Not intuitive, but easy after realizing how it's working.
+    # Idea: Focus on putting the unique nums one by one at the beginning of arr, just traverse the arr, and whenever a
+    # new num is found, save to current `i`, and increment it.
 
-    """
-    i = j = 0
-    n = len(nums)
-    while j <= n:
-        if nums[j] != nums[i]:
-            nums[i := i+1] = nums[j]
-        j += 1
-    return i+1
-    """
-    # We actually don't need while loop:
-    """
-    i = 0
-    for j in range(1, len(nums)):
-        if nums[j] != nums[i]:
-            nums[i := i+1] = nums[j]
-    return i+1
-    """
-    # Or just:
-    i = 0
+    i = 0  # IMP: this is the index till which the numbers are unique
+    # (including itself, so currently, it says nums[0] is unique, which is true)
+    # Iterate:
     for num in nums:
+        # If we find a num `num` which is not same as our latest unique num `nums[i]`, implies we've a new unique num,
+        # so, we can copy `num` to `nums[i+1]`, ++i, and continue with the loop:
         if num != nums[i]:
-            nums[i := i+1] = num
+            # nums[i+1] = num
+            # i += 1
+            # Or just:
+            nums[i:=i+1] = num
+    # Since `i` is the index of last unique num, `i+1` is the num of unique nums we've in the arr:
     return i+1
 
 
