@@ -58,7 +58,7 @@ def max_distance(s: str, k: int) -> int:
             d += 1 if c in hs or (k := k-1) >= 0 else -1
             mx = max(mx, d)
         ans, k = max(ans, mx), k_
-    return ans    
+    return ans
     """
 
     k_ = k  # copying for future ref
