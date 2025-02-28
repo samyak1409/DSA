@@ -16,11 +16,14 @@ def min_operations(nums: list[int], k: int) -> int:
 
     # Edge case: If any of the num is < k, then we can't make it = k (because it's < k, and we can only change nums
     # which are greater than current num):
-    if min(nums) < k:
+    if (mn := min(nums)) < k:
         return -1
 
     # There are 3 possibilities:
     # a) min(nums) < k: we'd return from above.
     # b) min(nums) == k: we'd need len(set(nums))-1 ops.
     # c) min(nums) > k (implying k not in nums): we'd need len(set(nums)) ops.
-    return len(set(nums)) - int(min(nums) == k)
+    return len(set(nums)) - int(mn == k)
+
+    # 1 Pass:
+    # https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/solutions/6127061/posting-this-because-can-t-see-anyone-simplifying-the-code/comments/2874338/?parent=2761794
