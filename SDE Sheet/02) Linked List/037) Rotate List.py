@@ -17,16 +17,16 @@ def rotate_right(head: ListNode | None, k: int) -> ListNode | None:
 
     # 1) Optimal (Directly Go to Required Nodes (2) and Change Pointers): TC = O(n); SC = O(1)
 
-    # 1.1) Calc Len, Make Cycle, Fix k (if required), Go to (n-k)-th Node and Unlink the next Ptr:
+    # 1.1) Calc len, Make cycle, Fix k (if required), Go to (n-k-1)-th node, and Unlink the next ptr:
     # TC = O(n + n-k`) {k` = k % n}
     # https://youtu.be/9VPm6nEbVPA?t=242
     # https://leetcode.com/problems/rotate-list/discuss/348197/96-faster-Simple-python-solution-with-explanation
 
     """
     if not head:  # edge case
-        return
+        return None
 
-    # Calc Len:
+    # Calc len:
     node = head  # copy for traversing
     n = 1
     while node.next:
@@ -36,19 +36,21 @@ def rotate_right(head: ListNode | None, k: int) -> ListNode | None:
     # Now the `node` will be the last node in our LL, linking it to the first node (this will make a cycle):
     node.next = head
 
-    # Fix k (if required) (basically remove duplicate rotations):
+    # Fix k if required (basically remove duplicate rotations):
     k %= n
 
-    # Go to (n-k)-th node and unlink the next ptr (in order to get the Rotated List):
-    for _ in range(n-k):
-        node = node.next  # ++
-    node.next, head = None, node.next  # unlink, new_head
+    # Move `head` to (n-k-1)-th node:
+    for _ in range(n-k-1):
+        head = head.next  # ++
+    
+    # Unlink, new head:
+    head.next, head = None, head.next
 
     return head
     """
 
-    # 1.2) Assume k < n and Continue Solving for this Case, Meanwhile Calc the Length, and if Reach End, Call Function
-    # again with Fixed k:
+    # 1.2) Assume k < n and continue solving for this case, meanwhile calc the length, and if reach end, call function
+    # again with fixed k:
     # TC = O(n) if (k < n) else O(n+n)
     # -> This approach uses Two Pointers.
 
@@ -80,6 +82,8 @@ def rotate_right(head: ListNode | None, k: int) -> ListNode | None:
         # Call again with fixed k:
         return rotate_right(head, k % n)
         # return self.rotateRight(head, k % n)
+
+    # Note - `1.1)` is better in general as it's straight-forward. `1.2)` is a bit advanced version of that.
 
 
 # Similar Questions:

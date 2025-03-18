@@ -18,11 +18,11 @@ class Node:
 def flatten_linked_list(head: Node) -> Node:
     """"""
 
-    # 0) Brute-force (Copy Vals to Array and Sort): TC = O(nc*log(nc)); SC = O(nc)
+    # 1) Optimal (Copy Vals to Array and Sort): TC = O(nc*log(nc)); SC = O(nc)
     # {n: total next nodes; c: average child nodes; nc: total nodes in the structure}
     # Same as `1)` of https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027.1%29%20Sort%20List.py.
 
-    # 0.0) Creating new LL:
+    # 1.0) Creating new LL:
     """
     # Save Values in an Array:
     vals = []
@@ -43,7 +43,7 @@ def flatten_linked_list(head: Node) -> Node:
     return to_head.child
     """
 
-    # 0.1) Without creating new LL:
+    # 1.1) Without creating new LL:
     """
     # Flatten the LL (Just attaching every next node to the current node's last child) and Save Values in an Array:
     vals = []
@@ -67,13 +67,13 @@ def flatten_linked_list(head: Node) -> Node:
     return head
     """
 
-    # 1) Optimal (Merge 2 LLs (n-1) Times): TC = O(nc); SC = O(1)
+    # 2) Sub-optimal (Merge 2 LLs (n-1) Times): TC = O(n * n*c); SC = O(1)
     # https://youtu.be/ysytSSXpAI0 - no need to do it from end to start 🤦
 
-    while head.next:  # TC = O(nc)
+    while head.next:  # TC = O(n)
         node1, node2, next_node = head, head.next, head.next.next  # init, init, save ref
 
-        # Merging 2 LLs: TC = O(c)
+        # Merging 2 LLs: TC = O(nc) {first merge (c+c) + second merge (2c+c) + third merge (3c+c) ...}
         # `1.2)` of
         # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_head = node = Node(data=None)  # `to_head` -> dummy node whose `child` will be the head of our flattened LL
@@ -92,10 +92,6 @@ def flatten_linked_list(head: Node) -> Node:
     return head
 
 
-# DUE TO SOME STUPID REASON, 1 TEST CASE ON CODING NINJAS IS THROWING TLE BUT THIS IS OPTIMAL APPROACH MAN!!! 🤦
-# ACCEPTED ON GFG:
-
-
 """
 https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1
 """
@@ -111,13 +107,13 @@ class Node:
 def flatten(root: Node) -> Node:
     """"""
 
-    # 1) Optimal (Merge 2 LLs (n-1) Times): TC = O(nc); SC = O(1)
+    # 1) Sub-optimal (Merge 2 LLs (n-1) Times): TC = O(n * n*m); SC = O(1)
     # https://youtu.be/ysytSSXpAI0 - no need to do it from end to start 🤦
 
-    while root.next:  # TC = O(nc)
+    while root.next:  # TC = O(n)
         node1, node2, next_node = root, root.next, root.next.next  # init, init, save ref
 
-        # Merging 2 LLs: TC = O(c)
+        # Merging 2 LLs: TC = O(nm) {first merge (m+m) + second merge (2m+m) + third merge (3m+m) ...}
         # `1.2)` of
         # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/02%29%20Linked%20List/027%29%20Merge%20Two%20Sorted%20Lists.py:
         to_root = node = Node(d=None)  # `to_root` -> dummy node whose `bottom` will be the root of our flattened LL

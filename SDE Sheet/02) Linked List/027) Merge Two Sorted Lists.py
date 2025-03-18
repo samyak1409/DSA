@@ -31,10 +31,10 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
     if not node1 or not node2:  # base case: reached at the end node of either (or both) LLs
         return node1 or node2  # start to recurse out
 
-    if node1.val < node2.val:
+    if node1.val <= node2.val:
         node1.next = merge_two_lists(node1=node1.next, node2=node2)  # recurse in
         return node1
-    else:  # (node1.val >= node2.val)
+    else:  # (node1.val > node2.val)
         node2.next = merge_two_lists(node1=node1, node2=node2.next)  # recurse in
         return node2
     """
@@ -48,10 +48,10 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
         return node1 or node2
 
     # Assigning head node:
-    if node1.val < node2.val:
+    if node1.val <= node2.val:
         head = node1
         node1 = node1.next  # ++
-    else:  # (node1.val >= node2.val)
+    else:  # (node1.val > node2.val)
         head = node2
         node2 = node2.next  # ++
 
@@ -59,10 +59,10 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
 
     # Assigning next nodes one by one:
     while node1 and node2:  # while both LLs have nodes left
-        if node1.val < node2.val:
+        if node1.val <= node2.val:
             node.next = node1  # changing ptr
             node1 = node1.next  # ++
-        else:  # (node1.val >= node2.val)
+        else:  # (node1.val > node2.val)
             node.next = node2  # changing ptr
             node2 = node2.next  # ++
         node = node.next  # ++
@@ -76,10 +76,10 @@ def merge_two_lists(node1: ListNode | None, node2: ListNode | None) -> ListNode 
     # `node` -> not using head for traversing because we've to return it
 
     while node1 and node2:  # while both LLs have nodes left
-        if node1.val < node2.val:
+        if node1.val <= node2.val:
             node.next = node1  # changing ptr
             node1 = node1.next  # ++
-        else:  # (node1.val >= node2.val)
+        else:  # (node1.val > node2.val)
             node.next = node2  # changing ptr
             node2 = node2.next  # ++
         node = node.next  # ++

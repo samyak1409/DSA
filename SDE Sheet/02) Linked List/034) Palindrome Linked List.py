@@ -92,7 +92,9 @@ def is_palindrome(head: ListNode | None) -> bool:
     return recurse(node_r=head)
     """
 
-    # 1.2.1) [Pythonic] Using generator function (iterator) instead of global var makes it a bit effortless:
+    # 1.2.1) [Pythonic] For iterating `node_l`, using generator function (iterator) instead of global var makes it a bit
+    # effortless, since generator would yield the next result by itself (implicit) without needing to update manually
+    # (explicit):
     """
     # Generator Function:
     def iterate(node: ListNode | None):

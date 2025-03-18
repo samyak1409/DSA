@@ -41,7 +41,37 @@ def copy_random_list(head: Node | None) -> Node | None:
 
     return to_new_head.next
     """
-    # 0.2) Easier (and Beautiful): Mapping Nodes Directly:
+
+    # 0.2) Using 2 maps:
+    # One will point original nodes to indices: `o: i`
+    # Other will point indices to copied nodes: `i: c`
+    # Mapping: original random to index to copy random
+
+    """
+    hm1, hm2 = {None: -1}, {-1: None}
+    to_head2 = node2 = Node(val=0)  # `to_head`: save ref; `node2`: for traversing
+    node = head  # for traversing
+    i = 0
+    # Create copy list (with next ptrs only) and fill hashmaps:
+    while node:
+        hm1[node] = i  # fill map 1
+        node2.next = Node(node.val)  # create new node
+        node2 = node2.next
+        hm2[i] = node2  # fill map 2
+        node, i = node.next, i+1  # ++
+
+    # Again copy for traversing:
+    node, node2 = head, to_head2.next
+
+    # Make random ptrs:
+    while node:
+        node2.random = hm2[hm1[node.random]]  # mapping: original random to index to copy random
+        node, node2 = node.next, node2.next
+
+    return to_head2.next
+    """
+
+    # 0.3) Easier (and Beautiful): Mapping Nodes Directly:
     # Just iterate the linked list and create copies of the nodes on the go. Since a node can be referenced from
     # multiple nodes due to the random pointers, ensure you are not making multiple copies of the same node.
     # You may want to use extra space to keep old_node ---> new_node mapping to prevent creating multiple copies of the

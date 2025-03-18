@@ -34,10 +34,7 @@ def delete_node(node: ListNode) -> None:
     # Someone who can solve this problem might not even think of all the edge cases, which can backfire on them in real
     # interview settings.
 
-    # What time it is guys? It is Meme Time!!
-    # First read:
     # https://leetcode.com/problems/delete-node-in-a-linked-list/discuss/65461/This-question-is-wrong.You-cannot-delete-the-node
-    # Then:
     # https://leetcode.com/problems/delete-node-in-a-linked-list/discuss/65461/This-question-is-wrong.You-cannot-delete-the-node/67291
 
 

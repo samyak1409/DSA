@@ -62,7 +62,7 @@ def detect_cycle(head: ListNode | None) -> ListNode | None:
         try:
             slow, fast = slow.next, fast.next.next  # +1, +2
         except AttributeError:
-            return  # reached at the end of LL => no cycle
+            return None  # reached at the end of LL => no cycle
         if fast == slow:  # if they end up on a same node anytime, cycle is there
             # Finding the start of cycle:
             while head != slow:

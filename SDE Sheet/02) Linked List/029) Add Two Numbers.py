@@ -27,8 +27,10 @@ def add_two_numbers(l1: ListNode | None, l2: ListNode | None) -> ListNode | None
         if l2:
             sum_ += l2.val
             l2 = l2.next  # ++
-        node.val = sum_ % 10  # assign 1 digit sum (sum without carry)
-        carry = sum_ // 10  # save (update) carry
+        # node.val = sum_ % 10  # assign 1 digit sum (sum without carry)
+        # carry = sum_ // 10  # save (update) carry
+        # Or just:
+        carry, node.val = divmod(sum_, 10)
         if l1 or l2 or carry:
             node.next = ListNode()  # init next node
             node = node.next  # ++
