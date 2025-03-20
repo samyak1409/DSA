@@ -66,21 +66,19 @@ def function(inp: type) -> type:
 ### Websites
 - https://neetcode.io
 - https://leetcodethehardway.com (https://github.com/wingkwong/leetcode-the-hard-way)
-- https://walkccc.me/LeetCode (https://github.com/walkccc/LeetCode)
 - https://cc189.github.io
 - https://clist.by (https://github.com/aropan/clist)
 - https://lccn.lbao.site (https://github.com/baoliay2008/lccn_predictor)
 
 ### Chrome Extensions
+- https://chromewebstore.google.com/detail/leet-xt-supercharge-your/dlahgjgaomjgkknpcbkhjpapcflphgle
+- https://chromewebstore.google.com/detail/marble-leetcode-tutor/mpjcipoidkmiiebdbdfknmpncmnpoboe
 - https://chromewebstore.google.com/detail/leetboost-auto-complete-f/lhkinkoeooofohpldbihfojpkhlfofig
 - https://chromewebstore.google.com/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii
-- https://chromewebstore.google.com/detail/marble-leetcode-tutor/mpjcipoidkmiiebdbdfknmpncmnpoboe
 - https://chromewebstore.google.com/detail/leetcode-difficulty-ratin/hedijgjklbddpidomdhhngflipnibhca
-- https://chromewebstore.google.com/detail/leet-xt-supercharge-your/dlahgjgaomjgkknpcbkhjpapcflphgle
 
 ### GitHub Repos
-- https://github.com/kamyu104/LeetCode-Solutions
-- https://github.com/31b4/Leetcode-Premium-Bypass
 - https://github.com/akhilkammila/leetcode-screenshotter
-- https://github.com/Edwardsoen/Leetcode-Premium-Unlocker
+- https://github.com/31b4/Leetcode-Premium-Bypass (Deprecated)
+- https://github.com/Edwardsoen/Leetcode-Premium-Unlocker (Deprecated)
 - https://github.com/cascandaliato/leetcode-badge
