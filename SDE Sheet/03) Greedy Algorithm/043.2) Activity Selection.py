@@ -3,7 +3,7 @@ https://practice.geeksforgeeks.org/problems/activity-selection-1587115620/1
 """
 
 
-def activity_selection(n: int, start: list[int], end: list[int]) -> int:
+def activity_selection(start: list[int], end: list[int]) -> int:
     """"""
 
     # Same as:
@@ -13,14 +13,10 @@ def activity_selection(n: int, start: list[int], end: list[int]) -> int:
 
     # 1) Optimal (Greedy: Sort by end time): TC = O(n*log(n)); SC = O(n)
 
-    count = 0
-    prev_et = None
-    for st, et in sorted(zip(start, end), key=lambda tup: tup[1]):
-        if prev_et is None or st > prev_et:
-            count += 1  # this meeting scheduled
+    ans = 0
+    prev_et = -1  # -1 so that any `st` would be >
+    for et, st in sorted(zip(end, start)):
+        if st > prev_et:
+            ans += 1  # this activity selected
             prev_et = et  # update
-    return count
-
-
-# Similar Questions:
-# https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
+    return ans

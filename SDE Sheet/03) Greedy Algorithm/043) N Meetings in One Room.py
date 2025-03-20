@@ -3,7 +3,7 @@ https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
 """
 
 
-def maximum_meetings(n: int, start: list[int], end: list[int]) -> int:
+def maximum_meetings(start: list[int], end: list[int]) -> int:
     """"""
 
     # 1) Optimal (Greedy: Sort by end time): TC = O(n*log(n)); SC = O(n)
@@ -14,14 +14,15 @@ def maximum_meetings(n: int, start: list[int], end: list[int]) -> int:
     # but if sort on the basis of end time, as start time < end time, so we know that it's limited (capped)!
     # [Striver's Video Explanation](https://youtu.be/II6ziNnub1Q)
 
-    count = 0
-    prev_et = None
-    for st, et in sorted(zip(start, end), key=lambda tup: tup[1]):
-        if prev_et is None or st > prev_et:
-            count += 1  # this meeting scheduled
+    ans = 0
+    prev_et = -1  # -1 so that any `st` would be >
+    for et, st in sorted(zip(end, start)):
+        if st > prev_et:
+            ans += 1  # this meeting scheduled
             prev_et = et  # update
-    return count
+    return ans
 
 
 # Similar Questions:
+# https://leetcode.com/problems/maximum-length-of-pair-chain
 # https://practice.geeksforgeeks.org/problems/activity-selection-1587115620/1
