@@ -35,7 +35,7 @@ def range_add_queries(n: int, queries: list[list[int]]) -> list[list[int]]:
     # After doing this operation for all the queries, update each row separately with S[i][j] = S[i][j] + S[i][j-1].
     # https://leetcode.com/problems/increment-submatrices-by-one/solutions/3052675/python3-sweep-line-range-addition-w-visualization-clean-concise
     # This (https://assets.leetcode.com/users/images/2db6189c-c45b-4246-b23b-3b679d40d82a_1673763280.9586592.jpeg)
-    # technique is mind blowing!!!!
+    # technique is mind-blowing!!!!
     # Range Addition (https://leetcode.com/problems/range-addition) is a must-know!
 
     # Init n x n matrix with all 0s:
@@ -60,3 +60,5 @@ def range_add_queries(n: int, queries: list[list[int]]) -> list[list[int]]:
     return mat
 
     # Easy af 😐
+
+    # Is this Sweep Line Algorithm (https://en.wikipedia.org/wiki/Sweep_line_algorithm) ?
