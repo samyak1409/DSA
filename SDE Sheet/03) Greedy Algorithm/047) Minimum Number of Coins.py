@@ -14,6 +14,8 @@ def min_partition(n: int) -> list[int]:
     # 1) Optimal (Greedy: Start from Biggest Coin): TC = O(1); SC = O(1)
     # Simple Intuition: If we want to minimize the number of coins, let's take the coins with the highest value first.
     # V.IMP: Why does greedy approach work here, and when will it not? https://youtu.be/mVg9CfJvayM?t=420 👌
+    # SO, GREEDY APPROACH WOULD WORK EVERYWHERE WHERE IN THE DENOMINATIONS, SUM OF *NO* TWO SMALLER DENOMINATIONS (SAME
+    # OR DIFFERENT) IS GREATER THAN ANY BIGGER DENOMINATION.
 
     # O(n):
 
@@ -46,3 +48,8 @@ def min_partition(n: int) -> list[int]:
             i += 1
 
     return ans
+
+
+# Similar Questions:
+# https://leetcode.com/problems/minimum-number-of-operations-to-convert-time
+# https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0

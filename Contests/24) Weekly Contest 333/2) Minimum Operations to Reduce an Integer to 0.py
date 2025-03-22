@@ -5,7 +5,13 @@ https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0
 
 def min_operations(n: int) -> int:
     """"""
-    
+
+    # Similar logic to:
+    # SDE Sheet > Greedy > Minimum Number of Coins
+    # https://github.com/samyak1409/DSA/blob/main/SDE%20Sheet/03%29%20Greedy%20Algorithm/047%29%20Minimum%20Number%20of%20Coins.py
+    # - "SO, GREEDY APPROACH WOULD WORK EVERYWHERE WHERE IN THE DENOMINATIONS, SUM OF *NO* TWO SMALLER DENOMINATIONS (SAME
+    # OR DIFFERENT) IS GREATER THAN ANY BIGGER DENOMINATION."
+
     # 1) Optimal (Greedy: Always (abs) subtract the nearest power of 2): TC = O(log(n)); SC = O(log(n))
     # See the article (having complete explanation) I've written here:
     # https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/3204095/easiest-solution-better-than-the-most-voted-one-explained
