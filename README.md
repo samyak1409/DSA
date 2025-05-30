@@ -23,6 +23,20 @@ Each problem includes multiple approaches (Brute-force to Optimal), time/space c
 
 
 
+## Achievements
+
+✅ Earned the prestigious Knight Badge on LeetCode, ranking in the [Top 2.5%](https://drive.google.com/file/d/1cZrbkn8Ku-fQ7YSBohv9IhzXRCRe2fF3/view) of 400K+ contest participants globally with a peak rating of 2024. (As of 7 Jun 2023)
+
+✅ Achieved [AIR-110](https://drive.google.com/file/d/11wbs69cPwZOCL9-we_XPSt5Ug9M0tyX2/view) (Global: [611/22,419](https://drive.google.com/file/d/1zxCmwxQPLZfB9-e1WRGkk2Ty_Wf16Hwl/view)) in LeetCode Weekly Contest 339.
+
+✅ Solved [460+](#) coding problems across platforms (primarily on [LeetCode](https://leetcode.com/samyak1409)).
+
+✅ Ranked [#250](https://cc189.github.io/leetcode#:~:text=samyak1409) globally (top 0.005%) among 5M+ users by reputation on LeetCode, through consistently writing clean, high-quality [solution articles](https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/3204095/easiest-solution-better-than-the-most-voted-one-explained) and [post-contest solution summaries](https://leetcode.com/discuss/post/6777022/biweekly-contest-157-by-leetcode-o0be/comments/3005227), helping thousands of coders.
+
+✅ Qualified for TCS CodeVita Season 10 Round 2 as one of [only 5 qualifiers](https://drive.google.com/file/d/1UFzsC1Oj9zPjIB8_JBrB4q0yjBz4Vnff/view) from our college.
+
+
+
 ## Solution Template
 
 ```py
