@@ -3,13 +3,14 @@
 [![LeetCode Solved](https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=%23ffa116&label=Solved&query=solvedOverTotal&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fsamyak1409&logo=leetcode&logoColor=yellow)](https://leetcode.com/samyak1409)
 [![LeetCode Rating](https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=%23ffa116&label=Rating&query=ratingQuantile&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fsamyak1409&logo=leetcode&logoColor=yellow)](https://leetcode.com/samyak1409)
 
-This repository contains clean, well-documented Python solutions to DSA problems from [LeetCode](https://leetcode.com).
+This repository contains **500+** clean, well-documented Python solutions to DSA problems from [LeetCode](https://leetcode.com).
 Each problem includes multiple approaches (Brute-force to Optimal), time/space complexity analysis, and complete explanations.
 
 
 
 ## Features
 
+- **500+** solutions
 - **Detailed Code-Explanations** for complete understanding
 - **Multiple Approaches** (Brute-force to Optimal)
 - **Clean Code** following [PEP 8](https://www.python.org/dev/peps/pep-0008)
@@ -29,7 +30,7 @@ Each problem includes multiple approaches (Brute-force to Optimal), time/space c
 
 ✅ Achieved [AIR-110](https://drive.google.com/file/d/11wbs69cPwZOCL9-we_XPSt5Ug9M0tyX2/view) (Global: [611/22,419](https://drive.google.com/file/d/1zxCmwxQPLZfB9-e1WRGkk2Ty_Wf16Hwl/view)) in LeetCode Weekly Contest 339.
 
-✅ Solved [460+](#) coding problems across platforms (primarily on [LeetCode](https://leetcode.com/samyak1409)).
+✅ Solved [500+](#) coding problems across platforms (primarily on [LeetCode](https://leetcode.com/samyak1409)) with all solutions documented on [GitHub](#) — featuring detailed explanations, multiple approaches, clean [PEP 8](https://peps.python.org/pep-0008) code, and [time/space analysis](https://en.wikipedia.org/wiki/Computational_complexity).
 
 ✅ Ranked [#250](https://cc189.github.io/leetcode#:~:text=samyak1409) globally (top 0.005%) among 5M+ users by reputation on LeetCode, through consistently writing clean, high-quality [solution articles](https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/3204095/easiest-solution-better-than-the-most-voted-one-explained) and [post-contest solution summaries](https://leetcode.com/discuss/post/6777022/biweekly-contest-157-by-leetcode-o0be/comments/3005227), helping thousands of coders.
 
