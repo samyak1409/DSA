@@ -77,8 +77,8 @@ def function(inp: type) -> type:
 
 ### Websites
 
-| Platform                            | Link                                                         |
-| ----------------------------------- | ------------------------------------------------------------ |
+| Name                                | Link                                                         |
+|-------------------------------------|--------------------------------------------------------------|
 | NeetCode                            | [neetcode.io](https://neetcode.io)                           |
 | LeetCode The Hard Way               | [leetcodethehardway.com](https://leetcodethehardway.com)     |
 | Top 500 reputation leetcode players | [cc189.github.io/leetcode](https://cc189.github.io/leetcode) |
@@ -87,8 +87,8 @@ def function(inp: type) -> type:
 
 ### Chrome Extensions
 
-| Extension Name                               | Link                                                                                                                                 |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Name                                         | Link                                                                                                                                 |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Leet Xt - Supercharge your Leetcode practice | [chromewebstore.google.com/...](https://chromewebstore.google.com/detail/leet-xt-supercharge-your/dlahgjgaomjgkknpcbkhjpapcflphgle)  |
 | Marble - LeetCode Tutor                      | [chromewebstore.google.com/...](https://chromewebstore.google.com/detail/marble-leetcode-tutor/mpjcipoidkmiiebdbdfknmpncmnpoboe)     |
 | LeetBoost: Auto-Complete for LeetCode        | [chromewebstore.google.com/...](https://chromewebstore.google.com/detail/leetboost-auto-complete-f/lhkinkoeooofohpldbihfojpkhlfofig) |
@@ -97,8 +97,8 @@ def function(inp: type) -> type:
 
 ### GitHub Repos
 
-| Repository Name                        | Link                                                                      |
-| -------------------------------------- | ------------------------------------------------------------------------- |
+| Name                                   | Link                                                                      |
+|----------------------------------------|---------------------------------------------------------------------------|
 | LeetCode Screenshotter                 | [github.com/...](https://github.com/akhilkammila/leetcode-screenshotter)  |
 | LeetCode Premium Bypass (Deprecated)   | [github.com/...](https://github.com/31b4/Leetcode-Premium-Bypass)         |
 | LeetCode Premium Unlocker (Deprecated) | [github.com/...](https://github.com/Edwardsoen/Leetcode-Premium-Unlocker) |
